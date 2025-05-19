@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		94C11035E25D378DE52480C1 /* libPods-HornsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CB18D27505B8EADB7484B7 /* libPods-HornsApp.a */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		72B2D5CB2DDA8F8D002A82C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,24 +28,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42CB18D27505B8EADB7484B7 /* libPods-HornsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HornsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		673E005FF814EFC79D99373E /* Pods-HornsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HornsApp.debug.xcconfig"; path = "Target Support Files/Pods-HornsApp/Pods-HornsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		72B2D5BD2DDA8F8B002A82C4 /* HornsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HornsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B2D5CA2DDA8F8D002A82C4 /* HornsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HornsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B2D5D42DDA8F8D002A82C4 /* HornsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HornsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AE979CC5F90E50B1E04C476 /* Pods-HornsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HornsApp.release.xcconfig"; path = "Target Support Files/Pods-HornsApp/Pods-HornsApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		72B2D5BF2DDA8F8B002A82C4 /* HornsApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = HornsApp;
 			sourceTree = "<group>";
 		};
 		72B2D5CD2DDA8F8D002A82C4 /* HornsAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = HornsAppTests;
 			sourceTree = "<group>";
 		};
 		72B2D5D72DDA8F8D002A82C4 /* HornsAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = HornsAppUITests;
 			sourceTree = "<group>";
 		};
@@ -52,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C11035E25D378DE52480C1 /* libPods-HornsApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C831C6CFF004BE5D09290A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42CB18D27505B8EADB7484B7 /* libPods-HornsApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		72B2D5B42DDA8F8B002A82C4 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +101,8 @@
 				72B2D5CD2DDA8F8D002A82C4 /* HornsAppTests */,
 				72B2D5D72DDA8F8D002A82C4 /* HornsAppUITests */,
 				72B2D5BE2DDA8F8B002A82C4 /* Products */,
+				DE232E0A3F39AE1757BA4038 /* Pods */,
+				6C831C6CFF004BE5D09290A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +116,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DE232E0A3F39AE1757BA4038 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				673E005FF814EFC79D99373E /* Pods-HornsApp.debug.xcconfig */,
+				8AE979CC5F90E50B1E04C476 /* Pods-HornsApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72B2D5DE2DDA8F8D002A82C4 /* Build configuration list for PBXNativeTarget "HornsApp" */;
 			buildPhases = (
+				14A041D63E7754E2890BC007 /* [CP] Check Pods Manifest.lock */,
 				72B2D5B92DDA8F8B002A82C4 /* Sources */,
 				72B2D5BA2DDA8F8B002A82C4 /* Frameworks */,
 				72B2D5BB2DDA8F8B002A82C4 /* Resources */,
+				62373F69D926869E45A934AB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -111,8 +147,6 @@
 				72B2D5BF2DDA8F8B002A82C4 /* HornsApp */,
 			);
 			name = HornsApp;
-			packageProductDependencies = (
-			);
 			productName = HornsApp;
 			productReference = 72B2D5BD2DDA8F8B002A82C4 /* HornsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -134,8 +168,6 @@
 				72B2D5CD2DDA8F8D002A82C4 /* HornsAppTests */,
 			);
 			name = HornsAppTests;
-			packageProductDependencies = (
-			);
 			productName = HornsAppTests;
 			productReference = 72B2D5CA2DDA8F8D002A82C4 /* HornsAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,8 +189,6 @@
 				72B2D5D72DDA8F8D002A82C4 /* HornsAppUITests */,
 			);
 			name = HornsAppUITests;
-			packageProductDependencies = (
-			);
 			productName = HornsAppUITests;
 			productReference = 72B2D5D42DDA8F8D002A82C4 /* HornsAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -230,6 +260,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14A041D63E7754E2890BC007 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HornsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62373F69D926869E45A934AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		72B2D5B92DDA8F8B002A82C4 /* Sources */ = {
@@ -392,6 +464,7 @@
 		};
 		72B2D5DF2DDA8F8D002A82C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 673E005FF814EFC79D99373E /* Pods-HornsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -420,6 +493,7 @@
 		};
 		72B2D5E02DDA8F8D002A82C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AE979CC5F90E50B1E04C476 /* Pods-HornsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
