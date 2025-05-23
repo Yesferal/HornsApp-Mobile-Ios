@@ -57,11 +57,15 @@
 		};
 		72B2D5CD2DDA8F8D002A82C4 /* HornsAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = HornsAppTests;
 			sourceTree = "<group>";
 		};
 		72B2D5D72DDA8F8D002A82C4 /* HornsAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = HornsAppUITests;
 			sourceTree = "<group>";
 		};
@@ -298,13 +302,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

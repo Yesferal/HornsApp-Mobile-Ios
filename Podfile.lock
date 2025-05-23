@@ -1,16 +1,16 @@
 PODS:
-  - HornsAppCore (1.3.5)
+  - HornsAppCore (1.3.6)
 
 DEPENDENCIES:
-  - HornsAppCore (~> 1.3.5)
+  - HornsAppCore (~> 1.3.6)
 
 SPEC REPOS:
   https://github.com/Yesferal/HornsApp-PodSpecs.git:
     - HornsAppCore
 
 SPEC CHECKSUMS:
-  HornsAppCore: b6c3fcd2cb1445de7c1117bba24b68ca5df44395
+  HornsAppCore: fcb48947c25091960f925ddffba31504ca747b20
 
-PODFILE CHECKSUM: 738050e568e9ddb9ae1805ff271f1159e0f2580d
+PODFILE CHECKSUM: c20e09bbce616947dece14fc5c498ca35567df80
 
 COCOAPODS: 1.16.2
