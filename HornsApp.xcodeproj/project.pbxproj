@@ -36,9 +36,22 @@
 		8AE979CC5F90E50B1E04C476 /* Pods-HornsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HornsApp.release.xcconfig"; path = "Target Support Files/Pods-HornsApp/Pods-HornsApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		72B2D5F42DDB8489002A82C4 /* Exceptions for "HornsApp" folder in "HornsApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 72B2D5BC2DDA8F8B002A82C4 /* HornsApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		72B2D5BF2DDA8F8B002A82C4 /* HornsApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				72B2D5F42DDB8489002A82C4 /* Exceptions for "HornsApp" folder in "HornsApp" target */,
+			);
 			path = HornsApp;
 			sourceTree = "<group>";
 		};
@@ -470,6 +483,7 @@
 				DEVELOPMENT_TEAM = 9J76T3335Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HornsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -499,6 +513,7 @@
 				DEVELOPMENT_TEAM = 9J76T3335Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HornsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
