@@ -37,7 +37,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		72B2D5F42DDB8489002A82C4 /* Exceptions for "HornsApp" folder in "HornsApp" target */ = {
+		7218BD612DE546EF003389F0 /* Exceptions for "HornsApp" folder in "HornsApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -47,25 +47,21 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		72B2D5BF2DDA8F8B002A82C4 /* HornsApp */ = {
+		7218BD5D2DE546EF003389F0 /* HornsApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				72B2D5F42DDB8489002A82C4 /* Exceptions for "HornsApp" folder in "HornsApp" target */,
+				7218BD612DE546EF003389F0 /* Exceptions for "HornsApp" folder in "HornsApp" target */,
 			);
 			path = HornsApp;
 			sourceTree = "<group>";
 		};
 		72B2D5CD2DDA8F8D002A82C4 /* HornsAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = HornsAppTests;
 			sourceTree = "<group>";
 		};
 		72B2D5D72DDA8F8D002A82C4 /* HornsAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = HornsAppUITests;
 			sourceTree = "<group>";
 		};
@@ -108,7 +104,7 @@
 		72B2D5B42DDA8F8B002A82C4 = {
 			isa = PBXGroup;
 			children = (
-				72B2D5BF2DDA8F8B002A82C4 /* HornsApp */,
+				7218BD5D2DE546EF003389F0 /* HornsApp */,
 				72B2D5CD2DDA8F8D002A82C4 /* HornsAppTests */,
 				72B2D5D72DDA8F8D002A82C4 /* HornsAppUITests */,
 				72B2D5BE2DDA8F8B002A82C4 /* Products */,
@@ -148,13 +144,14 @@
 				72B2D5BA2DDA8F8B002A82C4 /* Frameworks */,
 				72B2D5BB2DDA8F8B002A82C4 /* Resources */,
 				62373F69D926869E45A934AB /* [CP] Embed Pods Frameworks */,
+				79BF18CD55AF6476A59388D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				72B2D5BF2DDA8F8B002A82C4 /* HornsApp */,
+				7218BD5D2DE546EF003389F0 /* HornsApp */,
 			);
 			name = HornsApp;
 			productName = HornsApp;
@@ -302,13 +299,38 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79BF18CD55AF6476A59388D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
