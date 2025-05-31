@@ -24,6 +24,8 @@ struct ContentView: View {
                                     print(error)
                                 }
                     }
+
+    let result = computer_hapk_wrapper().playGame("Stone")
     
     var body: some View {
         Text("HornsAppCore: Version: " + HornsAppCoreVersion().version)
@@ -34,6 +36,7 @@ struct ContentView: View {
             .padding()
         Text("Text: " + text)
             .padding()
+        Text("Obj-C Result is : \(String(describing: result))")
     }
 }
 
