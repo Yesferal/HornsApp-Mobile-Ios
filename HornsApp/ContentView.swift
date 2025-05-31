@@ -25,7 +25,7 @@ struct ContentView: View {
                                 }
                     }
 
-    let result = computer_hapk_wrapper().playGame("Stone")
+    let result = hapk_wrapper().iosHornsAppApiBaseUrl("Muvin")
     
     var body: some View {
         Text("HornsAppCore: Version: " + HornsAppCoreVersion().version)

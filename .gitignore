@@ -145,5 +145,5 @@ Pods/
 ###
 ### HORNSAPP C
 HornsApp/framework/hapk/encrypt
-HornsApp/framework/hapk/hapk
+HornsApp/framework/hapk/wrapper
 
