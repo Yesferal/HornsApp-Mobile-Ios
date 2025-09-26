@@ -7,5 +7,5 @@
 
 enum HaResult<T> {
    case success(T)
-   case failed(String)
+   case failed(Error)
 }

@@ -17,10 +17,11 @@
                 data = EventModel.fromApi(events: events)
                 return
             case .failed:
+                // TODO: Logger
                 return
             }
         } catch {
-            
+            // TODO: Logger
         }
     }
 }
