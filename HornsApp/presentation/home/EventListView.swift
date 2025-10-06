@@ -12,8 +12,11 @@ struct EventList: View {
     
     var body: some View {
         List(vm.data) { event in
-            EventRow(event: event)
-        }.onAppear {
+            EventRowView(event: event)
+                .listRowSeparator(.hidden)
+        }
+        .scrollContentBackground(.hidden) // Hides the default white card background
+        .onAppear {
             if vm.data.isEmpty {
                 Task {
                     await vm.fetchData()

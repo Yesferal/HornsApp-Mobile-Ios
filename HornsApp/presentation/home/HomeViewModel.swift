@@ -14,7 +14,7 @@
             
             switch events {
             case .success(let events):
-                data = EventModel.fromApi(events: events)
+                data = EventModel.fromApi(events: events).sorted { $0.dateTime?.timeIntervalSince1970 ?? 0.0 < $1.dateTime?.timeIntervalSince1970 ?? 0.0 }
                 return
             case .failed:
                 // TODO: Logger
