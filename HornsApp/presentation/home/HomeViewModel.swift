@@ -10,7 +10,8 @@
     
     func fetchData() async {
         do {
-            let events: HaResult<[GetEvents]> = try await AlamoFireWrapper().makeRequest(path: "concert")
+            let appName = AppSettings().appName
+            let events: HaResult<[GetEvents]> = try await AlamoFireWrapper(appName: appName).makeRequest(path: "concert")
             
             switch events {
             case .success(let events):

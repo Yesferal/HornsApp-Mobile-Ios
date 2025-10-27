@@ -12,37 +12,44 @@ struct EventRowView: View {
     var event: EventModel
     
     var body: some View {
-        HStack {
-            VStack {
-                Text(event.getEventDay())
-                Text(event.getEventMonth())
-            }.frame(maxHeight: .infinity, alignment: .topLeading)
-            AsyncImage(url: URL(string: event.headlinerUrl ?? "")) { image in
-                image.resizable()
-            } placeholder: {
-                Color.white
-            }
-            .aspectRatio(1.6, contentMode: .fit)
-            .overlay() {
+        NavigationLink {
+            DetailView(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth())
+        } label: {
+            HStack(alignment: .top) {
                 VStack {
-                    Spacer()
-                    Text("#" + event.getEventYear())
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text(event.name ?? "")
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    HStack {
-                        Text(event.getEventTime())
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        Text(event.headlinerName ?? "")
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                    HaEventDate(day: event.getEventDay(), month: event.getEventMonth())
+                    HaVerticalDashLine()
+                }
+                AsyncImage(url: URL(string: event.headlinerUrl ?? "")) { image in
+                    image.resizable()
+                } placeholder: {
+                    Color.white
+                }
+                .aspectRatio(1.6, contentMode: .fit)
+                .overlay() {
+                    ZStack {
+                        VStack {
+                            Spacer()
+                            Text("#" + event.getEventYear())
+                                .font(.subheadline)
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            Text(event.name ?? "")
+                                .font(.headline)
+                                .bold()
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                            HStack {
+                                HaIconText(icon: "calendar", text: event.getEventTime())
+                                HaIconText(icon: "mic", text: event.headlinerName ?? "")
+                            }
+                        }
                     }
-                }.background(Color.black.opacity(0.35))
+                    .background(Color.black.opacity(0.5))
+                }
+                .clipShape(.rect(cornerRadius: 16))
             }
-            .clipShape(.rect(cornerRadius: 8))
         }
     }
 }

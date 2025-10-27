@@ -9,9 +9,14 @@ import Alamofire
 
 class AlamoFireWrapper {
     
-    let baseUrl = hapk_wrapper().iosHornsAppApiBaseUrl("Muvin") ?? ""
-    let authorization = hapk_wrapper().iosHornsAppApiAuthorization("Muvin") ?? ""
-    
+    let baseUrl: String
+    let authorization: String
+
+    init(appName: String) {
+        baseUrl = hapk_wrapper().iosHornsAppApiBaseUrl(appName) ?? ""
+        authorization = hapk_wrapper().iosHornsAppApiAuthorization(appName) ?? ""
+    }
+        
     func makeRequest<T: Decodable>(path: String) async throws -> HaResult<T> {
         try await withUnsafeThrowingContinuation { continuation in
             AF.request(baseUrl+path, method: .get, headers: ["authorization": authorization]).validate().responseDecodable(of: T.self) { response in

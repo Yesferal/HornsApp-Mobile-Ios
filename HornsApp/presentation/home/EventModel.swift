@@ -8,7 +8,7 @@
 import Foundation
 
 struct EventModel: Identifiable {
-    var id: UUID
+    var id: String
     var name: String?
     var dateTime: Date?
     var headlinerUrl: String?
@@ -16,8 +16,12 @@ struct EventModel: Identifiable {
     
     static func fromApi(events: [GetEvents]) -> [EventModel] {
         return events.map {
-            EventModel(id: UUID.init(uuidString: $0._id) ?? UUID(), name: $0.name, dateTime: formatStringAsDate($0.dateTime), headlinerUrl: $0.headliner?.url, headlinerName: $0.headliner?.name)
+            EventModel(id: $0._id, name: $0.name, dateTime: formatStringAsDate($0.dateTime), headlinerUrl: $0.headliner?.url, headlinerName: $0.headliner?.name)
         }
+    }
+    
+    static func fromApi(event: GetEvents) -> EventModel {
+        return EventModel(id: event._id, name: event.name, dateTime: formatStringAsDate(event.dateTime), headlinerUrl: event.headliner?.url, headlinerName: event.headliner?.name)
     }
     
     func getEventYear() -> String {
