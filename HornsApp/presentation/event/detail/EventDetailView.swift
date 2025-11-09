@@ -25,7 +25,6 @@ struct DetailView: View {
         ScrollView {
             ZStack(alignment: .leading) {
                 HaVerticalDashLine()
-                    .background(Color.cyan)
                     .frame(width: 48)
                 
                 VStack(spacing: 32) {
@@ -60,7 +59,7 @@ struct DetailView: View {
                     
                     
                     if let url = URL(string: event?.ticketingUrl ?? "") {
-                        HaEventBuyButton(iconName: "ticket", title: "Disponible en", subtitle: "Comprar", actionText: event?.ticketingName, buttonEnabled: true) {
+                        HaEventBuyButton(iconName: "ticket", title: "Disponible en", subtitle: "Ir ahora", actionText: event?.ticketingName, buttonEnabled: true) {
                             UIApplication.shared.open(url)
                         }
                     } else {

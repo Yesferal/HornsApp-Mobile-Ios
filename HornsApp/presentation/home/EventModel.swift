@@ -27,8 +27,8 @@ struct EventModel: Identifiable {
     }
     
     static func fromApi(event: GetEventDetail) -> EventModel {
-        let mapName = LocalizedString(en: event.venue?.name?.en, es: event.venue?.name?.es)
-        return EventModel(id: event._id, name: event.name, dateTime: formatStringAsDate(event.dateTime), headlinerUrl: event.headliner?.url, headlinerName: event.headliner?.name, ticketingUrl: event.ticketing?.url, ticketingName: event.ticketing?.name, latitude: event.venue?.latitude, longitude: event.venue?.longitude, mapName: mapName.text)
+        let venueName = event.venue?.name?.asLocalizedString()
+        return EventModel(id: event._id, name: event.name, dateTime: formatStringAsDate(event.dateTime), headlinerUrl: event.headliner?.url, headlinerName: event.headliner?.name, ticketingUrl: event.ticketing?.url, ticketingName: event.ticketing?.name, latitude: event.venue?.latitude, longitude: event.venue?.longitude, mapName: venueName?.text)
     }
     
     func getEventYear() -> String {
