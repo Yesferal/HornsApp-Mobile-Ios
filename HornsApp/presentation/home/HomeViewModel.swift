@@ -6,9 +6,13 @@
 //
 
 @MainActor class HomeViewModel: ObservableObject {
+    @Published var isLoading = false
     @Published var data: [EventModel] = []
     
     func fetchData() async {
+        isLoading = true
+        defer { isLoading = false }
+        
         do {
             let appName = AppSettings().appName
             let events: HaResult<[GetEvents]> = try await AlamoFireWrapper(appName: appName).makeRequest(path: "concert")

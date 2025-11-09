@@ -59,33 +59,41 @@ struct DetailView: View {
                             .frame(width: 8, height: 8)
                     }
                     
-                    
-                    if let url = URL(string: event?.ticketingUrl ?? "") {
-                        HaEventBuyButton(iconName: "ticket", title: "Disponible en", subtitle: "Ir ahora", actionText: event?.ticketingName, buttonEnabled: true) {
-                            UIApplication.shared.open(url)
-                        }
+                    if vm.isLoading {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                            .padding(20)
+                            .background(Color.white.opacity(0.7))
+                            .cornerRadius(12)
                     } else {
-                        HaEventBuyButton(iconName: "ticket", title: "Próximamente", subtitle: "No disponible", actionText: event?.ticketingName, buttonEnabled: false) {
+                        
+                        if let url = URL(string: event?.ticketingUrl ?? "") {
+                            HaEventBuyButton(iconName: "ticket", title: "Disponible en", subtitle: "Ir ahora", actionText: event?.ticketingName, buttonEnabled: true) {
+                                UIApplication.shared.open(url)
+                            }
+                        } else {
+                            HaEventBuyButton(iconName: "ticket", title: "Próximamente", subtitle: "No disponible", actionText: event?.ticketingName, buttonEnabled: false) {
+                            }
                         }
-                    }
-                    HaEventLink(iconName: "location", title: event?.mapName ?? "Dirección", subtitle: "Ir a Maps") {
-                        guard let latitude = event?.latitude else {
-                            return
+                        HaEventLink(iconName: "location", title: event?.mapName ?? "Dirección", subtitle: "Ir a Maps") {
+                            guard let latitude = event?.latitude else {
+                                return
+                            }
+                            guard let longitude = event?.longitude else {
+                                return
+                            }
+                            let query = "q=\(latitude),\(longitude)"
+                            let appleURL = "maps://?\(query)"
+                            let googleURL = "comgooglemaps://?\(query)"
+                            if let googleMapsURL = URL(string: googleURL), UIApplication.shared.canOpenURL(googleMapsURL) {
+                                UIApplication.shared.open(googleMapsURL)
+                            } else if let appleMapsURL = URL(string: appleURL) {
+                                UIApplication.shared.open(appleMapsURL)
+                            }
                         }
-                        guard let longitude = event?.longitude else {
-                            return
+                        HaEventLink(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: "Añadir al calendario") {
+                            print("Button tapped!")
                         }
-                        let query = "q=\(latitude),\(longitude)"
-                        let appleURL = "maps://?\(query)"
-                        let googleURL = "comgooglemaps://?\(query)"
-                        if let googleMapsURL = URL(string: googleURL), UIApplication.shared.canOpenURL(googleMapsURL) {
-                            UIApplication.shared.open(googleMapsURL)
-                        } else if let appleMapsURL = URL(string: appleURL) {
-                            UIApplication.shared.open(appleMapsURL)
-                        }
-                    }
-                    HaEventLink(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: "Añadir al calendario") {
-                        print("Button tapped!")
                     }
                 }
                 

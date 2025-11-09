@@ -6,9 +6,13 @@
 //
 
 @MainActor class EventDetailViewModel: ObservableObject {
+    @Published var isLoading = false
     @Published var data: EventModel? = nil
     
     func fetchData(id: String) async {
+        isLoading = true
+        defer { isLoading = false }
+        
         do {
             let appName = AppSettings().appName
             let path = "concert/"+id
