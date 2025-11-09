@@ -35,10 +35,10 @@ struct DetailView: View {
                         } placeholder: {
                             Color.white
                         }
-                        .aspectRatio(1, contentMode: .fit)
                         .overlay() {
                             ZStack {
                                 Text(event?.headlinerName ?? "")
+                                    .font(.title2)
                                     .foregroundStyle(.white)
                                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                                     .font(.headline)
@@ -46,6 +46,8 @@ struct DetailView: View {
                             }
                             .background(Color.black.opacity(0.5))
                         }
+                        .aspectRatio(1, contentMode: .fill)
+                        .clipped()
                         .clipShape(.rect(cornerRadius: 16))
                     }
                     HStack {
@@ -63,7 +65,7 @@ struct DetailView: View {
                             UIApplication.shared.open(url)
                         }
                     } else {
-                        HaEventBuyButton(iconName: "ticket", title: "Proximamente", subtitle: "No disponible", actionText: event?.ticketingName, buttonEnabled: false) {
+                        HaEventBuyButton(iconName: "ticket", title: "Próximamente", subtitle: "No disponible", actionText: event?.ticketingName, buttonEnabled: false) {
                         }
                     }
                     HaEventLink(iconName: "location", title: event?.mapName ?? "Dirección", subtitle: "Ir a Maps") {

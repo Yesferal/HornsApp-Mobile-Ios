@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct HornsAppApp: App {
+    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if hasSeenOnboarding {
+                ContentView()
+            } else {
+                OnboardingView()
+            }
         }
     }
 }

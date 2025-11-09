@@ -20,6 +20,7 @@ struct HaTittleSubTittle: View {
             if let text = subtitle {
                 Text(text)
                     .font(.subheadline)
+                    .foregroundColor(Color.gray)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
