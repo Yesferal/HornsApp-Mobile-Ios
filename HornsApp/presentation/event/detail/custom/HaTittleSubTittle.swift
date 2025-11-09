@@ -9,16 +9,18 @@ import SwiftUI
 
 struct HaTittleSubTittle: View {
     let title: String
-    let subtitle: String
-
+    let subtitle: String?
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading) {
             Text(title)
                 .font(.headline)
                 .bold()
             
-            Text(subtitle)
-                .font(.subheadline)
+            if let text = subtitle {
+                Text(text)
+                    .font(.subheadline)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

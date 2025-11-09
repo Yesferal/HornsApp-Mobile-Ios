@@ -13,7 +13,7 @@
             let appName = AppSettings().appName
             let path = "concert/"+id
             print("Yesferal: Request path: " + path)
-            let event: HaResult<GetEvents> = try await AlamoFireWrapper(appName: appName).makeRequest(path: path)
+            let event: HaResult<GetEventDetail> = try await AlamoFireWrapper(appName: appName).makeRequest(path: path)
             
             switch event {
             case .success(let event):

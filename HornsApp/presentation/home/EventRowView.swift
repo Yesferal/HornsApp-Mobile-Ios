@@ -46,6 +46,7 @@ struct EventRowView: View {
                             }
                         }
                     }
+                    .padding()
                     .background(Color.black.opacity(0.5))
                 }
                 .clipShape(.rect(cornerRadius: 16))

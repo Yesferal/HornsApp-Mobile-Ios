@@ -23,52 +23,75 @@ struct DetailView: View {
         let event = vm.data
         
         ScrollView {
-            VStack(spacing: 32) {
-                HStack(alignment: .top) {
-                    VStack {
+            ZStack(alignment: .leading) {
+                HaVerticalDashLine()
+                    .background(Color.cyan)
+                    .frame(width: 48)
+                
+                VStack(spacing: 32) {
+                    HStack(alignment: .top) {
                         HaEventDate(day: day, month: month)
-                        HaVerticalDashLine()
-                    }
-                    AsyncImage(url: URL(string: event?.headlinerUrl ?? "")) { image in
-                        image.resizable()
-                    } placeholder: {
-                        Color.white
-                    }
-                    .aspectRatio(1, contentMode: .fit)
-                    .overlay() {
-                        ZStack {
-                            Text(event?.headlinerName ?? "")
-                                .foregroundStyle(.white)
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                                .font(.headline)
-                                .bold()
+                        AsyncImage(url: URL(string: event?.headlinerUrl ?? "")) { image in
+                            image.resizable()
+                        } placeholder: {
+                            Color.white
                         }
-                        .background(Color.black.opacity(0.5))
+                        .aspectRatio(1, contentMode: .fit)
+                        .overlay() {
+                            ZStack {
+                                Text(event?.headlinerName ?? "")
+                                    .foregroundStyle(.white)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                                    .font(.headline)
+                                    .bold()
+                            }
+                            .background(Color.black.opacity(0.5))
+                        }
+                        .clipShape(.rect(cornerRadius: 16))
                     }
-                    .clipShape(.rect(cornerRadius: 16))
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 48)
+                    HStack {
+                        Spacer()
+                            .frame(width: 48)
+                        
+                        Circle()
+                            .fill(Color.red)
+                            .frame(width: 8, height: 8)
+                    }
                     
-                    Circle()
-                        .fill(Color.red)
-                        .frame(width: 8, height: 8)
+                    
+                    if let url = URL(string: event?.ticketingUrl ?? "") {
+                        HaEventBuyButton(iconName: "ticket", title: "Disponible en", subtitle: "Comprar", actionText: event?.ticketingName, buttonEnabled: true) {
+                            UIApplication.shared.open(url)
+                        }
+                    } else {
+                        HaEventBuyButton(iconName: "ticket", title: "Proximamente", subtitle: "No disponible", actionText: event?.ticketingName, buttonEnabled: false) {
+                        }
+                    }
+                    HaEventLink(iconName: "location", title: event?.mapName ?? "Dirección", subtitle: "Ir a Maps") {
+                        guard let latitude = event?.latitude else {
+                            return
+                        }
+                        guard let longitude = event?.longitude else {
+                            return
+                        }
+                        let query = "q=\(latitude),\(longitude)"
+                        let appleURL = "maps://?\(query)"
+                        let googleURL = "comgooglemaps://?\(query)"
+                        if let googleMapsURL = URL(string: googleURL), UIApplication.shared.canOpenURL(googleMapsURL) {
+                            UIApplication.shared.open(googleMapsURL)
+                        } else if let appleMapsURL = URL(string: appleURL) {
+                            UIApplication.shared.open(appleMapsURL)
+                        }
+                    }
+                    HaEventLink(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: "Añadir al calendario") {
+                        print("Button tapped!")
+                    }
                 }
                 
-                HaEventBuyButton(iconName: "ticket", title: "title", subtitle: "subtitle", actionText: "Buy") {
-                    print("Button tapped!")
-                }
-                HaEventLink(iconName: "location", title: "title", subtitle: "subtitle", actionText: "Buy") {
-                    print("Button tapped!")
-                }
-                HaEventLink(iconName: "calendar", title: "title", subtitle: "subtitle", actionText: "Buy") {
-                    print("Button tapped!")
-                }
+                Spacer() // Pushes content to the top
             }
             .padding()
             
-            Spacer() // Pushes content to the top
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear {

@@ -6,5 +6,13 @@
 //
 
 struct GetVenue: Decodable {
+    var latitude: Double?
+    var longitude: Double?
+    var name: GetText?
     
+    enum CodingKeys: String, CodingKey {
+        case latitude
+        case longitude
+        case name
+    }
 }

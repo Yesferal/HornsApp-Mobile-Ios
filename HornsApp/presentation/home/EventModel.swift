@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import HornsAppCore
 
 struct EventModel: Identifiable {
     var id: String
@@ -13,6 +14,11 @@ struct EventModel: Identifiable {
     var dateTime: Date?
     var headlinerUrl: String?
     var headlinerName: String?
+    var ticketingUrl: String?
+    var ticketingName: String?
+    var latitude: Double?
+    var longitude: Double?
+    var mapName: String?
     
     static func fromApi(events: [GetEvents]) -> [EventModel] {
         return events.map {
@@ -20,8 +26,9 @@ struct EventModel: Identifiable {
         }
     }
     
-    static func fromApi(event: GetEvents) -> EventModel {
-        return EventModel(id: event._id, name: event.name, dateTime: formatStringAsDate(event.dateTime), headlinerUrl: event.headliner?.url, headlinerName: event.headliner?.name)
+    static func fromApi(event: GetEventDetail) -> EventModel {
+        let mapName = LocalizedString(en: event.venue?.name?.en, es: event.venue?.name?.es)
+        return EventModel(id: event._id, name: event.name, dateTime: formatStringAsDate(event.dateTime), headlinerUrl: event.headliner?.url, headlinerName: event.headliner?.name, ticketingUrl: event.ticketing?.url, ticketingName: event.ticketing?.name, latitude: event.venue?.latitude, longitude: event.venue?.longitude, mapName: mapName.text)
     }
     
     func getEventYear() -> String {
@@ -42,6 +49,14 @@ struct EventModel: Identifiable {
     
     func getEventDay() -> String {
         if let formatted = formatDateAsString(dateTime, to: "dd") {
+            return formatted
+        } else {
+            return ""
+        }
+    }
+    
+    func getEventAsCalendarLabel() -> String {
+        if let formatted = formatDateAsString(dateTime, to: "EEE dd, MMMM YYYY") {
             return formatted
         } else {
             return ""

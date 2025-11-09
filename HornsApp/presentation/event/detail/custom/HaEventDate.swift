@@ -14,9 +14,11 @@ struct HaEventDate: View {
     var body: some View {
         VStack(alignment: .center, spacing: 4) {
             Text(day)
+                .foregroundColor(Color.red)
             Text(month)
         }
         .bold()
+        .background(Color(.systemBackground))
         .frame(width: 48)
     }
 }

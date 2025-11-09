@@ -11,24 +11,23 @@ struct HaEventLink: View {
     let iconName: String
     let title: String
     let subtitle: String
-    let actionText: String
     let action: () -> Void
-
+    
     var body: some View {
-        HStack(alignment: .top) {
-            VStack {
+        Button(action: action) {
+            HStack(alignment: .center) {
                 Image(systemName: iconName)
                     .frame(width: 48)
-                HaVerticalDashLine()
+                    .foregroundColor(Color.gray)
+                HaTittleSubTittle(title: title, subtitle: subtitle)
+                    .frame(maxHeight: .infinity, alignment: .center)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .frame(maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.gray)
             }
-            
-            HaTittleSubTittle(title: title, subtitle: subtitle)
-                .frame(maxHeight: .infinity, alignment: .center)
-            Spacer()
-            Image(systemName: "chevron.right")
-                .frame(maxHeight: .infinity, alignment: .center)
-                .foregroundColor(.gray)
+            .fixedSize(horizontal: false, vertical: true)
         }
-        .fixedSize(horizontal: false, vertical: true)
+        .buttonStyle(.plain)
     }
 }
