@@ -23,7 +23,7 @@ struct ContentView: View {
                     .padding()
             }
             EventList()
-                .navigationTitle("Home")
+                .navigationTitle(LocalizedStringKey("home"))
         }
     }
 }

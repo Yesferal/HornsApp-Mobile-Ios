@@ -32,7 +32,7 @@ struct OnboardingView: View {
                 Spacer()
                     .frame(height: 72)
                 
-                Text("¿Estás listo para hoy?")
+                Text(LocalizedStringKey("are_you_ready_for_tonight"))
                     .font(.largeTitle)
                     .bold()
                     .foregroundColor(Color.white)
@@ -40,7 +40,7 @@ struct OnboardingView: View {
                     .frame(alignment: .leading)
                     .multilineTextAlignment(.leading)
                 
-                Text("Encontremos juntos tu próximo concierto.")
+                Text(LocalizedStringKey("let_find_out_together"))
                     .font(.title2)
                     .foregroundColor(Color.white)
                     .padding(.horizontal)
@@ -52,7 +52,7 @@ struct OnboardingView: View {
                 HStack {
                     Spacer() // pushes the button to the right
                     
-                    Button("Empecemos") {
+                    Button(LocalizedStringKey("get_started")) {
                         hasSeenOnboarding = true
                     }
                     .padding()

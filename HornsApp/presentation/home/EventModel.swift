@@ -91,13 +91,12 @@ struct EventModel: Identifiable {
     
     private func formatDateAsString(_ input: Date?,
                                     to outputFormat: String) -> String? {
-        let localeIdentifier = "en_US_POSIX"
         guard let input = input else {
             return nil
         }
         
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: localeIdentifier)
+        formatter.locale = Locale.autoupdatingCurrent
         formatter.dateFormat = outputFormat
         
         return formatter.string(from: input)

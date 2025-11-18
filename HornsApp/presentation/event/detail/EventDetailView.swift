@@ -68,14 +68,14 @@ struct DetailView: View {
                     } else {
                         
                         if let url = URL(string: event?.ticketingUrl ?? "") {
-                            HaEventBuyButton(iconName: "ticket", title: "Disponible en", subtitle: "Ir ahora", actionText: event?.ticketingName, buttonEnabled: true) {
+                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_on"), subtitle: HaLocalizedStringWrapper.getString(key: "go_now"), actionText: event?.ticketingName, buttonEnabled: true) {
                                 UIApplication.shared.open(url)
                             }
                         } else {
-                            HaEventBuyButton(iconName: "ticket", title: "Próximamente", subtitle: "No disponible", actionText: event?.ticketingName, buttonEnabled: false) {
+                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable"), actionText: event?.ticketingName, buttonEnabled: false) {
                             }
                         }
-                        HaEventLink(iconName: "location", title: event?.mapName ?? "Dirección", subtitle: "Ir a Maps") {
+                        HaEventLink(iconName: "location", title: event?.mapName ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
                             guard let latitude = event?.latitude else {
                                 return
                             }
@@ -91,7 +91,7 @@ struct DetailView: View {
                                 UIApplication.shared.open(appleMapsURL)
                             }
                         }
-                        HaEventLink(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: "Añadir al calendario") {
+                        HaEventLink(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar")) {
                             print("Button tapped!")
                         }
                     }
