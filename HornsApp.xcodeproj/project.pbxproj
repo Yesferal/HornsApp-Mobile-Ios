@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		94C11035E25D378DE52480C1 /* libPods-HornsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CB18D27505B8EADB7484B7 /* libPods-HornsApp.a */; };
+		61406DA6B11408412C570D54 /* libPods-SharedPods-HornsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278E37ED14F7637D50C955DE /* libPods-SharedPods-HornsApp.a */; };
+		7F5B46CE7DC626479212BB2D /* libPods-SharedPods-Muvin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC268C329EA70630123C882 /* libPods-SharedPods-Muvin.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,21 +29,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		42CB18D27505B8EADB7484B7 /* libPods-HornsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HornsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		673E005FF814EFC79D99373E /* Pods-HornsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HornsApp.debug.xcconfig"; path = "Target Support Files/Pods-HornsApp/Pods-HornsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		278E37ED14F7637D50C955DE /* libPods-SharedPods-HornsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SharedPods-HornsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BC268C329EA70630123C882 /* libPods-SharedPods-Muvin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SharedPods-Muvin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E4A84F4EB1C8867EBBA1099 /* Pods-SharedPods-HornsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedPods-HornsApp.release.xcconfig"; path = "Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp.release.xcconfig"; sourceTree = "<group>"; };
+		53289AA053FF8B8E73C3EE10 /* Pods-SharedPods-Muvin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedPods-Muvin.debug.xcconfig"; path = "Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin.debug.xcconfig"; sourceTree = "<group>"; };
+		60A7D1A63E3F2D26BE2C5B9C /* Pods-SharedPods-Muvin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedPods-Muvin.release.xcconfig"; path = "Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin.release.xcconfig"; sourceTree = "<group>"; };
 		72B2D5BD2DDA8F8B002A82C4 /* HornsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HornsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B2D5CA2DDA8F8D002A82C4 /* HornsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HornsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B2D5D42DDA8F8D002A82C4 /* HornsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HornsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AE979CC5F90E50B1E04C476 /* Pods-HornsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HornsApp.release.xcconfig"; path = "Target Support Files/Pods-HornsApp/Pods-HornsApp.release.xcconfig"; sourceTree = "<group>"; };
+		72B3EC282ECFBC8A001F0579 /* Muvin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muvin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F0DDA9E7BCAF3AFF877FD8 /* Pods-SharedPods-HornsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedPods-HornsApp.debug.xcconfig"; path = "Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		7218BD612DE546EF003389F0 /* Exceptions for "HornsApp" folder in "HornsApp" target */ = {
+		72B3EC292ECFBC8A001F0579 /* Exceptions for "HornsApp" folder in "Muvin" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				"HornsApp-Info.plist",
+				HornsAppAssets.xcassets,
 			);
-			target = 72B2D5BC2DDA8F8B002A82C4 /* HornsApp */;
+			target = 72B3EC1D2ECFBC8A001F0579 /* Muvin */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -50,7 +56,7 @@
 		7218BD5D2DE546EF003389F0 /* HornsApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				7218BD612DE546EF003389F0 /* Exceptions for "HornsApp" folder in "HornsApp" target */,
+				72B3EC292ECFBC8A001F0579 /* Exceptions for "HornsApp" folder in "Muvin" target */,
 			);
 			path = HornsApp;
 			sourceTree = "<group>";
@@ -65,6 +71,11 @@
 			path = HornsAppUITests;
 			sourceTree = "<group>";
 		};
+		72B3EE172ECFC93A001F0579 /* Muvin */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Muvin;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94C11035E25D378DE52480C1 /* libPods-HornsApp.a in Frameworks */,
+				61406DA6B11408412C570D54 /* libPods-SharedPods-HornsApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,26 +101,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72B3EC202ECFBC8A001F0579 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F5B46CE7DC626479212BB2D /* libPods-SharedPods-Muvin.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C831C6CFF004BE5D09290A6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				42CB18D27505B8EADB7484B7 /* libPods-HornsApp.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		72B2D5B42DDA8F8B002A82C4 = {
 			isa = PBXGroup;
 			children = (
+				72B3EE172ECFC93A001F0579 /* Muvin */,
 				7218BD5D2DE546EF003389F0 /* HornsApp */,
 				72B2D5CD2DDA8F8D002A82C4 /* HornsAppTests */,
 				72B2D5D72DDA8F8D002A82C4 /* HornsAppUITests */,
 				72B2D5BE2DDA8F8B002A82C4 /* Products */,
 				DE232E0A3F39AE1757BA4038 /* Pods */,
-				6C831C6CFF004BE5D09290A6 /* Frameworks */,
+				9798F6804B7037448E036172 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,15 +131,27 @@
 				72B2D5BD2DDA8F8B002A82C4 /* HornsApp.app */,
 				72B2D5CA2DDA8F8D002A82C4 /* HornsAppTests.xctest */,
 				72B2D5D42DDA8F8D002A82C4 /* HornsAppUITests.xctest */,
+				72B3EC282ECFBC8A001F0579 /* Muvin.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9798F6804B7037448E036172 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				278E37ED14F7637D50C955DE /* libPods-SharedPods-HornsApp.a */,
+				2BC268C329EA70630123C882 /* libPods-SharedPods-Muvin.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DE232E0A3F39AE1757BA4038 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				673E005FF814EFC79D99373E /* Pods-HornsApp.debug.xcconfig */,
-				8AE979CC5F90E50B1E04C476 /* Pods-HornsApp.release.xcconfig */,
+				D8F0DDA9E7BCAF3AFF877FD8 /* Pods-SharedPods-HornsApp.debug.xcconfig */,
+				4E4A84F4EB1C8867EBBA1099 /* Pods-SharedPods-HornsApp.release.xcconfig */,
+				53289AA053FF8B8E73C3EE10 /* Pods-SharedPods-Muvin.debug.xcconfig */,
+				60A7D1A63E3F2D26BE2C5B9C /* Pods-SharedPods-Muvin.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -139,12 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72B2D5DE2DDA8F8D002A82C4 /* Build configuration list for PBXNativeTarget "HornsApp" */;
 			buildPhases = (
-				14A041D63E7754E2890BC007 /* [CP] Check Pods Manifest.lock */,
+				411FC08048516E690F5DF0FA /* [CP] Check Pods Manifest.lock */,
 				72B2D5B92DDA8F8B002A82C4 /* Sources */,
 				72B2D5BA2DDA8F8B002A82C4 /* Frameworks */,
 				72B2D5BB2DDA8F8B002A82C4 /* Resources */,
-				62373F69D926869E45A934AB /* [CP] Embed Pods Frameworks */,
-				79BF18CD55AF6476A59388D7 /* [CP] Copy Pods Resources */,
+				1423AC2B7A38E102D45AA56F /* [CP] Embed Pods Frameworks */,
+				6B6515D636F7ED714F74F658 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,6 +224,30 @@
 			productReference = 72B2D5D42DDA8F8D002A82C4 /* HornsAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		72B3EC1D2ECFBC8A001F0579 /* Muvin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72B3EC252ECFBC8A001F0579 /* Build configuration list for PBXNativeTarget "Muvin" */;
+			buildPhases = (
+				0E3FD4F55A48BD4B075123A1 /* [CP] Check Pods Manifest.lock */,
+				72B3EC1F2ECFBC8A001F0579 /* Sources */,
+				72B3EC202ECFBC8A001F0579 /* Frameworks */,
+				72B3EC222ECFBC8A001F0579 /* Resources */,
+				29776DA1011BFD1D31A35938 /* [CP] Embed Pods Frameworks */,
+				F2CD5F54BF667BA4EEB5A476 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7218BD5D2DE546EF003389F0 /* HornsApp */,
+				72B3EE172ECFC93A001F0579 /* Muvin */,
+			);
+			name = Muvin;
+			productName = HornsApp;
+			productReference = 72B3EC282ECFBC8A001F0579 /* Muvin.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -242,6 +290,7 @@
 				72B2D5BC2DDA8F8B002A82C4 /* HornsApp */,
 				72B2D5C92DDA8F8D002A82C4 /* HornsAppTests */,
 				72B2D5D32DDA8F8D002A82C4 /* HornsAppUITests */,
+				72B3EC1D2ECFBC8A001F0579 /* Muvin */,
 			);
 		};
 /* End PBXProject section */
@@ -268,10 +317,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72B3EC222ECFBC8A001F0579 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		14A041D63E7754E2890BC007 /* [CP] Check Pods Manifest.lock */ = {
+		0E3FD4F55A48BD4B075123A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,53 +342,117 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HornsApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SharedPods-Muvin-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		62373F69D926869E45A934AB /* [CP] Embed Pods Frameworks */ = {
+		1423AC2B7A38E102D45AA56F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		79BF18CD55AF6476A59388D7 /* [CP] Copy Pods Resources */ = {
+		29776DA1011BFD1D31A35938 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HornsApp/Pods-HornsApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		411FC08048516E690F5DF0FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SharedPods-HornsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B6515D636F7ED714F74F658 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2CD5F54BF667BA4EEB5A476 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -353,6 +473,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		72B2D5D02DDA8F8D002A82C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72B3EC1F2ECFBC8A001F0579 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -500,7 +627,7 @@
 		};
 		72B2D5DF2DDA8F8D002A82C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 673E005FF814EFC79D99373E /* Pods-HornsApp.debug.xcconfig */;
+			baseConfigurationReference = D8F0DDA9E7BCAF3AFF877FD8 /* Pods-SharedPods-HornsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -508,10 +635,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9J76T3335Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HornsApp/Info.plist;
+				INFOPLIST_FILE = "HornsApp/HornsApp-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -534,7 +662,7 @@
 		};
 		72B2D5E02DDA8F8D002A82C4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AE979CC5F90E50B1E04C476 /* Pods-HornsApp.release.xcconfig */;
+			baseConfigurationReference = 4E4A84F4EB1C8867EBBA1099 /* Pods-SharedPods-HornsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -542,10 +670,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9J76T3335Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HornsApp/Info.plist;
+				INFOPLIST_FILE = "HornsApp/HornsApp-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -637,6 +766,73 @@
 			};
 			name = Release;
 		};
+		72B3EC262ECFBC8A001F0579 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53289AA053FF8B8E73C3EE10 /* Pods-SharedPods-Muvin.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9J76T3335Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Muvin/Muvin-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yesferal.Muvin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HornsApp/framework/hapk/Hapk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		72B3EC272ECFBC8A001F0579 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60A7D1A63E3F2D26BE2C5B9C /* Pods-SharedPods-Muvin.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9J76T3335Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Muvin/Muvin-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yesferal.Muvin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HornsApp/framework/hapk/Hapk-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -672,6 +868,15 @@
 			buildConfigurations = (
 				72B2D5E52DDA8F8D002A82C4 /* Debug */,
 				72B2D5E62DDA8F8D002A82C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72B3EC252ECFBC8A001F0579 /* Build configuration list for PBXNativeTarget "Muvin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72B3EC262ECFBC8A001F0579 /* Debug */,
+				72B3EC272ECFBC8A001F0579 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -140,10 +140,3 @@ Pods/
 # End of https://www.gitignore.io/api/xcode,swift,macos,objective-c
 /fastlane/fastlane/Appfile
 /Gemfile.lock
-
-
-###
-### HORNSAPP C
-HornsApp/framework/hapk/encrypt
-HornsApp/framework/hapk/wrapper
-
