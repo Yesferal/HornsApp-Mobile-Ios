@@ -14,8 +14,9 @@
         defer { isLoading = false }
         
         do {
-            let appName = AppSettings().appName
-            let events: HaResult<[GetEvents]> = try await AlamoFireWrapper(appName: appName).makeRequest(path: "concert")
+            let appSettings = AppSettings()
+            let appName = appSettings.appName
+            let events: HaResult<[GetEvents]> = try await AlamoFireWrapper(appName: appName).makeRequest(path: appSettings.homePath)
             
             switch events {
             case .success(let events):

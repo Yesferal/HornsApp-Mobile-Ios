@@ -49,6 +49,8 @@
 				framework/hapk/wrapper/hapk.cpp,
 				"HornsApp-Info.plist",
 				HornsAppAssets.xcassets,
+				presentation/environment/AppSettings.swift,
+				presentation/theme/ThemeExt.swift,
 			);
 			target = 72B3EC1D2ECFBC8A001F0579 /* Muvin */;
 		};
@@ -103,15 +105,11 @@
 		};
 		72B2D5CD2DDA8F8D002A82C4 /* HornsAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = HornsAppTests;
 			sourceTree = "<group>";
 		};
 		72B2D5D72DDA8F8D002A82C4 /* HornsAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = HornsAppUITests;
 			sourceTree = "<group>";
 		};
@@ -385,9 +383,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -402,9 +404,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-HornsApp/Pods-SharedPods-HornsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -419,9 +425,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -480,9 +490,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SharedPods-Muvin/Pods-SharedPods-Muvin-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

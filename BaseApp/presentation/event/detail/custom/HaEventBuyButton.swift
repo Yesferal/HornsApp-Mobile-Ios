@@ -15,6 +15,8 @@ struct HaEventBuyButton: View {
     let buttonEnabled: Bool
     let action: () -> Void
     
+    @Environment(\.theme) var theme
+    
     var body: some View {
         HStack(alignment: .center) {
             HStack(alignment: .center) {
@@ -29,7 +31,7 @@ struct HaEventBuyButton: View {
                     .padding()
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
-                    .background(buttonEnabled ? Color.red : Color.gray)
+                    .background(buttonEnabled ? theme.accent : Color.gray)
                     .foregroundColor(.white)
                     .cornerRadius(16)
                     .disabled(!buttonEnabled)

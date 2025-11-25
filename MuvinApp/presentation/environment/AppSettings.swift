@@ -7,4 +7,5 @@
 
 struct AppSettings {
     let appName = "Muvin"
+    let homePath = "event"
 }
