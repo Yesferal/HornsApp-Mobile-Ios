@@ -19,6 +19,8 @@ struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @Environment(\.theme) var theme
+
     var body: some View {
         let event = vm.data
         
@@ -33,7 +35,7 @@ struct DetailView: View {
                         AsyncImage(url: URL(string: event?.headlinerUrl ?? "")) { image in
                             image.resizable()
                         } placeholder: {
-                            Color.white
+                            theme.background
                         }
                         .overlay() {
                             ZStack {
@@ -55,16 +57,12 @@ struct DetailView: View {
                             .frame(width: 48)
                         
                         Circle()
-                            .fill(Color.red)
+                            .fill(theme.accent)
                             .frame(width: 8, height: 8)
                     }
                     
                     if vm.isLoading {
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                            .padding(20)
-                            .background(Color.white.opacity(0.7))
-                            .cornerRadius(12)
+                        HaProgressView()
                     } else {
                         
                         if let url = URL(string: event?.ticketingUrl ?? "") {

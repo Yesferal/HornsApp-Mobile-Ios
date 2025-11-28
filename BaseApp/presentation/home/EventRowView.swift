@@ -11,9 +11,12 @@ struct EventRowView: View {
     
     var event: EventModel
     
+    @Environment(\.theme) var theme
+    
     var body: some View {
         NavigationLink {
             DetailView(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth())
+                .background(theme.background)
         } label: {
             HStack(alignment: .top) {
                 VStack {
@@ -23,7 +26,7 @@ struct EventRowView: View {
                 AsyncImage(url: URL(string: event.headlinerUrl ?? "")) { image in
                     image.resizable()
                 } placeholder: {
-                    Color.white
+                    theme.background
                 }
                 .aspectRatio(1.6, contentMode: .fit)
                 .overlay() {

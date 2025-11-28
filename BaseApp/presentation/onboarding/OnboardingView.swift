@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
+    
+    @Environment(\.theme) var theme
     
     var body: some View {
         ZStack {
@@ -57,7 +60,7 @@ struct OnboardingView: View {
                     }
                     .padding()
                     .fontWeight(.bold)
-                    .background(Color.red)
+                    .background(theme.accent)
                     .foregroundColor(.white)
                     .cornerRadius(16)
                     .frame(alignment: .trailing)

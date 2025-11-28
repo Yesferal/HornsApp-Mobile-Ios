@@ -22,7 +22,7 @@ struct HaEventBuyButton: View {
             HStack(alignment: .center) {
                 Image(systemName: iconName)
                     .frame(width: 48)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(theme.secondaryText)
                 HaTittleSubTittle(title: title, subtitle: subtitle)
             }
             Spacer()
@@ -31,7 +31,7 @@ struct HaEventBuyButton: View {
                     .padding()
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
-                    .background(buttonEnabled ? theme.accent : Color.gray)
+                    .background(buttonEnabled ? theme.accent : theme.secondaryText)
                     .foregroundColor(.white)
                     .cornerRadius(16)
                     .disabled(!buttonEnabled)

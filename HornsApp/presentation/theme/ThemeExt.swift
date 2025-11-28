@@ -8,6 +8,8 @@
 import SwiftUI
 
 extension Theme {
+    static let uiUserInterfaceStyle = UIUserInterfaceStyle.light
+
     static let appTheme = Theme(
         primary: Color(hex: "#29303e"),
         accent: Color(hex: "#d1150c"),

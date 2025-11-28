@@ -9,21 +9,24 @@ import SwiftUI
 import HornsAppCore
 
 struct ContentView: View {
+    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
+    
     let showDevInfo = false
+    
     var localized = LocalizedString(en: "English!", es: "Español!").text ?? "Fake text"
     
-    @StateObject var vm = HomeViewModel()
-    
     var body: some View {
-        NavigationStack {
-            if (showDevInfo) {
-                Text("HornsAppCore: Version: " + HornsAppCoreVersion().version)
-                    .padding()
-                Text("Localized String: " + localized)
-                    .padding()
-            }
-            EventList()
-                .navigationTitle(LocalizedStringKey("home"))
+        if showDevInfo {
+            Text("HornsAppCore: Version: " + HornsAppCoreVersion().version)
+                .padding()
+            Text("Localized String: " + localized)
+                .padding()
+        }
+        
+        if hasSeenOnboarding {
+            HomeView()
+        } else {
+            OnboardingView()
         }
     }
 }

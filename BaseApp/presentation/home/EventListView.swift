@@ -13,16 +13,13 @@ struct EventList: View {
     var body: some View {
         ZStack {
             if vm.isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                    .padding(20)
-                    .background(Color.white.opacity(0.7))
-                    .cornerRadius(12)
+                HaProgressView()
             }
             
             List(vm.data) { event in
                 EventRowView(event: event)
-                    .listRowSeparator(.hidden)
+                    .listRowSeparator(.hidden) // remove divider line
+                    .listRowBackground(Color.clear) // remove row bg
             }
             .scrollContentBackground(.hidden) // Hides the default white card background
             .onAppear {

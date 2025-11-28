@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HaEventLink: View {
+   
+    @Environment(\.theme) var theme
+
     let iconName: String
     let title: String
     let subtitle: String
@@ -18,13 +21,13 @@ struct HaEventLink: View {
             HStack(alignment: .center) {
                 Image(systemName: iconName)
                     .frame(width: 48)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(theme.secondaryText)
                 HaTittleSubTittle(title: title, subtitle: subtitle)
                     .frame(maxHeight: .infinity, alignment: .center)
                 Spacer()
                 Image(systemName: "chevron.right")
                     .frame(maxHeight: .infinity, alignment: .center)
-                    .foregroundColor(.gray)
+                    .foregroundColor(theme.secondaryText)
             }
             .fixedSize(horizontal: false, vertical: true)
         }

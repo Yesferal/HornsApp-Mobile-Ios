@@ -9,17 +9,16 @@ import SwiftUI
 
 @main
 struct Application: App {
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
-    
     let theme: Theme = .appTheme
+    
+    init() {
+        UIView.appearance().overrideUserInterfaceStyle = Theme.uiUserInterfaceStyle
+    }
     
     var body: some Scene {
         WindowGroup {
-            if hasSeenOnboarding {
-                ContentView().environment(\.theme, theme)
-            } else {
-                OnboardingView().environment(\.theme, theme)
-            }
+            ContentView()
+                .environment(\.theme, theme)
         }
     }
 }
