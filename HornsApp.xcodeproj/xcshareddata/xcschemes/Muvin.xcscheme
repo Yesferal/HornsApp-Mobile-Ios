@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "72B3EC1D2ECFBC8A001F0579"
-               BuildableName = "Muvin.app"
-               BlueprintName = "Muvin"
+               BuildableName = "MuvinApp.app"
+               BlueprintName = "MuvinApp"
                ReferencedContainer = "container:HornsApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "72B3EC1D2ECFBC8A001F0579"
-            BuildableName = "Muvin.app"
-            BlueprintName = "Muvin"
+            BuildableName = "MuvinApp.app"
+            BlueprintName = "MuvinApp"
             ReferencedContainer = "container:HornsApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "72B3EC1D2ECFBC8A001F0579"
-            BuildableName = "Muvin.app"
-            BlueprintName = "Muvin"
+            BuildableName = "MuvinApp.app"
+            BlueprintName = "MuvinApp"
             ReferencedContainer = "container:HornsApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
