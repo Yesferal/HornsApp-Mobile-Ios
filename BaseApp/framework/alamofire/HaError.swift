@@ -7,4 +7,5 @@
 
 enum HaError: Error {
     case NetworkError
+    case FileNotFoundError
 }

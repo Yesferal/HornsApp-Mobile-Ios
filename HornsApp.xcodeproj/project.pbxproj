@@ -51,6 +51,7 @@
 				HornsAppAssets.xcassets,
 				presentation/environment/AppSettings.swift,
 				presentation/theme/ThemeExt.swift,
+				resources/app_render.json,
 			);
 			target = 72B3EC1D2ECFBC8A001F0579 /* MuvinApp */;
 		};
