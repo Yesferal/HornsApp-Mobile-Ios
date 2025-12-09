@@ -1,0 +1,674 @@
+{
+  "_id": "681afa726e0f80da2ce330c5",
+  "docVersion": 1,
+  "appVersion": 29,
+  "platform": "android",
+  "screens": [
+    {
+      "_id": "6803dc6c4eeba8b13550b2a8",
+      "key": "UPCOMING_SCREEN",
+      "title": {
+        "_id": "6803dc6c4eeba8b13550b2a9",
+        "en": "Upcoming",
+        "es": "Próximos"
+      },
+      "views": [],
+      "__v": 0
+    },
+    {
+      "_id": "681af8f86e0f80da2ce330c3",
+      "views": [
+        {
+          "children": {
+            "filter": {
+              "events": [
+                "680e68a1fd23ead6b0ca6c8c"
+              ],
+              "categories": []
+            },
+            "key": "CAROUSEL_CARD_VIEW",
+            "sort": [],
+            "take": 2
+          },
+          "key": "ROW_VIEW",
+          "style": {
+            "elevation": true,
+            "_id": "680de6b4fd23ead6b0ca641f"
+          },
+          "_id": "680dec41fd23ead6b0ca68a6"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "FIRST_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 50,
+            "_id": "680de6b4fd23ead6b0ca6420"
+          },
+          "_id": "680dec41fd23ead6b0ca68a8"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "UPCOMING_CARD_VIEW",
+            "sort": [],
+            "take": 3
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Upcoming",
+              "es": "Próximos",
+              "_id": "680de6b4fd23ead6b0ca6422"
+            },
+            "icon": "calendar",
+            "_id": "680de6b4fd23ead6b0ca6421"
+          },
+          "navigation": {
+            "key": "UPCOMING_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6423"
+          },
+          "_id": "680dec41fd23ead6b0ca68aa"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Follow us on TikTok",
+              "es": "Síguenos en TikTok",
+              "_id": "680de6b4fd23ead6b0ca6425"
+            },
+            "subtitle": {
+              "en": "Did you know about our TikTok? Follow us and find amazing LIVEs",
+              "es": "¿Sabías acerca de nuestro TikTok? Síguenos y encuentra increibles videos y LIVEs",
+              "_id": "680de6b4fd23ead6b0ca6426"
+            },
+            "icon": "tiktok",
+            "_id": "680de6b4fd23ead6b0ca6424"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#29303e",
+            "_id": "680debdbfd23ead6b0ca6859"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.tiktok.com/@hornsapp.pe"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6427"
+          },
+          "_id": "680dec41fd23ead6b0ca68ae"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "SECOND_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca6428"
+          },
+          "_id": "680dec41fd23ead6b0ca68b4"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Vivo x el Rock 2025",
+              "es": "Vivo x el Rock 2025",
+              "_id": "680de6b4fd23ead6b0ca6442"
+            },
+            "subtitle": {
+              "en": "#tiktok #video",
+              "es": "#tiktok #video",
+              "_id": "680de6b4fd23ead6b0ca6443"
+            },
+            "icon": "tiktok",
+            "imageUrl": "https://www.tuentrada.com.pe/wp-content/uploads/2024/10/Festival-Vivo-x-el-Rock-2025.webp",
+            "_id": "680de6b4fd23ead6b0ca6441"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.tiktok.com/@hornsapp.pe/video/7487738043923778821"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6444"
+          },
+          "_id": "680dec41fd23ead6b0ca68d8"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "68041b3bd6756ac71587fa1e"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Metal never dies",
+              "es": "Metal nunca muere",
+              "_id": "681b185357fc1eba7491f298"
+            },
+            "subtitle": {
+              "en": "#metal",
+              "es": "#metal",
+              "_id": "681b185357fc1eba7491f299"
+            },
+            "_id": "680de6b4fd23ead6b0ca642d"
+          },
+          "_id": "680dec41fd23ead6b0ca68bb"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Follow us on Instagram",
+              "es": "Síguenos en Instagram",
+              "_id": "680de6b4fd23ead6b0ca6431"
+            },
+            "subtitle": {
+              "en": "Did you know about our IG? Follow us and keep up posted.",
+              "es": "¿Sabías acerca de nuestro Instagram? Síguenos y mantente informado.",
+              "_id": "680de6b4fd23ead6b0ca6432"
+            },
+            "icon": "instagram",
+            "_id": "680de6b4fd23ead6b0ca6430"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#4f5bd5",
+            "_id": "680debdbfd23ead6b0ca6866"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.instagram.com/hornsapp.pe/"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6433"
+          },
+          "_id": "680dec41fd23ead6b0ca68bf"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "FIRST_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca6434"
+          },
+          "_id": "680dec41fd23ead6b0ca68c5"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "System of a Down 2025",
+              "es": "System of a Down 2025",
+              "_id": "680de6b4fd23ead6b0ca644e"
+            },
+            "subtitle": {
+              "en": "#spotify #playlist",
+              "es": "#spotify #playlist",
+              "_id": "680de6b4fd23ead6b0ca644f"
+            },
+            "icon": "spotify",
+            "imageUrl": "https://miro.medium.com/v2/resize:fit:960/1*xUPOJZxKjC5DU_ldU5_LWw.jpeg",
+            "_id": "680de6b4fd23ead6b0ca644d"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://open.spotify.com/playlist/4AQo80QTh0l3bqVNBAsRzP?si=6fb068fa113a4c00"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6450"
+          },
+          "_id": "680dec41fd23ead6b0ca68e9"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "68041bb4a5203cc93bbd2e59"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Keep on rocking",
+              "es": "Siempre el Rock es prioridad",
+              "_id": "681b191657fc1eba7491f70c"
+            },
+            "subtitle": {
+              "en": "#rock",
+              "es": "#rock",
+              "_id": "681b191657fc1eba7491f70d"
+            },
+            "_id": "680de6b4fd23ead6b0ca6439"
+          },
+          "_id": "680dec41fd23ead6b0ca68cc"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Follow us on Spotify",
+              "es": "Síguenos en Spotify",
+              "_id": "680de6b4fd23ead6b0ca643d"
+            },
+            "subtitle": {
+              "en": "Did you know about our playlists on Spotify? There are a bunch of them waiting for you.",
+              "es": "¿Sabías acerca de nuestras playlists en Spotify? Hay muchas esperando por ti.",
+              "_id": "680de6b4fd23ead6b0ca643e"
+            },
+            "icon": "spotify",
+            "_id": "680de6b4fd23ead6b0ca643c"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#1DB954",
+            "_id": "680debdbfd23ead6b0ca6873"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://open.spotify.com/user/vhx70zw6rpz3qm8u2fsplhwg1"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca643f"
+          },
+          "_id": "680dec41fd23ead6b0ca68d0"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "SECOND_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca6440"
+          },
+          "_id": "680dec41fd23ead6b0ca68d6"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Wacken Friday, 5 August 2023",
+              "es": "Wacken 5 de agosto, 2023",
+              "_id": "680de6b4fd23ead6b0ca6442"
+            },
+            "subtitle": {
+              "en": "#tiktok #video",
+              "es": "#tiktok #video",
+              "_id": "680de6b4fd23ead6b0ca6443"
+            },
+            "icon": "tiktok",
+            "imageUrl": "https://metal.b-cdn.net/wp-content/uploads/2022/08/wacken2023-lineup-headliner-1.jpeg",
+            "_id": "680de6b4fd23ead6b0ca6441"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.tiktok.com/@hornsapp.pe/video/7275671660118822150"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6444"
+          },
+          "_id": "680dec41fd23ead6b0ca68d8"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "680a6b1f6c0fbf6561d8ed15"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Music is life",
+              "es": "La musica nos mueve",
+              "_id": "680de6b4fd23ead6b0ca6446"
+            },
+            "subtitle": {
+              "en": "#concerts",
+              "es": "#conciertos",
+              "_id": "680de6b4fd23ead6b0ca6447"
+            },
+            "_id": "680de6b4fd23ead6b0ca6445"
+          },
+          "_id": "680dec41fd23ead6b0ca68dd"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Save your favorites",
+              "es": "Guarda tus favoritos",
+              "_id": "680de6b4fd23ead6b0ca6449"
+            },
+            "subtitle": {
+              "en": "You can save your favorite concerts now, so you can find them easily later.",
+              "es": "Ya puedes guardar tus conciertos favoritos y así encontrarlos más fácil luego.",
+              "_id": "680de6b4fd23ead6b0ca644a"
+            },
+            "icon": "favorite",
+            "_id": "680de6b4fd23ead6b0ca6448"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#d1150c",
+            "_id": "680debdbfd23ead6b0ca6880"
+          },
+          "navigation": {
+            "key": "FAVORITE_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca644b"
+          },
+          "_id": "680dec41fd23ead6b0ca68e1"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "FIRST_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca644c"
+          },
+          "_id": "680dec41fd23ead6b0ca68e7"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "System of a Down at Lima",
+              "es": "System of a Down en Lima",
+              "_id": "680de6b4fd23ead6b0ca645a"
+            },
+            "subtitle": {
+              "en": "#tiktok #video",
+              "es": "#tiktok #video",
+              "_id": "680de6b4fd23ead6b0ca645b"
+            },
+            "icon": "tiktok",
+            "imageUrl": "https://i.ytimg.com/vi/FfzJvz3tpK0/maxresdefault.jpg",
+            "_id": "680de6b4fd23ead6b0ca6459"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.tiktok.com/@hornsapp.pe/video/7498212828382301445"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca645c"
+          },
+          "_id": "680dec41fd23ead6b0ca68fa"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "681afac457fc1eba7491e8e0"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Pop is a feeling",
+              "es": "El pop es un sentimiento",
+              "_id": "680de6b4fd23ead6b0ca6452"
+            },
+            "subtitle": {
+              "en": "#pop",
+              "es": "#pop",
+              "_id": "680de6b4fd23ead6b0ca6453"
+            },
+            "_id": "680de6b4fd23ead6b0ca6451"
+          },
+          "_id": "680dec41fd23ead6b0ca68ee"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Follow us on Facebook",
+              "es": "Síguenos en Facebook",
+              "_id": "680de6b4fd23ead6b0ca6455"
+            },
+            "subtitle": {
+              "en": "Did you know about our Facebook? Follow us and keep up posted.",
+              "es": "¿Sabías acerca de nuestro Facebook? Síguenos y mantente informado.",
+              "_id": "680de6b4fd23ead6b0ca6456"
+            },
+            "icon": "facebook",
+            "_id": "680de6b4fd23ead6b0ca6454"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#3b5998",
+            "_id": "680debdbfd23ead6b0ca688d"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.facebook.com/profile.php?id=100090226749195"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6457"
+          },
+          "_id": "680dec41fd23ead6b0ca68f2"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "SECOND_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca6458"
+          },
+          "_id": "680dec41fd23ead6b0ca68f8"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "In Flames at Summer Breeze 2023",
+              "es": "In Flames en Summer Breeze 2023",
+              "_id": "680de6b4fd23ead6b0ca645a"
+            },
+            "subtitle": {
+              "en": "#youtube #video",
+              "es": "#youtube #video",
+              "_id": "680de6b4fd23ead6b0ca645b"
+            },
+            "icon": "youtube",
+            "imageUrl": "https://images.squarespace-cdn.com/content/v1/57f2b82b29687fb32444a615/1662399330082-4ICDC7ACUZOVVZG9ZWN8/image-asset.jpeg",
+            "_id": "680de6b4fd23ead6b0ca6459"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.youtube.com/watch?v=34BHbbQmr7s"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca645c"
+          },
+          "_id": "680dec41fd23ead6b0ca68fa"
+        }
+      ],
+      "key": "RENDER_SCREEN",
+      "title": {
+        "en": "HornsApp",
+        "es": "HornsApp",
+        "_id": "6803cf1e8065d89d4b13171e"
+      }
+    },
+    {
+      "_id": "6803dc8b4eeba8b13550b388",
+      "key": "FAVORITE_SCREEN",
+      "title": {
+        "_id": "6803dc8b4eeba8b13550b389",
+        "en": "Favorites",
+        "es": "Favoritos"
+      },
+      "views": [],
+      "__v": 0
+    }
+  ],
+  "appId": "com.yesferal.hornsapp",
+  "categories": [
+    {
+      "_id": "68041b3bd6756ac71587fa1e",
+      "key": "METAL",
+      "__v": 0,
+      "name": {
+        "_id": "68041b7ba5203cc93bbd2e53",
+        "en": "Metal",
+        "es": "Metal"
+      }
+    },
+    {
+      "_id": "681afac457fc1eba7491e8e0",
+      "key": "POP",
+      "name": {
+        "en": "Pop",
+        "es": "Pop",
+        "_id": "681afac457fc1eba7491e8e1"
+      },
+      "__v": 0
+    },
+    {
+      "_id": "68041bb4a5203cc93bbd2e59",
+      "key": "ROCK",
+      "name": {
+        "_id": "68041bb4a5203cc93bbd2e5a",
+        "en": "Rock",
+        "es": "Rock"
+      },
+      "__v": 0
+    }
+  ]
+}

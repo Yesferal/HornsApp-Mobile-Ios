@@ -1,0 +1,800 @@
+{
+  "_id": "680059898b2d7d614172ea3c",
+  "docVersion": 1,
+  "appVersion": 29,
+  "platform": "android",
+  "screens": [
+    {
+      "_id": "6803dc6c4eeba8b13550b2a8",
+      "key": "UPCOMING_SCREEN",
+      "title": {
+        "_id": "6803dc6c4eeba8b13550b2a9",
+        "en": "Upcoming",
+        "es": "Próximos"
+      },
+      "views": [],
+      "__v": 0
+    },
+    {
+      "_id": "680de6604e764417408ffd69",
+      "views": [
+        {
+          "children": {
+            "filter": {
+              "events": [
+                "680e68a1fd23ead6b0ca6c8c"
+              ],
+              "categories": []
+            },
+            "key": "CAROUSEL_CARD_VIEW",
+            "sort": [],
+            "take": 2
+          },
+          "key": "ROW_VIEW",
+          "style": {
+            "elevation": true,
+            "_id": "680de6b4fd23ead6b0ca641f"
+          },
+          "_id": "680dec41fd23ead6b0ca68a6"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "FIRST_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 50,
+            "_id": "680de6b4fd23ead6b0ca6420"
+          },
+          "_id": "680dec41fd23ead6b0ca68a8"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "UPCOMING_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Upcoming",
+              "es": "Próximos",
+              "_id": "680de6b4fd23ead6b0ca6422"
+            },
+            "icon": "calendar",
+            "_id": "680de6b4fd23ead6b0ca6421"
+          },
+          "navigation": {
+            "key": "UPCOMING_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6423"
+          },
+          "_id": "680dec41fd23ead6b0ca68aa"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Follow us on TikTok",
+              "es": "Síguenos en TikTok",
+              "_id": "680de6b4fd23ead6b0ca6425"
+            },
+            "subtitle": {
+              "en": "Did you know about our TikTok? Follow us and find amazing LIVEs",
+              "es": "¿Sabías acerca de nuestro TikTok? Síguenos y encuentra increibles videos y LIVEs",
+              "_id": "680de6b4fd23ead6b0ca6426"
+            },
+            "icon": "tiktok",
+            "_id": "680de6b4fd23ead6b0ca6424"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#29303e",
+            "_id": "680debdbfd23ead6b0ca6859"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.tiktok.com/@muvinapp"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6427"
+          },
+          "_id": "680dec41fd23ead6b0ca68ae"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "SECOND_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca6428"
+          },
+          "_id": "680dec41fd23ead6b0ca68b4"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Yoga at Miraflores",
+              "es": "Yoga al aire libre",
+              "_id": "680de6b4fd23ead6b0ca642a"
+            },
+            "subtitle": {
+              "en": "#instagram #sport",
+              "es": "#instagram #deporte",
+              "_id": "680de6b4fd23ead6b0ca642b"
+            },
+            "icon": "instagram",
+            "imageUrl": "https://thumbs.dreamstime.com/b/group-women-doing-yoga-park-vector-illustration-42067023.jpg",
+            "_id": "680de6b4fd23ead6b0ca6429"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.instagram.com/p/DJNN4foBRIu"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca642c"
+          },
+          "_id": "680dec41fd23ead6b0ca68b6"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "680a6b1f6c0fbf6561d8ed15"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Music is life",
+              "es": "La musica nos mueve",
+              "_id": "680de6b4fd23ead6b0ca642e"
+            },
+            "subtitle": {
+              "en": "#concert",
+              "es": "#conciertos",
+              "_id": "680de6b4fd23ead6b0ca642f"
+            },
+            "_id": "680de6b4fd23ead6b0ca642d"
+          },
+          "_id": "680dec41fd23ead6b0ca68bb"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Follow us on Instagram",
+              "es": "Síguenos en Instagram",
+              "_id": "680de6b4fd23ead6b0ca6431"
+            },
+            "subtitle": {
+              "en": "Did you know about our IG? Follow us and keep up posted.",
+              "es": "¿Sabías acerca de nuestro Instagram? Síguenos y mantente informado.",
+              "_id": "680de6b4fd23ead6b0ca6432"
+            },
+            "icon": "instagram",
+            "_id": "680de6b4fd23ead6b0ca6430"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#4f5bd5",
+            "_id": "680debdbfd23ead6b0ca6866"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.instagram.com/muvinapp.pe/"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6433"
+          },
+          "_id": "680dec41fd23ead6b0ca68bf"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "FIRST_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca6434"
+          },
+          "_id": "680dec41fd23ead6b0ca68c5"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Dear Evan Hansen",
+              "es": "Querido Evan Hansen",
+              "_id": "680de6b4fd23ead6b0ca6436"
+            },
+            "subtitle": {
+              "en": "#musical",
+              "es": "#musical",
+              "_id": "680de6b4fd23ead6b0ca6437"
+            },
+            "imageUrl": "https://cdn.teleticket.com.pe/especiales/querido-evan-hansen-2025/images/fondo-evento-3.jpg",
+            "_id": "680de6b4fd23ead6b0ca6435"
+          },
+          "navigation": {
+            "parameters": {
+              "param_parcelable_view_data": {
+                "id": ""
+              },
+              "param_android_uri": "https://www.instagram.com/preludioac/p/DHeP1uXugy1/"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6438"
+          },
+          "_id": "680dec41fd23ead6b0ca68c7"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "680a6b316c0fbf6561d8ed1f"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Enjoy the Fest",
+              "es": "Disfruta de un festival",
+              "_id": "680de6b4fd23ead6b0ca642e"
+            },
+            "subtitle": {
+              "en": "#fest",
+              "es": "#festival",
+              "_id": "680de6b4fd23ead6b0ca642f"
+            },
+            "_id": "680de6b4fd23ead6b0ca6439"
+          },
+          "_id": "680dec41fd23ead6b0ca68cc"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Follow us on Spotify",
+              "es": "Síguenos en Spotify",
+              "_id": "680de6b4fd23ead6b0ca643d"
+            },
+            "subtitle": {
+              "en": "Did you know about our playlists on Spotify? There are a bunch of them waiting for you.",
+              "es": "¿Sabías acerca de nuestras playlists en Spotify? Hay muchas esperando por ti.",
+              "_id": "680de6b4fd23ead6b0ca643e"
+            },
+            "icon": "spotify",
+            "_id": "680de6b4fd23ead6b0ca643c"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#1DB954",
+            "_id": "680debdbfd23ead6b0ca6873"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://open.spotify.com/user/vhx70zw6rpz3qm8u2fsplhwg1"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca643f"
+          },
+          "_id": "680dec41fd23ead6b0ca68d0"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "SECOND_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca6440"
+          },
+          "_id": "680dec41fd23ead6b0ca68d6"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Vivo x el Rock 2025",
+              "es": "Vivo x el Rock 2025",
+              "_id": "680de6b4fd23ead6b0ca6442"
+            },
+            "subtitle": {
+              "en": "#tiktok #video",
+              "es": "#tiktok #video",
+              "_id": "680de6b4fd23ead6b0ca6443"
+            },
+            "icon": "tiktok",
+            "imageUrl": "https://www.tuentrada.com.pe/wp-content/uploads/2024/10/Festival-Vivo-x-el-Rock-2025.webp",
+            "_id": "680de6b4fd23ead6b0ca6441"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.tiktok.com/@hornsapp.pe/video/7487738043923778821"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6444"
+          },
+          "_id": "680dec41fd23ead6b0ca68d8"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "680e75c4fd23ead6b0ca7f51"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Pick a Free Plan",
+              "es": "Planes gratis para ti",
+              "_id": "680de6b4fd23ead6b0ca642e"
+            },
+            "subtitle": {
+              "en": "#free",
+              "es": "#gratis",
+              "_id": "680de6b4fd23ead6b0ca642f"
+            },
+            "_id": "680de6b4fd23ead6b0ca6439"
+          },
+          "_id": "680dec41fd23ead6b0ca68cc"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Save your favorites",
+              "es": "Guarda tus favoritos",
+              "_id": "680de6b4fd23ead6b0ca6449"
+            },
+            "subtitle": {
+              "en": "You can save your favorite concerts now, so you can find them easily later.",
+              "es": "Ya puedes guardar tus conciertos favoritos y así encontrarlos más fácil luego.",
+              "_id": "680de6b4fd23ead6b0ca644a"
+            },
+            "icon": "favorite",
+            "_id": "680de6b4fd23ead6b0ca6448"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#F61B83",
+            "_id": "680debdbfd23ead6b0ca6880"
+          },
+          "navigation": {
+            "key": "FAVORITE",
+            "_id": "680de6b4fd23ead6b0ca644b"
+          },
+          "_id": "680dec41fd23ead6b0ca68e1"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "FIRST_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca644c"
+          },
+          "_id": "680dec41fd23ead6b0ca68e7"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "LoserVille 2025",
+              "es": "LoserVille 2025",
+              "_id": "680de6b4fd23ead6b0ca644e"
+            },
+            "subtitle": {
+              "en": "#spotify #playlist",
+              "es": "#spotify #playlist",
+              "_id": "680de6b4fd23ead6b0ca644f"
+            },
+            "icon": "spotify",
+            "imageUrl": "https://www.nme.com/wp-content/uploads/2025/08/limp-bizkit4@2000x1270-696x442.jpg",
+            "_id": "680de6b4fd23ead6b0ca644d"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://open.spotify.com/playlist/7raYmGskCRguQGZB3Xx6dq?si=6ddfb61a3bad40cf"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6450"
+          },
+          "_id": "680dec41fd23ead6b0ca68e9"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "6809c52f6c0fbf6561d8e6d4"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Your Story Begins Here",
+              "es": "Aqui empieza tu historia",
+              "_id": "680de6b4fd23ead6b0ca642e"
+            },
+            "subtitle": {
+              "en": "#museum",
+              "es": "#museo",
+              "_id": "680de6b4fd23ead6b0ca642f"
+            },
+            "_id": "680de6b4fd23ead6b0ca6445"
+          },
+          "_id": "680dec41fd23ead6b0ca68dd"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "680e726cfd23ead6b0ca76cb"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Sing along",
+              "es": "Canta con nosotros",
+              "_id": "680de6b4fd23ead6b0ca6452"
+            },
+            "subtitle": {
+              "en": "#musical",
+              "es": "#musical",
+              "_id": "680de6b4fd23ead6b0ca6453"
+            },
+            "_id": "680de6b4fd23ead6b0ca6451"
+          },
+          "_id": "680dec41fd23ead6b0ca68ee"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "ICON_CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "Follow us on Facebook",
+              "es": "Síguenos en Facebook",
+              "_id": "680de6b4fd23ead6b0ca6455"
+            },
+            "subtitle": {
+              "en": "Did you know about our Facebook? Follow us and keep up posted.",
+              "es": "¿Sabías acerca de nuestro Facebook? Síguenos y mantente informado.",
+              "_id": "680de6b4fd23ead6b0ca6456"
+            },
+            "icon": "facebook",
+            "_id": "680de6b4fd23ead6b0ca6454"
+          },
+          "style": {
+            "textColor": "#FFFFFF",
+            "backgroundColor": "#3b5998",
+            "_id": "680debdbfd23ead6b0ca688d"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.facebook.com/muvinapp.pe"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca6457"
+          },
+          "_id": "680dec41fd23ead6b0ca68f2"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "key": "SECOND_NEWEST_LIST",
+            "sort": []
+          },
+          "key": "AD_VIEW",
+          "style": {
+            "height": 250,
+            "_id": "680de6b4fd23ead6b0ca6458"
+          },
+          "_id": "680dec41fd23ead6b0ca68f8"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": []
+            },
+            "sort": []
+          },
+          "key": "CARD_VIEW",
+          "data": {
+            "title": {
+              "en": "System of a Down at Lima",
+              "es": "System of a Down en Lima",
+              "_id": "680de6b4fd23ead6b0ca645a"
+            },
+            "subtitle": {
+              "en": "#tiktok #video",
+              "es": "#tiktok #video",
+              "_id": "680de6b4fd23ead6b0ca645b"
+            },
+            "icon": "tiktok",
+            "imageUrl": "https://i.ytimg.com/vi/FfzJvz3tpK0/maxresdefault.jpg",
+            "_id": "680de6b4fd23ead6b0ca6459"
+          },
+          "navigation": {
+            "parameters": {
+              "param_android_uri": "https://www.tiktok.com/@hornsapp.pe/video/7498212828382301445"
+            },
+            "key": "WEB_VIEW_SCREEN",
+            "_id": "680de6b4fd23ead6b0ca645c"
+          },
+          "_id": "680dec41fd23ead6b0ca68fa"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "680a6b466c0fbf6561d8ed2b"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Run for your life",
+              "es": "Corre por tu salud",
+              "_id": "680de6b4fd23ead6b0ca643a"
+            },
+            "subtitle": {
+              "en": "#sport",
+              "es": "#deporte",
+              "_id": "680de6b4fd23ead6b0ca643b"
+            },
+            "_id": "680de6b4fd23ead6b0ca6451"
+          },
+          "_id": "680dec41fd23ead6b0ca68ee"
+        },
+        {
+          "children": {
+            "filter": {
+              "events": [],
+              "categories": [
+                "680a6b586c0fbf6561d8ed39"
+              ]
+            },
+            "key": "UPCOMING_IMAGE_CARD_VIEW",
+            "sort": [],
+            "take": 4
+          },
+          "key": "COLUMN_VIEW",
+          "data": {
+            "title": {
+              "en": "Theaters at Night",
+              "es": "Noches de teatros",
+              "_id": "680de6b4fd23ead6b0ca6452"
+            },
+            "subtitle": {
+              "en": "#theater",
+              "es": "#teatro",
+              "_id": "680de6b4fd23ead6b0ca6453"
+            },
+            "_id": "680de6b4fd23ead6b0ca642d"
+          },
+          "_id": "680dec41fd23ead6b0ca68bb"
+        }
+      ],
+      "key": "RENDER_SCREEN",
+      "title": {
+        "en": "Muvin",
+        "es": "Muvin",
+        "_id": "6803cf1e8065d89d4b13171e"
+      }
+    },
+    {
+      "_id": "6803dc8b4eeba8b13550b388",
+      "key": "FAVORITE_SCREEN",
+      "title": {
+        "_id": "6803dc8b4eeba8b13550b389",
+        "en": "Favorites",
+        "es": "Favoritos"
+      },
+      "views": [],
+      "__v": 0
+    }
+  ],
+  "appId": "com.yesferal.muvin",
+  "categories": [
+    {
+      "_id": "6809c52f6c0fbf6561d8e6d4",
+      "key": "MUSEUM",
+      "name": {
+        "_id": "6809c52f6c0fbf6561d8e6d5",
+        "en": "Museum",
+        "es": "Museo"
+      },
+      "__v": 0
+    },
+    {
+      "_id": "680a6b1f6c0fbf6561d8ed15",
+      "key": "CONCERT",
+      "name": {
+        "_id": "680a6b1f6c0fbf6561d8ed16",
+        "en": "Concert",
+        "es": "Concierto"
+      },
+      "__v": 0
+    },
+    {
+      "_id": "680a6b316c0fbf6561d8ed1f",
+      "key": "FEST",
+      "name": {
+        "_id": "680a6b316c0fbf6561d8ed20",
+        "en": "Festival",
+        "es": "Festival"
+      },
+      "__v": 0
+    },
+    {
+      "_id": "680a6b466c0fbf6561d8ed2b",
+      "key": "SPORT",
+      "name": {
+        "_id": "680a6b466c0fbf6561d8ed2c",
+        "en": "Sport",
+        "es": "Deporte"
+      },
+      "__v": 0
+    },
+    {
+      "_id": "680a6b586c0fbf6561d8ed39",
+      "key": "THEATER",
+      "name": {
+        "_id": "680a6b586c0fbf6561d8ed3a",
+        "en": "Theater",
+        "es": "Teatro"
+      },
+      "__v": 0
+    },
+    {
+      "_id": "680e726cfd23ead6b0ca76cb",
+      "key": "MUSICAL",
+      "name": {
+        "_id": "680e726cfd23ead6b0ca76cc",
+        "en": "Musical",
+        "es": "Musical"
+      },
+      "__v": 0
+    },
+    {
+      "_id": "680e75c4fd23ead6b0ca7f51",
+      "key": "FREE",
+      "name": {
+        "_id": "680e75c4fd23ead6b0ca7f52",
+        "en": "Free",
+        "es": "Gratis"
+      },
+      "__v": 0
+    }
+  ]
+}
