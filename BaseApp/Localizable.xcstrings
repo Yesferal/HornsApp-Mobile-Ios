@@ -170,6 +170,9 @@
         }
       }
     },
+    "ScreenRender" : {
+
+    },
     "unavailable" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -17,7 +17,7 @@ struct ContentView: View {
     
     var body: some View {
         if showDevInfo {
-            Text("HornsAppCore: Version: " + HornsAppCoreVersion().version)
+            Text("HornsAppCore: Version: " + HornsAppCoreConfig().hornsAppCoreLibVersion)
                 .padding()
             Text("Localized String: " + localized)
                 .padding()
@@ -25,6 +25,7 @@ struct ContentView: View {
         
         if hasSeenOnboarding {
             HomeView()
+            //ScreenRenderView()
         } else {
             OnboardingView()
         }
