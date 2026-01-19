@@ -12,10 +12,11 @@ struct CarouselViewData: View {
     
     @Environment(\.theme) var theme
     
+    @EnvironmentObject var router: Router
+    
     var body: some View {
-        NavigationLink {
-            DetailView(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth())
-                .background(theme.background)
+        Button {
+            router.navigate(to: .details(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth()))
         } label: {
             VStack {
                 AsyncImage(url: URL(string: event.headlinerUrl ?? "")) { image in
