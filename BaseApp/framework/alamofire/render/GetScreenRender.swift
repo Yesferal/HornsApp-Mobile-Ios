@@ -8,11 +8,11 @@
 import HornsAppCore
 
 class GetScreenRender: Decodable {
-    var key: String?
-    var _id: String?
-    var title: GetText?
-    var views: [GetViewRender]?
-    var visibility: Bool?
+    let key: String?
+    let _id: String?
+    let title: GetText?
+    let views: [GetViewRender]?
+    let visibility: Bool?
     
     func mapToScreenRender() -> ScreenRender {
         let coreViews = views?.map {

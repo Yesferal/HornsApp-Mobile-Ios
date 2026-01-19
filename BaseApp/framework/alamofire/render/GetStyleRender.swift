@@ -8,12 +8,12 @@
 import HornsAppCore
 
 class GetStyleRender: Decodable {
-    var width: Int?
-    var height: Int?
-    var textColor: String?
-    var backgroundColor: String?
-    var elevation: Bool?
-    var visibility: Bool?
+    let width: Int?
+    let height: Int?
+    let textColor: String?
+    let backgroundColor: String?
+    let elevation: Bool?
+    let visibility: Bool?
     
     func mapToStyleRender() -> StyleRender {
         return StyleRender(width: width.toKotlinInt(), height: height.toKotlinInt(), textColor: textColor, backgroundColor: backgroundColor, elevation: elevation.toKotlinBool(), visibility: visibility.toKotlinBool())

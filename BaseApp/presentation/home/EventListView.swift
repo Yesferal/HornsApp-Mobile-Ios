@@ -17,7 +17,7 @@ struct EventList: View {
             }
             
             List(vm.data) { event in
-                EventRowView(event: event)
+                UpcomingViewData(event: event)
                     .listRowSeparator(.hidden) // remove divider line
                     .listRowBackground(Color.clear) // remove row bg
             }

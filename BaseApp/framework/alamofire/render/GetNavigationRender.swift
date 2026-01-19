@@ -8,8 +8,8 @@
 import HornsAppCore
 
 class GetNavigatorRender: Decodable {
-    var key: String?
-    var parameters: [String: StringOrObject<[String:String]>]?
+    let key: String?
+    let parameters: [String: StringOrObject<[String:String]>]?
     
     func mapToNavigatorRender() -> NavigatorRender {
         let kotlinDict = KotlinMutableDictionary<NSString, AnyObject>()

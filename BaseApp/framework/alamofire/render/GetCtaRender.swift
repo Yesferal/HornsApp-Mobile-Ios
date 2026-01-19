@@ -8,11 +8,11 @@
 import HornsAppCore
 
 class GetCtaRender: Decodable {
-    var title: GetText?
-    var textColor: String?
-    var backgroundColor: String?
-    var align: String?
-    var navigation: GetNavigatorRender?
+    let title: GetText?
+    let textColor: String?
+    let backgroundColor: String?
+    let align: String?
+    let navigation: GetNavigatorRender?
     
     func mapToCtaRender() -> CtaRender {
         return CtaRender(title: title?.asLocalizedString(), textColor: textColor, backgroundColor: backgroundColor, align: align, navigation: navigation?.mapToNavigatorRender())

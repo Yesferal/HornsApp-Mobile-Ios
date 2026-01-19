@@ -8,11 +8,11 @@
 import HornsAppCore
 
 class GetAppRender: Decodable {
-    var platform: String?
-    var appId: String?
-    var docVersion: Int64?
-    var appVersion: Int64?
-    var screens: [GetScreenRender]?
+    let platform: String?
+    let appId: String?
+    let docVersion: Int64?
+    let appVersion: Int64?
+    let screens: [GetScreenRender]?
     let categories: [GetCategoryRender]?
     
     func mapToAppRender() -> AppRender {

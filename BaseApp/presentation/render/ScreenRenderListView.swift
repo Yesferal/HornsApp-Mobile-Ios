@@ -17,11 +17,14 @@ struct ScreenRenderListView: View {
                 HaProgressView()
             }
             
-            List(vm.data) { event in
-                EventRowView(event: event)
-                    .listRowSeparator(.hidden) // remove divider line
-                    .listRowBackground(Color.clear) // remove row bg
+            List(vm.data) { view in
+                render(view.data)
+                    .listRowSeparator(.hidden) // Remove divider line
+                    .listRowBackground(Color.clear) // Remove row bg
+                    .listRowInsets(.init()) // Remove padding
+                    .listRowSeparator(.hidden) // Remove padding
             }
+            .listStyle(.plain) // Remove padding
             .scrollContentBackground(.hidden) // Hides the default white card background
             .onAppear {
                 if vm.data.isEmpty {

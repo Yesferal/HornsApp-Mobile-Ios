@@ -8,12 +8,12 @@
 import HornsAppCore
 
 class GetDataRender: Decodable {
-    var title: GetText?
-    var subtitle: GetText?
-    var description: GetText?
-    var icon: String?
-    var imageUrl: String?
-    var ctas: [GetCtaRender]?
+    let title: GetText?
+    let subtitle: GetText?
+    let description: GetText?
+    let icon: String?
+    let imageUrl: String?
+    let ctas: [GetCtaRender]?
     
     func mapToDataRender() -> DataRender {
         let coreCtas = ctas?.map {

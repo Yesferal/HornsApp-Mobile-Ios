@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EventRowView: View {
+struct UpcomingViewData: View {
     
     var event: EventModel
     
