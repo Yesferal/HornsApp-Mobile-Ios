@@ -15,32 +15,45 @@ struct CarouselViewData: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-        Button {
-            router.navigate(to: .details(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth()))
-        } label: {
-            VStack {
-                AsyncImage(url: URL(string: event.headlinerUrl ?? "")) { image in
-                    image.resizable()
-                } placeholder: {
-                    theme.background
+        VStack {
+            AsyncImage(url: URL(string: event.headlinerUrl ?? "")) { image in
+                image.resizable()
+            } placeholder: {
+                theme.background
+            }
+            .aspectRatio(1.6, contentMode: .fit)
+            .overlay() {
+                ZStack {
+                    Spacer()
                 }
-                .aspectRatio(1.6, contentMode: .fit)
-                .overlay() {
-                    ZStack {
-                        Spacer()
+                .background(Color.black.opacity(0.5))
+            }
+            .onTapGesture {
+                router.navigate(to: .details(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth()))
+            }
+            
+            HStack {
+                VStack {
+                    Text(event.name ?? "")
+                        .foregroundColor(theme.primaryText)
+                        .font(.headline)
+                        .bold()
+                    
+                    HaIconText(icon: "calendar", text: event.getEventTime())
+                        .background(theme.background)
+                    HaIconText(icon: "mic", text: event.headlinerName ?? "")
+                        .background(theme.background)
+                }
+                .onTapGesture {
+                    router.navigate(to: .details(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth()))
+                }
+                
+                if let url = URL(string: event.ticketingUrl ?? "") {
+                    CtaViewData(actionText: event.ticketingName, buttonEnabled: true) {
+                        UIApplication.shared.open(url)
                     }
-                    .background(Color.black.opacity(0.5))
                 }
-                
-                Text(event.name ?? "")
-                    .font(.headline)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                HaIconText(icon: "calendar", text: event.getEventTime())
-                HaIconText(icon: "mic", text: event.headlinerName ?? "")
             }
         }
-        .buttonStyle(.plain)
     }
 }

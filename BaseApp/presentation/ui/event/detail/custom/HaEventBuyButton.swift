@@ -26,16 +26,7 @@ struct HaEventBuyButton: View {
                 HaTittleSubTittle(title: title, subtitle: subtitle)
             }
             Spacer()
-            if let buttonText = actionText {
-                Button(buttonText, action: action)
-                    .padding()
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity)
-                    .background(buttonEnabled ? theme.accent : theme.secondaryText)
-                    .foregroundColor(.white)
-                    .cornerRadius(16)
-                    .disabled(!buttonEnabled)
-            }
+            CtaViewData(actionText: actionText, buttonEnabled: buttonEnabled, action: action)
         }
         
     }

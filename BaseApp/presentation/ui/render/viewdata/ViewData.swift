@@ -16,6 +16,7 @@ enum ViewData {
     case divider
     case carousel(eventModel: EventModel)
     case upcoming(eventModel: EventModel)
+    case upcomingCompact(eventModel: EventModel)
 }
 
 @ViewBuilder
@@ -27,5 +28,7 @@ func render(_ viewData: ViewData) -> some View {
         CarouselViewData(event: eventModel)
     case .upcoming(let eventModel):
         UpcomingViewData(event: eventModel)
+    case .upcomingCompact(let eventModel):
+        UpcomingCompactViewData(event: eventModel)
     }
 }

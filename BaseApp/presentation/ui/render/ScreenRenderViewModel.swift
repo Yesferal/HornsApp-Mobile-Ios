@@ -36,6 +36,7 @@ import HornsAppCore
                     ViewItem(id: UUID(), data: .carousel(eventModel: EventModel.fromApi(events: events)[0])),
                     ViewItem(id: UUID(), data: .divider),
                     ViewItem(id: UUID(), data: .upcoming(eventModel: EventModel.fromApi(events: events)[0])),
+                    ViewItem(id: UUID(), data: .upcomingCompact(eventModel: EventModel.fromApi(events: events)[0])),
                 ]
                 return
             case .failed:

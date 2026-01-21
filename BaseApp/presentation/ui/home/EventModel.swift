@@ -22,7 +22,7 @@ struct EventModel: Identifiable {
     
     static func fromApi(events: [GetEvents]) -> [EventModel] {
         return events.map {
-            EventModel(id: $0._id, name: $0.name, dateTime: formatStringAsDate($0.dateTime), headlinerUrl: $0.headliner?.url, headlinerName: $0.headliner?.name)
+            EventModel(id: $0._id, name: $0.name, dateTime: formatStringAsDate($0.dateTime), headlinerUrl: $0.headliner?.url, headlinerName: $0.headliner?.name, ticketingUrl: $0.ticketing?.url, ticketingName: $0.ticketing?.name)
         }
     }
     
