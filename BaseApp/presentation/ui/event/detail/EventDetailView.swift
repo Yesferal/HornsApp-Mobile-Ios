@@ -109,5 +109,6 @@ struct DetailView: View {
             }
         }
         .navigationTitle(self.name)
+        .background(theme.background)
     }
 }
