@@ -23,8 +23,16 @@ struct TitleViewData: View {
                 Image(systemName: "music.note")
                     .frame(width: 48)
                     .foregroundColor(theme.secondaryText)
-                HaTittleSubTittle(title: title, subtitle: subtitle)
-                    .frame(maxHeight: .infinity, alignment: .center)
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .foregroundColor(theme.primaryText)
+                        .font(.title2)
+                        .bold()
+                    Text(subtitle)
+                        .font(.subheadline)
+                        .foregroundColor(theme.secondaryText)
+                }
+                .frame(maxHeight: .infinity, alignment: .center)
                 Spacer()
                 Image(systemName: "chevron.right")
                     .frame(maxHeight: .infinity, alignment: .center)

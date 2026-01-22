@@ -24,12 +24,7 @@ struct UpcomingViewData: View {
                     HaEventDate(day: event.getEventDay(), month: event.getEventMonth())
                     HaVerticalDashLine()
                 }
-                AsyncImage(url: URL(string: event.headlinerUrl ?? "")) { image in
-                    image.resizable()
-                } placeholder: {
-                    theme.background
-                }
-                .aspectRatio(1.6, contentMode: .fit)
+                ImageViewData(url: event.headlinerUrl ?? "")
                 .overlay() {
                     ZStack {
                         VStack {
@@ -53,7 +48,7 @@ struct UpcomingViewData: View {
                     .padding()
                     .background(Color.black.opacity(0.5))
                 }
-                .clipShape(.rect(cornerRadius: 16))
+                .clipShape(.rect(cornerRadius: 24))
             }
         }
         .buttonStyle(.plain)
