@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct UpcomingView: View {
     
-    @StateObject var vm = HomeViewModel()
+    @StateObject var vm = UpcomingViewModel()
     
     @Environment(\.theme) var theme
 
     var body: some View {
-        EventList()
+        UpcomingList()
             .navigationTitle(LocalizedStringKey("home"))
             .background(theme.background)
         

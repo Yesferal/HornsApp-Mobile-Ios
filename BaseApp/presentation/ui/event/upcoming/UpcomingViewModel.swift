@@ -5,7 +5,7 @@
 //  Created by Yesferal Cueva on 6/30/25.
 //
 
-@MainActor class HomeViewModel: ObservableObject {
+@MainActor class UpcomingViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var data: [EventModel] = []
     

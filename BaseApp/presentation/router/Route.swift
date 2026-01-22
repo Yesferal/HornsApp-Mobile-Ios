@@ -21,7 +21,7 @@ func destination(for route: Route) -> some View {
     case .details(let id, let name, let day, let month):
         DetailView(id: id, name: name, day: day, month: month)
     case .upcoming:
-        HomeView()
+        UpcomingView()
     case .home:
         ScreenRenderView()
     }

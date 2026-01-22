@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct EventList: View {
-    @StateObject var vm = HomeViewModel()
+struct UpcomingList: View {
+    @StateObject var vm = UpcomingViewModel()
     
     var body: some View {
         ZStack {
