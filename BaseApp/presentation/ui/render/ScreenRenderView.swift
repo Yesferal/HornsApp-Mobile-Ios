@@ -13,14 +13,8 @@ struct ScreenRenderView: View {
     @StateObject private var router = Router()
 
     var body: some View {
-        NavigationStack(path: $router.path) {
-            ScreenRenderListView()
-                .environmentObject(router)
-                .navigationDestination(for: Route.self) { route in
-                    destination(for: route)
-                }
-                .navigationTitle("ScreenRender")
-                .background(theme.background)
-        }
+        ScreenRenderListView()
+            .navigationTitle("ScreenRender")
+            .background(theme.background)
     }
 }

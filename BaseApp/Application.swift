@@ -11,14 +11,22 @@ import SwiftUI
 struct Application: App {
     let theme: Theme = .appTheme
     
+    @StateObject private var router = Router()
+    
     init() {
         UIView.appearance().overrideUserInterfaceStyle = Theme.uiUserInterfaceStyle
     }
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.theme, theme)
+            NavigationStack(path: $router.path) {
+                ContentView()
+                    .navigationDestination(for: Route.self) { route in
+                        destination(for: route)
+                    }
+            }
+            .environment(\.theme, theme)
+            .environmentObject(router)
         }
     }
 }

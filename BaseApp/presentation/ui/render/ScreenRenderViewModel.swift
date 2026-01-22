@@ -32,9 +32,11 @@ import HornsAppCore
             
             switch events {
             case .success(let events):
+                // TODO: Fill this Array using the correct Render model
                 data = [
                     ViewItem(id: UUID(), data: .carousel(eventModel: EventModel.fromApi(events: events)[0])),
                     ViewItem(id: UUID(), data: .divider),
+                    ViewItem(id: UUID(), data: .title(title: "Upcoming", subtitle: "#Soon")),
                     ViewItem(id: UUID(), data: .upcoming(eventModel: EventModel.fromApi(events: events)[0])),
                     ViewItem(id: UUID(), data: .upcomingCompact(eventModel: EventModel.fromApi(events: events)[0])),
                 ]

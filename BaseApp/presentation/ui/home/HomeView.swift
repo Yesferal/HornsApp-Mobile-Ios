@@ -14,10 +14,9 @@ struct HomeView: View {
     @Environment(\.theme) var theme
 
     var body: some View {
-        NavigationStack {
-            EventList()
-                .navigationTitle(LocalizedStringKey("home"))
-                .background(theme.background)
-        }
+        EventList()
+            .navigationTitle(LocalizedStringKey("home"))
+            .background(theme.background)
+        
     }
 }
