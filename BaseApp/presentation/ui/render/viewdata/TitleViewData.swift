@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct TitleViewData: View {
-    
-    var title: String
-    
-    var subtitle: String
+    let title: String
+    let subtitle: String
     
     @Environment(\.theme) var theme
     

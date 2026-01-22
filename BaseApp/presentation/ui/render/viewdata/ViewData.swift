@@ -18,6 +18,7 @@ enum ViewData {
     case upcoming(eventModel: EventModel)
     case upcomingCompact(eventModel: EventModel)
     case title(title: String, subtitle: String)
+    case seeMore(title: String, subtitle: String, icon: String, backgroundColor: String, buttonBackgroundColor: String, buttonForegroundColor: String, actionText: String, action: () -> Void)
 }
 
 @ViewBuilder
@@ -33,5 +34,7 @@ func render(_ viewData: ViewData) -> some View {
         UpcomingCompactViewData(event: eventModel)
     case .title(let title, let subtitle):
         TitleViewData(title: title, subtitle: subtitle)
+    case .seeMore(let title, let subtitle, let icon, let backgroundColor, let buttonBackgroundColor, let buttonForegroundColor, let actionText, let action):
+        SeeMoreViewData(title: title, subtitle: subtitle, icon: icon, backgroundColor: backgroundColor, buttonBackgroundColor: buttonBackgroundColor, buttonForegroundColor: buttonForegroundColor, actionText: actionText, action: action)
     }
 }

@@ -39,6 +39,9 @@ import HornsAppCore
                     ViewItem(id: UUID(), data: .title(title: "Upcoming", subtitle: "#Soon")),
                     ViewItem(id: UUID(), data: .upcoming(eventModel: EventModel.fromApi(events: events)[0])),
                     ViewItem(id: UUID(), data: .upcomingCompact(eventModel: EventModel.fromApi(events: events)[0])),
+                    ViewItem(id: UUID(), data: .seeMore(title: "Siguenos en IG", subtitle: "Sabias acerca de nuestro IG? Siguenos y mantente informado.", icon: "camera", backgroundColor: "#651FFF", buttonBackgroundColor: "#FFFFFF", buttonForegroundColor: "#651FFF", actionText: "Ver Mas", action: {
+                        
+                    }))
                 ]
                 return
             case .failed:
