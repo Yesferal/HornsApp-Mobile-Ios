@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "----------------" : {
-
-    },
     "add_to_calendar" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -156,6 +153,9 @@
         }
       }
     },
+    "Home" : {
+
+    },
     "let_find_out_together" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -172,9 +172,6 @@
           }
         }
       }
-    },
-    "ScreenRender" : {
-
     },
     "unavailable" : {
       "extractionState" : "manual",

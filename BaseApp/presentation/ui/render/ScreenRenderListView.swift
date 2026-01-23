@@ -26,6 +26,7 @@ struct ScreenRenderListView: View {
             }
             .listStyle(.plain) // Remove padding
             .scrollContentBackground(.hidden) // Hides the default white card background
+            .environment(\.defaultMinListRowHeight, 0) // List rows are allowed to be any height, even 0
             .onAppear {
                 if vm.data.isEmpty {
                     Task {

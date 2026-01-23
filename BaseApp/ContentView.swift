@@ -24,7 +24,6 @@ struct ContentView: View {
         }
         
         if hasSeenOnboarding {
-            //HomeView()
             ScreenRenderView()
         } else {
             OnboardingView()

@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct DividerViewData: View {
+    let height: Int
+    
     var body: some View {
-        Text("----------------")
+        Color.clear
+            .frame(height: CGFloat(height))
+            .listRowSeparator(.hidden)
     }
 }

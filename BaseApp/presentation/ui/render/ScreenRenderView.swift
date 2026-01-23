@@ -14,7 +14,7 @@ struct ScreenRenderView: View {
 
     var body: some View {
         ScreenRenderListView()
-            .navigationTitle("ScreenRender")
+            .navigationTitle("Home")
             .background(theme.background)
     }
 }

@@ -19,6 +19,7 @@ import HornsAppCore
     }
     
     func fetchData() async {
+        data = []
         isLoading = true
         defer { isLoading = false }
         
@@ -30,20 +31,17 @@ import HornsAppCore
             let appName = appSettings.appName
             let events: HaResult<[GetEvents]> = try await AlamoFireWrapper(appName: appName).makeRequest(path: appSettings.homePath)
             
+            screenRender?[1].views?.map { v in
+                print("Yesferal: v.type: \(v.type)")
+            }
+            
             switch events {
             case .success(let events):
-                // TODO: Fill this Array using the correct Render model
-                data = [
-                    ViewItem(id: UUID(), data: .carousel(eventModel: EventModel.fromApi(events: events)[0])),
-                    ViewItem(id: UUID(), data: .divider),
-                    ViewItem(id: UUID(), data: .title(title: "Upcoming", subtitle: "#Soon")),
-                    ViewItem(id: UUID(), data: .upcoming(eventModel: EventModel.fromApi(events: events)[0])),
-                    ViewItem(id: UUID(), data: .upcomingCompact(eventModel: EventModel.fromApi(events: events)[0])),
-                    ViewItem(id: UUID(), data: .seeMore(title: "Siguenos en IG", subtitle: "Sabias acerca de nuestro IG? Siguenos y mantente informado.", icon: "camera", backgroundColor: "#651FFF", buttonBackgroundColor: "#FFFFFF", buttonForegroundColor: "#651FFF", actionText: "Ver Mas", action: {
-                        
-                    })),
-                    ViewItem(id: UUID(), data: .home(title: "Upcoming", subtitle: "#Soon", imageUrl: "https://as1.ftcdn.net/v2/jpg/01/42/51/58/1000_F_142515887_xVLCVpdyWDU5ScHTi64iMCEZJioVHqU4.jpg")),
-                ]
+                var views: [ViewItem] = []
+                screenRender?[1].views?.forEach { v in
+                    views.addViewItem(viewRender: v, events: events)
+                }
+                data = views
                 return
             case .failed:
                 // TODO: Logger
@@ -51,6 +49,67 @@ import HornsAppCore
             }
         } catch {
             // TODO: Logger
+        }
+    }
+}
+
+extension [ViewItem] {
+    mutating func addViewItem(viewRender: ViewRender, events: [GetEvents]) {
+        switch viewRender.type {
+        case ViewRender.Type_.adView:
+            append(ViewItem(id: UUID(), data: .ad))
+        case ViewRender.Type_.iconCardView:
+            append(ViewItem(id: UUID(), data: .seeMore(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", icon: "camera", backgroundColor: viewRender.style?.backgroundColor ?? "", buttonBackgroundColor: viewRender.style?.textColor ?? "", buttonForegroundColor: viewRender.style?.backgroundColor ?? "", actionText: "See More", action: {
+                
+            })))
+            append(getDividerViewItem())
+        case ViewRender.Type_.cardView:
+            append(ViewItem(id: UUID(), data: .home(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", imageUrl: viewRender.data?.imageUrl ?? "")))
+            append(getDividerViewItem())
+        case ViewRender.Type_.rowView:
+            guard let children = viewRender.children else {
+                append(ViewItem(id: UUID(), data: .empty))
+                return
+            }
+            append(getChildrenViewItem(childrenRender: children, events: events))
+            append(getDividerViewItem())
+        case ViewRender.Type_.columnView:
+            guard let children = viewRender.children else {
+                append(ViewItem(id: UUID(), data: .empty))
+                return
+            }
+            append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "")))
+            append(ViewItem(id: UUID(), data: .divider(height: Dimens.Space.medium)))
+            append(getChildrenViewItem(childrenRender: children, events: events))
+            append(getDividerViewItem())
+        default:
+            append(ViewItem(id: UUID(), data: .empty))
+        }
+    }
+    
+    private func getDividerViewItem() -> ViewItem {
+        return ViewItem(id: UUID(), data: .divider(height: Dimens.Space.xlarge))
+    }
+    
+    private func getChildrenViewItem(childrenRender: ChildrenRender, events: [GetEvents]) -> ViewItem {
+        switch childrenRender.type {
+        case ChildrenRender.Type_.carouselCardView:
+            guard let model = EventModel.fromApi(events: events).last else {
+                return ViewItem(id: UUID(), data: .empty)
+            }
+            return ViewItem(id: UUID(), data: .carousel(eventModel: model))
+        case ChildrenRender.Type_.upcomingCardView:
+            guard let model = EventModel.fromApi(events: events).last else {
+                return ViewItem(id: UUID(), data: .empty)
+            }
+            return ViewItem(id: UUID(), data: .upcomingCompact(eventModel: model))
+        case ChildrenRender.Type_.upcomingImageCardView:
+            guard let model = EventModel.fromApi(events: events).last else {
+                return ViewItem(id: UUID(), data: .empty)
+            }
+            return ViewItem(id: UUID(), data: .upcoming(eventModel: model))
+        default:
+            return ViewItem(id: UUID(), data: .empty)
         }
     }
 }

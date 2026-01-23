@@ -13,20 +13,22 @@ struct ViewItem: Identifiable {
 }
 
 enum ViewData {
-    case divider
+    case divider(height: Int)
     case carousel(eventModel: EventModel)
     case upcoming(eventModel: EventModel)
     case upcomingCompact(eventModel: EventModel)
     case title(title: String, subtitle: String)
     case seeMore(title: String, subtitle: String, icon: String, backgroundColor: String, buttonBackgroundColor: String, buttonForegroundColor: String, actionText: String, action: () -> Void)
     case home(title: String, subtitle: String, imageUrl: String)
+    case empty
+    case ad
 }
 
 @ViewBuilder
 func render(_ viewData: ViewData) -> some View {
     switch viewData {
-    case .divider:
-        DividerViewData()
+    case .divider(let height):
+        DividerViewData(height: height)
     case .carousel(let eventModel):
         CarouselViewData(event: eventModel)
     case .upcoming(let eventModel):
@@ -39,5 +41,9 @@ func render(_ viewData: ViewData) -> some View {
         SeeMoreViewData(title: title, subtitle: subtitle, icon: icon, backgroundColor: backgroundColor, buttonBackgroundColor: buttonBackgroundColor, buttonForegroundColor: buttonForegroundColor, actionText: actionText, action: action)
     case .home(let title, let subtitle, let imageUrl):
         HomeViewData(title: title, subtitle: subtitle, imageUrl: imageUrl)
+    case .empty:
+        EmptyView()
+    case .ad:
+        EmptyView()
     }
 }
