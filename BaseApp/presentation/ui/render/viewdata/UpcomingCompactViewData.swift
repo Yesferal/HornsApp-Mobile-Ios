@@ -25,7 +25,7 @@ struct UpcomingCompactViewData: View {
                     .frame(maxHeight: .infinity, alignment: .center)
             }
         }
-        .padding(.all, CGFloat(Dimens.Space.medium))
+        .padding(.all, Dimens.medium)
         .buttonStyle(.plain)
     }
 }

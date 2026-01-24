@@ -34,10 +34,10 @@ struct SeeMoreViewData: View {
                 
                 Image(systemName: icon)
                     .foregroundStyle(.white)
-                    .font(.system(size: CGFloat(Dimens.Space.xlarge * 2)))
+                    .font(.system(size: Dimens.xlarge * 2))
             }
             CtaViewData(actionText: actionText, buttonEnabled: true, backgroundColor: Color.init(hex: buttonBackgroundColor), foregroundColor: Color.init(hex: buttonForegroundColor), action: action)
-                .padding(.vertical, CGFloat(Dimens.Space.small))
+                .padding(.vertical, Dimens.small)
         }
         .padding()
         .background(Color.init(hex: backgroundColor))

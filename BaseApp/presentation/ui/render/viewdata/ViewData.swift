@@ -13,7 +13,7 @@ struct ViewItem: Identifiable {
 }
 
 enum ViewData {
-    case divider(height: Int)
+    case divider(height: CGFloat)
     case carousel(eventModel: EventModel)
     case upcoming(eventModel: EventModel)
     case upcomingCompact(eventModel: EventModel)

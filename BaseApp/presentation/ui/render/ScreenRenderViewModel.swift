@@ -82,7 +82,7 @@ extension [ViewItem] {
                 return
             }
             append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text)))
-            append(ViewItem(id: UUID(), data: .divider(height: Dimens.Space.small)))
+            append(ViewItem(id: UUID(), data: .divider(height: Dimens.small)))
             let tempEvents = events.prefix(3)
             tempEvents.forEach { e in
                 append(getChildrenViewItem(childrenRender: children, event: e))
@@ -94,7 +94,7 @@ extension [ViewItem] {
     }
     
     private func getDividerViewItem() -> ViewItem {
-        return ViewItem(id: UUID(), data: .divider(height: Dimens.Space.xlarge))
+        return ViewItem(id: UUID(), data: .divider(height: Dimens.xlarge))
     }
     
     private func getChildrenViewItem(childrenRender: ChildrenRender, event: GetEvents) -> ViewItem {

@@ -22,7 +22,7 @@ struct TitleViewData: View {
             VStack {
                 HStack {
                     Image(systemName: "music.note")
-                        .frame(width: CGFloat(Dimens.Space.large))
+                        .frame(width: Dimens.large)
                         .frame(maxHeight: .infinity, alignment: .center)
                         .foregroundColor(theme.primaryText)
                     
@@ -43,7 +43,7 @@ struct TitleViewData: View {
                 HStack {
                     if let text = subtitle {
                         Color.clear
-                            .frame(width: CGFloat(Dimens.Space.large))
+                            .frame(width: Dimens.large)
                         Text(text)
                             .font(.subheadline)
                             .foregroundColor(theme.secondaryText)

@@ -28,8 +28,8 @@ struct CtaViewData: View {
         if let buttonText = actionText {
             let enabledColor = backgroundColor ?? theme.accent
             Button(buttonText, action: action)
-                .padding(.horizontal, CGFloat(Dimens.Space.large))
-                .padding(.vertical, CGFloat(Dimens.Space.medium))
+                .padding(.horizontal, Dimens.large)
+                .padding(.vertical, Dimens.medium)
                 .fontWeight(.bold)
                 .background(buttonEnabled ? enabledColor : theme.secondaryText)
                 .foregroundColor(foregroundColor)
