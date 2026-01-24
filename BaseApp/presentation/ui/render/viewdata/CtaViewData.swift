@@ -28,9 +28,9 @@ struct CtaViewData: View {
         if let buttonText = actionText {
             let enabledColor = backgroundColor ?? theme.accent
             Button(buttonText, action: action)
-                .padding()
+                .padding(.horizontal, CGFloat(Dimens.Space.large))
+                .padding(.vertical, CGFloat(Dimens.Space.medium))
                 .fontWeight(.bold)
-                .frame(maxWidth: .infinity)
                 .background(buttonEnabled ? enabledColor : theme.secondaryText)
                 .foregroundColor(foregroundColor)
                 .cornerRadius(32)

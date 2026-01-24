@@ -20,15 +20,12 @@ struct UpcomingCompactViewData: View {
             router.navigate(to: .details(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth()))
         } label: {
             HStack(alignment: .top) {
-                VStack {
-                    HaEventDate(day: event.getEventDay(), month: event.getEventMonth())
-                    HaVerticalDashLine()
-                }
-                
+                HaEventDate(day: event.getEventDay(), month: event.getEventMonth())
                 HaTittleSubTittle(title: event.name ?? "", subtitle: event.ticketingName ?? "")
                     .frame(maxHeight: .infinity, alignment: .center)
             }
         }
+        .padding(.all, CGFloat(Dimens.Space.medium))
         .buttonStyle(.plain)
     }
 }

@@ -34,7 +34,7 @@ struct UpcomingViewData: View {
                                 .foregroundStyle(.white)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             Text(event.name ?? "")
-                                .font(.headline)
+                                .font(.title2)
                                 .bold()
                                 .foregroundStyle(.white)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -51,6 +51,7 @@ struct UpcomingViewData: View {
                 .clipShape(.rect(cornerRadius: 24))
             }
         }
+        .padding()
         .buttonStyle(.plain)
     }
 }

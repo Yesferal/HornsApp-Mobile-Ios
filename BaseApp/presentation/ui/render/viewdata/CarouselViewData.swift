@@ -33,10 +33,11 @@ struct CarouselViewData: View {
             }
             
             HStack {
-                VStack {
+                VStack(alignment: .leading) {
                     Text(event.name ?? "")
+                        .padding(.vertical, CGFloat(Dimens.Space.small))
                         .foregroundColor(theme.primaryText)
-                        .font(.headline)
+                        .font(.title2)
                         .bold()
                     
                     HaIconText(icon: "calendar", text: event.getEventTime())
@@ -54,6 +55,7 @@ struct CarouselViewData: View {
                     }
                 }
             }
+            .padding(.horizontal, CGFloat(Dimens.Space.medium))
         }
     }
 }

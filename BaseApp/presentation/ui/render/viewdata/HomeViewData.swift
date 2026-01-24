@@ -19,6 +19,7 @@ struct HomeViewData: View {
             TitleViewData(title: title, subtitle: subtitle)
             ImageViewData(url: imageUrl)
                 .clipShape(.rect(cornerRadius: 24))
+                .padding()
         }
     }
 }

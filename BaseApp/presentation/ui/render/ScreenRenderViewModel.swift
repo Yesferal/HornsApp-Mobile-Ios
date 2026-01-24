@@ -59,7 +59,7 @@ extension [ViewItem] {
         case ViewRender.Type_.adView:
             append(ViewItem(id: UUID(), data: .ad))
         case ViewRender.Type_.iconCardView:
-            append(ViewItem(id: UUID(), data: .seeMore(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", icon: "camera", backgroundColor: viewRender.style?.backgroundColor ?? "", buttonBackgroundColor: viewRender.style?.textColor ?? "", buttonForegroundColor: viewRender.style?.backgroundColor ?? "", actionText: "See More", action: {
+            append(ViewItem(id: UUID(), data: .seeMore(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", icon: "music.note", backgroundColor: viewRender.style?.backgroundColor ?? "", buttonBackgroundColor: viewRender.style?.textColor ?? "", buttonForegroundColor: viewRender.style?.backgroundColor ?? "", actionText: "See More", action: {
                 
             })))
             append(getDividerViewItem())
@@ -82,7 +82,7 @@ extension [ViewItem] {
                 return
             }
             append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "")))
-            append(ViewItem(id: UUID(), data: .divider(height: Dimens.Space.medium)))
+            append(ViewItem(id: UUID(), data: .divider(height: Dimens.Space.small)))
             let tempEvents = events.prefix(3)
             tempEvents.forEach { e in
                 append(getChildrenViewItem(childrenRender: children, event: e))
