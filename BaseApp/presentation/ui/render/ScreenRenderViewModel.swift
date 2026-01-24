@@ -71,7 +71,10 @@ extension [ViewItem] {
                 append(ViewItem(id: UUID(), data: .empty))
                 return
             }
-            append(getChildrenViewItem(childrenRender: children, events: events))
+            let tempEvents = events.reversed().prefix(1)
+            tempEvents.forEach { e in
+                append(getChildrenViewItem(childrenRender: children, event: e))
+            }
             append(getDividerViewItem())
         case ViewRender.Type_.columnView:
             guard let children = viewRender.children else {
@@ -80,7 +83,10 @@ extension [ViewItem] {
             }
             append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "")))
             append(ViewItem(id: UUID(), data: .divider(height: Dimens.Space.medium)))
-            append(getChildrenViewItem(childrenRender: children, events: events))
+            let tempEvents = events.prefix(3)
+            tempEvents.forEach { e in
+                append(getChildrenViewItem(childrenRender: children, event: e))
+            }
             append(getDividerViewItem())
         default:
             append(ViewItem(id: UUID(), data: .empty))
@@ -91,22 +97,16 @@ extension [ViewItem] {
         return ViewItem(id: UUID(), data: .divider(height: Dimens.Space.xlarge))
     }
     
-    private func getChildrenViewItem(childrenRender: ChildrenRender, events: [GetEvents]) -> ViewItem {
+    private func getChildrenViewItem(childrenRender: ChildrenRender, event: GetEvents) -> ViewItem {
         switch childrenRender.type {
         case ChildrenRender.Type_.carouselCardView:
-            guard let model = EventModel.fromApi(events: events).last else {
-                return ViewItem(id: UUID(), data: .empty)
-            }
+            let model = EventModel.fromApi(event: event)
             return ViewItem(id: UUID(), data: .carousel(eventModel: model))
         case ChildrenRender.Type_.upcomingCardView:
-            guard let model = EventModel.fromApi(events: events).last else {
-                return ViewItem(id: UUID(), data: .empty)
-            }
+            let model = EventModel.fromApi(event: event)
             return ViewItem(id: UUID(), data: .upcomingCompact(eventModel: model))
         case ChildrenRender.Type_.upcomingImageCardView:
-            guard let model = EventModel.fromApi(events: events).last else {
-                return ViewItem(id: UUID(), data: .empty)
-            }
+            let model = EventModel.fromApi(event: event)
             return ViewItem(id: UUID(), data: .upcoming(eventModel: model))
         default:
             return ViewItem(id: UUID(), data: .empty)

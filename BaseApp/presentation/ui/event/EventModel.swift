@@ -20,9 +20,13 @@ struct EventModel: Identifiable {
     var longitude: Double?
     var mapName: String?
     
+    static func fromApi(event: GetEvents) -> EventModel {
+        return EventModel(id: event._id, name: event.name, dateTime: formatStringAsDate(event.dateTime), headlinerUrl: event.headliner?.url, headlinerName: event.headliner?.name, ticketingUrl: event.ticketing?.url, ticketingName: event.ticketing?.name)
+    }
+    
     static func fromApi(events: [GetEvents]) -> [EventModel] {
         return events.map {
-            EventModel(id: $0._id, name: $0.name, dateTime: formatStringAsDate($0.dateTime), headlinerUrl: $0.headliner?.url, headlinerName: $0.headliner?.name, ticketingUrl: $0.ticketing?.url, ticketingName: $0.ticketing?.name)
+            fromApi(event: $0)
         }
     }
     
