@@ -17,9 +17,9 @@ enum ViewData {
     case carousel(eventModel: EventModel)
     case upcoming(eventModel: EventModel)
     case upcomingCompact(eventModel: EventModel)
-    case title(title: String, subtitle: String)
+    case title(title: String, subtitle: String?)
     case seeMore(title: String, subtitle: String, icon: String, backgroundColor: String, buttonBackgroundColor: String, buttonForegroundColor: String, actionText: String, action: () -> Void)
-    case home(title: String, subtitle: String, imageUrl: String)
+    case home(title: String, subtitle: String?, imageUrl: String)
     case empty
     case ad
 }

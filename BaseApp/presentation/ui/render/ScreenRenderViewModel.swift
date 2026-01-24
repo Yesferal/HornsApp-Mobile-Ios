@@ -64,7 +64,7 @@ extension [ViewItem] {
             })))
             append(getDividerViewItem())
         case ViewRender.Type_.cardView:
-            append(ViewItem(id: UUID(), data: .home(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", imageUrl: viewRender.data?.imageUrl ?? "")))
+            append(ViewItem(id: UUID(), data: .home(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text, imageUrl: viewRender.data?.imageUrl ?? "")))
             append(getDividerViewItem())
         case ViewRender.Type_.rowView:
             guard let children = viewRender.children else {
@@ -81,7 +81,7 @@ extension [ViewItem] {
                 append(ViewItem(id: UUID(), data: .empty))
                 return
             }
-            append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "")))
+            append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text)))
             append(ViewItem(id: UUID(), data: .divider(height: Dimens.Space.small)))
             let tempEvents = events.prefix(3)
             tempEvents.forEach { e in

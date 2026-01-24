@@ -31,11 +31,11 @@ struct CarouselViewData: View {
             .onTapGesture {
                 router.navigate(to: .details(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth()))
             }
+            .padding(.vertical, CGFloat(Dimens.Space.medium))
             
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: CGFloat(Dimens.Space.small)) {
                     Text(event.name ?? "")
-                        .padding(.vertical, CGFloat(Dimens.Space.small))
                         .foregroundColor(theme.primaryText)
                         .font(.title2)
                         .bold()
@@ -57,5 +57,6 @@ struct CarouselViewData: View {
             }
             .padding(.horizontal, CGFloat(Dimens.Space.medium))
         }
+        .padding(.vertical, CGFloat(Dimens.Space.small))
     }
 }

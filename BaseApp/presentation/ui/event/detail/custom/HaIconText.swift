@@ -12,7 +12,7 @@ struct HaIconText: View {
     let text: String
     
     var body: some View {
-        HStack(spacing: 4) {
+        HStack(spacing: CGFloat(Dimens.Space.small)) {
             Image(systemName: icon)
                 .foregroundStyle(.white)
             

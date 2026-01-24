@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeViewData: View {
     let title: String
-    let subtitle: String
+    let subtitle: String?
     let imageUrl: String
     
     @Environment(\.theme) var theme
