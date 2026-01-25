@@ -11,15 +11,25 @@ struct HomeViewData: View {
     let title: String
     let subtitle: String?
     let imageUrl: String
+    let route: Route?
     
     @Environment(\.theme) var theme
     
+    @EnvironmentObject var router: Router
+    
     var body: some View {
-        VStack {
-            TitleViewData(title: title, subtitle: subtitle)
-            ImageViewData(url: imageUrl)
-                .clipShape(.rect(cornerRadius: 24))
-                .padding()
+        Button {
+            guard let route = route else {
+                return
+            }
+            router.navigate(to: route)
+        } label: {
+            VStack {
+                TitleViewData(title: title, subtitle: subtitle, route: route)
+                ImageViewData(url: imageUrl)
+                    .clipShape(.rect(cornerRadius: 24))
+                    .padding()
+            }
         }
     }
 }

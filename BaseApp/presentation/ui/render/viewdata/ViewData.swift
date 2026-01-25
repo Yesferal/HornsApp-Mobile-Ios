@@ -17,9 +17,9 @@ enum ViewData {
     case carousel(eventModel: EventModel)
     case upcoming(eventModel: EventModel)
     case upcomingCompact(eventModel: EventModel)
-    case title(title: String, subtitle: String?)
-    case seeMore(title: String, subtitle: String, icon: String, backgroundColor: String, buttonBackgroundColor: String, buttonForegroundColor: String, actionText: String, action: () -> Void)
-    case home(title: String, subtitle: String?, imageUrl: String)
+    case title(title: String, subtitle: String?, route: Route?)
+    case seeMore(title: String, subtitle: String, icon: String, backgroundColor: String, buttonBackgroundColor: String, buttonForegroundColor: String, actionText: String, route: Route?)
+    case home(title: String, subtitle: String?, imageUrl: String, route: Route?)
     case empty
     case ad
 }
@@ -35,12 +35,12 @@ func render(_ viewData: ViewData) -> some View {
         UpcomingViewData(event: eventModel)
     case .upcomingCompact(let eventModel):
         UpcomingCompactViewData(event: eventModel)
-    case .title(let title, let subtitle):
-        TitleViewData(title: title, subtitle: subtitle)
-    case .seeMore(let title, let subtitle, let icon, let backgroundColor, let buttonBackgroundColor, let buttonForegroundColor, let actionText, let action):
-        SeeMoreViewData(title: title, subtitle: subtitle, icon: icon, backgroundColor: backgroundColor, buttonBackgroundColor: buttonBackgroundColor, buttonForegroundColor: buttonForegroundColor, actionText: actionText, action: action)
-    case .home(let title, let subtitle, let imageUrl):
-        HomeViewData(title: title, subtitle: subtitle, imageUrl: imageUrl)
+    case .title(let title, let subtitle, let route):
+        TitleViewData(title: title, subtitle: subtitle, route: route)
+    case .seeMore(let title, let subtitle, let icon, let backgroundColor, let buttonBackgroundColor, let buttonForegroundColor, let actionText, let route):
+        SeeMoreViewData(title: title, subtitle: subtitle, icon: icon, backgroundColor: backgroundColor, buttonBackgroundColor: buttonBackgroundColor, buttonForegroundColor: buttonForegroundColor, actionText: actionText, route: route)
+    case .home(let title, let subtitle, let imageUrl, let route):
+        HomeViewData(title: title, subtitle: subtitle, imageUrl: imageUrl, route: route)
     case .empty:
         EmptyView()
     case .ad:

@@ -20,6 +20,8 @@ struct DetailView: View {
     @Environment(\.dismiss) var dismiss
     
     @Environment(\.theme) var theme
+    
+    @EnvironmentObject var router: Router
 
     var body: some View {
         let event = vm.data
@@ -66,12 +68,9 @@ struct DetailView: View {
                     } else {
                         
                         if let url = URL(string: event?.ticketingUrl ?? "") {
-                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_on"), subtitle: HaLocalizedStringWrapper.getString(key: "go_now"), actionText: event?.ticketingName, buttonEnabled: true) {
-                                UIApplication.shared.open(url)
-                            }
+                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_on"), subtitle: HaLocalizedStringWrapper.getString(key: "go_now"), actionText: event?.ticketingName, route: .web(url: url))
                         } else {
-                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable"), actionText: event?.ticketingName, buttonEnabled: false) {
-                            }
+                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable"), actionText: event?.ticketingName, route: nil)
                         }
                         HaEventLink(iconName: "location", title: event?.mapName ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
                             guard let latitude = event?.latitude else {
@@ -90,6 +89,7 @@ struct DetailView: View {
                             }
                         }
                         HaEventLink(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar")) {
+                            // TODO: Implement Calendar feature
                             print("Button tapped!")
                         }
                     }

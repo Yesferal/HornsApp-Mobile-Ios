@@ -9,7 +9,7 @@ import HornsAppCore
 
 class GetNavigatorRender: Decodable {
     let key: String?
-    let parameters: [String: StringOrObject<[String:String]>]?
+    let parameters: [String: StringOrObject]?
     
     func mapToNavigatorRender() -> NavigatorRender {
         let kotlinDict = KotlinMutableDictionary<NSString, AnyObject>()
@@ -18,13 +18,13 @@ class GetNavigatorRender: Decodable {
             kotlinDict[key as NSString] = value as AnyObject
         }
         
-        return NavigatorRender(key: key, parameters:kotlinDict)
+        return NavigatorRender(key: key, parameters: kotlinDict)
     }
 }
 
-enum StringOrObject<T: Decodable>: Decodable {
+enum StringOrObject: Decodable {
     case string(String)
-    case object(T)
+    case object([String:String])
 
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -32,7 +32,14 @@ enum StringOrObject<T: Decodable>: Decodable {
         if let string = try? container.decode(String.self) {
             self = .string(string)
         } else {
-            self = .object(try container.decode(T.self))
+            self = .object(try container.decode([String:String].self))
         }
     }
+    
+    func getStringValue(key: String? = nil) -> String? {
+            if case .string(let value) = self {
+                return value
+            }
+            return nil
+        }
 }

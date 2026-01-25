@@ -15,7 +15,7 @@ struct SeeMoreViewData: View {
     let buttonBackgroundColor: String
     let buttonForegroundColor: String
     let actionText: String
-    let action: () -> Void
+    let route: Route?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -36,7 +36,7 @@ struct SeeMoreViewData: View {
                     .foregroundStyle(.white)
                     .font(.system(size: Dimens.xlarge * 2))
             }
-            CtaViewData(actionText: actionText, buttonEnabled: true, backgroundColor: Color.init(hex: buttonBackgroundColor), foregroundColor: Color.init(hex: buttonForegroundColor), action: action)
+            CtaViewData(actionText: actionText, backgroundColor: Color.init(hex: buttonBackgroundColor), foregroundColor: Color.init(hex: buttonForegroundColor), route: route)
                 .padding(.vertical, Dimens.small)
         }
         .padding()

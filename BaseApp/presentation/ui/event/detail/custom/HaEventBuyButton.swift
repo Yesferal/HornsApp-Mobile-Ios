@@ -12,8 +12,7 @@ struct HaEventBuyButton: View {
     let title: String
     let subtitle: String?
     let actionText: String?
-    let buttonEnabled: Bool
-    let action: () -> Void
+    let route: Route?
     
     @Environment(\.theme) var theme
     
@@ -26,7 +25,7 @@ struct HaEventBuyButton: View {
                 HaTittleSubTittle(title: title, subtitle: subtitle)
             }
             Spacer()
-            CtaViewData(actionText: actionText, buttonEnabled: buttonEnabled, action: action)
+            CtaViewData(actionText: actionText, route: route)
         }
         
     }

@@ -10,6 +10,7 @@ import SwiftUI
 struct TitleViewData: View {
     let title: String
     let subtitle: String?
+    let route: Route?
     
     @Environment(\.theme) var theme
     
@@ -17,7 +18,10 @@ struct TitleViewData: View {
     
     var body: some View {
         Button {
-            router.navigate(to: .upcoming)
+            guard let route = route else {
+                return
+            }
+            router.navigate(to: route)
         } label: {
             VStack {
                 HStack {

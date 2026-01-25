@@ -11,6 +11,7 @@ enum Route: Hashable {
     case details(id: String, name: String, day: String, month: String)
     case upcoming
     case home
+    case web(url: URL)
 }
 
 @ViewBuilder
@@ -24,5 +25,8 @@ func destination(for route: Route) -> some View {
         UpcomingView()
     case .home:
         ScreenRenderView()
+    case .web(let url):
+        InAppWebView(url: url)
+            .ignoresSafeArea()
     }
 }

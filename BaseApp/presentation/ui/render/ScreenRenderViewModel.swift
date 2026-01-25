@@ -59,12 +59,10 @@ extension [ViewItem] {
         case ViewRender.Type_.adView:
             append(ViewItem(id: UUID(), data: .ad))
         case ViewRender.Type_.iconCardView:
-            append(ViewItem(id: UUID(), data: .seeMore(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", icon: "music.note", backgroundColor: viewRender.style?.backgroundColor ?? "", buttonBackgroundColor: viewRender.style?.textColor ?? "", buttonForegroundColor: viewRender.style?.backgroundColor ?? "", actionText: "See More", action: {
-                
-            })))
+            append(ViewItem(id: UUID(), data: .seeMore(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", icon: "music.note", backgroundColor: viewRender.style?.backgroundColor ?? "", buttonBackgroundColor: viewRender.style?.textColor ?? "", buttonForegroundColor: viewRender.style?.backgroundColor ?? "", actionText: "See More", route: getRoute(navigatorRender: viewRender.navigation))))
             append(getDividerViewItem())
         case ViewRender.Type_.cardView:
-            append(ViewItem(id: UUID(), data: .home(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text, imageUrl: viewRender.data?.imageUrl ?? "")))
+            append(ViewItem(id: UUID(), data: .home(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text, imageUrl: viewRender.data?.imageUrl ?? "", route: getRoute(navigatorRender: viewRender.navigation))))
             append(getDividerViewItem())
         case ViewRender.Type_.rowView:
             guard let children = viewRender.children else {
@@ -78,10 +76,9 @@ extension [ViewItem] {
             append(getDividerViewItem())
         case ViewRender.Type_.columnView:
             guard let children = viewRender.children else {
-                append(ViewItem(id: UUID(), data: .empty))
                 return
             }
-            append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text)))
+            append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text, route: getRoute(navigatorRender: viewRender.navigation))))
             append(ViewItem(id: UUID(), data: .divider(height: Dimens.small)))
             let tempEvents = events.prefix(3)
             tempEvents.forEach { e in
@@ -110,6 +107,25 @@ extension [ViewItem] {
             return ViewItem(id: UUID(), data: .upcoming(eventModel: model))
         default:
             return ViewItem(id: UUID(), data: .empty)
+        }
+    }
+    
+    private func getRoute(navigatorRender: NavigatorRender?) -> Route? {
+        guard let key = navigatorRender?.key else {
+            return nil
+        }
+        let navigator: Navigator = Navigator.Builder().to(to_: key).build()
+        switch navigator.to {
+        case ScreenRender.Type_.webViewScreen:
+            guard let stringUrl = (navigatorRender?.parameters["param_android_uri"] as? StringOrObject)?.getStringValue() else {
+                return nil
+            }
+            guard let url = URL(string: stringUrl) else {
+                return nil
+            }
+            return .web(url: url)
+        default:
+            return nil
         }
     }
 }

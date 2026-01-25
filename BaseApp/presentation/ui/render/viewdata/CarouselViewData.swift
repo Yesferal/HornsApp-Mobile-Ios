@@ -50,9 +50,7 @@ struct CarouselViewData: View {
                 }
                 
                 if let url = URL(string: event.ticketingUrl ?? "") {
-                    CtaViewData(actionText: event.ticketingName, buttonEnabled: true) {
-                        UIApplication.shared.open(url)
-                    }
+                    CtaViewData(actionText: event.ticketingName, route: .web(url: url))
                 }
             }
             .padding(.horizontal, Dimens.medium)
