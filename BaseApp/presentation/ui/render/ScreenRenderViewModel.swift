@@ -64,22 +64,27 @@ extension [ViewItem] {
                 append(ViewItem(id: UUID(), data: .empty))
                 return
             }
-            let tempEvents = events.reversed().prefix(1)
-            tempEvents.forEach { e in
-                append(getChildrenViewItem(childrenRender: children, concert: e))
+            let tempEvents = children.getConcertsForSections(concerts: events)
+            
+            if (!tempEvents.isEmpty) {
+                tempEvents.forEach { e in
+                    append(getChildrenViewItem(childrenRender: children, concert: e))
+                }
+                append(getDividerViewItem())
             }
-            append(getDividerViewItem())
         case ViewRender.Type_.columnView:
             guard let children = viewRender.children else {
                 return
             }
-            append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text, route: getRoute(navigatorRender: viewRender.navigation))))
-            append(ViewItem(id: UUID(), data: .divider(height: Dimens.small)))
-            let tempEvents = events.prefix(3)
-            tempEvents.forEach { e in
-                append(getChildrenViewItem(childrenRender: children, concert: e))
+            let tempEvents = children.getConcertsForSections(concerts: events)
+            if (!tempEvents.isEmpty) {
+                append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text, route: getRoute(navigatorRender: viewRender.navigation))))
+                append(ViewItem(id: UUID(), data: .divider(height: Dimens.small)))
+                tempEvents.forEach { e in
+                    append(getChildrenViewItem(childrenRender: children, concert: e))
+                }
+                append(getDividerViewItem())
             }
-            append(getDividerViewItem())
         default:
             append(ViewItem(id: UUID(), data: .empty))
         }
