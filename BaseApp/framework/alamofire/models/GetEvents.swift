@@ -31,6 +31,21 @@ struct GetEvents: Decodable {
         case activities
         case lineup
     }
+    
+    func mapToConcert() -> Concert {
+        let isFavorite = false
+        
+        return Concert.Builder(id: _id)
+            .addName(name: name)
+            .addTimeInMillis(timeInMillis: dateTime.asFormatDate().asKotlinTimeInMillis())
+            .addHeadlinerName(headlinerName: headliner?.name)
+            .addHeadlinerImageUrl(headlinerImageUrl: headliner?.url)
+            .addTicketingName(ticketingName: ticketing?.name)
+            .addTicketingUrl(ticketingUrl: ticketing?.url)
+            .addCategories(addCategories: categories)
+            .isFavorite(isFavorite: isFavorite)
+            .build()
+    }
 }
 
 struct EventComponent: Decodable {

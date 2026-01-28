@@ -6,42 +6,43 @@
 //
 
 import SwiftUI
+import HornsAppCore
 
 struct UpcomingViewData: View {
     
-    var event: EventModel
-    
+    var concert: Concert
+
     @Environment(\.theme) var theme
     
     @EnvironmentObject var router: Router
 
     var body: some View {
         Button {
-            router.navigate(to: .details(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth()))
+            router.navigate(to: .details(id: concert.id, name: concert.name ?? "", day: concert.getEventDay(), month: concert.getEventMonth()))
         } label: {
             HStack(alignment: .top) {
                 VStack {
-                    HaEventDate(day: event.getEventDay(), month: event.getEventMonth())
+                    HaEventDate(day: concert.getEventDay(), month: concert.getEventMonth())
                     HaVerticalDashLine()
                 }
-                ImageViewData(url: event.headlinerUrl ?? "")
+                ImageViewData(url: concert.headlinerImageUrl ?? "")
                 .overlay() {
                     ZStack {
                         VStack {
                             Spacer()
-                            Text("#" + event.getEventYear())
+                            Text("#" + concert.getEventYear())
                                 .font(.subheadline)
                                 .foregroundStyle(.white)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Text(event.name ?? "")
+                            Text(concert.name ?? "")
                                 .font(.title2)
                                 .bold()
                                 .foregroundStyle(.white)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
                             HStack {
-                                HaIconText(icon: "calendar", text: event.getEventTime())
-                                HaIconText(icon: "mic", text: event.headlinerName ?? "")
+                                HaIconText(icon: "calendar", text: concert.getEventTime())
+                                HaIconText(icon: "mic", text: concert.headlinerName ?? "")
                             }
                         }
                     }

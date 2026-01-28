@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import HornsAppCore
 
 struct UpcomingList: View {
-    @StateObject var vm = UpcomingViewModel()
+    @StateObject var vm = UpcomingViewModel(getConcertsUseCase: GetConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings()))))
     
     var body: some View {
         ZStack {
@@ -16,8 +17,8 @@ struct UpcomingList: View {
                 HaProgressView()
             }
             
-            List(vm.data) { event in
-                UpcomingViewData(event: event)
+            List(vm.data) { view in
+                render(view.data)
                     .listRowSeparator(.hidden) // remove divider line
                     .listRowBackground(Color.clear) // remove row bg
             }

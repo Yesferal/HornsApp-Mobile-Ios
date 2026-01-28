@@ -8,4 +8,5 @@
 enum HaError: Error {
     case NetworkError
     case FileNotFoundError
+    case SuccessValueDoNotExist
 }

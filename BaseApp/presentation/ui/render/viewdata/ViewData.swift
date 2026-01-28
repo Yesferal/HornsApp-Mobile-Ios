@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HornsAppCore
 
 struct ViewItem: Identifiable {
     let id: UUID
@@ -14,9 +15,9 @@ struct ViewItem: Identifiable {
 
 enum ViewData {
     case divider(height: CGFloat)
-    case carousel(eventModel: EventModel)
-    case upcoming(eventModel: EventModel)
-    case upcomingCompact(eventModel: EventModel)
+    case carousel(concert: Concert)
+    case upcoming(concert: Concert)
+    case upcomingCompact(concert: Concert)
     case title(title: String, subtitle: String?, route: Route?)
     case seeMore(title: String, subtitle: String, icon: String, backgroundColor: String, buttonBackgroundColor: String, buttonForegroundColor: String, actionText: String, route: Route?)
     case home(title: String, subtitle: String?, imageUrl: String, route: Route?)
@@ -29,12 +30,12 @@ func render(_ viewData: ViewData) -> some View {
     switch viewData {
     case .divider(let height):
         DividerViewData(height: height)
-    case .carousel(let eventModel):
-        CarouselViewData(event: eventModel)
-    case .upcoming(let eventModel):
-        UpcomingViewData(event: eventModel)
-    case .upcomingCompact(let eventModel):
-        UpcomingCompactViewData(event: eventModel)
+    case .carousel(let concert):
+        CarouselViewData(concert: concert)
+    case .upcoming(let concert):
+        UpcomingViewData(concert: concert)
+    case .upcomingCompact(let concert):
+        UpcomingCompactViewData(concert: concert)
     case .title(let title, let subtitle, let route):
         TitleViewData(title: title, subtitle: subtitle, route: route)
     case .seeMore(let title, let subtitle, let icon, let backgroundColor, let buttonBackgroundColor, let buttonForegroundColor, let actionText, let route):

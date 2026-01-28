@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
+import HornsAppCore
 
 struct UpcomingView: View {
-    
-    @StateObject var vm = UpcomingViewModel()
     
     @Environment(\.theme) var theme
 

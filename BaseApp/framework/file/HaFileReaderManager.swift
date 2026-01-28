@@ -10,7 +10,7 @@ import HornsAppCore
 class HaFileReaderManager: RenderStorageDataSource {
     
     func getAppRender() -> AppRender? {
-        let getAppRender: HaResult<GetAppRender> = loadJSON(HornsAppCoreConfig().appRenderFileName)
+        let getAppRender: UiResult<GetAppRender> = loadJSON(HornsAppCoreConfig().appRenderFileName)
         
         switch getAppRender {
         case .success(let getAppRender):
@@ -28,19 +28,19 @@ class HaFileReaderManager: RenderStorageDataSource {
         // TODO: Implement this , but probabbly will be in next versions
     }
     
-    private func loadJSON<T: Decodable>(_ filename: String) -> HaResult<T> {
+    private func loadJSON<T: Decodable>(_ filename: String) -> UiResult<T> {
         guard let url = Bundle.main.url(forResource: filename, withExtension: "json")
         else {
-            return HaResult.failed(HaError.FileNotFoundError)
+            return UiResult.failed(HaError.FileNotFoundError)
         }
         
         do {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
             let dataDecoded = try decoder.decode(T.self, from: data)
-            return HaResult.success(dataDecoded)
+            return UiResult.success(dataDecoded)
         } catch {
-            return HaResult.failed(error)
+            return UiResult.failed(error)
         }
     }
 }

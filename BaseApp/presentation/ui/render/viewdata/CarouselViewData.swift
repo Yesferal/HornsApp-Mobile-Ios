@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import HornsAppCore
 
 struct CarouselViewData: View {
-    var event: EventModel
+    var concert: Concert
     
     @Environment(\.theme) var theme
     
@@ -16,7 +17,7 @@ struct CarouselViewData: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: event.headlinerUrl ?? "")) { image in
+            AsyncImage(url: URL(string: concert.headlinerImageUrl ?? "")) { image in
                 image.resizable()
             } placeholder: {
                 theme.background
@@ -29,28 +30,28 @@ struct CarouselViewData: View {
                 .background(Color.black.opacity(0.5))
             }
             .onTapGesture {
-                router.navigate(to: .details(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth()))
+                router.navigate(to: .details(id: concert.id, name: concert.name ?? "", day: concert.getEventDay(), month: concert.getEventMonth()))
             }
             .padding(.vertical, Dimens.medium)
             
             HStack {
                 VStack(alignment: .leading, spacing: Dimens.small) {
-                    Text(event.name ?? "")
+                    Text(concert.name ?? "")
                         .foregroundColor(theme.primaryText)
                         .font(.title2)
                         .bold()
                     
-                    HaIconText(icon: "calendar", text: event.getEventTime())
+                    HaIconText(icon: "calendar", text: concert.getEventTime())
                         .background(theme.background)
-                    HaIconText(icon: "mic", text: event.headlinerName ?? "")
+                    HaIconText(icon: "mic", text: concert.headlinerName ?? "")
                         .background(theme.background)
                 }
                 .onTapGesture {
-                    router.navigate(to: .details(id: event.id, name: event.name ?? "", day: event.getEventDay(), month: event.getEventMonth()))
+                    router.navigate(to: .details(id: concert.id, name: concert.name ?? "", day: concert.getEventDay(), month: concert.getEventMonth()))
                 }
                 
-                if let url = URL(string: event.ticketingUrl ?? "") {
-                    CtaViewData(actionText: event.ticketingName, route: .web(url: url))
+                if let url = URL(string: concert.ticketingUrl ?? "") {
+                    CtaViewData(actionText: concert.ticketingName, route: .web(url: url))
                 }
             }
             .padding(.horizontal, Dimens.medium)

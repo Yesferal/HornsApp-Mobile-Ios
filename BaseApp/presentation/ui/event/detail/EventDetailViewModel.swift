@@ -5,23 +5,29 @@
 //  Created by Yesferal Cueva on 10/12/25.
 //
 
+import HornsAppCore
+
 @MainActor class EventDetailViewModel: ObservableObject {
     @Published var isLoading = false
-    @Published var data: EventModel? = nil
+    @Published var data: Concert? = nil
+    
+    var getConcertUseCase: GetConcertUseCase
+    
+    init(getConcertUseCase: GetConcertUseCase) {
+        self.getConcertUseCase = getConcertUseCase
+    }
     
     func fetchData(id: String) async {
         isLoading = true
         defer { isLoading = false }
         
         do {
-            let appName = AppSettings().appName
-            let path = "concert/"+id
-            print("Yesferal: Request path: " + path)
-            let event: HaResult<GetEventDetail> = try await AlamoFireWrapper(appName: appName).makeRequest(path: path)
+            let haResult = try await getConcertUseCase.invoke(id: id)
+            let uiResult: UiResult<Concert> = mapCoreResultAsUiResult(haResult)
             
-            switch event {
+            switch uiResult {
             case .success(let event):
-                data = EventModel.fromApi(event: event)
+                data = event
                 return
             case .failed:
                 // TODO: Logger

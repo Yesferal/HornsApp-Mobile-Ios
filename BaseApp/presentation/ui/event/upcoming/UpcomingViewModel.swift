@@ -5,22 +5,33 @@
 //  Created by Yesferal Cueva on 6/30/25.
 //
 
+import HornsAppCore
+
 @MainActor class UpcomingViewModel: ObservableObject {
     @Published var isLoading = false
-    @Published var data: [EventModel] = []
+    @Published var data: [ViewItem] = []
     
+    var getConcertsUseCase: GetConcertsUseCase
+    
+    init(getConcertsUseCase: GetConcertsUseCase) {
+        self.getConcertsUseCase = getConcertsUseCase
+    }
+        
     func fetchData() async {
         isLoading = true
         defer { isLoading = false }
         
         do {
-            let appSettings = AppSettings()
-            let appName = appSettings.appName
-            let events: HaResult<[GetEvents]> = try await AlamoFireWrapper(appName: appName).makeRequest(path: appSettings.homePath)
+            let haResult = try await getConcertsUseCase.invoke()
+            let uiResult: UiResult<[Concert]> = mapCoreResultAsUiResult(haResult)
             
-            switch events {
+            switch uiResult {
             case .success(let events):
-                data = EventModel.fromApi(events: events).sorted { $0.dateTime?.timeIntervalSince1970 ?? 0.0 < $1.dateTime?.timeIntervalSince1970 ?? 0.0 }
+                var views: [ViewItem] = []
+                events.forEach { e in
+                    views.append(ViewItem(id: UUID(), data: .upcoming(concert: e)))
+                }
+                data = views
                 return
             case .failed:
                 // TODO: Logger

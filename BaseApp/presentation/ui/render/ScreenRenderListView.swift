@@ -9,7 +9,7 @@ import SwiftUI
 import HornsAppCore
 
 struct ScreenRenderListView: View {
-    @StateObject var vm = ScreenRenderViewModel(getHomeRenderUseCase: UseCaseFactory().createGetHomeRenderUseCase(repository: RenderRepositoryImpl(renderRemoteDataSource: SocketManager(renderStorageDataSource: HaFileReaderManager()))))
+    @StateObject var vm = ScreenRenderViewModel(getHomeRenderUseCase: UseCaseFactory().createGetHomeRenderUseCase(repository: RenderRepositoryImpl(renderRemoteDataSource: SocketManager(renderStorageDataSource: HaFileReaderManager()))), getConcertsUseCase: GetConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings()))))
     
     var body: some View {
         ZStack {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HornsAppCore
 
 struct DetailView: View {
     let id: String
@@ -13,15 +14,26 @@ struct DetailView: View {
     let day: String
     let month: String
     
-    @StateObject var vm = EventDetailViewModel()
+    @StateObject private var vm: EventDetailViewModel
     
-    @State private var hasError = false
+    @SwiftUI.State private var hasError = false
     
     @Environment(\.dismiss) var dismiss
     
     @Environment(\.theme) var theme
     
     @EnvironmentObject var router: Router
+    
+    init(id: String, name: String, day: String, month: String) {
+        self.id = id
+        self.name = name
+        self.day = day
+        self.month = month
+        
+        let concertRepository = ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings()))
+        _vm = StateObject(
+            wrappedValue: EventDetailViewModel(getConcertUseCase: GetConcertUseCase(concertRepository: concertRepository, getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase(concertRepository: concertRepository))))
+    }
 
     var body: some View {
         let event = vm.data
@@ -34,7 +46,7 @@ struct DetailView: View {
                 VStack(spacing: 32) {
                     HStack(alignment: .top) {
                         HaEventDate(day: day, month: month)
-                        AsyncImage(url: URL(string: event?.headlinerUrl ?? "")) { image in
+                        AsyncImage(url: URL(string: event?.headlinerImageUrl ?? "")) { image in
                             image.resizable()
                         } placeholder: {
                             theme.background
@@ -72,11 +84,11 @@ struct DetailView: View {
                         } else {
                             HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable"), actionText: event?.ticketingName, route: nil)
                         }
-                        HaEventLink(iconName: "location", title: event?.mapName ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
-                            guard let latitude = event?.latitude else {
+                        HaEventLink(iconName: "location", title: event?.venue?.mapSearchName ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
+                            guard let latitude = event?.venue?.latitude else {
                                 return
                             }
-                            guard let longitude = event?.longitude else {
+                            guard let longitude = event?.venue?.longitude else {
                                 return
                             }
                             let query = "q=\(latitude),\(longitude)"

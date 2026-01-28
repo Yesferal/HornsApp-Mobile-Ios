@@ -8,14 +8,14 @@
 import HornsAppCore
 
 @MainActor class ScreenRenderViewModel: ObservableObject {
-    @Published var isLoading: Bool
-    @Published var data: [ViewItem]
+    @Published var isLoading: Bool = false
+    @Published var data: [ViewItem] = []
     var getHomeRenderUseCase: GetHomeRenderUseCase
+    var getConcertsUseCase: GetConcertsUseCase
     
-    init(isLoading: Bool = false, data: [ViewItem] = [], getHomeRenderUseCase: GetHomeRenderUseCase) {
-        self.isLoading = isLoading
-        self.data = data
+    init(getHomeRenderUseCase: GetHomeRenderUseCase, getConcertsUseCase: GetConcertsUseCase) {
         self.getHomeRenderUseCase = getHomeRenderUseCase
+        self.getConcertsUseCase = getConcertsUseCase
     }
     
     func fetchData() async {
@@ -27,15 +27,10 @@ import HornsAppCore
         print("Yesferal: ScreenRenderViewModel: ScreenRender: \(screenRender)")
         
         do {
-            let appSettings = AppSettings()
-            let appName = appSettings.appName
-            let events: HaResult<[GetEvents]> = try await AlamoFireWrapper(appName: appName).makeRequest(path: appSettings.homePath)
+            let haResult = try await getConcertsUseCase.invoke()
+            let uiResult: UiResult<[Concert]> = mapCoreResultAsUiResult(haResult)
             
-            screenRender?[1].views?.map { v in
-                print("Yesferal: v.type: \(v.type)")
-            }
-            
-            switch events {
+            switch uiResult {
             case .success(let events):
                 var views: [ViewItem] = []
                 screenRender?[1].views?.forEach { v in
@@ -54,7 +49,7 @@ import HornsAppCore
 }
 
 extension [ViewItem] {
-    mutating func addViewItem(viewRender: ViewRender, events: [GetEvents]) {
+    mutating func addViewItem(viewRender: ViewRender, events: [Concert]) {
         switch viewRender.type {
         case ViewRender.Type_.adView:
             append(ViewItem(id: UUID(), data: .ad))
@@ -71,7 +66,7 @@ extension [ViewItem] {
             }
             let tempEvents = events.reversed().prefix(1)
             tempEvents.forEach { e in
-                append(getChildrenViewItem(childrenRender: children, event: e))
+                append(getChildrenViewItem(childrenRender: children, concert: e))
             }
             append(getDividerViewItem())
         case ViewRender.Type_.columnView:
@@ -82,7 +77,7 @@ extension [ViewItem] {
             append(ViewItem(id: UUID(), data: .divider(height: Dimens.small)))
             let tempEvents = events.prefix(3)
             tempEvents.forEach { e in
-                append(getChildrenViewItem(childrenRender: children, event: e))
+                append(getChildrenViewItem(childrenRender: children, concert: e))
             }
             append(getDividerViewItem())
         default:
@@ -94,17 +89,14 @@ extension [ViewItem] {
         return ViewItem(id: UUID(), data: .divider(height: Dimens.xlarge))
     }
     
-    private func getChildrenViewItem(childrenRender: ChildrenRender, event: GetEvents) -> ViewItem {
+    private func getChildrenViewItem(childrenRender: ChildrenRender, concert: Concert) -> ViewItem {
         switch childrenRender.type {
         case ChildrenRender.Type_.carouselCardView:
-            let model = EventModel.fromApi(event: event)
-            return ViewItem(id: UUID(), data: .carousel(eventModel: model))
+            return ViewItem(id: UUID(), data: .carousel(concert: concert))
         case ChildrenRender.Type_.upcomingCardView:
-            let model = EventModel.fromApi(event: event)
-            return ViewItem(id: UUID(), data: .upcomingCompact(eventModel: model))
+            return ViewItem(id: UUID(), data: .upcomingCompact(concert: concert))
         case ChildrenRender.Type_.upcomingImageCardView:
-            let model = EventModel.fromApi(event: event)
-            return ViewItem(id: UUID(), data: .upcoming(eventModel: model))
+            return ViewItem(id: UUID(), data: .upcoming(concert: concert))
         default:
             return ViewItem(id: UUID(), data: .empty)
         }
@@ -124,6 +116,8 @@ extension [ViewItem] {
                 return nil
             }
             return .web(url: url)
+        case ScreenRender.Type_.upcomingScreen:
+            return .upcoming
         default:
             return nil
         }
