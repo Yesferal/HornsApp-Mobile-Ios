@@ -7,9 +7,22 @@
 
 import SwiftUI
 import HornsAppCore
+import SwiftData
 
 struct ScreenRenderListView: View {
-    @StateObject var vm = ScreenRenderViewModel(getHomeRenderUseCase: UseCaseFactory().createGetHomeRenderUseCase(repository: RenderRepositoryImpl(renderRemoteDataSource: SocketManager(renderStorageDataSource: HaFileReaderManager()))), getConcertsUseCase: GetConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings()))))
+    
+    @Environment(\.modelContext) var context
+
+    @StateObject var vm = ScreenRenderViewModel()
+    
+    var getHomeRenderUseCase: GetHomeRenderUseCase
+    
+    var getConcertsUseCase: GetConcertsUseCase
+    
+    init(context: ModelContext) {
+        getHomeRenderUseCase = UseCaseFactory().createGetHomeRenderUseCase(repository: RenderRepositoryImpl(renderRemoteDataSource: SocketManager(renderStorageDataSource: HaFileReaderManager())))
+        getConcertsUseCase = GetConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings())))
+    }
     
     var body: some View {
         ZStack {
@@ -30,6 +43,8 @@ struct ScreenRenderListView: View {
             .onAppear {
                 if vm.data.isEmpty {
                     Task {
+                        // FIXME: Move it to init func, one time call
+                        self.vm.configure(getHomeRenderUseCase: getHomeRenderUseCase, getConcertsUseCase: getConcertsUseCase)
                         await vm.fetchData()
                     }
                 }

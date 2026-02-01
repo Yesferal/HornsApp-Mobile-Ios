@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Application: App {
@@ -21,12 +22,10 @@ struct Application: App {
         WindowGroup {
             NavigationStack(path: $router.path) {
                 ContentView()
-                    .navigationDestination(for: Route.self) { route in
-                        destination(for: route)
-                    }
             }
             .environment(\.theme, theme)
             .environmentObject(router)
+            .modelContainer(for: SwiftDataConcert.self)
         }
     }
 }

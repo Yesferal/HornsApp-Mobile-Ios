@@ -7,6 +7,7 @@
 
 import SwiftUI
 import HornsAppCore
+import SwiftData
 
 struct DetailView: View {
     let id: String
@@ -14,7 +15,9 @@ struct DetailView: View {
     let day: String
     let month: String
     
-    @StateObject private var vm: EventDetailViewModel
+    @Environment(\.modelContext) var context
+    
+    @StateObject private var vm = EventDetailViewModel()
     
     @SwiftUI.State private var hasError = false
     
@@ -24,15 +27,19 @@ struct DetailView: View {
     
     @EnvironmentObject var router: Router
     
-    init(id: String, name: String, day: String, month: String) {
+    var getConcertUseCase: GetConcertUseCase
+    
+    var updateFavoriteConcertUseCase: UpdateFavoriteConcertUseCase
+    
+    init(id: String, name: String, day: String, month: String, context: ModelContext) {
         self.id = id
         self.name = name
         self.day = day
         self.month = month
         
-        let concertRepository = ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings()))
-        _vm = StateObject(
-            wrappedValue: EventDetailViewModel(getConcertUseCase: GetConcertUseCase(concertRepository: concertRepository, getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase(concertRepository: concertRepository))))
+        let concertRepository = ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings()))
+        getConcertUseCase = GetConcertUseCase(concertRepository: concertRepository, getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase(concertRepository: concertRepository))
+        updateFavoriteConcertUseCase = UpdateFavoriteConcertUseCase(concertRepository: concertRepository)
     }
 
     var body: some View {
@@ -116,11 +123,23 @@ struct DetailView: View {
         .onAppear {
             if vm.data == nil {
                 Task {
+                    vm.configure(getConcertUseCase: getConcertUseCase, updateFavoriteConcertUseCase: updateFavoriteConcertUseCase)
                     await vm.fetchData(id: id)
                 }
             }
         }
         .navigationTitle(self.name)
+        .toolbar {
+            if event != nil {
+                ToolbarItem(placement: .topBarTrailing) {
+                    FavoriteButton(isFavorite: vm.isFavorite) { isChecked in
+                        Task {
+                            await vm.onFavoriteImageViewClick(concert: event)
+                        }
+                    }
+                }
+            }
+        }
         .background(theme.background)
     }
 }

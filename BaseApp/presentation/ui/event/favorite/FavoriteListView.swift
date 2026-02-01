@@ -1,24 +1,24 @@
 //
-//  EventList.swift
+//  FavoriteListView.swift
 //  HornsApp
 //
-//  Created by Yesferal Cueva on 6/28/25.
+//  Created by Yesferal Cueva on 1/31/26.
 //
 
 import SwiftUI
 import HornsAppCore
 import SwiftData
 
-struct UpcomingList: View {
+struct FavoriteListView: View {
     
     @Environment(\.modelContext) var context
 
-    @StateObject var vm = UpcomingViewModel()
+    @StateObject var vm = FavoriteViewModel()
     
-    var getConcertsUseCase: GetConcertsUseCase
-        
+    var getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase
+    
     init(context: ModelContext) {
-        getConcertsUseCase = GetConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings())))
+        getFavoriteConcertsUseCase = GetFavoriteConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings())))
     }
     
     var body: some View {
@@ -34,13 +34,13 @@ struct UpcomingList: View {
                     .listRowInsets(.init()) // Remove padding
                     .listRowSeparator(.hidden) // Remove padding
             }
-            .listStyle(.plain) // Remove padding
             .scrollContentBackground(.hidden) // Hides the default white card background
+            .listStyle(.plain) // Remove padding
             .onAppear {
                 if vm.data.isEmpty {
                     Task {
-                        // FIXME: Move it to init function, one time call
-                        vm.configure(getConcertsUseCase: getConcertsUseCase)
+                        // FIXME: Try to use it one time in init instead
+                        vm.configure(getFavoriteConcertsUseCase: getFavoriteConcertsUseCase)
                         await vm.fetchData()
                     }
                 }

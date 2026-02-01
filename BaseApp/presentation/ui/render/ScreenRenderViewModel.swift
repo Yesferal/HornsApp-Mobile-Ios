@@ -10,10 +10,10 @@ import HornsAppCore
 @MainActor class ScreenRenderViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var data: [ViewItem] = []
-    var getHomeRenderUseCase: GetHomeRenderUseCase
-    var getConcertsUseCase: GetConcertsUseCase
+    var getHomeRenderUseCase: GetHomeRenderUseCase?
+    var getConcertsUseCase: GetConcertsUseCase?
     
-    init(getHomeRenderUseCase: GetHomeRenderUseCase, getConcertsUseCase: GetConcertsUseCase) {
+    func configure(getHomeRenderUseCase: GetHomeRenderUseCase, getConcertsUseCase: GetConcertsUseCase) {
         self.getHomeRenderUseCase = getHomeRenderUseCase
         self.getConcertsUseCase = getConcertsUseCase
     }
@@ -23,11 +23,15 @@ import HornsAppCore
         isLoading = true
         defer { isLoading = false }
         
-        let screenRender: [ScreenRender]? = try? await getHomeRenderUseCase.invoke()
+        guard let screenRender: [ScreenRender]? = try? await getHomeRenderUseCase?.invoke() else {
+            return
+        }
         print("Yesferal: ScreenRenderViewModel: ScreenRender: \(screenRender)")
         
         do {
-            let haResult = try await getConcertsUseCase.invoke()
+            guard let haResult = try await getConcertsUseCase?.invoke() else {
+                return
+            }
             let uiResult: UiResult<[Concert]> = mapCoreResultAsUiResult(haResult)
             
             switch uiResult {
@@ -121,6 +125,8 @@ extension [ViewItem] {
                 return nil
             }
             return .web(url: url)
+        case ScreenRender.Type_.favoriteScreen:
+            return .favorite
         case ScreenRender.Type_.upcomingScreen:
             return .upcoming
         default:

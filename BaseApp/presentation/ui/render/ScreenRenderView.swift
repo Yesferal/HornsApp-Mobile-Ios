@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct ScreenRenderView: View {
+    
+    @Environment(\.modelContext) var context
+
     @Environment(\.theme) var theme
 
     @StateObject private var router = Router()
 
     var body: some View {
-        ScreenRenderListView()
+        ScreenRenderListView(context: context)
+        // FIXME: Use Localized String here
             .navigationTitle("Home")
             .background(theme.background)
     }

@@ -10,10 +10,12 @@ import HornsAppCore
 
 struct UpcomingView: View {
     
+    @Environment(\.modelContext) var context
+
     @Environment(\.theme) var theme
 
     var body: some View {
-        UpcomingList()
+        UpcomingList(context: context)
             .navigationTitle(LocalizedStringKey("home"))
             .background(theme.background)
         

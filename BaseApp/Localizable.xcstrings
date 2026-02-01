@@ -86,6 +86,9 @@
         }
       }
     },
+    "Favorite" : {
+
+    },
     "get_started" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -11,9 +11,9 @@ import HornsAppCore
     @Published var isLoading = false
     @Published var data: [ViewItem] = []
     
-    var getConcertsUseCase: GetConcertsUseCase
+    var getConcertsUseCase: GetConcertsUseCase?
     
-    init(getConcertsUseCase: GetConcertsUseCase) {
+    func configure(getConcertsUseCase: GetConcertsUseCase) {
         self.getConcertsUseCase = getConcertsUseCase
     }
         
@@ -22,7 +22,9 @@ import HornsAppCore
         defer { isLoading = false }
         
         do {
-            let haResult = try await getConcertsUseCase.invoke()
+            guard let haResult = try await getConcertsUseCase?.invoke() else {
+                return
+            }
             let uiResult: UiResult<[Concert]> = mapCoreResultAsUiResult(haResult)
             
             switch uiResult {
