@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import AppTrackingTransparency
+import AdSupport
 
 struct OnboardingView: View {
     
@@ -56,6 +58,7 @@ struct OnboardingView: View {
                     Spacer() // pushes the button to the right
                     
                     Button(LocalizedStringKey("get_started")) {
+                        requestTrackingPermission()
                         hasSeenOnboarding = true
                     }
                     .padding()
@@ -69,6 +72,23 @@ struct OnboardingView: View {
                 }
             }
             .padding()
+        }
+    }
+    
+    func requestTrackingPermission() {
+        ATTrackingManager.requestTrackingAuthorization { status in
+            switch status {
+            case .authorized:
+                print("Tracking authorized")
+            case .denied:
+                print("Tracking denied")
+            case .restricted:
+                print("Tracking restricted")
+            case .notDetermined:
+                print("Tracking not determined")
+            @unknown default:
+                break
+            }
         }
     }
 }
