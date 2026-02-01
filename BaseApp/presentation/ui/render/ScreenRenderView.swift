@@ -18,7 +18,7 @@ struct ScreenRenderView: View {
     var body: some View {
         ScreenRenderListView(context: context)
         // FIXME: Use Localized String here
-            .navigationTitle("Home")
+            .navigationTitle(LocalizedStringKey("home"))
             .background(theme.background)
     }
 }

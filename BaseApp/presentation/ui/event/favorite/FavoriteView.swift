@@ -17,7 +17,7 @@ struct FavoriteView: View {
     var body: some View {
         FavoriteListView(context: context)
         // FIXME: Use Localized EN/ES version
-            .navigationTitle(LocalizedStringKey("Favorite"))
+            .navigationTitle(LocalizedStringKey("favorite"))
             .background(theme.background)
         
     }

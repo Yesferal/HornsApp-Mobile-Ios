@@ -86,8 +86,21 @@
         }
       }
     },
-    "Favorite" : {
-
+    "favorite" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorite"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoritos"
+          }
+        }
+      }
     },
     "get_started" : {
       "extractionState" : "manual",
@@ -156,9 +169,6 @@
         }
       }
     },
-    "Home" : {
-
-    },
     "let_find_out_together" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -176,6 +186,23 @@
         }
       }
     },
+    "see_more" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See More"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver más"
+          }
+        }
+      }
+    },
     "unavailable" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -189,6 +216,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No disponible"
+          }
+        }
+      }
+    },
+    "upcoming" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Próximos"
           }
         }
       }

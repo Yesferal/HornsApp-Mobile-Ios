@@ -58,7 +58,7 @@ extension [ViewItem] {
         case ViewRender.Type_.adView:
             append(ViewItem(id: UUID(), data: .ad))
         case ViewRender.Type_.iconCardView:
-            append(ViewItem(id: UUID(), data: .seeMore(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", icon: "music.note", backgroundColor: viewRender.style?.backgroundColor ?? "", buttonBackgroundColor: viewRender.style?.textColor ?? "", buttonForegroundColor: viewRender.style?.backgroundColor ?? "", actionText: "See More", route: getRoute(navigatorRender: viewRender.navigation))))
+            append(ViewItem(id: UUID(), data: .seeMore(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", icon: "music.note", backgroundColor: viewRender.style?.backgroundColor ?? "", buttonBackgroundColor: viewRender.style?.textColor ?? "", buttonForegroundColor: viewRender.style?.backgroundColor ?? "", actionText: HaLocalizedStringWrapper.getString(key: "see_more"), route: getRoute(navigatorRender: viewRender.navigation))))
             append(getDividerViewItem())
         case ViewRender.Type_.cardView:
             append(ViewItem(id: UUID(), data: .home(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text, imageUrl: viewRender.data?.imageUrl ?? "", route: getRoute(navigatorRender: viewRender.navigation))))

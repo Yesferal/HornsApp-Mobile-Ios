@@ -16,7 +16,7 @@ struct UpcomingView: View {
 
     var body: some View {
         UpcomingList(context: context)
-            .navigationTitle(LocalizedStringKey("home"))
+            .navigationTitle(LocalizedStringKey("upcoming"))
             .background(theme.background)
         
     }
