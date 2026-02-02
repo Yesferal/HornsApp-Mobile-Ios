@@ -41,7 +41,7 @@ struct CarouselViewData: View {
                         .font(.title2)
                         .bold()
                     
-                    HaIconText(icon: "calendar", text: concert.getEventTime())
+                    HaIconText(icon: "calendar", text: concert.getEventAsCalendarLabel())
                         .background(theme.background)
                     HaIconText(icon: "mic", text: concert.headlinerName ?? "")
                         .background(theme.background)
