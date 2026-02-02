@@ -27,7 +27,7 @@ struct ContentView: View {
         }
         
         if hasSeenOnboarding {
-            ScreenRenderView()
+            HomeView()
                 .navigationDestination(for: Route.self) { route in
                     destination(for: route, context: context)
                 }
