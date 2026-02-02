@@ -13,8 +13,8 @@ struct FavoriteListView: View {
     
     @Environment(\.modelContext) var context
 
-    @StateObject var vm = FavoriteViewModel()
-    
+    @EnvironmentObject var vm: FavoriteViewModel
+
     var getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase
     
     init(context: ModelContext) {

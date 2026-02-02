@@ -13,6 +13,7 @@ struct Application: App {
     let theme: Theme = .appTheme
     
     @StateObject private var router = Router()
+    @StateObject private var favoriteVM = FavoriteViewModel()
     
     init() {
         UIView.appearance().overrideUserInterfaceStyle = Theme.uiUserInterfaceStyle
@@ -25,6 +26,7 @@ struct Application: App {
             }
             .environment(\.theme, theme)
             .environmentObject(router)
+            .environmentObject(favoriteVM)
             .modelContainer(for: SwiftDataConcert.self)
         }
     }

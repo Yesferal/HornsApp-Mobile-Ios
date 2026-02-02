@@ -19,6 +19,8 @@ struct DetailView: View {
     
     @StateObject private var vm = EventDetailViewModel()
     
+    @EnvironmentObject var favoriteVM: FavoriteViewModel
+    
     @SwiftUI.State private var hasError = false
     
     @Environment(\.dismiss) var dismiss
@@ -135,6 +137,7 @@ struct DetailView: View {
                     FavoriteButton(isFavorite: vm.isFavorite) { isChecked in
                         Task {
                             await vm.onFavoriteImageViewClick(concert: event)
+                            await favoriteVM.update()
                         }
                     }
                 }

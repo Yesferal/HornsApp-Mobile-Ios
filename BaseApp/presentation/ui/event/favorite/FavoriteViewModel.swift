@@ -21,6 +21,8 @@ import HornsAppCore
         isLoading = true
         defer { isLoading = false }
         
+        print("Yesferal: fetchData: getFavoriteConcertsUseCase: \(getFavoriteConcertsUseCase)")
+        
         do {
             guard let events = try await getFavoriteConcertsUseCase?.invoke() else {
                 return
@@ -34,6 +36,10 @@ import HornsAppCore
         } catch {
             // TODO: Logger
         }
+    }
+    
+    func update() async {
+        await fetchData()
     }
 }
 
