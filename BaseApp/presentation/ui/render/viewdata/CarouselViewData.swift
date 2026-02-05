@@ -51,7 +51,7 @@ struct CarouselViewData: View {
                 }
                 
                 if let url = URL(string: concert.ticketingUrl ?? "") {
-                    CtaViewData(actionText: concert.ticketingName, route: .web(url: url))
+                    CtaViewData(actionText: concert.ticketingName, action: Route.web(url: url).asAction(router: router))
                 }
             }
             .padding(.horizontal, Dimens.medium)

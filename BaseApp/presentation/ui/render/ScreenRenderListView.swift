@@ -25,12 +25,26 @@ struct ScreenRenderListView: View {
     }
     
     var body: some View {
-        ZStack {
-            if vm.isLoading {
-                HaProgressView()
+        content
+            .onAppear {
+                self.vm.configure(getHomeRenderUseCase: getHomeRenderUseCase, getConcertsUseCase: getConcertsUseCase)
+                Task {
+                    await vm.fetchData()
+                }
             }
+    }
+    
+    @ViewBuilder
+    private var content: some View {
+        switch vm.state {
+        case .idle:
+            HaProgressView()
             
-            List(vm.data) { view in
+        case .loading:
+            HaProgressView()
+            
+        case .success(let items):
+            List(items) { view in
                 render(view.data)
                     .listRowSeparator(.hidden) // Remove divider line
                     .listRowBackground(Color.clear) // Remove row bg
@@ -40,16 +54,13 @@ struct ScreenRenderListView: View {
             .listStyle(.plain) // Remove padding
             .scrollContentBackground(.hidden) // Hides the default white card background
             .environment(\.defaultMinListRowHeight, 0) // List rows are allowed to be any height, even 0
-            .onAppear {
-                if vm.data.isEmpty {
-                    Task {
-                        // FIXME: Move it to init func, one time call
-                        self.vm.configure(getHomeRenderUseCase: getHomeRenderUseCase, getConcertsUseCase: getConcertsUseCase)
-                        await vm.fetchData()
-                    }
+            
+        case .failed(let error, let icon, let actionText):
+            ErrorViewData(message: error, icon: icon, actionText: actionText) {
+                Task {
+                    await vm.retryFetchData()
                 }
             }
         }
-        .animation(.easeInOut, value: vm.isLoading)
     }
 }

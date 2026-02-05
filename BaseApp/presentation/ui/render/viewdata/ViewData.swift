@@ -23,6 +23,7 @@ enum ViewData {
     case home(title: String, subtitle: String?, imageUrl: String, route: Route?)
     case empty
     case ad
+    case error(message: String, icon: String, actionText: String, action: () -> Void)
 }
 
 @ViewBuilder
@@ -46,5 +47,7 @@ func render(_ viewData: ViewData) -> some View {
         EmptyView()
     case .ad:
         EmptyView()
+    case .error(let message, let icon, let actionText, let action):
+        ErrorViewData(message: message, icon: icon, actionText: actionText, action: action)
     }
 }

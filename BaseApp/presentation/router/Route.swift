@@ -14,6 +14,10 @@ enum Route: Hashable {
     case favorite
     case home
     case web(url: URL)
+    
+    func asAction(router: Router) -> (() -> Void) {
+        return { router.navigate(to: self) }
+    }
 }
 
 @ViewBuilder

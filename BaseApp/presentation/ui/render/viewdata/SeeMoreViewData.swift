@@ -16,7 +16,9 @@ struct SeeMoreViewData: View {
     let buttonForegroundColor: String
     let actionText: String
     let route: Route?
-    
+
+    @EnvironmentObject var router: Router
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -36,7 +38,7 @@ struct SeeMoreViewData: View {
                     .foregroundStyle(.white)
                     .font(.system(size: Dimens.xlarge * 2))
             }
-            CtaViewData(actionText: actionText, backgroundColor: Color.init(hex: buttonBackgroundColor), foregroundColor: Color.init(hex: buttonForegroundColor), route: route)
+            CtaViewData(actionText: actionText, backgroundColor: Color.init(hex: buttonBackgroundColor), foregroundColor: Color.init(hex: buttonForegroundColor), action: route?.asAction(router: router))
                 .padding(.vertical, Dimens.small)
         }
         .padding()

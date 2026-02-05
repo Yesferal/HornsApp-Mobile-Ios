@@ -16,6 +16,8 @@ struct HaEventBuyButton: View {
     
     @Environment(\.theme) var theme
     
+    @EnvironmentObject var router: Router
+    
     var body: some View {
         HStack(alignment: .center) {
             HStack(alignment: .center) {
@@ -25,7 +27,7 @@ struct HaEventBuyButton: View {
                 HaTittleSubTittle(title: title, subtitle: subtitle)
             }
             Spacer()
-            CtaViewData(actionText: actionText, route: route)
+            CtaViewData(actionText: actionText, action: route?.asAction(router: router))
         }
         
     }

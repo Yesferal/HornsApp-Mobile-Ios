@@ -7,26 +7,28 @@
 
 import HornsAppCore
 
-@MainActor class ScreenRenderViewModel: ObservableObject {
-    @Published var isLoading: Bool = false
-    @Published var data: [ViewItem] = []
+@MainActor
+class ScreenRenderViewModel: ObservableObject {
+    @Published var state: ViewState<[ViewItem]> = .idle
     var getHomeRenderUseCase: GetHomeRenderUseCase?
     var getConcertsUseCase: GetConcertsUseCase?
     
     func configure(getHomeRenderUseCase: GetHomeRenderUseCase, getConcertsUseCase: GetConcertsUseCase) {
+        guard case .idle = state else { return }
+        
         self.getHomeRenderUseCase = getHomeRenderUseCase
         self.getConcertsUseCase = getConcertsUseCase
     }
     
     func fetchData() async {
-        data = []
-        isLoading = true
-        defer { isLoading = false }
+        guard case .idle = state else { return }
+
+        state = .loading
         
         guard let screenRender: [ScreenRender]? = try? await getHomeRenderUseCase?.invoke() else {
+            showErrorMessage()
             return
         }
-        print("Yesferal: ScreenRenderViewModel: ScreenRender: \(screenRender)")
         
         do {
             guard let haResult = try await getConcertsUseCase?.invoke() else {
@@ -40,15 +42,27 @@ import HornsAppCore
                 screenRender?[1].views?.forEach { v in
                     views.addViewItem(viewRender: v, events: events)
                 }
-                data = views
+                state = .success(views)
                 return
             case .failed:
                 // TODO: Logger
+                showErrorMessage()
                 return
             }
         } catch {
             // TODO: Logger
+            showErrorMessage()
+            return
         }
+    }
+    
+    func showErrorMessage() {
+        state = .failed(HaLocalizedStringWrapper.getString(key: "error_message_no_concert"), "music.note", HaLocalizedStringWrapper.getString(key: "retry"))
+    }
+    
+    func retryFetchData() async {
+        state = .idle
+        await fetchData()
     }
 }
 

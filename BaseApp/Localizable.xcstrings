@@ -86,6 +86,23 @@
         }
       }
     },
+    "error_message_no_concert" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something happened, check your connection and try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha ocurrido un error, revisa tu conexión a internet y vuelve a intentarlo."
+          }
+        }
+      }
+    },
     "favorite" : {
       "localizations" : {
         "en" : {
@@ -182,6 +199,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Encontremos juntos tu próximo concierto."
+          }
+        }
+      }
+    },
+    "retry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try Again"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a intentar"
           }
         }
       }
