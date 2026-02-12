@@ -9,6 +9,7 @@ import SwiftData
 import HornsAppCore
 
 // TODO: Implement Chached Local Storage
+@MainActor
 class SwiftDataManager: ConcertStorageDataSource {
     private let context: ModelContext
     
