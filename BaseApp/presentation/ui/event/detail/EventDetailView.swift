@@ -17,22 +17,26 @@ struct DetailView: View {
     
     @Environment(\.modelContext) var context
     
-    @StateObject private var vm = EventDetailViewModel()
-    
-    @EnvironmentObject var favoriteVM: FavoriteViewModel
-    
-    @SwiftUI.State private var hasError = false
-    
     @Environment(\.dismiss) var dismiss
     
     @Environment(\.theme) var theme
     
     @EnvironmentObject var router: Router
+        
+    @EnvironmentObject var favoriteVM: FavoriteViewModel
+    
+    @SwiftUI.State private var hasError = false
+    
+    @SwiftUI.State private var activeAlert: HaAlert?
+    
+    @StateObject private var vm = EventDetailViewModel()
     
     var getConcertUseCase: GetConcertUseCase
     
     var updateFavoriteConcertUseCase: UpdateFavoriteConcertUseCase
     
+    private var calendarPermissionManager = CalendarPermissionManager()
+
     init(id: String, name: String, day: String, month: String, context: ModelContext) {
         self.id = id
         self.name = name
@@ -110,8 +114,16 @@ struct DetailView: View {
                             }
                         }
                         HaEventLink(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar")) {
-                            // TODO: Implement Calendar feature
-                            print("Button tapped!")
+                            Task {
+                                let granted = await calendarPermissionManager.requestAccess()
+                                
+                                if granted {
+                                    calendarPermissionManager.saveEventToCalendar(event: event)
+                                    activeAlert = .eventAdded
+                                } else {
+                                    activeAlert = .calendarAccessDenied
+                                }
+                            }
                         }
                     }
                 }
@@ -121,11 +133,16 @@ struct DetailView: View {
             .padding()
             
         }
+        .alert(item: $activeAlert) { alert in
+            Alert(
+                title: Text(HaLocalizedStringWrapper.getString(key: alert.title)),
+                message: Text(HaLocalizedStringWrapper.getString(key: alert.message)))
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear {
             if vm.data == nil {
+                vm.configure(getConcertUseCase: getConcertUseCase, updateFavoriteConcertUseCase: updateFavoriteConcertUseCase)
                 Task {
-                    vm.configure(getConcertUseCase: getConcertUseCase, updateFavoriteConcertUseCase: updateFavoriteConcertUseCase)
                     await vm.fetchData(id: id)
                 }
             }

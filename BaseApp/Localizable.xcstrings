@@ -29,7 +29,7 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "¿Estás listo para hoy?"
           }
         }
@@ -130,7 +130,7 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Empecemos"
           }
         }
@@ -182,6 +182,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inicio"
+          }
+        }
+      }
+    },
+    "key_calendar_access_denied" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oops!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ups!"
+          }
+        }
+      }
+    },
+    "key_calendar_access_denied_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access to the calendar was denied."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los permisos para usar el calendario fueron negados."
+          }
+        }
+      }
+    },
+    "key_event_added" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Event Added"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Evento guardado"
+          }
+        }
+      }
+    },
+    "key_event_added_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The event has been successfully added to your calendar."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El evento fue agregado correctamente a tu calendario"
           }
         }
       }

@@ -6,6 +6,9 @@
 	<true/>
     <key>NSUserTrackingUsageDescription</key>
     <string>This identifier will be used to deliver personalized ads and measure advertising performance.</string>
-
+    <key>NSCalendarsWriteOnlyAccessUsageDescription</key>
+    <string>We need access to add events to your calendar.</string>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>We need access to your calendar to add events.</string>
 </dict>
 </plist>
