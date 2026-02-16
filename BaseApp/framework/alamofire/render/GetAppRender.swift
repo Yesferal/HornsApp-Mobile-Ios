@@ -19,7 +19,10 @@ class GetAppRender: Decodable {
         let coreScreens = screens?.map {
             $0.mapToScreenRender()
         }
+        let coreCategories = categories?.map{
+            $0.mapToCategoryRender()
+        }
 
-        return AppRender(platform: platform, appId: appId, docVersion: docVersion.toKotlinLong(), appVersion: appVersion.toKotlinLong(), screens: coreScreens, categories: nil)
+        return AppRender(platform: platform, appId: appId, docVersion: docVersion.toKotlinLong(), appVersion: appVersion.toKotlinLong(), screens: coreScreens, categories: coreCategories)
     }
 }
