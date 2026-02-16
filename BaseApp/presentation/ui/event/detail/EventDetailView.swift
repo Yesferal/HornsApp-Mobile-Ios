@@ -22,12 +22,14 @@ struct DetailView: View {
     @Environment(\.theme) var theme
     
     @EnvironmentObject var router: Router
-        
+    
     @EnvironmentObject var favoriteVM: FavoriteViewModel
     
     @SwiftUI.State private var hasError = false
     
     @SwiftUI.State private var activeAlert: HaAlert?
+    
+    @SwiftUI.State private var showMapDialog = false
     
     @StateObject private var vm = EventDetailViewModel()
     
@@ -36,7 +38,21 @@ struct DetailView: View {
     var updateFavoriteConcertUseCase: UpdateFavoriteConcertUseCase
     
     private var calendarPermissionManager = CalendarPermissionManager()
+    
+    var location: MapLauncherManager.Location? {
+        guard
+            let event = vm.data,
+            let lat = Double(event.venue?.latitude ?? ""),
+            let lon = Double(event.venue?.longitude ?? "")
+        else { return nil }
 
+        return MapLauncherManager.Location(
+            name: event.venue?.mapSearchName ?? "",
+            latitude: lat,
+            longitude: lon
+        )
+    }
+    
     init(id: String, name: String, day: String, month: String, context: ModelContext) {
         self.id = id
         self.name = name
@@ -47,7 +63,7 @@ struct DetailView: View {
         getConcertUseCase = GetConcertUseCase(concertRepository: concertRepository, getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase(concertRepository: concertRepository))
         updateFavoriteConcertUseCase = UpdateFavoriteConcertUseCase(concertRepository: concertRepository)
     }
-
+    
     var body: some View {
         let event = vm.data
         
@@ -97,21 +113,8 @@ struct DetailView: View {
                         } else {
                             HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable"), actionText: event?.ticketingName, route: nil)
                         }
-                        HaEventLink(iconName: "location", title: event?.venue?.mapSearchName ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
-                            guard let latitude = event?.venue?.latitude else {
-                                return
-                            }
-                            guard let longitude = event?.venue?.longitude else {
-                                return
-                            }
-                            let query = "q=\(latitude),\(longitude)"
-                            let appleURL = "maps://?\(query)"
-                            let googleURL = "comgooglemaps://?\(query)"
-                            if let googleMapsURL = URL(string: googleURL), UIApplication.shared.canOpenURL(googleMapsURL) {
-                                UIApplication.shared.open(googleMapsURL)
-                            } else if let appleMapsURL = URL(string: appleURL) {
-                                UIApplication.shared.open(appleMapsURL)
-                            }
+                        HaEventLink(iconName: "location", title: event?.venue?.name ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
+                            showMapDialog = true
                         }
                         HaEventLink(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar")) {
                             Task {
@@ -137,6 +140,21 @@ struct DetailView: View {
             Alert(
                 title: Text(HaLocalizedStringWrapper.getString(key: alert.title)),
                 message: Text(HaLocalizedStringWrapper.getString(key: alert.message)))
+        }
+        .confirmationDialog(
+            "open_with",
+            isPresented: $showMapDialog,
+            titleVisibility: .visible
+        ) {
+            if let location {
+                ForEach(MapLauncherManager.availableApps(for: location)) { app in
+                    Button(app.displayName) {
+                        MapLauncherManager.open(app, location: location)
+                    }
+                }
+            }
+            
+            Button("key_cancel", role: .cancel) { }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear {

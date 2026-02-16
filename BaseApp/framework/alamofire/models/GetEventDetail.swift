@@ -54,8 +54,8 @@ struct GetEventDetail: Decodable {
             .addTicketingUrl(ticketingUrl: ticketing?.url)
             .addLinks(links: links)
             .addCategories(addCategories: categories)
+            .addVenue(venue: venue?.mapToVenue())
             // TODO: Fill the commented attributes
-            //.addVenue(venue: venue?.mapToVenue())
             //.addState(state: state?.mapToState())
             //.addActivities(activities: activities?.map { it.mapToBand() })
             .isFavorite(isFavorite: isFavorite)

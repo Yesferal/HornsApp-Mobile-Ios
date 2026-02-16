@@ -11,9 +11,6 @@ import HornsAppCore
 class CalendarPermissionManager {
     let eventStore = EKEventStore()
 
-    private var alertTitle: String = ""
-    private var alertMessage: String = ""
-    
     func requestAccess() async -> Bool {
         do {
             return try await eventStore.requestWriteOnlyAccessToEvents()

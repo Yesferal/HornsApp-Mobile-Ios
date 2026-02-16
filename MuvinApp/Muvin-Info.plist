@@ -10,5 +10,10 @@
     <string>We need access to add events to your calendar.</string>
     <key>NSCalendarsFullAccessUsageDescription</key>
     <string>We need access to your calendar to add events.</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>comgooglemaps</string>
+        <string>waze</string>
+    </array>
 </dict>
 </plist>

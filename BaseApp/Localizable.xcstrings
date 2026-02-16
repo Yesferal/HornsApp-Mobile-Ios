@@ -220,6 +220,22 @@
         }
       }
     },
+    "key_cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        }
+      }
+    },
     "key_event_added" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -267,6 +283,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Encontremos juntos tu próximo concierto."
+          }
+        }
+      }
+    },
+    "open_with" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open with"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir con"
           }
         }
       }
