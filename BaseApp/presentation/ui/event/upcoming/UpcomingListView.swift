@@ -15,10 +15,10 @@ struct UpcomingList: View {
 
     @StateObject var vm = UpcomingViewModel()
     
-    var getConcertsUseCase: GetConcertsUseCase
+    var getUpcomingConcertsUseCase: GetUpcomingConcertsUseCase
         
     init(context: ModelContext) {
-        getConcertsUseCase = GetConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings())))
+        getUpcomingConcertsUseCase = GetUpcomingConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings())), filterConcertsByCategoryUseCase: FilterConcertsByCategoryUseCase())
     }
     
     var body: some View {
@@ -40,7 +40,7 @@ struct UpcomingList: View {
                 if vm.data.isEmpty {
                     Task {
                         // FIXME: Move it to init function, one time call
-                        vm.configure(getConcertsUseCase: getConcertsUseCase)
+                        vm.configure(getUpcomingConcertsUseCase: getUpcomingConcertsUseCase)
                         await vm.fetchData()
                     }
                 }

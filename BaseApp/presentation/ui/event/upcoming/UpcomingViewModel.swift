@@ -11,10 +11,10 @@ import HornsAppCore
     @Published var isLoading = false
     @Published var data: [ViewItem] = []
     
-    var getConcertsUseCase: GetConcertsUseCase?
+    var getUpcomingConcertsUseCase: GetUpcomingConcertsUseCase?
     
-    func configure(getConcertsUseCase: GetConcertsUseCase) {
-        self.getConcertsUseCase = getConcertsUseCase
+    func configure(getUpcomingConcertsUseCase: GetUpcomingConcertsUseCase) {
+        self.getUpcomingConcertsUseCase = getUpcomingConcertsUseCase
     }
         
     func fetchData() async {
@@ -22,7 +22,7 @@ import HornsAppCore
         defer { isLoading = false }
         
         do {
-            guard let haResult = try await getConcertsUseCase?.invoke() else {
+            guard let haResult = try await getUpcomingConcertsUseCase?.invoke(categoryKey: CategoryRender.Companion().ALL) else {
                 return
             }
             let uiResult: UiResult<[Concert]> = mapCoreResultAsUiResult(haResult)
