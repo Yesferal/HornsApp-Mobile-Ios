@@ -109,7 +109,10 @@ struct DetailView: View {
                     } else {
                         
                         if let url = URL(string: event?.ticketingUrl ?? "") {
-                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_on"), subtitle: HaLocalizedStringWrapper.getString(key: "go_now"), actionText: event?.ticketingName, route: .web(url: url))
+                            let actionText = (event?.ticketingName?.isEmpty == false)
+                            ? event?.ticketingName
+                            : HaLocalizedStringWrapper.getString(key: "go_now")
+                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_on"), subtitle: HaLocalizedStringWrapper.getString(key: "go_now"), actionText: actionText, route: .web(url: url))
                         } else {
                             HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable"), actionText: event?.ticketingName, route: nil)
                         }
