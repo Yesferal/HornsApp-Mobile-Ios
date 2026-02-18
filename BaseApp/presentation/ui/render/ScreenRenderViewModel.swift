@@ -39,7 +39,8 @@ class ScreenRenderViewModel: ObservableObject {
             switch uiResult {
             case .success(let events):
                 var views: [ViewItem] = []
-                screenRender?[1].views?.forEach { v in
+                // TODO: Get this from constructor
+                screenRender?[0].views?.forEach { v in
                     views.addViewItem(viewRender: v, events: events)
                 }
                 state = .success(views)
