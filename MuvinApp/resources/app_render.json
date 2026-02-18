@@ -1,7 +1,7 @@
 {
   "_id": "680059898b2d7d614172ea3c",
   "docVersion": 1,
-  "appVersion": 1.0,
+  "appVersion": 1,
   "platform": "ios",
   "screens": [
     {
@@ -11,11 +11,11 @@
       "appId": "muvin",
       "__v": 0,
       "key": "RENDER_SCREEN",
-      "lastUpdate": "2026-02-18T14:22:12.793Z",
+      "lastUpdate": "2026-02-18T21:49:16.572Z",
       "title": {
         "en": "Home",
         "es": "Inicio",
-        "_id": "6995cb14dfc711e843987f2c"
+        "_id": "699633dc9ef2a044cac32eab"
       },
       "views": [
         {
@@ -33,15 +33,15 @@
           "key": "ROW_VIEW",
           "style": {
             "elevation": true,
-            "_id": "6995cb14dfc711e843987e65"
+            "_id": "699633dc9ef2a044cac32de4"
           },
-          "_id": "6995cb14dfc711e843987e64"
+          "_id": "699633dc9ef2a044cac32de3"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -52,16 +52,16 @@
             "title": {
               "en": "Upcoming",
               "es": "Próximos",
-              "_id": "6995cb14dfc711e843987e68"
+              "_id": "699633dc9ef2a044cac32de7"
             },
             "icon": "calendar",
-            "_id": "6995cb14dfc711e843987e67"
+            "_id": "699633dc9ef2a044cac32de6"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987e69"
+            "_id": "699633dc9ef2a044cac32de8"
           },
-          "_id": "6995cb14dfc711e843987e66"
+          "_id": "699633dc9ef2a044cac32de5"
         },
         {
           "children": {
@@ -75,9 +75,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 50,
-            "_id": "6995cb14dfc711e843987e6b"
+            "_id": "699633dc9ef2a044cac32dea"
           },
-          "_id": "6995cb14dfc711e843987e6a"
+          "_id": "699633dc9ef2a044cac32de9"
         },
         {
           "children": {
@@ -96,16 +96,16 @@
             "title": {
               "en": "Metal never dies",
               "es": "Metal nunca muere",
-              "_id": "6995cb14dfc711e843987e6e"
+              "_id": "699633dc9ef2a044cac32ded"
             },
             "subtitle": {
               "en": "#Metal",
               "es": "#Metal",
-              "_id": "6995cb14dfc711e843987e6f"
+              "_id": "699633dc9ef2a044cac32dee"
             },
-            "_id": "6995cb14dfc711e843987e6d"
+            "_id": "699633dc9ef2a044cac32dec"
           },
-          "_id": "6995cb14dfc711e843987e6c"
+          "_id": "699633dc9ef2a044cac32deb"
         },
         {
           "children": {
@@ -120,35 +120,37 @@
             "title": {
               "en": "Follow us on TikTok",
               "es": "Síguenos en TikTok",
-              "_id": "6995cb14dfc711e843987e72"
+              "_id": "699633dc9ef2a044cac32df1"
             },
             "subtitle": {
               "en": "Did you know about our TikTok? Follow us and find amazing LIVEs",
               "es": "¿Sabías acerca de nuestro TikTok? Síguenos y encuentra increibles videos y LIVEs",
-              "_id": "6995cb14dfc711e843987e73"
+              "_id": "699633dc9ef2a044cac32df2"
             },
             "icon": "tiktok",
-            "_id": "6995cb14dfc711e843987e71"
+            "_id": "699633dc9ef2a044cac32df0"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#29303e",
-            "_id": "6995cb14dfc711e843987e74"
+            "_id": "699633dc9ef2a044cac32df3"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://www.tiktok.com/@muvinapp"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987e75"
+            "_id": "699633dc9ef2a044cac32df4"
           },
-          "_id": "6995cb14dfc711e843987e70"
+          "_id": "699633dc9ef2a044cac32def"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "69940b777a87bd339c1165cd"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -159,16 +161,16 @@
             "title": {
               "en": "Hotel",
               "es": "Hotel",
-              "_id": "6995cb14dfc711e843987e78"
+              "_id": "699633dc9ef2a044cac32df7"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987e77"
+            "_id": "699633dc9ef2a044cac32df6"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987e79"
+            "_id": "699633dc9ef2a044cac32df8"
           },
-          "_id": "6995cb14dfc711e843987e76"
+          "_id": "699633dc9ef2a044cac32df5"
         },
         {
           "children": {
@@ -182,9 +184,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987e7b"
+            "_id": "699633dc9ef2a044cac32dfa"
           },
-          "_id": "6995cb14dfc711e843987e7a"
+          "_id": "699633dc9ef2a044cac32df9"
         },
         {
           "children": {
@@ -203,16 +205,16 @@
             "title": {
               "en": "Keep on rocking",
               "es": "Siempre el Rock es prioridad",
-              "_id": "6995cb14dfc711e843987e7e"
+              "_id": "699633dc9ef2a044cac32dfd"
             },
             "subtitle": {
               "en": "#Rock",
               "es": "#Rock",
-              "_id": "6995cb14dfc711e843987e7f"
+              "_id": "699633dc9ef2a044cac32dfe"
             },
-            "_id": "6995cb14dfc711e843987e7d"
+            "_id": "699633dc9ef2a044cac32dfc"
           },
-          "_id": "6995cb14dfc711e843987e7c"
+          "_id": "699633dc9ef2a044cac32dfb"
         },
         {
           "children": {
@@ -227,35 +229,37 @@
             "title": {
               "en": "Follow us on Instagram",
               "es": "Síguenos en Instagram",
-              "_id": "6995cb14dfc711e843987e82"
+              "_id": "699633dc9ef2a044cac32e01"
             },
             "subtitle": {
               "en": "Did you know about our IG? Follow us and keep up posted.",
               "es": "¿Sabías acerca de nuestro Instagram? Síguenos y mantente informado.",
-              "_id": "6995cb14dfc711e843987e83"
+              "_id": "699633dc9ef2a044cac32e02"
             },
             "icon": "instagram",
-            "_id": "6995cb14dfc711e843987e81"
+            "_id": "699633dc9ef2a044cac32e00"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#4f5bd5",
-            "_id": "6995cb14dfc711e843987e84"
+            "_id": "699633dc9ef2a044cac32e03"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://www.instagram.com/muvinapp.pe/"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987e85"
+            "_id": "699633dc9ef2a044cac32e04"
           },
-          "_id": "6995cb14dfc711e843987e80"
+          "_id": "699633dc9ef2a044cac32dff"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "6992673e6725336cb5f11e09"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -266,16 +270,16 @@
             "title": {
               "en": "Punk",
               "es": "Punk",
-              "_id": "6995cb14dfc711e843987e88"
+              "_id": "699633dc9ef2a044cac32e07"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987e87"
+            "_id": "699633dc9ef2a044cac32e06"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987e89"
+            "_id": "699633dc9ef2a044cac32e08"
           },
-          "_id": "6995cb14dfc711e843987e86"
+          "_id": "699633dc9ef2a044cac32e05"
         },
         {
           "children": {
@@ -289,9 +293,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987e8b"
+            "_id": "699633dc9ef2a044cac32e0a"
           },
-          "_id": "6995cb14dfc711e843987e8a"
+          "_id": "699633dc9ef2a044cac32e09"
         },
         {
           "children": {
@@ -310,16 +314,16 @@
             "title": {
               "en": "Your Story Begins Here",
               "es": "Aqui empieza tu historia",
-              "_id": "6995cb14dfc711e843987e8e"
+              "_id": "699633dc9ef2a044cac32e0d"
             },
             "subtitle": {
               "en": "#Museum",
               "es": "#Museo",
-              "_id": "6995cb14dfc711e843987e8f"
+              "_id": "699633dc9ef2a044cac32e0e"
             },
-            "_id": "6995cb14dfc711e843987e8d"
+            "_id": "699633dc9ef2a044cac32e0c"
           },
-          "_id": "6995cb14dfc711e843987e8c"
+          "_id": "699633dc9ef2a044cac32e0b"
         },
         {
           "children": {
@@ -334,35 +338,37 @@
             "title": {
               "en": "Follow us on Spotify",
               "es": "Síguenos en Spotify",
-              "_id": "6995cb14dfc711e843987e92"
+              "_id": "699633dc9ef2a044cac32e11"
             },
             "subtitle": {
               "en": "Did you know about our playlists on Spotify? There are a bunch of them waiting for you.",
               "es": "¿Sabías acerca de nuestras playlists en Spotify? Hay muchas esperando por ti.",
-              "_id": "6995cb14dfc711e843987e93"
+              "_id": "699633dc9ef2a044cac32e12"
             },
             "icon": "spotify",
-            "_id": "6995cb14dfc711e843987e91"
+            "_id": "699633dc9ef2a044cac32e10"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#1DB954",
-            "_id": "6995cb14dfc711e843987e94"
+            "_id": "699633dc9ef2a044cac32e13"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://open.spotify.com/user/vhx70zw6rpz3qm8u2fsplhwg1"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987e95"
+            "_id": "699633dc9ef2a044cac32e14"
           },
-          "_id": "6995cb14dfc711e843987e90"
+          "_id": "699633dc9ef2a044cac32e0f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "681afac457fc1eba7491e8e0"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -373,16 +379,16 @@
             "title": {
               "en": "Pop",
               "es": "Pop",
-              "_id": "6995cb14dfc711e843987e98"
+              "_id": "699633dc9ef2a044cac32e17"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987e97"
+            "_id": "699633dc9ef2a044cac32e16"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987e99"
+            "_id": "699633dc9ef2a044cac32e18"
           },
-          "_id": "6995cb14dfc711e843987e96"
+          "_id": "699633dc9ef2a044cac32e15"
         },
         {
           "children": {
@@ -396,9 +402,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987e9b"
+            "_id": "699633dc9ef2a044cac32e1a"
           },
-          "_id": "6995cb14dfc711e843987e9a"
+          "_id": "699633dc9ef2a044cac32e19"
         },
         {
           "children": {
@@ -417,16 +423,16 @@
             "title": {
               "en": "Music is life",
               "es": "La musica nos mueve",
-              "_id": "6995cb14dfc711e843987e9e"
+              "_id": "699633dc9ef2a044cac32e1d"
             },
             "subtitle": {
               "en": "#Concert",
               "es": "#Concierto",
-              "_id": "6995cb14dfc711e843987e9f"
+              "_id": "699633dc9ef2a044cac32e1e"
             },
-            "_id": "6995cb14dfc711e843987e9d"
+            "_id": "699633dc9ef2a044cac32e1c"
           },
-          "_id": "6995cb14dfc711e843987e9c"
+          "_id": "699633dc9ef2a044cac32e1b"
         },
         {
           "children": {
@@ -441,32 +447,34 @@
             "title": {
               "en": "Save your favorites",
               "es": "Guarda tus favoritos",
-              "_id": "6995cb14dfc711e843987ea2"
+              "_id": "699633dc9ef2a044cac32e21"
             },
             "subtitle": {
               "en": "You can save your favorite concerts now, so you can find them easily later.",
               "es": "Ya puedes guardar tus conciertos favoritos y así encontrarlos más fácil luego.",
-              "_id": "6995cb14dfc711e843987ea3"
+              "_id": "699633dc9ef2a044cac32e22"
             },
             "icon": "favorite",
-            "_id": "6995cb14dfc711e843987ea1"
+            "_id": "699633dc9ef2a044cac32e20"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#F61B83",
-            "_id": "6995cb14dfc711e843987ea4"
+            "_id": "699633dc9ef2a044cac32e23"
           },
           "navigation": {
             "key": "FAVORITE",
-            "_id": "6995cb14dfc711e843987ea5"
+            "_id": "699633dc9ef2a044cac32e24"
           },
-          "_id": "6995cb14dfc711e843987ea0"
+          "_id": "699633dc9ef2a044cac32e1f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "680e75c4fd23ead6b0ca7f51"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -477,16 +485,16 @@
             "title": {
               "en": "Free",
               "es": "Gratis",
-              "_id": "6995cb14dfc711e843987ea8"
+              "_id": "699633dc9ef2a044cac32e27"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987ea7"
+            "_id": "699633dc9ef2a044cac32e26"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987ea9"
+            "_id": "699633dc9ef2a044cac32e28"
           },
-          "_id": "6995cb14dfc711e843987ea6"
+          "_id": "699633dc9ef2a044cac32e25"
         },
         {
           "children": {
@@ -500,9 +508,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987eab"
+            "_id": "699633dc9ef2a044cac32e2a"
           },
-          "_id": "6995cb14dfc711e843987eaa"
+          "_id": "699633dc9ef2a044cac32e29"
         },
         {
           "children": {
@@ -521,16 +529,16 @@
             "title": {
               "en": "Enjoy the Fest",
               "es": "Disfruta de un festival",
-              "_id": "6995cb14dfc711e843987eae"
+              "_id": "699633dc9ef2a044cac32e2d"
             },
             "subtitle": {
               "en": "#Festival",
               "es": "#Festival",
-              "_id": "6995cb14dfc711e843987eaf"
+              "_id": "699633dc9ef2a044cac32e2e"
             },
-            "_id": "6995cb14dfc711e843987ead"
+            "_id": "699633dc9ef2a044cac32e2c"
           },
-          "_id": "6995cb14dfc711e843987eac"
+          "_id": "699633dc9ef2a044cac32e2b"
         },
         {
           "children": {
@@ -545,35 +553,37 @@
             "title": {
               "en": "Follow us on Facebook",
               "es": "Síguenos en Facebook",
-              "_id": "6995cb14dfc711e843987eb2"
+              "_id": "699633dc9ef2a044cac32e31"
             },
             "subtitle": {
               "en": "Did you know about our Facebook? Follow us and keep up posted.",
               "es": "¿Sabías acerca de nuestro Facebook? Síguenos y mantente informado.",
-              "_id": "6995cb14dfc711e843987eb3"
+              "_id": "699633dc9ef2a044cac32e32"
             },
             "icon": "facebook",
-            "_id": "6995cb14dfc711e843987eb1"
+            "_id": "699633dc9ef2a044cac32e30"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#3b5998",
-            "_id": "6995cb14dfc711e843987eb4"
+            "_id": "699633dc9ef2a044cac32e33"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://www.facebook.com/muvinapp.pe"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987eb5"
+            "_id": "699633dc9ef2a044cac32e34"
           },
-          "_id": "6995cb14dfc711e843987eb0"
+          "_id": "699633dc9ef2a044cac32e2f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "680e726cfd23ead6b0ca76cb"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -584,16 +594,16 @@
             "title": {
               "en": "Musical",
               "es": "Musical",
-              "_id": "6995cb14dfc711e843987eb8"
+              "_id": "699633dc9ef2a044cac32e37"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987eb7"
+            "_id": "699633dc9ef2a044cac32e36"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987eb9"
+            "_id": "699633dc9ef2a044cac32e38"
           },
-          "_id": "6995cb14dfc711e843987eb6"
+          "_id": "699633dc9ef2a044cac32e35"
         },
         {
           "children": {
@@ -607,9 +617,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987ebb"
+            "_id": "699633dc9ef2a044cac32e3a"
           },
-          "_id": "6995cb14dfc711e843987eba"
+          "_id": "699633dc9ef2a044cac32e39"
         },
         {
           "children": {
@@ -628,16 +638,16 @@
             "title": {
               "en": "Run for your life",
               "es": "Corre por tu vida",
-              "_id": "6995cb14dfc711e843987ebe"
+              "_id": "699633dc9ef2a044cac32e3d"
             },
             "subtitle": {
               "en": "#Sport",
               "es": "#Deporte",
-              "_id": "6995cb14dfc711e843987ebf"
+              "_id": "699633dc9ef2a044cac32e3e"
             },
-            "_id": "6995cb14dfc711e843987ebd"
+            "_id": "699633dc9ef2a044cac32e3c"
           },
-          "_id": "6995cb14dfc711e843987ebc"
+          "_id": "699633dc9ef2a044cac32e3b"
         },
         {
           "children": {
@@ -652,35 +662,37 @@
             "title": {
               "en": "Follow us on TikTok",
               "es": "Síguenos en TikTok",
-              "_id": "6995cb14dfc711e843987ec2"
+              "_id": "699633dc9ef2a044cac32e41"
             },
             "subtitle": {
               "en": "Did you know about our TikTok? Follow us and find amazing LIVEs",
               "es": "¿Sabías acerca de nuestro TikTok? Síguenos y encuentra increibles videos y LIVEs",
-              "_id": "6995cb14dfc711e843987ec3"
+              "_id": "699633dc9ef2a044cac32e42"
             },
             "icon": "tiktok",
-            "_id": "6995cb14dfc711e843987ec1"
+            "_id": "699633dc9ef2a044cac32e40"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#29303e",
-            "_id": "6995cb14dfc711e843987ec4"
+            "_id": "699633dc9ef2a044cac32e43"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://www.tiktok.com/@muvinapp"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987ec5"
+            "_id": "699633dc9ef2a044cac32e44"
           },
-          "_id": "6995cb14dfc711e843987ec0"
+          "_id": "699633dc9ef2a044cac32e3f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "680a6b586c0fbf6561d8ed39"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -691,16 +703,16 @@
             "title": {
               "en": "Theater",
               "es": "Teatro",
-              "_id": "6995cb14dfc711e843987ec8"
+              "_id": "699633dc9ef2a044cac32e47"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987ec7"
+            "_id": "699633dc9ef2a044cac32e46"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987ec9"
+            "_id": "699633dc9ef2a044cac32e48"
           },
-          "_id": "6995cb14dfc711e843987ec6"
+          "_id": "699633dc9ef2a044cac32e45"
         },
         {
           "children": {
@@ -714,9 +726,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987ecb"
+            "_id": "699633dc9ef2a044cac32e4a"
           },
-          "_id": "6995cb14dfc711e843987eca"
+          "_id": "699633dc9ef2a044cac32e49"
         },
         {
           "children": {
@@ -735,16 +747,16 @@
             "title": {
               "en": "Theaters at Night",
               "es": "Noches de teatros",
-              "_id": "6995cb14dfc711e843987ece"
+              "_id": "699633dc9ef2a044cac32e4d"
             },
             "subtitle": {
               "en": "#Theater",
               "es": "#Teatro",
-              "_id": "6995cb14dfc711e843987ecf"
+              "_id": "699633dc9ef2a044cac32e4e"
             },
-            "_id": "6995cb14dfc711e843987ecd"
+            "_id": "699633dc9ef2a044cac32e4c"
           },
-          "_id": "6995cb14dfc711e843987ecc"
+          "_id": "699633dc9ef2a044cac32e4b"
         },
         {
           "children": {
@@ -759,35 +771,37 @@
             "title": {
               "en": "Follow us on Instagram",
               "es": "Síguenos en Instagram",
-              "_id": "6995cb14dfc711e843987ed2"
+              "_id": "699633dc9ef2a044cac32e51"
             },
             "subtitle": {
               "en": "Did you know about our IG? Follow us and keep up posted.",
               "es": "¿Sabías acerca de nuestro Instagram? Síguenos y mantente informado.",
-              "_id": "6995cb14dfc711e843987ed3"
+              "_id": "699633dc9ef2a044cac32e52"
             },
             "icon": "instagram",
-            "_id": "6995cb14dfc711e843987ed1"
+            "_id": "699633dc9ef2a044cac32e50"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#4f5bd5",
-            "_id": "6995cb14dfc711e843987ed4"
+            "_id": "699633dc9ef2a044cac32e53"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://www.instagram.com/muvinapp.pe/"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987ed5"
+            "_id": "699633dc9ef2a044cac32e54"
           },
-          "_id": "6995cb14dfc711e843987ed0"
+          "_id": "699633dc9ef2a044cac32e4f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "680a6b466c0fbf6561d8ed2b"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -798,16 +812,16 @@
             "title": {
               "en": "Sport",
               "es": "Deporte",
-              "_id": "6995cb14dfc711e843987ed8"
+              "_id": "699633dc9ef2a044cac32e57"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987ed7"
+            "_id": "699633dc9ef2a044cac32e56"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987ed9"
+            "_id": "699633dc9ef2a044cac32e58"
           },
-          "_id": "6995cb14dfc711e843987ed6"
+          "_id": "699633dc9ef2a044cac32e55"
         },
         {
           "children": {
@@ -821,9 +835,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987edb"
+            "_id": "699633dc9ef2a044cac32e5a"
           },
-          "_id": "6995cb14dfc711e843987eda"
+          "_id": "699633dc9ef2a044cac32e59"
         },
         {
           "children": {
@@ -842,16 +856,16 @@
             "title": {
               "en": "Sing along",
               "es": "Canta con nosotros",
-              "_id": "6995cb14dfc711e843987ede"
+              "_id": "699633dc9ef2a044cac32e5d"
             },
             "subtitle": {
               "en": "#Musical",
               "es": "#Musical",
-              "_id": "6995cb14dfc711e843987edf"
+              "_id": "699633dc9ef2a044cac32e5e"
             },
-            "_id": "6995cb14dfc711e843987edd"
+            "_id": "699633dc9ef2a044cac32e5c"
           },
-          "_id": "6995cb14dfc711e843987edc"
+          "_id": "699633dc9ef2a044cac32e5b"
         },
         {
           "children": {
@@ -866,35 +880,37 @@
             "title": {
               "en": "Follow us on Spotify",
               "es": "Síguenos en Spotify",
-              "_id": "6995cb14dfc711e843987ee2"
+              "_id": "699633dc9ef2a044cac32e61"
             },
             "subtitle": {
               "en": "Did you know about our playlists on Spotify? There are a bunch of them waiting for you.",
               "es": "¿Sabías acerca de nuestras playlists en Spotify? Hay muchas esperando por ti.",
-              "_id": "6995cb14dfc711e843987ee3"
+              "_id": "699633dc9ef2a044cac32e62"
             },
             "icon": "spotify",
-            "_id": "6995cb14dfc711e843987ee1"
+            "_id": "699633dc9ef2a044cac32e60"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#1DB954",
-            "_id": "6995cb14dfc711e843987ee4"
+            "_id": "699633dc9ef2a044cac32e63"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://open.spotify.com/user/vhx70zw6rpz3qm8u2fsplhwg1"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987ee5"
+            "_id": "699633dc9ef2a044cac32e64"
           },
-          "_id": "6995cb14dfc711e843987ee0"
+          "_id": "699633dc9ef2a044cac32e5f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "680a6b316c0fbf6561d8ed1f"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -905,16 +921,16 @@
             "title": {
               "en": "Festival",
               "es": "Festival",
-              "_id": "6995cb14dfc711e843987ee8"
+              "_id": "699633dc9ef2a044cac32e67"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987ee7"
+            "_id": "699633dc9ef2a044cac32e66"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987ee9"
+            "_id": "699633dc9ef2a044cac32e68"
           },
-          "_id": "6995cb14dfc711e843987ee6"
+          "_id": "699633dc9ef2a044cac32e65"
         },
         {
           "children": {
@@ -928,9 +944,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987eeb"
+            "_id": "699633dc9ef2a044cac32e6a"
           },
-          "_id": "6995cb14dfc711e843987eea"
+          "_id": "699633dc9ef2a044cac32e69"
         },
         {
           "children": {
@@ -949,16 +965,16 @@
             "title": {
               "en": "Pick a Free Plan",
               "es": "Planes gratis para ti",
-              "_id": "6995cb14dfc711e843987eee"
+              "_id": "699633dc9ef2a044cac32e6d"
             },
             "subtitle": {
               "en": "#Free",
               "es": "#Gratis",
-              "_id": "6995cb14dfc711e843987eef"
+              "_id": "699633dc9ef2a044cac32e6e"
             },
-            "_id": "6995cb14dfc711e843987eed"
+            "_id": "699633dc9ef2a044cac32e6c"
           },
-          "_id": "6995cb14dfc711e843987eec"
+          "_id": "699633dc9ef2a044cac32e6b"
         },
         {
           "children": {
@@ -973,32 +989,34 @@
             "title": {
               "en": "Save your favorites",
               "es": "Guarda tus favoritos",
-              "_id": "6995cb14dfc711e843987ef2"
+              "_id": "699633dc9ef2a044cac32e71"
             },
             "subtitle": {
               "en": "You can save your favorite concerts now, so you can find them easily later.",
               "es": "Ya puedes guardar tus conciertos favoritos y así encontrarlos más fácil luego.",
-              "_id": "6995cb14dfc711e843987ef3"
+              "_id": "699633dc9ef2a044cac32e72"
             },
             "icon": "favorite",
-            "_id": "6995cb14dfc711e843987ef1"
+            "_id": "699633dc9ef2a044cac32e70"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#F61B83",
-            "_id": "6995cb14dfc711e843987ef4"
+            "_id": "699633dc9ef2a044cac32e73"
           },
           "navigation": {
             "key": "FAVORITE",
-            "_id": "6995cb14dfc711e843987ef5"
+            "_id": "699633dc9ef2a044cac32e74"
           },
-          "_id": "6995cb14dfc711e843987ef0"
+          "_id": "699633dc9ef2a044cac32e6f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "680a6b1f6c0fbf6561d8ed15"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -1009,16 +1027,16 @@
             "title": {
               "en": "Concert",
               "es": "Concierto",
-              "_id": "6995cb14dfc711e843987ef8"
+              "_id": "699633dc9ef2a044cac32e77"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987ef7"
+            "_id": "699633dc9ef2a044cac32e76"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987ef9"
+            "_id": "699633dc9ef2a044cac32e78"
           },
-          "_id": "6995cb14dfc711e843987ef6"
+          "_id": "699633dc9ef2a044cac32e75"
         },
         {
           "children": {
@@ -1032,9 +1050,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987efb"
+            "_id": "699633dc9ef2a044cac32e7a"
           },
-          "_id": "6995cb14dfc711e843987efa"
+          "_id": "699633dc9ef2a044cac32e79"
         },
         {
           "children": {
@@ -1053,16 +1071,16 @@
             "title": {
               "en": "Pop is a feeling",
               "es": "El pop es un sentimiento",
-              "_id": "6995cb14dfc711e843987efe"
+              "_id": "699633dc9ef2a044cac32e7d"
             },
             "subtitle": {
               "en": "#Pop",
               "es": "#Pop",
-              "_id": "6995cb14dfc711e843987eff"
+              "_id": "699633dc9ef2a044cac32e7e"
             },
-            "_id": "6995cb14dfc711e843987efd"
+            "_id": "699633dc9ef2a044cac32e7c"
           },
-          "_id": "6995cb14dfc711e843987efc"
+          "_id": "699633dc9ef2a044cac32e7b"
         },
         {
           "children": {
@@ -1077,35 +1095,37 @@
             "title": {
               "en": "Follow us on Facebook",
               "es": "Síguenos en Facebook",
-              "_id": "6995cb14dfc711e843987f02"
+              "_id": "699633dc9ef2a044cac32e81"
             },
             "subtitle": {
               "en": "Did you know about our Facebook? Follow us and keep up posted.",
               "es": "¿Sabías acerca de nuestro Facebook? Síguenos y mantente informado.",
-              "_id": "6995cb14dfc711e843987f03"
+              "_id": "699633dc9ef2a044cac32e82"
             },
             "icon": "facebook",
-            "_id": "6995cb14dfc711e843987f01"
+            "_id": "699633dc9ef2a044cac32e80"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#3b5998",
-            "_id": "6995cb14dfc711e843987f04"
+            "_id": "699633dc9ef2a044cac32e83"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://www.facebook.com/muvinapp.pe"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987f05"
+            "_id": "699633dc9ef2a044cac32e84"
           },
-          "_id": "6995cb14dfc711e843987f00"
+          "_id": "699633dc9ef2a044cac32e7f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "6809c52f6c0fbf6561d8e6d4"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -1116,16 +1136,16 @@
             "title": {
               "en": "Museum",
               "es": "Museo",
-              "_id": "6995cb14dfc711e843987f08"
+              "_id": "699633dc9ef2a044cac32e87"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987f07"
+            "_id": "699633dc9ef2a044cac32e86"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987f09"
+            "_id": "699633dc9ef2a044cac32e88"
           },
-          "_id": "6995cb14dfc711e843987f06"
+          "_id": "699633dc9ef2a044cac32e85"
         },
         {
           "children": {
@@ -1139,9 +1159,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987f0b"
+            "_id": "699633dc9ef2a044cac32e8a"
           },
-          "_id": "6995cb14dfc711e843987f0a"
+          "_id": "699633dc9ef2a044cac32e89"
         },
         {
           "children": {
@@ -1160,16 +1180,16 @@
             "title": {
               "en": "No Punk No Future",
               "es": "Sin Punk no hay futuro",
-              "_id": "6995cb14dfc711e843987f0e"
+              "_id": "699633dc9ef2a044cac32e8d"
             },
             "subtitle": {
               "en": "#Punk",
               "es": "#Punk",
-              "_id": "6995cb14dfc711e843987f0f"
+              "_id": "699633dc9ef2a044cac32e8e"
             },
-            "_id": "6995cb14dfc711e843987f0d"
+            "_id": "699633dc9ef2a044cac32e8c"
           },
-          "_id": "6995cb14dfc711e843987f0c"
+          "_id": "699633dc9ef2a044cac32e8b"
         },
         {
           "children": {
@@ -1184,35 +1204,37 @@
             "title": {
               "en": "Follow us on TikTok",
               "es": "Síguenos en TikTok",
-              "_id": "6995cb14dfc711e843987f12"
+              "_id": "699633dc9ef2a044cac32e91"
             },
             "subtitle": {
               "en": "Did you know about our TikTok? Follow us and find amazing LIVEs",
               "es": "¿Sabías acerca de nuestro TikTok? Síguenos y encuentra increibles videos y LIVEs",
-              "_id": "6995cb14dfc711e843987f13"
+              "_id": "699633dc9ef2a044cac32e92"
             },
             "icon": "tiktok",
-            "_id": "6995cb14dfc711e843987f11"
+            "_id": "699633dc9ef2a044cac32e90"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#29303e",
-            "_id": "6995cb14dfc711e843987f14"
+            "_id": "699633dc9ef2a044cac32e93"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://www.tiktok.com/@muvinapp"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987f15"
+            "_id": "699633dc9ef2a044cac32e94"
           },
-          "_id": "6995cb14dfc711e843987f10"
+          "_id": "699633dc9ef2a044cac32e8f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "68041bb4a5203cc93bbd2e59"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -1223,16 +1245,16 @@
             "title": {
               "en": "Rock",
               "es": "Rock",
-              "_id": "6995cb14dfc711e843987f18"
+              "_id": "699633dc9ef2a044cac32e97"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987f17"
+            "_id": "699633dc9ef2a044cac32e96"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987f19"
+            "_id": "699633dc9ef2a044cac32e98"
           },
-          "_id": "6995cb14dfc711e843987f16"
+          "_id": "699633dc9ef2a044cac32e95"
         },
         {
           "children": {
@@ -1246,9 +1268,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987f1b"
+            "_id": "699633dc9ef2a044cac32e9a"
           },
-          "_id": "6995cb14dfc711e843987f1a"
+          "_id": "699633dc9ef2a044cac32e99"
         },
         {
           "children": {
@@ -1267,16 +1289,16 @@
             "title": {
               "en": "Where to sleep",
               "es": "Te Lo Recomiendo",
-              "_id": "6995cb14dfc711e843987f1e"
+              "_id": "699633dc9ef2a044cac32e9d"
             },
             "subtitle": {
               "en": "#Hotel",
               "es": "#Hotel",
-              "_id": "6995cb14dfc711e843987f1f"
+              "_id": "699633dc9ef2a044cac32e9e"
             },
-            "_id": "6995cb14dfc711e843987f1d"
+            "_id": "699633dc9ef2a044cac32e9c"
           },
-          "_id": "6995cb14dfc711e843987f1c"
+          "_id": "699633dc9ef2a044cac32e9b"
         },
         {
           "children": {
@@ -1291,35 +1313,37 @@
             "title": {
               "en": "Follow us on Instagram",
               "es": "Síguenos en Instagram",
-              "_id": "6995cb14dfc711e843987f22"
+              "_id": "699633dc9ef2a044cac32ea1"
             },
             "subtitle": {
               "en": "Did you know about our IG? Follow us and keep up posted.",
               "es": "¿Sabías acerca de nuestro Instagram? Síguenos y mantente informado.",
-              "_id": "6995cb14dfc711e843987f23"
+              "_id": "699633dc9ef2a044cac32ea2"
             },
             "icon": "instagram",
-            "_id": "6995cb14dfc711e843987f21"
+            "_id": "699633dc9ef2a044cac32ea0"
           },
           "style": {
             "textColor": "#FFFFFF",
             "backgroundColor": "#4f5bd5",
-            "_id": "6995cb14dfc711e843987f24"
+            "_id": "699633dc9ef2a044cac32ea3"
           },
           "navigation": {
             "parameters": {
               "param_android_uri": "https://www.instagram.com/muvinapp.pe/"
             },
             "key": "WEB_VIEW_SCREEN",
-            "_id": "6995cb14dfc711e843987f25"
+            "_id": "699633dc9ef2a044cac32ea4"
           },
-          "_id": "6995cb14dfc711e843987f20"
+          "_id": "699633dc9ef2a044cac32e9f"
         },
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
+              "categories": [
+                "68041b3bd6756ac71587fa1e"
+              ],
+              "events": []
             },
             "key": "UPCOMING_CARD_VIEW",
             "take": 4,
@@ -1330,16 +1354,16 @@
             "title": {
               "en": "Metal",
               "es": "Metal",
-              "_id": "6995cb14dfc711e843987f28"
+              "_id": "699633dc9ef2a044cac32ea7"
             },
             "icon": null,
-            "_id": "6995cb14dfc711e843987f27"
+            "_id": "699633dc9ef2a044cac32ea6"
           },
           "navigation": {
             "key": "UPCOMING_SCREEN",
-            "_id": "6995cb14dfc711e843987f29"
+            "_id": "699633dc9ef2a044cac32ea8"
           },
-          "_id": "6995cb14dfc711e843987f26"
+          "_id": "699633dc9ef2a044cac32ea5"
         },
         {
           "children": {
@@ -1353,9 +1377,9 @@
           "key": "AD_VIEW",
           "style": {
             "height": 250,
-            "_id": "6995cb14dfc711e843987f2b"
+            "_id": "699633dc9ef2a044cac32eaa"
           },
-          "_id": "6995cb14dfc711e843987f2a"
+          "_id": "699633dc9ef2a044cac32ea9"
         }
       ]
     },
