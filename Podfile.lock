@@ -1,23 +1,21 @@
 PODS:
   - Alamofire (5.10.2)
-  - HornsAppCore (1.4.4)
+  - HornsAppCore (1.5.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.10.2)
-  - HornsAppCore (from `../../Kotlin/HornsApp-Core`)
+  - HornsAppCore (~> 1.5.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-
-EXTERNAL SOURCES:
-  HornsAppCore:
-    :path: "../../Kotlin/HornsApp-Core"
+  https://github.com/Yesferal/HornsApp-PodSpecs.git:
+    - HornsAppCore
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
-  HornsAppCore: 15569e46f988e3a2a63bccd89c99b18bc908cf8f
+  HornsAppCore: 3d1f5ae0d4bb8c0e79bdf903a1cb493217aca18f
 
-PODFILE CHECKSUM: 633b1e18f47db6baab48200f3acd9c415e31bd40
+PODFILE CHECKSUM: d129a28f46612158dd41a41c9cfffb10107d4880
 
 COCOAPODS: 1.16.2

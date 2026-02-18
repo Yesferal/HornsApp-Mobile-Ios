@@ -7,8 +7,8 @@ source 'https://github.com/Yesferal/HornsApp-PodSpecs.git'
 
 abstract_target 'SharedPods' do
     # HornsApp-specific pods
-    #pod 'HornsAppCore', '~> 1.4.4'
-    pod 'HornsAppCore', :path => '../../Kotlin/HornsApp-Core'
+    pod 'HornsAppCore', '~> 1.5.0'
+    #pod 'HornsAppCore', :path => '../../Kotlin/HornsApp-Core'
     
     # Third party pods
     pod 'Alamofire', '~> 5.10.2'
