@@ -22,25 +22,15 @@ struct GetEventDetail: Decodable {
     var state: GetState?
     var activities: [GetActivities]?
     var lineup: GetLineup?
-
-    enum CodingKeys: String, CodingKey {
-        case _id
-        case name
-        case dateTime
-        case totalDays
-        case headliner
-        case ticketing
-        case categories
-        case venue
-        case state
-        case activities
-        case lineup
-    }
     
     func mapToConcert() -> Concert {
         let isFavorite = false
         let links = links?.map { link in
             link.mapToViewRender()
+        }
+        
+        let activities = activities?.map {
+            $0.mapToActivity()
         }
         
         return Concert.Builder(id: _id)
@@ -57,7 +47,7 @@ struct GetEventDetail: Decodable {
             .addVenue(venue: venue?.mapToVenue())
             // TODO: Fill the commented attributes
             //.addState(state: state?.mapToState())
-            //.addActivities(activities: activities?.map { it.mapToBand() })
+            .addActivities(activities: activities)
             .isFavorite(isFavorite: isFavorite)
             // TODO: Impl the LineUp feature
             //.addLineup(lineup: lineup?.mapToLineup())

@@ -28,6 +28,8 @@ struct RemindersSection: View {
             HStack(spacing: 8) {
                 Text("reminder_section")
                     .font(.headline)
+                    .foregroundColor(theme.primaryText)
+                    .textCase(.uppercase)
 
                 Text("new_label")
                     .font(.subheadline)

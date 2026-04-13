@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "activities_section" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activities"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actividades"
+          }
+        }
+      }
+    },
     "add_to_calendar" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -283,6 +299,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El evento fue agregado correctamente a tu calendario"
+          }
+        }
+      }
+    },
+    "key_headliner" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Headliner"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Headliner"
           }
         }
       }

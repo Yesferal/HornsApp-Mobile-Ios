@@ -134,6 +134,7 @@ struct DetailView: View {
                         
                         if let safeEvent = event {
                             RemindersSection(event: safeEvent)
+                            LineupSection(event: safeEvent)
                         }
                     }
                 }

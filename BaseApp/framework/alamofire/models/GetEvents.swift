@@ -17,20 +17,7 @@ struct GetEvents: Decodable {
     var headliner: EventComponent?
     var ticketing: EventComponent?
     var categories: [String]?
-    var activities: [GetActivities]?
     var lineup: GetLineup?
-
-    enum CodingKeys: String, CodingKey {
-        case _id
-        case name
-        case dateTime
-        case totalDays
-        case headliner
-        case ticketing
-        case categories
-        case activities
-        case lineup
-    }
     
     func mapToConcert() -> Concert {
         let isFavorite = false
@@ -51,9 +38,4 @@ struct GetEvents: Decodable {
 struct EventComponent: Decodable {
     var name: String?
     var url: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case url
-    }
 }
