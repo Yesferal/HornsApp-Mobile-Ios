@@ -15,5 +15,7 @@
         <string>comgooglemaps</string>
         <string>waze</string>
     </array>
+    <key>NSUserNotificationUsageDescription</key>
+    <string>Te avisamos antes de tus conciertos</string>
 </dict>
 </plist>

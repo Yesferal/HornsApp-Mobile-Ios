@@ -46,7 +46,7 @@ struct GetEventDetail: Decodable {
         return Concert.Builder(id: _id)
             .addName(name: name)
             .addAbout(about: about?.asLocalizedString().text)
-            .addTimeInMillis(timeInMillis: dateTime.asFormatDate().asKotlinTimeInMillis())
+            .addTimeInMillis(timeInMillis: dateTime.asFormatDate()?.asKotlinTimeInMillis())
             .addTotalDays(totalDays: totalDays.toKotlinInt())
             .addHeadlinerName(headlinerName: headliner?.name)
             .addHeadlinerImageUrl(headlinerImageUrl: headliner?.url)

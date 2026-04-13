@@ -21,9 +21,7 @@
         {
           "children": {
             "filter": {
-              "events": [
-                "680e68a1fd23ead6b0ca6c8c"
-              ],
+              "events": [],
               "categories": []
             },
             "key": "CAROUSEL_CARD_VIEW",

@@ -37,7 +37,7 @@ struct GetEvents: Decodable {
         
         return Concert.Builder(id: _id)
             .addName(name: name)
-            .addTimeInMillis(timeInMillis: dateTime.asFormatDate().asKotlinTimeInMillis())
+            .addTimeInMillis(timeInMillis: dateTime.asFormatDate()?.asKotlinTimeInMillis())
             .addHeadlinerName(headlinerName: headliner?.name)
             .addHeadlinerImageUrl(headlinerImageUrl: headliner?.url)
             .addTicketingName(ticketingName: ticketing?.name)

@@ -9,7 +9,7 @@ import HornsAppCore
 
 extension Concert {
     func getEventYear() -> String {
-        if let formatted = formatDateAsString(kotlinTimeInMillisToDate(), to: "yyyy") {
+        if let formatted = kotlinTimeInMillisToDate()?.formatDate(to: "yyyy") {
             return formatted
         } else {
             return ""
@@ -17,7 +17,7 @@ extension Concert {
     }
     
     func getEventMonth() -> String {
-        if let formatted = formatDateAsString(kotlinTimeInMillisToDate(), to: "MMM") {
+        if let formatted = kotlinTimeInMillisToDate()?.formatDate(to: "MMM") {
             return formatted.uppercased()
         } else {
             return ""
@@ -25,7 +25,7 @@ extension Concert {
     }
     
     func getEventDay() -> String {
-        if let formatted = formatDateAsString(kotlinTimeInMillisToDate(), to: "dd") {
+        if let formatted = kotlinTimeInMillisToDate()?.formatDate(to: "dd") {
             return formatted
         } else {
             return ""
@@ -33,7 +33,7 @@ extension Concert {
     }
     
     func getEventAsCalendarLabel() -> String {
-        if let formatted = formatDateAsString(kotlinTimeInMillisToDate(), to: "EEE dd, MMMM YYYY") {
+        if let formatted = kotlinTimeInMillisToDate()?.formatDate(to: "EEE dd, MMMM YYYY") {
             return formatted
         } else {
             return ""
@@ -41,7 +41,7 @@ extension Concert {
     }
     
     func getEventTime() -> String {
-        if let formatted = formatDateAsString(kotlinTimeInMillisToDate(), to: "HH:mm a") {
+        if let formatted = kotlinTimeInMillisToDate()?.formatDate(to: "HH:mm a") {
             return formatted.uppercased()
         } else {
             return ""
@@ -51,18 +51,5 @@ extension Concert {
     func kotlinTimeInMillisToDate() -> Date? {
         guard let timeInMillis else { return nil }
         return Date(timeIntervalSince1970: TimeInterval(timeInMillis.int64Value) / 1000)
-    }
-    
-    private func formatDateAsString(_ input: Date?,
-                                    to outputFormat: String) -> String? {
-        guard let input = input else {
-            return nil
-        }
-        
-        let formatter = DateFormatter()
-        formatter.locale = Locale.autoupdatingCurrent
-        formatter.dateFormat = outputFormat
-        
-        return formatter.string(from: input)
     }
 }

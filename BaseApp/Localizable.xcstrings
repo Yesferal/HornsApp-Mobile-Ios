@@ -236,6 +236,23 @@
         }
       }
     },
+    "key_day_before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 day before"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 día antes"
+          }
+        }
+      }
+    },
     "key_event_added" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -270,6 +287,57 @@
         }
       }
     },
+    "key_hours_before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 hours before"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 horas antes"
+          }
+        }
+      }
+    },
+    "key_notification_one_day_before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ is tomorrow at %2$@. Get ready!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ es mañana en %2$@. ¡Prepárate!"
+          }
+        }
+      }
+    },
+    "key_notification_two_hours_before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ starts in 2 hours at %2$@. See you there!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ empieza en 2 horas en %2$@. ¡Nos vemos!"
+          }
+        }
+      }
+    },
     "let_find_out_together" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -287,6 +355,22 @@
         }
       }
     },
+    "new_label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuevo"
+          }
+        }
+      }
+    },
     "open_with" : {
       "localizations" : {
         "en" : {
@@ -299,6 +383,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abrir con"
+          }
+        }
+      }
+    },
+    "reminder_error_message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable notifications in Settings to use reminders."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activa las notificaciones en Ajustes para usar recordatorios."
+          }
+        }
+      }
+    },
+    "reminder_section" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reminders"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recordatorios"
           }
         }
       }
