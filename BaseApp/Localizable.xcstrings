@@ -23,7 +23,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add to Calendar"
+            "value" : "Save date"
           }
         },
         "es" : {
@@ -208,13 +208,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add"
+            "value" : "+"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Añadir"
+            "value" : "+"
           }
         }
       }
