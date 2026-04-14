@@ -107,19 +107,7 @@ struct DetailView: View {
                     if vm.isLoading {
                         HaProgressView()
                     } else {
-                        
-                        if let url = URL(string: event?.ticketingUrl ?? "") {
-                            let actionText = (event?.ticketingName?.isEmpty == false)
-                            ? event?.ticketingName
-                            : HaLocalizedStringWrapper.getString(key: "go_now")
-                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_on"), subtitle: HaLocalizedStringWrapper.getString(key: "go_now"), actionText: actionText, route: .web(url: url))
-                        } else {
-                            HaEventBuyButton(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable"), actionText: event?.ticketingName, route: nil)
-                        }
-                        HaEventLink(iconName: "location", title: event?.venue?.name ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
-                            showMapDialog = true
-                        }
-                        HaEventLink(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar")) {
+                        HaEventBuyButton(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar"), actionText: HaLocalizedStringWrapper.getString(key: "key_add_to_calendar_button")) {
                             Task {
                                 let granted = await calendarPermissionManager.requestAccess()
                                 
@@ -132,9 +120,23 @@ struct DetailView: View {
                             }
                         }
                         
+                        HaEventLink(iconName: "location", title: event?.venue?.name ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
+                            showMapDialog = true
+                        }
+                        
+                        if let url = URL(string: event?.ticketingUrl ?? "") {
+                            let title = (event?.ticketingName?.isEmpty == false)
+                            ? event?.ticketingName
+                            : HaLocalizedStringWrapper.getString(key: "available_on")
+                            HaEventLink(iconName: "ticket", title: title ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "go_now"), action: Route.web(url: url).asAction(router: router))
+                        } else {
+                            HaEventLink(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable")) {}
+                        }
+                        
                         if let safeEvent = event {
                             RemindersSection(event: safeEvent)
                             LineupSection(event: safeEvent)
+                            RelatedEventSection(events: [])
                         }
                     }
                 }

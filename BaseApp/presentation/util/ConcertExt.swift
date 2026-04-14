@@ -33,7 +33,7 @@ extension Concert {
     }
     
     func getEventAsCalendarLabel() -> String {
-        if let formatted = kotlinTimeInMillisToDate()?.formatDate(to: "EEE dd, MMMM YYYY") {
+        if let formatted = kotlinTimeInMillisToDate()?.formatDate(to: "EEE dd, MMMM") {
             return formatted
         } else {
             return ""

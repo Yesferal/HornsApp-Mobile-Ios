@@ -202,6 +202,23 @@
         }
       }
     },
+    "key_add_to_calendar_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir"
+          }
+        }
+      }
+    },
     "key_calendar_access_denied" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -415,6 +432,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abrir con"
+          }
+        }
+      }
+    },
+    "related_event_section" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Related Events"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eventos Relacionados"
           }
         }
       }
