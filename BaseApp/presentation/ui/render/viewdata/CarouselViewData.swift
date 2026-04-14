@@ -32,7 +32,6 @@ struct CarouselViewData: View {
             .onTapGesture {
                 router.navigate(to: .details(id: concert.id, name: concert.name ?? "", day: concert.getEventDay(), month: concert.getEventMonth()))
             }
-            .padding(.vertical, Dimens.medium)
             
             HStack {
                 VStack(alignment: .leading, spacing: Dimens.small) {
@@ -40,6 +39,7 @@ struct CarouselViewData: View {
                         .foregroundColor(theme.primaryText)
                         .font(.title2)
                         .bold()
+                        .padding(.vertical, Dimens.small)
                     
                     HaIconText(icon: "calendar", text: concert.getEventAsCalendarLabel())
                         .background(theme.background)
@@ -49,10 +49,10 @@ struct CarouselViewData: View {
                 .onTapGesture {
                     router.navigate(to: .details(id: concert.id, name: concert.name ?? "", day: concert.getEventDay(), month: concert.getEventMonth()))
                 }
-                
-                if let url = URL(string: concert.ticketingUrl ?? "") {
+                // TODO: Add a different CTA, one that calls a native funtionality
+                /*if let url = URL(string: concert.ticketingUrl ?? "") {
                     CtaViewData(actionText: concert.ticketingName, action: Route.web(url: url).asAction(router: router))
-                }
+                }*/
             }
             .padding(.horizontal, Dimens.medium)
         }
