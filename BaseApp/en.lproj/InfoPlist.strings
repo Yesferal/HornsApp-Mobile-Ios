@@ -1,0 +1,4 @@
+NSCalendarsWriteOnlyAccessUsageDescription = "We need access to add events to your calendar.";
+NSCalendarsFullAccessUsageDescription = "We need access to your calendar to add events.";
+NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads and measure advertising performance.";
+NSUserNotificationUsageDescription = "We notify you before your concerts.";

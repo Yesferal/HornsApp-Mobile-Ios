@@ -68,6 +68,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				.gitignore,
+				"/Localized: InfoPlist.strings",
 			);
 			target = 72B2D5BC2DDA8F8B002A82C4 /* HornsApp */;
 		};
@@ -75,6 +76,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				.gitignore,
+				"/Localized: InfoPlist.strings",
 			);
 			target = 72B3EC1D2ECFBC8A001F0579 /* MuvinApp */;
 		};
@@ -87,12 +89,31 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		722E2B9E2F8F12EC00D5B5C0 /* Exceptions for "BaseApp" folder in "Compile Sources" phase from "HornsApp" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 72B2D5B92DDA8F8B002A82C4 /* Sources */;
+			membershipExceptions = (
+				"/Localized: InfoPlist.strings",
+			);
+		};
+		722E2B9F2F8F12EC00D5B5C0 /* Exceptions for "BaseApp" folder in "Compile Sources" phase from "MuvinApp" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 72B3EC1F2ECFBC8A001F0579 /* Sources */;
+			membershipExceptions = (
+				"/Localized: InfoPlist.strings",
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7218BD5D2DE546EF003389F0 /* BaseApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				728ADDFD2ED3B01900EFDF27 /* Exceptions for "BaseApp" folder in "HornsApp" target */,
+				722E2B9E2F8F12EC00D5B5C0 /* Exceptions for "BaseApp" folder in "Compile Sources" phase from "HornsApp" target */,
 				728ADDFE2ED3B02100EFDF27 /* Exceptions for "BaseApp" folder in "MuvinApp" target */,
+				722E2B9F2F8F12EC00D5B5C0 /* Exceptions for "BaseApp" folder in "Compile Sources" phase from "MuvinApp" target */,
 			);
 			path = BaseApp;
 			sourceTree = "<group>";
