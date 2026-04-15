@@ -97,6 +97,7 @@ struct ActivityCard: View {
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
                 .frame(width: CARD_WIDTH)
+                .fixedSize(horizontal: false, vertical: true)
                 .lineLimit(2)
         }
         .frame(width: CARD_WIDTH)
