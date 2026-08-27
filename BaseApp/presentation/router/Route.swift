@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftData
 
 enum Route: Hashable {
     case details(id: String, name: String, day: String, month: String)
@@ -21,12 +20,12 @@ enum Route: Hashable {
 }
 
 @ViewBuilder
-func destination(for route: Route, context: ModelContext) -> some View {
+func destination(for route: Route) -> some View {
     let _ = print("Navigating to:", route, type(of: route))
 
     switch route {
     case .details(let id, let name, let day, let month):
-        DetailView(id: id, name: name, day: day, month: month, context: context)
+        DetailView(id: id, name: name, day: day, month: month)
     case .upcoming:
         UpcomingView()
     case .favorite:

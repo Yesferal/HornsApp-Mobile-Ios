@@ -10,12 +10,10 @@ import HornsAppCore
 
 struct FavoriteView: View {
     
-    @Environment(\.modelContext) var context
-
     @Environment(\.theme) var theme
 
     var body: some View {
-        FavoriteListView(context: context)
+        FavoriteListView()
         // FIXME: Use Localized EN/ES version
             .navigationTitle(LocalizedStringKey("favorite"))
             .background(theme.background)

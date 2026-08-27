@@ -12,14 +12,9 @@ import SwiftData
 struct FavoriteListView: View {
     
     @Environment(\.modelContext) var context
+    @Environment(\.dependencies) var dependencies
 
     @EnvironmentObject var vm: FavoriteViewModel
-
-    var getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase
-    
-    init(context: ModelContext) {
-        getFavoriteConcertsUseCase = GetFavoriteConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings())))
-    }
     
     var body: some View {
         ZStack {
@@ -39,8 +34,9 @@ struct FavoriteListView: View {
             .onAppear {
                 if vm.data.isEmpty {
                     Task {
-                        // FIXME: Try to use it one time in init instead
-                        vm.configure(getFavoriteConcertsUseCase: getFavoriteConcertsUseCase)
+                        vm.configure(
+                            getFavoriteConcertsUseCase: dependencies.makeGetFavoriteConcertsUseCase(context: context)
+                        )
                         await vm.fetchData()
                     }
                 }

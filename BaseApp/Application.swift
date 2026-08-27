@@ -11,6 +11,7 @@ import SwiftData
 @main
 struct Application: App {
     let theme: Theme = .appTheme
+    let dependencies = AppDependencies()
     
     @StateObject private var router = Router()
     @StateObject private var favoriteVM = FavoriteViewModel()
@@ -25,6 +26,7 @@ struct Application: App {
                 ContentView()
             }
             .environment(\.theme, theme)
+            .environment(\.dependencies, dependencies)
             .environmentObject(router)
             .environmentObject(favoriteVM)
             .modelContainer(for: SwiftDataConcert.self)

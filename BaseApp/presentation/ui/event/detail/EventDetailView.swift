@@ -16,6 +16,7 @@ struct DetailView: View {
     let month: String
     
     @Environment(\.modelContext) var context
+    @Environment(\.dependencies) var dependencies
     
     @Environment(\.dismiss) var dismiss
     
@@ -33,10 +34,6 @@ struct DetailView: View {
     
     @StateObject private var vm = EventDetailViewModel()
     
-    var getConcertUseCase: GetConcertUseCase
-    
-    var updateFavoriteConcertUseCase: UpdateFavoriteConcertUseCase
-    
     private var calendarPermissionManager = CalendarPermissionManager()
     
     var location: MapLauncherManager.Location? {
@@ -53,15 +50,11 @@ struct DetailView: View {
         )
     }
     
-    init(id: String, name: String, day: String, month: String, context: ModelContext) {
+    init(id: String, name: String, day: String, month: String) {
         self.id = id
         self.name = name
         self.day = day
         self.month = month
-        
-        let concertRepository = ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings()))
-        getConcertUseCase = GetConcertUseCase(concertRepository: concertRepository, getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase(concertRepository: concertRepository))
-        updateFavoriteConcertUseCase = UpdateFavoriteConcertUseCase(concertRepository: concertRepository)
     }
     
     var body: some View {
@@ -169,7 +162,10 @@ struct DetailView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear {
             if vm.data == nil {
-                vm.configure(getConcertUseCase: getConcertUseCase, updateFavoriteConcertUseCase: updateFavoriteConcertUseCase)
+                vm.configure(
+                    getConcertUseCase: dependencies.makeGetConcertUseCase(context: context),
+                    updateFavoriteConcertUseCase: dependencies.makeUpdateFavoriteConcertUseCase(context: context)
+                )
                 Task {
                     await vm.fetchData(id: id)
                 }

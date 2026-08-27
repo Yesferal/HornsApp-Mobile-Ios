@@ -12,18 +12,13 @@ import SwiftData
 struct UpcomingList: View {
     
     @Environment(\.modelContext) var context
+    @Environment(\.dependencies) var dependencies
     
     @Environment(\.theme) var theme
 
     @SwiftUI.State private var selectedCategory: CategoryRender?
     
     @StateObject var vm = UpcomingViewModel()
-    
-    var getUpcomingConcertsUseCase: GetUpcomingConcertsUseCase
-    
-    init(context: ModelContext) {
-        getUpcomingConcertsUseCase = GetUpcomingConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings())), filterConcertsByCategoryUseCase: FilterConcertsByCategoryUseCase())
-    }
     
     var body: some View {
         ZStack {
@@ -52,8 +47,10 @@ struct UpcomingList: View {
             .onAppear {
                 if vm.data.isEmpty {
                     Task {
-                        // FIXME: Move it to init function, one time call
-                        vm.configure(getUpcomingConcertsUseCase: getUpcomingConcertsUseCase, renderRepository: RenderRepositoryImpl(renderRemoteDataSource: SocketManager(renderStorageDataSource: HaFileReaderManager())))
+                        vm.configure(
+                            getUpcomingConcertsUseCase: dependencies.makeGetUpcomingConcertsUseCase(context: context),
+                            renderRepository: dependencies.getRenderRepository()
+                        )
                         await vm.fetchData()
                     }
                 }

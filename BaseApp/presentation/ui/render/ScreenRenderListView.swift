@@ -12,22 +12,17 @@ import SwiftData
 struct ScreenRenderListView: View {
     
     @Environment(\.modelContext) var context
+    @Environment(\.dependencies) var dependencies
 
     @StateObject var vm = ScreenRenderViewModel()
-    
-    var getHomeRenderUseCase: GetHomeRenderUseCase
-    
-    var getConcertsUseCase: GetConcertsUseCase
-    
-    init(context: ModelContext) {
-        getHomeRenderUseCase = UseCaseFactory().createGetHomeRenderUseCase(repository: RenderRepositoryImpl(renderRemoteDataSource: SocketManager(renderStorageDataSource: HaFileReaderManager())))
-        getConcertsUseCase = GetConcertsUseCase(concertRepository: ConcertRepositoryImpl(concertStorageDataSource: SwiftDataManager(context: context), concertRemoteDataSource: AlamoFireWrapper(appSettings: AppSettings())))
-    }
     
     var body: some View {
         content
             .onAppear {
-                self.vm.configure(getHomeRenderUseCase: getHomeRenderUseCase, getConcertsUseCase: getConcertsUseCase)
+                vm.configure(
+                    getHomeRenderUseCase: dependencies.makeGetHomeRenderUseCase(),
+                    getConcertsUseCase: dependencies.makeGetConcertsUseCase(context: context)
+                )
                 Task {
                     await vm.fetchData()
                 }

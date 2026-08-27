@@ -10,8 +10,6 @@ import HornsAppCore
 
 struct ContentView: View {
 
-    @Environment(\.modelContext) var context
-
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
     
     let showDevInfo = false
@@ -29,7 +27,7 @@ struct ContentView: View {
         if hasSeenOnboarding {
             HomeView()
                 .navigationDestination(for: Route.self) { route in
-                    destination(for: route, context: context)
+                    destination(for: route)
                 }
         } else {
             OnboardingView()
