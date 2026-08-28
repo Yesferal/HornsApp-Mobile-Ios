@@ -8,8 +8,7 @@
 import HornsAppCore
 
 @MainActor class EventDetailViewModel: ObservableObject {
-    @Published var isLoading = false
-    @Published var data: Concert? = nil
+    @Published var state: ViewState<Concert> = .idle
     @Published var isFavorite: Bool = false
     
     var getConcertUseCase: GetConcertUseCase?
@@ -21,27 +20,40 @@ import HornsAppCore
     }
     
     func fetchData(id: String) async {
-        isLoading = true
-        defer { isLoading = false }
+        state = .loading
         
         do {
-            guard let haResult = try await getConcertUseCase?.invoke(id: id) else {
+            guard let getConcertUseCase else {
+                showErrorMessage()
                 return
             }
+            
+            let haResult = try await getConcertUseCase.invoke(id: id)
             let uiResult: UiResult<Concert> = mapCoreResultAsUiResult(haResult)
             
             switch uiResult {
             case .success(let event):
                 isFavorite = event.isFavorite
-                data = event
-                return
+                state = .success(event)
             case .failed:
-                // TODO: Logger
-                return
+                showErrorMessage()
             }
         } catch {
-            // TODO: Logger
+            showErrorMessage()
         }
+    }
+    
+    func retryFetchData(id: String) async {
+        state = .idle
+        await fetchData(id: id)
+    }
+    
+    func showErrorMessage() {
+        state = .failed(
+            HaLocalizedStringWrapper.getString(key: "error_message_no_concert"),
+            "wifi.slash",
+            HaLocalizedStringWrapper.getString(key: "retry")
+        )
     }
     
     func onFavoriteImageViewClick(concert: Concert?) async {

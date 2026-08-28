@@ -13,6 +13,14 @@ class AlamoFireWrapper: ConcertRemoteDataSource {
     let baseUrl: String
     let authorization: String
     let eventPath: String
+    
+    private let session: Session = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 15
+        configuration.timeoutIntervalForResource = 30
+        configuration.waitsForConnectivity = false
+        return Session(configuration: configuration)
+    }()
 
     init(appSettings: AppSettings) {
         baseUrl = hapk_wrapper().iosHornsAppApiBaseUrl(appSettings.appName) ?? ""
@@ -25,11 +33,10 @@ class AlamoFireWrapper: ConcertRemoteDataSource {
         let request: UiResult<GetEventDetail> = try await makeRequest(path: path)
         
         switch request {
-        case .success(let events):
-            return HaResultSuccess(value: events.mapToConcert())
+        case .success(let eventDetail):
+            return HaResultSuccess(value: eventDetail.mapToConcert())
         case .failed:
-            // FIXME: Use Error instead of success
-            return HaResultSuccess(value: nil)
+            return HaResultError.shared.asTypedResult()
         }
     }
     
@@ -42,14 +49,13 @@ class AlamoFireWrapper: ConcertRemoteDataSource {
                 e.mapToConcert()
             } as NSArray)
         case .failed:
-            // FIXME: Use Error instead of success
-            return HaResultSuccess(value: nil)
+            return HaResultError.shared.asTypedResult()
         }
     }
         
     private func makeRequest<T: Decodable>(path: String) async throws -> UiResult<T> {
         try await withUnsafeThrowingContinuation { continuation in
-            AF.request(baseUrl+path, method: .get, headers: ["authorization": authorization]).validate().responseDecodable(of: T.self) { response in
+            session.request(baseUrl+path, method: .get, headers: ["authorization": authorization]).validate().responseDecodable(of: T.self) { response in
                 do {
                     let events = try response.result.get()
                     print(events)

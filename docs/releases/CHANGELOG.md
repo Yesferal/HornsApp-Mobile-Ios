@@ -15,6 +15,7 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 - Views resolve use cases from `@Environment(\.dependencies)` instead of inline wiring
+- Network failures propagate as `HaResultError` instead of success-with-nil (`#arch-2-fix-network-errors`)
 
 ---
 

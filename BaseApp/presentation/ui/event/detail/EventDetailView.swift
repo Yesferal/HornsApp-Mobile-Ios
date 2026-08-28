@@ -26,8 +26,6 @@ struct DetailView: View {
     
     @EnvironmentObject var favoriteVM: FavoriteViewModel
     
-    @SwiftUI.State private var hasError = false
-    
     @SwiftUI.State private var activeAlert: HaAlert?
     
     @SwiftUI.State private var showMapDialog = false
@@ -38,7 +36,7 @@ struct DetailView: View {
     
     var location: MapLauncherManager.Location? {
         guard
-            let event = vm.data,
+            let event = loadedEvent,
             let lat = Double(event.venue?.latitude ?? ""),
             let lon = Double(event.venue?.longitude ?? "")
         else { return nil }
@@ -58,7 +56,7 @@ struct DetailView: View {
     }
     
     var body: some View {
-        let event = vm.data
+        let event = loadedEvent
         
         ScrollView {
             ZStack(alignment: .leading) {
@@ -97,40 +95,20 @@ struct DetailView: View {
                             .frame(width: 8, height: 8)
                     }
                     
-                    if vm.isLoading {
+                    switch vm.state {
+                    case .loading, .idle:
                         HaProgressView()
-                    } else {
-                        HaEventBuyButton(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar"), actionText: HaLocalizedStringWrapper.getString(key: "key_add_to_calendar_button")) {
+                    case .failed(let message, let icon, let actionText):
+                        ErrorViewData(message: message, icon: icon, actionText: actionText) {
                             Task {
-                                let granted = await calendarPermissionManager.requestAccess()
-                                
-                                if granted {
-                                    calendarPermissionManager.saveEventToCalendar(event: event)
-                                    activeAlert = .eventAdded
-                                } else {
-                                    activeAlert = .calendarAccessDenied
-                                }
+                                await vm.retryFetchData(id: id)
                             }
                         }
-                        
-                        HaEventLink(iconName: "location", title: event?.venue?.name ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
-                            showMapDialog = true
-                        }
-                        
-                        if let url = URL(string: event?.ticketingUrl ?? "") {
-                            let title = (event?.ticketingName?.isEmpty == false)
-                            ? event?.ticketingName
-                            : HaLocalizedStringWrapper.getString(key: "available_on")
-                            HaEventLink(iconName: "ticket", title: title ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "go_now"), action: Route.web(url: url).asAction(router: router))
-                        } else {
-                            HaEventLink(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable")) {}
-                        }
-                        
-                        if let safeEvent = event {
-                            RemindersSection(event: safeEvent)
-                            LineupSection(event: safeEvent)
-                            RelatedEventSection(events: [])
-                        }
+                        .frame(maxWidth: .infinity, minHeight: 240)
+                        .background(theme.primary)
+                        .clipShape(.rect(cornerRadius: 16))
+                    case .success:
+                        detailActions(for: event)
                     }
                 }
                 
@@ -161,7 +139,7 @@ struct DetailView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear {
-            if vm.data == nil {
+            if case .idle = vm.state {
                 vm.configure(
                     getConcertUseCase: dependencies.makeGetConcertUseCase(context: context),
                     updateFavoriteConcertUseCase: dependencies.makeUpdateFavoriteConcertUseCase(context: context)
@@ -185,5 +163,47 @@ struct DetailView: View {
             }
         }
         .background(theme.background)
+    }
+    
+    private var loadedEvent: Concert? {
+        if case .success(let event) = vm.state {
+            return event
+        }
+        return nil
+    }
+    
+    @ViewBuilder
+    private func detailActions(for event: Concert?) -> some View {
+        HaEventBuyButton(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar"), actionText: HaLocalizedStringWrapper.getString(key: "key_add_to_calendar_button")) {
+            Task {
+                let granted = await calendarPermissionManager.requestAccess()
+                
+                if granted {
+                    calendarPermissionManager.saveEventToCalendar(event: event)
+                    activeAlert = .eventAdded
+                } else {
+                    activeAlert = .calendarAccessDenied
+                }
+            }
+        }
+        
+        HaEventLink(iconName: "location", title: event?.venue?.name ?? HaLocalizedStringWrapper.getString(key: "venue"), subtitle: HaLocalizedStringWrapper.getString(key: "go_to_maps")) {
+            showMapDialog = true
+        }
+        
+        if let url = URL(string: event?.ticketingUrl ?? "") {
+            let title = (event?.ticketingName?.isEmpty == false)
+            ? event?.ticketingName
+            : HaLocalizedStringWrapper.getString(key: "available_on")
+            HaEventLink(iconName: "ticket", title: title ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "go_now"), action: Route.web(url: url).asAction(router: router))
+        } else {
+            HaEventLink(iconName: "ticket", title: HaLocalizedStringWrapper.getString(key: "available_soon"), subtitle: HaLocalizedStringWrapper.getString(key: "unavailable")) {}
+        }
+        
+        if let safeEvent = event {
+            RemindersSection(event: safeEvent)
+            LineupSection(event: safeEvent)
+            RelatedEventSection(events: [])
+        }
     }
 }
