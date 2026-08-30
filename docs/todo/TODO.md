@@ -14,7 +14,7 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 |--------|-----|------|
 | [x] | [`#arch-1-app-dependencies`](#arch-1-app-dependencies) | Create `AppDependencies` composition root |
 | [x] | [`#arch-2-fix-network-errors`](#arch-2-fix-network-errors) | Fix network layer error handling |
-| [ ] | [`#arch-3-standardize-viewmodels`](#arch-3-standardize-viewmodels) | Standardize ViewModels (init injection + `ViewState<T>`) |
+| [x] | [`#arch-3-standardize-viewmodels`](#arch-3-standardize-viewmodels) | Standardize ViewModels (init injection + `ViewState<T>`) |
 | [ ] | [`#arch-4-screen-render-mapper`](#arch-4-screen-render-mapper) | Extract `ScreenRenderMapper` |
 | [ ] | [`#arch-5-unit-tests`](#arch-5-unit-tests) | Add ViewModel and mapper unit tests |
 
@@ -64,11 +64,11 @@ Centralize dependency wiring in `BaseApp/di/AppDependencies.swift`. Inject via `
 
 ### `#arch-3-standardize-viewmodels`
 
-**Status:** pending
+**Status:** done
 
-Remove optional `configure()` pattern. Inject use cases via init. Use `ViewState<T>` consistently.
+All ViewModels use init injection (no optional `configure()`). All use `ViewState<T>` for loading/success/error. Views create ViewModels via init + `@StateObject` or `AppRootView` for the shared `FavoriteViewModel`.
 
-**Files:** `EventDetailViewModel`, `UpcomingViewModel`, `FavoriteViewModel`, `ScreenRenderViewModel`
+**Files:** `EventDetailViewModel`, `UpcomingViewModel`, `FavoriteViewModel`, `ScreenRenderViewModel`, corresponding views, `Application.swift`
 
 ---
 

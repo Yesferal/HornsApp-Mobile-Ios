@@ -16,6 +16,8 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 ### Changed
 - Views resolve use cases from `@Environment(\.dependencies)` instead of inline wiring
 - Network failures propagate as `HaResultError` instead of success-with-nil (`#arch-2-fix-network-errors`)
+- ViewModels standardized: init injection + `ViewState<T>` everywhere (`#arch-3-standardize-viewmodels`)
+- Upcoming and Favorites screens show error UI with retry on network failure
 
 ---
 

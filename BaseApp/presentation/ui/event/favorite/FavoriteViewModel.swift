@@ -7,39 +7,42 @@
 
 import HornsAppCore
 
-@MainActor class FavoriteViewModel: ObservableObject {
-    @Published var isLoading = false
-    @Published var data: [ViewItem] = []
-    
-    var getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase?
-    
-    func configure(getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase) {
+@MainActor
+final class FavoriteViewModel: ObservableObject {
+    @Published var state: ViewState<[ViewItem]> = .idle
+
+    private let getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase
+
+    init(getFavoriteConcertsUseCase: GetFavoriteConcertsUseCase) {
         self.getFavoriteConcertsUseCase = getFavoriteConcertsUseCase
     }
-    
+
     func fetchData() async {
-        isLoading = true
-        defer { isLoading = false }
-        
-        print("Yesferal: fetchData: getFavoriteConcertsUseCase: \(getFavoriteConcertsUseCase)")
-        
+        state = .loading
+
         do {
-            guard let events = try await getFavoriteConcertsUseCase?.invoke() else {
-                return
-            }
-            
-            var views: [ViewItem] = []
-            events.forEach { e in
-                views.append(ViewItem(id: UUID(), data: .upcoming(concert: e)))
-            }
-            data = views
+            let events = try await getFavoriteConcertsUseCase.invoke()
+            let views = events.map { ViewItem(id: UUID(), data: .upcoming(concert: $0)) }
+            state = .success(views)
         } catch {
-            // TODO: Logger
+            showErrorMessage()
         }
     }
-    
+
     func update() async {
         await fetchData()
     }
-}
 
+    func retryFetchData() async {
+        state = .idle
+        await fetchData()
+    }
+
+    private func showErrorMessage() {
+        state = .failed(
+            HaLocalizedStringWrapper.getString(key: "error_message_no_concert"),
+            "wifi.slash",
+            HaLocalizedStringWrapper.getString(key: "retry")
+        )
+    }
+}

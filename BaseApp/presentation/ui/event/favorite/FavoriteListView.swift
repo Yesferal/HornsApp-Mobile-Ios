@@ -7,41 +7,63 @@
 
 import SwiftUI
 import HornsAppCore
-import SwiftData
 
 struct FavoriteListView: View {
-    
-    @Environment(\.modelContext) var context
-    @Environment(\.dependencies) var dependencies
+    @Environment(\.theme) var theme
 
     @EnvironmentObject var vm: FavoriteViewModel
-    
+
     var body: some View {
         ZStack {
-            if vm.isLoading {
+            if isLoading {
                 HaProgressView()
             }
-            
-            List(vm.data) { view in
-                render(view.data)
-                    .listRowSeparator(.hidden) // remove divider line
-                    .listRowBackground(Color.clear) // remove row bg
-                    .listRowInsets(.init()) // Remove padding
-                    .listRowSeparator(.hidden) // Remove padding
-            }
-            .scrollContentBackground(.hidden) // Hides the default white card background
-            .listStyle(.plain) // Remove padding
-            .onAppear {
-                if vm.data.isEmpty {
-                    Task {
-                        vm.configure(
-                            getFavoriteConcertsUseCase: dependencies.makeGetFavoriteConcertsUseCase(context: context)
-                        )
-                        await vm.fetchData()
-                    }
+
+            content
+        }
+        .animation(.easeInOut, value: isLoading)
+        .onAppear {
+            if case .idle = vm.state {
+                Task {
+                    await vm.fetchData()
                 }
             }
         }
-        .animation(.easeInOut, value: vm.isLoading)
+    }
+
+    private var isLoading: Bool {
+        switch vm.state {
+        case .idle, .loading:
+            return true
+        default:
+            return false
+        }
+    }
+
+    @ViewBuilder
+    private var content: some View {
+        switch vm.state {
+        case .failed(let message, let icon, let actionText):
+            ErrorViewData(message: message, icon: icon, actionText: actionText) {
+                Task {
+                    await vm.retryFetchData()
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(theme.primary)
+
+        case .success(let items):
+            List(items) { view in
+                render(view.data)
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(.init())
+            }
+            .scrollContentBackground(.hidden)
+            .listStyle(.plain)
+
+        case .idle, .loading:
+            EmptyView()
+        }
     }
 }

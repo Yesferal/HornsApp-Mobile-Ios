@@ -8,59 +8,54 @@
 import HornsAppCore
 
 @MainActor
-class ScreenRenderViewModel: ObservableObject {
+final class ScreenRenderViewModel: ObservableObject {
     @Published var state: ViewState<[ViewItem]> = .idle
-    var getHomeRenderUseCase: GetHomeRenderUseCase?
-    var getConcertsUseCase: GetConcertsUseCase?
-    
-    func configure(getHomeRenderUseCase: GetHomeRenderUseCase, getConcertsUseCase: GetConcertsUseCase) {
-        guard case .idle = state else { return }
-        
+
+    private let getHomeRenderUseCase: GetHomeRenderUseCase
+    private let getConcertsUseCase: GetConcertsUseCase
+
+    init(getHomeRenderUseCase: GetHomeRenderUseCase, getConcertsUseCase: GetConcertsUseCase) {
         self.getHomeRenderUseCase = getHomeRenderUseCase
         self.getConcertsUseCase = getConcertsUseCase
     }
-    
+
     func fetchData() async {
         guard case .idle = state else { return }
 
         state = .loading
-        
-        guard let screenRender: [ScreenRender]? = try? await getHomeRenderUseCase?.invoke() else {
+
+        guard let screenRender: [ScreenRender]? = try? await getHomeRenderUseCase.invoke() else {
             showErrorMessage()
             return
         }
-        
+
         do {
-            guard let haResult = try await getConcertsUseCase?.invoke() else {
-                return
-            }
+            let haResult = try await getConcertsUseCase.invoke()
             let uiResult: UiResult<[Concert]> = mapCoreResultAsUiResult(haResult)
-            
+
             switch uiResult {
             case .success(let events):
                 var views: [ViewItem] = []
-                // TODO: Get this from constructor
                 screenRender?[0].views?.forEach { v in
                     views.addViewItem(viewRender: v, events: events)
                 }
                 state = .success(views)
-                return
             case .failed:
-                // TODO: Logger
                 showErrorMessage()
-                return
             }
         } catch {
-            // TODO: Logger
             showErrorMessage()
-            return
         }
     }
-    
+
     func showErrorMessage() {
-        state = .failed(HaLocalizedStringWrapper.getString(key: "error_message_no_concert"), "music.note", HaLocalizedStringWrapper.getString(key: "retry"))
+        state = .failed(
+            HaLocalizedStringWrapper.getString(key: "error_message_no_concert"),
+            "wifi.slash",
+            HaLocalizedStringWrapper.getString(key: "retry")
+        )
     }
-    
+
     func retryFetchData() async {
         state = .idle
         await fetchData()
@@ -84,7 +79,7 @@ extension [ViewItem] {
                 return
             }
             let tempEvents = children.getConcertsForSections(concerts: events)
-            
+
             if (!tempEvents.isEmpty) {
                 tempEvents.forEach { e in
                     append(getChildrenViewItem(childrenRender: children, concert: e))
@@ -108,11 +103,11 @@ extension [ViewItem] {
             append(ViewItem(id: UUID(), data: .empty))
         }
     }
-    
+
     private func getDividerViewItem() -> ViewItem {
         return ViewItem(id: UUID(), data: .divider(height: Dimens.xlarge))
     }
-    
+
     private func getChildrenViewItem(childrenRender: ChildrenRender, concert: Concert) -> ViewItem {
         switch childrenRender.type {
         case ChildrenRender.Type_.carouselCardView:
@@ -125,7 +120,7 @@ extension [ViewItem] {
             return ViewItem(id: UUID(), data: .empty)
         }
     }
-    
+
     private func getRoute(navigatorRender: NavigatorRender?) -> Route? {
         guard let key = navigatorRender?.key else {
             return nil

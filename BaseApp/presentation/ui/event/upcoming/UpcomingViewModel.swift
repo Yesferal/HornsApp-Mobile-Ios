@@ -7,49 +7,54 @@
 
 import HornsAppCore
 
-@MainActor class UpcomingViewModel: ObservableObject {
-    @Published var isLoading = false
-    @Published var data: [ViewItem] = []
+@MainActor
+final class UpcomingViewModel: ObservableObject {
+    @Published var state: ViewState<[ViewItem]> = .idle
     @Published var categories: [CategoryRender] = []
 
-    var getUpcomingConcertsUseCase: GetUpcomingConcertsUseCase?
-    var renderRepository: RenderRepository?
-    
-    func configure(getUpcomingConcertsUseCase: GetUpcomingConcertsUseCase, renderRepository: RenderRepository) {
+    private let getUpcomingConcertsUseCase: GetUpcomingConcertsUseCase
+    private let renderRepository: RenderRepository
+
+    init(getUpcomingConcertsUseCase: GetUpcomingConcertsUseCase, renderRepository: RenderRepository) {
         self.getUpcomingConcertsUseCase = getUpcomingConcertsUseCase
         self.renderRepository = renderRepository
     }
-    
+
     func fetchData() async {
-        isLoading = true
-        defer { isLoading = false }
-        
         await filterByCategory(categoryCondition: CategoryRender.Companion().ALL)
     }
-        
+
     func filterByCategory(categoryCondition: String) async {
+        state = .loading
+
         do {
-            guard let haResult = try await getUpcomingConcertsUseCase?.invoke(categoryKey: categoryCondition) else {
-                return
-            }
-            let renderCategories = try await renderRepository?.getCategoryRender()
+            let haResult = try await getUpcomingConcertsUseCase.invoke(categoryKey: categoryCondition)
+            let renderCategories = try await renderRepository.getCategoryRender()
             let uiResult: UiResult<[Concert]> = mapCoreResultAsUiResult(haResult)
-            
+
             switch uiResult {
             case .success(let events):
-                var views: [ViewItem] = []
-                events.forEach { e in
-                    views.append(ViewItem(id: UUID(), data: .upcoming(concert: e)))
-                }
-                data = views
+                let views = events.map { ViewItem(id: UUID(), data: .upcoming(concert: $0)) }
                 categories = renderCategories ?? []
-                return
+                state = .success(views)
             case .failed:
-                // TODO: Logger
-                return
+                showErrorMessage()
             }
         } catch {
-            // TODO: Logger
+            showErrorMessage()
         }
+    }
+
+    func retryFetchData() async {
+        state = .idle
+        await fetchData()
+    }
+
+    private func showErrorMessage() {
+        state = .failed(
+            HaLocalizedStringWrapper.getString(key: "error_message_no_concert"),
+            "wifi.slash",
+            HaLocalizedStringWrapper.getString(key: "retry")
+        )
     }
 }
