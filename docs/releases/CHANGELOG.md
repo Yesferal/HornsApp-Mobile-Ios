@@ -19,6 +19,7 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 - ViewModels standardized: init injection + `ViewState<T>` everywhere (`#arch-3-standardize-viewmodels`)
 - Upcoming and Favorites screens show error UI with retry on network failure
 - Favorite toggle reverts and shows alert when persistence fails (`#qual-3-favorite-rollback`)
+- Home SDUI mapping extracted to `ScreenRenderMapper` (`#arch-4-screen-render-mapper`)
 
 ---
 

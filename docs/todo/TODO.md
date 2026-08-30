@@ -15,7 +15,7 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 | [x] | [`#arch-1-app-dependencies`](#arch-1-app-dependencies) | Create `AppDependencies` composition root |
 | [x] | [`#arch-2-fix-network-errors`](#arch-2-fix-network-errors) | Fix network layer error handling |
 | [x] | [`#arch-3-standardize-viewmodels`](#arch-3-standardize-viewmodels) | Standardize ViewModels (init injection + `ViewState<T>`) |
-| [ ] | [`#arch-4-screen-render-mapper`](#arch-4-screen-render-mapper) | Extract `ScreenRenderMapper` |
+| [x] | [`#arch-4-screen-render-mapper`](#arch-4-screen-render-mapper) | Extract `ScreenRenderMapper` |
 | [ ] | [`#arch-5-unit-tests`](#arch-5-unit-tests) | Add ViewModel and mapper unit tests |
 
 ### Features
@@ -74,11 +74,11 @@ All ViewModels use init injection (no optional `configure()`). All use `ViewStat
 
 ### `#arch-4-screen-render-mapper`
 
-**Status:** pending
+**Status:** done
 
-Extract `[ViewItem].addViewItem` from `ScreenRenderViewModel` into `ScreenRenderMapper`.
+Moved SDUI-to-`ViewItem` mapping from `[ViewItem]` extension on `ScreenRenderViewModel` into `ScreenRenderMapper`. ViewModel injects mapper (default instance) and calls `mapper.map(views:events:)`.
 
-**Files:** `ScreenRenderViewModel.swift`, new `ScreenRenderMapper.swift`
+**Files:** `ScreenRenderMapper.swift`, `ScreenRenderViewModel.swift`
 
 ---
 

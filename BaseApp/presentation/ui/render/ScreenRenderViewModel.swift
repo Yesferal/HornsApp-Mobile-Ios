@@ -13,10 +13,16 @@ final class ScreenRenderViewModel: ObservableObject {
 
     private let getHomeRenderUseCase: GetHomeRenderUseCase
     private let getConcertsUseCase: GetConcertsUseCase
+    private let mapper: ScreenRenderMapper
 
-    init(getHomeRenderUseCase: GetHomeRenderUseCase, getConcertsUseCase: GetConcertsUseCase) {
+    init(
+        getHomeRenderUseCase: GetHomeRenderUseCase,
+        getConcertsUseCase: GetConcertsUseCase,
+        mapper: ScreenRenderMapper = ScreenRenderMapper()
+    ) {
         self.getHomeRenderUseCase = getHomeRenderUseCase
         self.getConcertsUseCase = getConcertsUseCase
+        self.mapper = mapper
     }
 
     func fetchData() async {
@@ -35,10 +41,7 @@ final class ScreenRenderViewModel: ObservableObject {
 
             switch uiResult {
             case .success(let events):
-                var views: [ViewItem] = []
-                screenRender?[0].views?.forEach { v in
-                    views.addViewItem(viewRender: v, events: events)
-                }
+                let views = mapper.map(views: screenRender?[0].views, events: events)
                 state = .success(views)
             case .failed:
                 showErrorMessage()
@@ -59,88 +62,5 @@ final class ScreenRenderViewModel: ObservableObject {
     func retryFetchData() async {
         state = .idle
         await fetchData()
-    }
-}
-
-extension [ViewItem] {
-    mutating func addViewItem(viewRender: ViewRender, events: [Concert]) {
-        switch viewRender.type {
-        case ViewRender.Type_.adView:
-            append(ViewItem(id: UUID(), data: .ad))
-        case ViewRender.Type_.iconCardView:
-            append(ViewItem(id: UUID(), data: .seeMore(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text ?? "", icon: "music.note", backgroundColor: viewRender.style?.backgroundColor ?? "", buttonBackgroundColor: viewRender.style?.textColor ?? "", buttonForegroundColor: viewRender.style?.backgroundColor ?? "", actionText: HaLocalizedStringWrapper.getString(key: "see_more"), route: getRoute(navigatorRender: viewRender.navigation))))
-            append(getDividerViewItem())
-        case ViewRender.Type_.cardView:
-            append(ViewItem(id: UUID(), data: .home(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text, imageUrl: viewRender.data?.imageUrl ?? "", route: getRoute(navigatorRender: viewRender.navigation))))
-            append(getDividerViewItem())
-        case ViewRender.Type_.rowView:
-            guard let children = viewRender.children else {
-                append(ViewItem(id: UUID(), data: .empty))
-                return
-            }
-            let tempEvents = children.getConcertsForSections(concerts: events)
-
-            if (!tempEvents.isEmpty) {
-                tempEvents.forEach { e in
-                    append(getChildrenViewItem(childrenRender: children, concert: e))
-                }
-                append(getDividerViewItem())
-            }
-        case ViewRender.Type_.columnView:
-            guard let children = viewRender.children else {
-                return
-            }
-            let tempEvents = children.getConcertsForSections(concerts: events)
-            if (!tempEvents.isEmpty) {
-                append(ViewItem(id: UUID(), data: .title(title: viewRender.data?.title?.text ?? "", subtitle: viewRender.data?.subtitle?.text, route: getRoute(navigatorRender: viewRender.navigation))))
-                append(ViewItem(id: UUID(), data: .divider(height: Dimens.small)))
-                tempEvents.forEach { e in
-                    append(getChildrenViewItem(childrenRender: children, concert: e))
-                }
-                append(getDividerViewItem())
-            }
-        default:
-            append(ViewItem(id: UUID(), data: .empty))
-        }
-    }
-
-    private func getDividerViewItem() -> ViewItem {
-        return ViewItem(id: UUID(), data: .divider(height: Dimens.xlarge))
-    }
-
-    private func getChildrenViewItem(childrenRender: ChildrenRender, concert: Concert) -> ViewItem {
-        switch childrenRender.type {
-        case ChildrenRender.Type_.carouselCardView:
-            return ViewItem(id: UUID(), data: .carousel(concert: concert))
-        case ChildrenRender.Type_.upcomingCardView:
-            return ViewItem(id: UUID(), data: .upcomingCompact(concert: concert))
-        case ChildrenRender.Type_.upcomingImageCardView:
-            return ViewItem(id: UUID(), data: .upcoming(concert: concert))
-        default:
-            return ViewItem(id: UUID(), data: .empty)
-        }
-    }
-
-    private func getRoute(navigatorRender: NavigatorRender?) -> Route? {
-        guard let key = navigatorRender?.key else {
-            return nil
-        }
-        let navigator: Navigator = Navigator.Builder().to(to_: key).build()
-        switch navigator.to {
-        case ScreenRender.Type_.webViewScreen:
-            guard let stringUrl = (navigatorRender?.parameters["param_android_uri"] as? StringOrObject)?.getStringValue() else {
-                return nil
-            }
-            guard let url = URL(string: stringUrl) else {
-                return nil
-            }
-            return .web(url: url)
-        case ScreenRender.Type_.favoriteScreen:
-            return .favorite
-        case ScreenRender.Type_.upcomingScreen:
-            return .upcoming
-        default:
-            return nil
-        }
     }
 }
