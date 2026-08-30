@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  UpcomingViewModel.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 6/30/25.

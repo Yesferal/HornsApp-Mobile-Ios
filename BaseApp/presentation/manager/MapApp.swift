@@ -1,5 +1,5 @@
 //
-//  MapManager.swift
+//  MapApp.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 2/13/26.

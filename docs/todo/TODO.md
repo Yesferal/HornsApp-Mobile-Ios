@@ -48,7 +48,7 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 | [x] | [`#qual-2-localization`](#qual-2-localization) | Fix remaining localization gaps |
 | [x] | [`#qual-3-favorite-rollback`](#qual-3-favorite-rollback) | Revert favorite toggle on failure |
 | [ ] | [`#qual-4-remote-render`](#qual-4-remote-render) | Remote SDUI render updates |
-| [ ] | [`#qual-5-naming-cleanup`](#qual-5-naming-cleanup) | File/type naming cleanup |
+| [ ] | [`#qual-5-naming-cleanup`](#qual-5-naming-cleanup) | File/type naming cleanup (Phase 1–2 done) |
 
 ---
 
@@ -260,14 +260,23 @@ Revert `isFavorite` to the previous value when `UpdateFavoriteConcertUseCase` fa
 
 Implement `HaFileReaderManager.updateAppRender()` for live SDUI updates.
 
-**Files:** `HaFileReaderManager.swift`, `SocketManager.swift`
+**Files:** `HaFileReaderManager.swift`, `BundledRenderRemoteDataSource.swift`
 
 ---
 
 ### `#qual-5-naming-cleanup`
 
-**Status:** pending
+**Status:** partial (Phase 1–2 done)
 
-Align mismatched names: `DetailView` / `EventDetailView`, `UpcomingList`, `*ViewData`, `SocketManager`.
+**Done:**
+- `DetailView` → `EventDetailView` (+ `EventDetailViewBody`)
+- `UpcomingList` → `UpcomingListView`
+- `HaTittleSubTittle` → `HaTitleSubtitle`
+- `SocketManager` → `BundledRenderRemoteDataSource`
+- Fixed stale file headers on touched files
+
+**Remaining (Phase 3):** Optional `*ViewData` naming convention review; batch-fix remaining stale headers in alamofire render mappers.
+
+**Files:** `EventDetailView.swift`, `UpcomingListView.swift`, `HaTitleSubtitle.swift`, `BundledRenderRemoteDataSource.swift`, `AppDependencies.swift`, detail components, docs
 
 ---

@@ -22,7 +22,7 @@ struct HaEventLink: View {
                 Image(systemName: iconName)
                     .frame(width: 48)
                     .foregroundColor(theme.secondaryText)
-                HaTittleSubTittle(title: title, subtitle: subtitle)
+                HaTitleSubtitle(title: title, subtitle: subtitle)
                     .frame(maxHeight: .infinity, alignment: .center)
                 Spacer()
                 Image(systemName: "chevron.right")

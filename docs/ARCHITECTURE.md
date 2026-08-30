@@ -90,7 +90,7 @@ dependencies.makeGetConcertsUseCase(context: context)
 | Class | Role |
 |-------|------|
 | `HaFileReaderManager` | Reads bundled `app_render.json` |
-| `SocketManager` | Implements `RenderRemoteDataSource` (local today; remote later) |
+| `BundledRenderRemoteDataSource` | Implements `RenderRemoteDataSource` from bundled `app_render.json` (live remote TBD in `#qual-4`) |
 
 Home screen layout (carousels, cards, sections, navigation keys) is driven by JSON, not hardcoded SwiftUI.
 

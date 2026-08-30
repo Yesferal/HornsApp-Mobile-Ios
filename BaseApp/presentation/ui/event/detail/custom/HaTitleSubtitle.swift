@@ -1,5 +1,5 @@
 //
-//  TittleSubTittle.swift
+//  HaTitleSubtitle.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 10/25/25.
@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct HaTittleSubTittle: View {
+struct HaTitleSubtitle: View {
     @Environment(\.theme) var theme
 
     let title: String
     let subtitle: String?
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
                 .foregroundColor(theme.primaryText)
                 .font(.headline)
                 .bold()
-            
+
             if let text = subtitle {
                 Text(text)
                     .font(.subheadline)
@@ -29,4 +29,3 @@ struct HaTittleSubTittle: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
-

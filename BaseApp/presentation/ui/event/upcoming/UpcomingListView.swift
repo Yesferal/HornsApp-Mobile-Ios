@@ -1,5 +1,5 @@
 //
-//  EventList.swift
+//  UpcomingListView.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 6/28/25.
@@ -8,7 +8,7 @@
 import SwiftUI
 import HornsAppCore
 
-struct UpcomingList: View {
+struct UpcomingListView: View {
     @StateObject private var vm: UpcomingViewModel
 
     @Environment(\.theme) var theme

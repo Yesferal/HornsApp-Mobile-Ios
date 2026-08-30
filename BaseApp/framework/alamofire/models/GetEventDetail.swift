@@ -1,5 +1,5 @@
 //
-//  GetEventDetailed.swift
+//  GetEventDetail.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 11/8/25.

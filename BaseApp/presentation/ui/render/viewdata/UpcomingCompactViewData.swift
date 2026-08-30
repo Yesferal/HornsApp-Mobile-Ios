@@ -22,7 +22,7 @@ struct UpcomingCompactViewData: View {
         } label: {
             HStack(alignment: .top) {
                 HaEventDate(day: concert.getEventDay(), month: concert.getEventMonth())
-                HaTittleSubTittle(title: concert.name ?? "", subtitle: concert.ticketingName ?? "")
+                HaTitleSubtitle(title: concert.name ?? "", subtitle: concert.ticketingName ?? "")
                     .frame(maxHeight: .infinity, alignment: .center)
             }
         }

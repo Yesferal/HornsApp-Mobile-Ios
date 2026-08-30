@@ -8,7 +8,7 @@
 import SwiftUI
 import HornsAppCore
 
-struct DetailView: View {
+struct EventDetailView: View {
     let id: String
     let name: String
     let day: String
@@ -18,7 +18,7 @@ struct DetailView: View {
     @Environment(\.dependencies) var dependencies
 
     var body: some View {
-        DetailViewBody(
+        EventDetailViewBody(
             id: id,
             name: name,
             day: day,
@@ -31,7 +31,7 @@ struct DetailView: View {
     }
 }
 
-private struct DetailViewBody: View {
+private struct EventDetailViewBody: View {
     let id: String
     let name: String
     let day: String

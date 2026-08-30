@@ -22,7 +22,7 @@ struct HaEventBuyButton: View {
                 Image(systemName: iconName)
                     .frame(width: 48)
                     .foregroundColor(theme.secondaryText)
-                HaTittleSubTittle(title: title, subtitle: subtitle)
+                HaTitleSubtitle(title: title, subtitle: subtitle)
             }
             Spacer()
             CtaViewData(actionText: actionText, action: action)

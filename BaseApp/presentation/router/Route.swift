@@ -1,5 +1,5 @@
 //
-//  route.swift
+//  Route.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 1/18/26.
@@ -23,7 +23,7 @@ enum Route: Hashable {
 func destination(for route: Route) -> some View {
     switch route {
     case .details(let id, let name, let day, let month):
-        DetailView(id: id, name: name, day: day, month: month)
+        EventDetailView(id: id, name: name, day: day, month: month)
     case .web(let url):
         InAppWebView(url: url)
             .ignoresSafeArea()

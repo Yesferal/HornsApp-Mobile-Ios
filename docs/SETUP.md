@@ -168,7 +168,7 @@ Home layout is defined in bundled JSON:
 - HornsApp: `HornsApp/resources/app_render.json`
 - MuvinApp: `MuvinApp/resources/app_render.json`
 
-Read at runtime by `HaFileReaderManager` → `SocketManager` → render repository.
+Read at runtime by `HaFileReaderManager` → `BundledRenderRemoteDataSource` → render repository.
 
 ---
 

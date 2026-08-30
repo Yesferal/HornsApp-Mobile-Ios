@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  UpcomingView.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 11/25/25.
@@ -16,7 +16,7 @@ struct UpcomingView: View {
     @Environment(\.theme) var theme
 
     var body: some View {
-        UpcomingList(
+        UpcomingListView(
             getUpcomingConcertsUseCase: dependencies.makeGetUpcomingConcertsUseCase(context: context),
             renderRepository: dependencies.getRenderRepository()
         )

@@ -1,5 +1,5 @@
 //
-//  HaLocalizedString.swift
+//  HaLocalizedStringWrapper.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 11/9/25.

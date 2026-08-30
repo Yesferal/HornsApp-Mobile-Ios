@@ -127,7 +127,7 @@ struct ReminderRow: View {
             Image(systemName: icon)
                 .frame(width: 48)
                 .foregroundColor(theme.secondaryText)
-            HaTittleSubTittle(title: title, subtitle: subtitle)
+            HaTitleSubtitle(title: title, subtitle: subtitle)
                 .frame(maxHeight: .infinity, alignment: .center)
             
             Spacer()

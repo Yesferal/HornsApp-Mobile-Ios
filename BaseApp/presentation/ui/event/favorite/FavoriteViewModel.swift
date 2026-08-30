@@ -1,5 +1,5 @@
 //
-//  FAvoriteViewModel.swift
+//  FavoriteViewModel.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 1/31/26.

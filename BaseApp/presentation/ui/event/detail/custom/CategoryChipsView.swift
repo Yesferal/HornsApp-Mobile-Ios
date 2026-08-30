@@ -1,5 +1,5 @@
 //
-//  CategoryPagerView.swift
+//  CategoryChipsView.swift
 //  HornsApp
 //
 //  Created by Yesferal Cueva on 2/16/26.

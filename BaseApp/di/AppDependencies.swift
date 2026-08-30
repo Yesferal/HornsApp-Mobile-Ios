@@ -16,7 +16,7 @@ final class AppDependencies {
 
     private lazy var renderRepository: RenderRepository = {
         RenderRepositoryImpl(
-            renderRemoteDataSource: SocketManager(
+            renderRemoteDataSource: BundledRenderRemoteDataSource(
                 renderStorageDataSource: HaFileReaderManager()
             )
         )
