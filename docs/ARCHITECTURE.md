@@ -31,14 +31,25 @@ Application
   └── NavigationStack (Router)
         └── ContentView
               ├── OnboardingView (first launch)
-              └── HomeView (TabView)
+              └── HomeView (TabView — hardcoded tabs for now)
                     ├── Home tab    → ScreenRenderView
                     ├── Upcoming    → UpcomingView
                     └── Favorites   → FavoriteView
 ```
 
-- **Router** (`BaseApp/presentation/router/`) — global `NavigationPath` for push navigation (event detail, web views).
+- **Router** (`BaseApp/presentation/router/`) — global `NavigationPath` for push navigation (event detail, web views, SDUI tab screens).
 - **Route enum** — typed destinations consumed by `navigationDestination(for:)`.
+- **NavigatorCoordinator** — maps KMP `NavigatorRender` → `Route` via adapter chain (`AppNavigatorAdapter`, `ExternalNavigatorAdapter`). Mirrors Android `AppNavigator` / `ExternalNavigator`. Tab-vs-push behavior is **deferred** (`#arch-6b-tab-switching`).
+
+SDUI navigation flow:
+
+```
+NavigatorRender (from JSON)
+  → NavigatorCoordinator.route(from:)  → Route? (embedded in ViewItem)
+  → router.navigate(to:)               → push on NavigationPath
+```
+
+Concert card taps still use direct `.details(...)` until `#arch-6d-nav-view-data`.
 
 ---
 

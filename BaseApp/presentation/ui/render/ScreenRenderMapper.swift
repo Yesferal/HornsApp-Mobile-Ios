@@ -8,6 +8,12 @@
 import HornsAppCore
 
 struct ScreenRenderMapper {
+    private let navigatorCoordinator: NavigatorCoordinator
+
+    init(navigatorCoordinator: NavigatorCoordinator = NavigatorCoordinator()) {
+        self.navigatorCoordinator = navigatorCoordinator
+    }
+
     func map(views: [ViewRender]?, events: [Concert]) -> [ViewItem] {
         var viewItems: [ViewItem] = []
         views?.forEach { viewRender in
@@ -93,25 +99,6 @@ struct ScreenRenderMapper {
     }
 
     private func getRoute(navigatorRender: NavigatorRender?) -> Route? {
-        guard let key = navigatorRender?.key else {
-            return nil
-        }
-        let navigator: Navigator = Navigator.Builder().to(to_: key).build()
-        switch navigator.to {
-        case ScreenRender.Type_.webViewScreen:
-            guard let stringUrl = (navigatorRender?.parameters["param_android_uri"] as? StringOrObject)?.getStringValue() else {
-                return nil
-            }
-            guard let url = URL(string: stringUrl) else {
-                return nil
-            }
-            return .web(url: url)
-        case ScreenRender.Type_.favoriteScreen:
-            return .favorite
-        case ScreenRender.Type_.upcomingScreen:
-            return .upcoming
-        default:
-            return nil
-        }
+        navigatorCoordinator.route(from: navigatorRender)
     }
 }

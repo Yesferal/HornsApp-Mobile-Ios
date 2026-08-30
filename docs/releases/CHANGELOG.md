@@ -20,6 +20,7 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 - Upcoming and Favorites screens show error UI with retry on network failure
 - Favorite toggle reverts and shows alert when persistence fails (`#qual-3-favorite-rollback`)
 - Home SDUI mapping extracted to `ScreenRenderMapper` (`#arch-4-screen-render-mapper`)
+- Navigation aligned with Android/KMP: `NavigatorCoordinator`, shared app-level `Router` (`#arch-6a`, `#arch-6c`). Tab switching deferred (`#arch-6b`).
 
 ---
 

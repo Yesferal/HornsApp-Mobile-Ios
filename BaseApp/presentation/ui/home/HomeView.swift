@@ -10,16 +10,9 @@ import SwiftUI
 struct HomeView: View {
 
     @Environment(\.theme) var theme
-    
-    // TODO: 1: Improve navigation instead of opening new Upcomingor Favorite view
-    // TODO: 2: Create these views dynamically instead of has only the same three
-    /*
-    enum Tab {
-        case home, upcoming, favorite
-    }
 
-    @State private var selectedTab: Tab = .home*/
-
+    // TODO: #arch-6b-tab-switching — switch tabs instead of pushing duplicate screens (needs per-tab stack design)
+    // TODO: #feat-5-dynamic-tabs — build tabs from app_render.json instead of hardcoding three
     var body: some View {
         TabView {
             ScreenRenderView()

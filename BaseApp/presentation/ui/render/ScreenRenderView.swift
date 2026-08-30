@@ -14,8 +14,6 @@ struct ScreenRenderView: View {
     
     @Environment(\.theme) var theme
 
-    @StateObject private var router = Router()
-
     var body: some View {
         ScreenRenderListView(
             getHomeRenderUseCase: dependencies.makeGetHomeRenderUseCase(),

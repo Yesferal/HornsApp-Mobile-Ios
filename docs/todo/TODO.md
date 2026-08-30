@@ -17,6 +17,18 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 | [x] | [`#arch-3-standardize-viewmodels`](#arch-3-standardize-viewmodels) | Standardize ViewModels (init injection + `ViewState<T>`) |
 | [x] | [`#arch-4-screen-render-mapper`](#arch-4-screen-render-mapper) | Extract `ScreenRenderMapper` |
 | [ ] | [`#arch-5-unit-tests`](#arch-5-unit-tests) | Add ViewModel and mapper unit tests |
+| [ ] | [`#arch-6-unify-navigation`](#arch-6-unify-navigation) | Align iOS navigation with Android/KMP adapter pattern |
+
+#### `#arch-6-unify-navigation` subtasks
+
+| Status | Key | Task |
+|--------|-----|------|
+| [x] | [`#arch-6a-navigator-coordinator`](#arch-6a-navigator-coordinator) | `NavigatorCoordinator` + adapter chain (App / External) |
+| [ ] | [`#arch-6b-tab-switching`](#arch-6b-tab-switching) | Tab switch for home / upcoming / favorite (deferred — design per-tab stacks first) |
+| [x] | [`#arch-6c-remove-duplicate-router`](#arch-6c-remove-duplicate-router) | Remove duplicate `Router` in `ScreenRenderView` |
+| [ ] | [`#arch-6d-nav-view-data`](#arch-6d-nav-view-data) | `NavViewData` for concert/detail taps via KMP `Navigator` |
+| [ ] | [`#arch-6e-external-actions`](#arch-6e-external-actions) | Calendar, maps, share via `ExternalNavigatorAdapter` |
+| [ ] | [`#arch-6f-screen-type-coverage`](#arch-6f-screen-type-coverage) | Map remaining `ScreenRender.Type` values (settings, lineup, …) |
 
 ### Features
 
@@ -92,6 +104,80 @@ Add tests with mock use cases and mappers once DI is stable.
 
 ---
 
+### `#arch-6-unify-navigation`
+
+**Status:** in progress
+
+Align iOS navigation with the Android adapter chain and KMP `Navigator` / `NavigatorRender` model. iOS keeps `Router` + `Route` as the SwiftUI execution layer; mapping and tab-vs-push decisions move to `NavigatorCoordinator`.
+
+**Reference:** Android `AppNavigator` → `DialogNavigator` → `ExternalNavigator`; KMP `Navigator.Builder().to(key).with(render).build()`.
+
+**Subtasks:** `#arch-6a` … `#arch-6f` (see summary table above).
+
+---
+
+### `#arch-6a-navigator-coordinator`
+
+**Status:** done
+
+Introduce `NavigatorCoordinator` with `AppNavigatorAdapter` (in-app screens + tabs) and `ExternalNavigatorAdapter` (web). Move `ScreenRenderMapper.getRoute()` logic into the coordinator.
+
+**Files:** `NavigatorCoordinator.swift`, `ScreenRenderMapper.swift`
+
+---
+
+### `#arch-6b-tab-switching`
+
+**Status:** deferred
+
+When SDUI navigates to `UPCOMING_SCREEN` / `FAVORITE_SCREEN` / `HOME_SCREEN`, switch `TabView` selection instead of pushing a duplicate screen. **Deferred** until we design per-tab navigation stacks — clearing a single global `NavigationPath` drops pushed screens (detail, web) with no way back.
+
+**Design options to evaluate:** per-tab `NavigationPath`, conditional pop, KMP `popBackStackId`.
+
+**Files:** `Router.swift`, `HomeView.swift`, `NavigatorCoordinator.swift`
+
+---
+
+### `#arch-6c-remove-duplicate-router`
+
+**Status:** done
+
+`ScreenRenderView` creates its own `@StateObject Router()` — remove it; use the app-level `Router` from `environmentObject`.
+
+**Files:** `ScreenRenderView.swift`
+
+---
+
+### `#arch-6d-nav-view-data`
+
+**Status:** pending
+
+Route concert/carousel taps through KMP `Navigator` + `param_parcelable_view_data` instead of hardcoded `.details(...)`.
+
+**Files:** `CarouselViewData.swift`, `UpcomingViewData.swift`, `UpcomingCompactViewData.swift`, new `NavViewData.swift`
+
+---
+
+### `#arch-6e-external-actions`
+
+**Status:** pending
+
+Handle `CALENDAR_SCREEN`, `MAP_SCREEN`, `MESSAGE_SCREEN` in `ExternalNavigatorAdapter` using existing iOS managers.
+
+**Files:** `NavigatorCoordinator.swift`, `CalendarManager.swift`, `MapApp.swift`
+
+---
+
+### `#arch-6f-screen-type-coverage`
+
+**Status:** pending
+
+Add iOS handling for settings, lineup, profile, render screen, etc. Blocked partially by `#feat-1-lineup` and missing screens.
+
+**Files:** `NavigatorCoordinator.swift`, `Route.swift`
+
+---
+
 ### `#feat-1-lineup`
 
 **Status:** pending
@@ -136,7 +222,7 @@ Implement `getConcertCached` / `updateConcertCached` in `SwiftDataManager`.
 
 **Status:** pending
 
-Drive `HomeView` tabs from `app_render.json` instead of hardcoded `TabView`.
+Drive `HomeView` tabs from `app_render.json` instead of hardcoded `TabView`. Depends on `#arch-6b-tab-switching` tab infrastructure.
 
 **Files:** `HomeView.swift`, `app_render.json`
 
