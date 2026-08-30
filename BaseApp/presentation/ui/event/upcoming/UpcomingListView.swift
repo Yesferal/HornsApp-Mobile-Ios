@@ -23,14 +23,14 @@ struct UpcomingList: View {
     }
 
     var body: some View {
-        ZStack {
-            if isLoading {
-                HaProgressView()
+        VStack(spacing: 0) {
+            if !vm.categories.isEmpty {
+                CategoryChipsView(categories: vm.categories, selectedCategory: $selectedCategory)
+                    .background(theme.background)
             }
 
-            content
+            stateContent
         }
-        .animation(.easeInOut, value: isLoading)
         .onAppear {
             if case .idle = vm.state {
                 Task {
@@ -45,18 +45,23 @@ struct UpcomingList: View {
         }
     }
 
-    private var isLoading: Bool {
+    @ViewBuilder
+    private var stateContent: some View {
         switch vm.state {
         case .idle, .loading:
-            return true
-        default:
-            return false
-        }
-    }
+            HaProgressView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-    @ViewBuilder
-    private var content: some View {
-        switch vm.state {
+        case .success(let items):
+            List(items) { view in
+                render(view.data)
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(.init())
+            }
+            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
+
         case .failed(let message, let icon, let actionText):
             ErrorViewData(message: message, icon: icon, actionText: actionText) {
                 Task {
@@ -65,26 +70,6 @@ struct UpcomingList: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(theme.primary)
-
-        case .success(let items):
-            List {
-                CategoryChipsView(categories: vm.categories, selectedCategory: $selectedCategory)
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(.init())
-                    .background(theme.background)
-
-                ForEach(items) { view in
-                    render(view.data)
-                        .listRowSeparator(.hidden)
-                        .listRowBackground(Color.clear)
-                        .listRowInsets(.init())
-                }
-            }
-            .listStyle(.plain)
-            .scrollContentBackground(.hidden)
-
-        case .idle, .loading:
-            EmptyView()
         }
     }
 }

@@ -21,6 +21,7 @@ final class UpcomingViewModel: ObservableObject {
     }
 
     func fetchData() async {
+        await loadCategoriesIfNeeded()
         await filterByCategory(categoryCondition: CategoryRender.Companion().ALL)
     }
 
@@ -29,13 +30,11 @@ final class UpcomingViewModel: ObservableObject {
 
         do {
             let haResult = try await getUpcomingConcertsUseCase.invoke(categoryKey: categoryCondition)
-            let renderCategories = try await renderRepository.getCategoryRender()
             let uiResult: UiResult<[Concert]> = mapCoreResultAsUiResult(haResult)
 
             switch uiResult {
             case .success(let events):
                 let views = events.map { ViewItem(id: UUID(), data: .upcoming(concert: $0)) }
-                categories = renderCategories ?? []
                 state = .success(views)
             case .failed:
                 showErrorMessage()
@@ -48,6 +47,11 @@ final class UpcomingViewModel: ObservableObject {
     func retryFetchData() async {
         state = .idle
         await fetchData()
+    }
+
+    private func loadCategoriesIfNeeded() async {
+        guard categories.isEmpty else { return }
+        categories = (try? await renderRepository.getCategoryRender()) ?? []
     }
 
     private func showErrorMessage() {

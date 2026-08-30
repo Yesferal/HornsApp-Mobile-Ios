@@ -14,56 +14,37 @@ struct FavoriteListView: View {
     @EnvironmentObject var vm: FavoriteViewModel
 
     var body: some View {
-        ZStack {
-            if isLoading {
+        Group {
+            switch vm.state {
+            case .idle, .loading:
                 HaProgressView()
-            }
 
-            content
+            case .success(let items):
+                List(items) { view in
+                    render(view.data)
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.clear)
+                        .listRowInsets(.init())
+                }
+                .scrollContentBackground(.hidden)
+                .listStyle(.plain)
+
+            case .failed(let message, let icon, let actionText):
+                ErrorViewData(message: message, icon: icon, actionText: actionText) {
+                    Task {
+                        await vm.retryFetchData()
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(theme.primary)
+            }
         }
-        .animation(.easeInOut, value: isLoading)
         .onAppear {
             if case .idle = vm.state {
                 Task {
                     await vm.fetchData()
                 }
             }
-        }
-    }
-
-    private var isLoading: Bool {
-        switch vm.state {
-        case .idle, .loading:
-            return true
-        default:
-            return false
-        }
-    }
-
-    @ViewBuilder
-    private var content: some View {
-        switch vm.state {
-        case .failed(let message, let icon, let actionText):
-            ErrorViewData(message: message, icon: icon, actionText: actionText) {
-                Task {
-                    await vm.retryFetchData()
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(theme.primary)
-
-        case .success(let items):
-            List(items) { view in
-                render(view.data)
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
-                    .listRowInsets(.init())
-            }
-            .scrollContentBackground(.hidden)
-            .listStyle(.plain)
-
-        case .idle, .loading:
-            EmptyView()
         }
     }
 }
