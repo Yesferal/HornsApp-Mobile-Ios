@@ -143,7 +143,7 @@ private struct DetailViewBody: View {
                 message: Text(HaLocalizedStringWrapper.getString(key: alert.message)))
         }
         .confirmationDialog(
-            "open_with",
+            LocalizedStringKey("open_with"),
             isPresented: $showMapDialog,
             titleVisibility: .visible
         ) {
@@ -155,7 +155,7 @@ private struct DetailViewBody: View {
                 }
             }
 
-            Button("key_cancel", role: .cancel) { }
+            Button(LocalizedStringKey("key_cancel"), role: .cancel) { }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear {

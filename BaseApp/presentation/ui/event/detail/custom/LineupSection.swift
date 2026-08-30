@@ -18,12 +18,12 @@ struct LineupSection: View {
 
             // Section header
             HStack(spacing: 8) {
-                Text("activities_section")
+                Text(LocalizedStringKey("activities_section"))
                     .font(.headline)
                     .foregroundColor(theme.primaryText)
                     .textCase(.uppercase)
 
-                Text("new_label")
+                Text(LocalizedStringKey("new_label"))
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .padding(.horizontal, 5)
@@ -81,7 +81,7 @@ struct ActivityCard: View {
                 .clipShape(Circle())
 
             if isHeadliner {
-                Text("key_headliner")
+                Text(LocalizedStringKey("key_headliner"))
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .padding(.horizontal, 4)

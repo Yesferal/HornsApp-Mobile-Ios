@@ -37,16 +37,16 @@ Application
                     └── Favorites   → FavoriteView
 ```
 
-- **Router** (`BaseApp/presentation/router/`) — global `NavigationPath` for push navigation (event detail, web views, SDUI tab screens).
-- **Route enum** — typed destinations consumed by `navigationDestination(for:)`.
-- **NavigatorCoordinator** — maps KMP `NavigatorRender` → `Route` via adapter chain (`AppNavigatorAdapter`, `ExternalNavigatorAdapter`). Mirrors Android `AppNavigator` / `ExternalNavigator`. Tab-vs-push behavior is **deferred** (`#arch-6b-tab-switching`).
+- **Router** (`BaseApp/presentation/router/`) — global `NavigationPath` for push navigation (detail, web). Tab routes (`.home`, `.upcoming`, `.favorite`) update `selectedTab` instead of pushing.
+- **Route enum** — typed destinations consumed by `navigationDestination(for:)`. Tab routes must not be pushed; they switch `TabView` selection.
+- **NavigatorCoordinator** — maps KMP `NavigatorRender` → `Route` via adapter chain (`AppNavigatorAdapter`, `ExternalNavigatorAdapter`). Tab-vs-push behavior is **deferred** (`#arch-6b-tab-switching`).
 
 SDUI navigation flow:
 
 ```
 NavigatorRender (from JSON)
   → NavigatorCoordinator.route(from:)  → Route? (embedded in ViewItem)
-  → router.navigate(to:)               → push on NavigationPath
+  → router.navigate(to:)               → tab switch OR push (detail / web)
 ```
 
 Concert card taps still use direct `.details(...)` until `#arch-6d-nav-view-data`.

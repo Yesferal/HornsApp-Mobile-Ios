@@ -215,7 +215,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ir a Maps"
+            "value" : "¿Como llegar?"
           }
         }
       }
@@ -383,6 +383,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "2 horas antes"
+          }
+        }
+      }
+    },
+    "key_map_apple_maps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple Maps"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple Maps"
+          }
+        }
+      }
+    },
+    "key_map_google_maps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google Maps"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google Maps"
+          }
+        }
+      }
+    },
+    "key_map_waze" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waze"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waze"
           }
         }
       }

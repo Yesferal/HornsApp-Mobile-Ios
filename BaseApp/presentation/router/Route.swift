@@ -21,19 +21,13 @@ enum Route: Hashable {
 
 @ViewBuilder
 func destination(for route: Route) -> some View {
-    let _ = print("Navigating to:", route, type(of: route))
-
     switch route {
     case .details(let id, let name, let day, let month):
         DetailView(id: id, name: name, day: day, month: month)
-    case .upcoming:
-        UpcomingView()
-    case .favorite:
-        FavoriteView()
-    case .home:
-        ScreenRenderView()
     case .web(let url):
         InAppWebView(url: url)
             .ignoresSafeArea()
+    case .home, .upcoming, .favorite:
+        EmptyView()
     }
 }

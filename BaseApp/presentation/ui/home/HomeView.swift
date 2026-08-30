@@ -10,28 +10,28 @@ import SwiftUI
 struct HomeView: View {
 
     @Environment(\.theme) var theme
+    @EnvironmentObject var router: Router
 
-    // TODO: #arch-6b-tab-switching — switch tabs instead of pushing duplicate screens (needs per-tab stack design)
     // TODO: #feat-5-dynamic-tabs — build tabs from app_render.json instead of hardcoding three
     var body: some View {
-        TabView {
+        TabView(selection: $router.selectedTab) {
             ScreenRenderView()
                 .tabItem {
-                    Label("home", systemImage: "house")
+                    Label(LocalizedStringKey("home"), systemImage: "house")
                 }
-                //.tag(Tab.home)
+                .tag(HomeTab.home)
 
             UpcomingView()
                 .tabItem {
-                    Label("upcoming", systemImage: "calendar")
+                    Label(LocalizedStringKey("upcoming"), systemImage: "calendar")
                 }
-                //.tag(Tab.upcoming)
-            
+                .tag(HomeTab.upcoming)
+
             FavoriteView()
                 .tabItem {
-                    Label("favorite", systemImage: "heart.fill")
+                    Label(LocalizedStringKey("favorite"), systemImage: "heart.fill")
                 }
-                //.tag(Tab.favorite)
+                .tag(HomeTab.favorite)
         }
         .tint(theme.accent)
     }

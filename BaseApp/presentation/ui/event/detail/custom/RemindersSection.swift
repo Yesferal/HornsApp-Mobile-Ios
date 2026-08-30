@@ -26,12 +26,12 @@ struct RemindersSection: View {
 
             // Section header
             HStack(spacing: 8) {
-                Text("reminder_section")
+                Text(LocalizedStringKey("reminder_section"))
                     .font(.headline)
                     .foregroundColor(theme.primaryText)
                     .textCase(.uppercase)
 
-                Text("new_label")
+                Text(LocalizedStringKey("new_label"))
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .padding(.horizontal, 5)
@@ -43,7 +43,7 @@ struct RemindersSection: View {
             .padding(.top, 16)
 
             if permissionDenied {
-                Text("reminder_error_message")
+                Text(LocalizedStringKey("reminder_error_message"))
                     .font(.subheadline)
             }
 

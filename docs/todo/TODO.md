@@ -24,7 +24,7 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 | Status | Key | Task |
 |--------|-----|------|
 | [x] | [`#arch-6a-navigator-coordinator`](#arch-6a-navigator-coordinator) | `NavigatorCoordinator` + adapter chain (App / External) |
-| [ ] | [`#arch-6b-tab-switching`](#arch-6b-tab-switching) | Tab switch for home / upcoming / favorite (deferred — design per-tab stacks first) |
+| [ ] | [`#arch-6b-tab-switching`](#arch-6b-tab-switching) | Tab switch for home / upcoming / favorite (partial — no per-tab stack yet) |
 | [x] | [`#arch-6c-remove-duplicate-router`](#arch-6c-remove-duplicate-router) | Remove duplicate `Router` in `ScreenRenderView` |
 | [ ] | [`#arch-6d-nav-view-data`](#arch-6d-nav-view-data) | `NavViewData` for concert/detail taps via KMP `Navigator` |
 | [ ] | [`#arch-6e-external-actions`](#arch-6e-external-actions) | Calendar, maps, share via `ExternalNavigatorAdapter` |
@@ -45,7 +45,7 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 | Status | Key | Task |
 |--------|-----|------|
 | [ ] | [`#qual-1-logging`](#qual-1-logging) | Logging abstraction |
-| [ ] | [`#qual-2-localization`](#qual-2-localization) | Fix remaining localization gaps |
+| [x] | [`#qual-2-localization`](#qual-2-localization) | Fix remaining localization gaps |
 | [x] | [`#qual-3-favorite-rollback`](#qual-3-favorite-rollback) | Revert favorite toggle on failure |
 | [ ] | [`#qual-4-remote-render`](#qual-4-remote-render) | Remote SDUI render updates |
 | [ ] | [`#qual-5-naming-cleanup`](#qual-5-naming-cleanup) | File/type naming cleanup |
@@ -128,13 +128,11 @@ Introduce `NavigatorCoordinator` with `AppNavigatorAdapter` (in-app screens + ta
 
 ### `#arch-6b-tab-switching`
 
-**Status:** deferred
+**Status:** partial
 
-When SDUI navigates to `UPCOMING_SCREEN` / `FAVORITE_SCREEN` / `HOME_SCREEN`, switch `TabView` selection instead of pushing a duplicate screen. **Deferred** until we design per-tab navigation stacks — clearing a single global `NavigationPath` drops pushed screens (detail, web) with no way back.
+Tab routes (`.home`, `.upcoming`, `.favorite`) switch `TabView` selection instead of pushing duplicate screens on `NavigationPath`. Does **not** clear the push stack yet — full per-tab stack design still pending.
 
-**Design options to evaluate:** per-tab `NavigationPath`, conditional pop, KMP `popBackStackId`.
-
-**Files:** `Router.swift`, `HomeView.swift`, `NavigatorCoordinator.swift`
+**Files:** `Router.swift`, `HomeTab.swift`, `HomeView.swift`, `Route.swift`
 
 ---
 
@@ -238,11 +236,11 @@ Replace `print()` and `// TODO: Logger` with a logging abstraction.
 
 ### `#qual-2-localization`
 
-**Status:** pending
+**Status:** done
 
-Fix hardcoded navigation titles and remaining non-localized strings.
+Removed stale FIXME comments. Standardized SwiftUI strings on `LocalizedStringKey`. Localized map app picker names. Documented when to use `HaLocalizedStringWrapper` vs `LocalizedStringKey`.
 
-**Files:** `ScreenRenderView.swift`, `FavoriteView.swift`, others
+**Files:** `Localizable.xcstrings`, `HomeView.swift`, `ScreenRenderView.swift`, `FavoriteView.swift`, `EventDetailView.swift`, detail sections, `MapApp.swift`, `HaLocalizedStringWrapper.swift`
 
 ---
 

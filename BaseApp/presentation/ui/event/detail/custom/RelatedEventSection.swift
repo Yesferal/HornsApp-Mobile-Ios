@@ -20,12 +20,12 @@ struct RelatedEventSection: View {
             VStack(alignment: .leading, spacing: 32) {
                 // Section header
                 HStack(spacing: 8) {
-                    Text("related_event_section")
+                    Text(LocalizedStringKey("related_event_section"))
                         .font(.headline)
                         .foregroundColor(theme.primaryText)
                         .textCase(.uppercase)
                     
-                    Text("new_label")
+                    Text(LocalizedStringKey("new_label"))
                         .font(.subheadline)
                         .foregroundColor(.white)
                         .padding(.horizontal, 5)

@@ -17,9 +17,12 @@ enum MapApp: CaseIterable, Identifiable {
 
     var displayName: String {
         switch self {
-        case .appleMaps: return "Apple Maps"
-        case .googleMaps: return "Google Maps"
-        case .waze: return "Waze"
+        case .appleMaps:
+            return HaLocalizedStringWrapper.getString(key: "key_map_apple_maps")
+        case .googleMaps:
+            return HaLocalizedStringWrapper.getString(key: "key_map_google_maps")
+        case .waze:
+            return HaLocalizedStringWrapper.getString(key: "key_map_waze")
         }
     }
 

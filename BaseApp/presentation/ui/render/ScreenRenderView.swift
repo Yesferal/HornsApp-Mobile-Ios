@@ -19,7 +19,6 @@ struct ScreenRenderView: View {
             getHomeRenderUseCase: dependencies.makeGetHomeRenderUseCase(),
             getConcertsUseCase: dependencies.makeGetConcertsUseCase(context: context)
         )
-        // FIXME: Use Localized String here
             .navigationTitle(LocalizedStringKey("home"))
             .background(theme.background)
     }

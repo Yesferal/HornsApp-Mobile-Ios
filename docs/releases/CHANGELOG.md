@@ -21,6 +21,7 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 - Favorite toggle reverts and shows alert when persistence fails (`#qual-3-favorite-rollback`)
 - Home SDUI mapping extracted to `ScreenRenderMapper` (`#arch-4-screen-render-mapper`)
 - Navigation aligned with Android/KMP: `NavigatorCoordinator`, shared app-level `Router` (`#arch-6a`, `#arch-6c`). Tab switching deferred (`#arch-6b`).
+- Localization gaps fixed: tab labels, map picker, detail sections (`#qual-2-localization`)
 
 ---
 
