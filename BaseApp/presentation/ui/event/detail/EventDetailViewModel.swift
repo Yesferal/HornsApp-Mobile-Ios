@@ -11,6 +11,7 @@ import HornsAppCore
 final class EventDetailViewModel: ObservableObject {
     @Published var state: ViewState<Concert> = .idle
     @Published var isFavorite: Bool = false
+    @Published var favoriteAlert: HaAlert?
 
     private let getConcertUseCase: GetConcertUseCase
     private let updateFavoriteConcertUseCase: UpdateFavoriteConcertUseCase
@@ -52,16 +53,21 @@ final class EventDetailViewModel: ObservableObject {
         )
     }
 
-    func onFavoriteImageViewClick(concert: Concert?) async {
-        do {
-            guard let concert = concert else {
-                return
-            }
-            isFavorite.toggle()
+    func onFavoriteImageViewClick(concert: Concert?) async -> Bool {
+        guard let concert else {
+            return false
+        }
 
+        let previousValue = isFavorite
+        isFavorite.toggle()
+
+        do {
             try await updateFavoriteConcertUseCase.invoke(concert: concert, isFavorite: isFavorite)
+            return true
         } catch {
-            // TODO: Logger
+            isFavorite = previousValue
+            favoriteAlert = .favoriteUpdateFailed
+            return false
         }
     }
 }

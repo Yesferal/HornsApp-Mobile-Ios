@@ -135,6 +135,40 @@
         }
       }
     },
+    "key_favorite_update_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not update favorite"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo actualizar el favorito"
+          }
+        }
+      }
+    },
+    "key_favorite_update_failed_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong. Please try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algo salió mal. Por favor, inténtalo de nuevo."
+          }
+        }
+      }
+    },
     "get_started" : {
       "extractionState" : "manual",
       "localizations" : {

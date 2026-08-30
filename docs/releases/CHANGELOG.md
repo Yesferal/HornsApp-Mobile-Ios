@@ -18,6 +18,7 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 - Network failures propagate as `HaResultError` instead of success-with-nil (`#arch-2-fix-network-errors`)
 - ViewModels standardized: init injection + `ViewState<T>` everywhere (`#arch-3-standardize-viewmodels`)
 - Upcoming and Favorites screens show error UI with retry on network failure
+- Favorite toggle reverts and shows alert when persistence fails (`#qual-3-favorite-rollback`)
 
 ---
 

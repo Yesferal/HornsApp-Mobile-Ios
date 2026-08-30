@@ -8,6 +8,7 @@
 enum HaAlert: Identifiable {
     case eventAdded
     case calendarAccessDenied
+    case favoriteUpdateFailed
 
     var id: Self { self }
 
@@ -17,6 +18,8 @@ enum HaAlert: Identifiable {
             return "key_event_added"
         case .calendarAccessDenied:
             return "key_calendar_access_denied"
+        case .favoriteUpdateFailed:
+            return "key_favorite_update_failed"
         }
     }
 
@@ -26,6 +29,8 @@ enum HaAlert: Identifiable {
             return "key_event_added_message"
         case .calendarAccessDenied:
             return "key_calendar_access_denied_message"
+        case .favoriteUpdateFailed:
+            return "key_favorite_update_failed_message"
         }
     }
 }

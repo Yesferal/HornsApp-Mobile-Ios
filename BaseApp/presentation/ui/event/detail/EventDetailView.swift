@@ -137,6 +137,11 @@ private struct DetailViewBody: View {
                 title: Text(HaLocalizedStringWrapper.getString(key: alert.title)),
                 message: Text(HaLocalizedStringWrapper.getString(key: alert.message)))
         }
+        .alert(item: $viewModel.favoriteAlert) { alert in
+            Alert(
+                title: Text(HaLocalizedStringWrapper.getString(key: alert.title)),
+                message: Text(HaLocalizedStringWrapper.getString(key: alert.message)))
+        }
         .confirmationDialog(
             "open_with",
             isPresented: $showMapDialog,
@@ -166,8 +171,10 @@ private struct DetailViewBody: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     FavoriteButton(isFavorite: viewModel.isFavorite) { _ in
                         Task {
-                            await viewModel.onFavoriteImageViewClick(concert: event)
-                            await favoriteVM.update()
+                            let didUpdate = await viewModel.onFavoriteImageViewClick(concert: event)
+                            if didUpdate {
+                                await favoriteVM.update()
+                            }
                         }
                     }
                 }

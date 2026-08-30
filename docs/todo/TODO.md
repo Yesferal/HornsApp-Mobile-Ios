@@ -2,7 +2,7 @@
 
 Living task list for HornsApp iOS. See [README](./README.md) for how to use task keys.
 
-**Last updated:** 2026-08-28
+**Last updated:** 2026-08-30
 
 ---
 
@@ -34,7 +34,7 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 |--------|-----|------|
 | [ ] | [`#qual-1-logging`](#qual-1-logging) | Logging abstraction |
 | [ ] | [`#qual-2-localization`](#qual-2-localization) | Fix remaining localization gaps |
-| [ ] | [`#qual-3-favorite-rollback`](#qual-3-favorite-rollback) | Revert favorite toggle on failure |
+| [x] | [`#qual-3-favorite-rollback`](#qual-3-favorite-rollback) | Revert favorite toggle on failure |
 | [ ] | [`#qual-4-remote-render`](#qual-4-remote-render) | Remote SDUI render updates |
 | [ ] | [`#qual-5-naming-cleanup`](#qual-5-naming-cleanup) | File/type naming cleanup |
 
@@ -162,11 +162,11 @@ Fix hardcoded navigation titles and remaining non-localized strings.
 
 ### `#qual-3-favorite-rollback`
 
-**Status:** pending
+**Status:** done
 
-Revert optimistic favorite toggle when use case fails.
+Revert `isFavorite` to the previous value when `UpdateFavoriteConcertUseCase` fails. Show alert to the user. Refresh favorites tab only after a successful update.
 
-**Files:** `EventDetailViewModel.swift`
+**Files:** `EventDetailViewModel.swift`, `EventDetailView.swift`, `HaAlert.swift`, `Localizable.xcstrings`
 
 ---
 
