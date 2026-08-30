@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct FavoriteButton: View {
-    
+
     @Environment(\.theme) var theme
-    
+
     var isFavorite: Bool
     let action: (Bool) -> Void
-    
+
     var body: some View {
         Button(action: {
             action(isFavorite)
