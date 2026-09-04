@@ -52,4 +52,12 @@ extension Concert {
         guard let timeInMillis else { return nil }
         return Date(timeIntervalSince1970: TimeInterval(timeInMillis.int64Value) / 1000)
     }
+
+    var aboutText: String? {
+        guard let about = about?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !about.isEmpty else {
+            return nil
+        }
+        return about
+    }
 }

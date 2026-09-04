@@ -4,6 +4,8 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 
 **Last updated:** 2026-08-30
 
+> **App Store:** Rejected 3× under **Guideline 4.2** (Minimum Functionality). See [App Store 4.2 plan](#store-app-review-42) — tackle `#store-*` tasks before the next submission.
+
 ---
 
 ## Summary
@@ -50,7 +52,23 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 | [ ] | [`#qual-4-remote-render`](#qual-4-remote-render) | Remote SDUI render updates |
 | [ ] | [`#qual-5-naming-cleanup`](#qual-5-naming-cleanup) | File/type naming cleanup (Phase 1–2 done) |
 
----
+### App Store — Guideline 4.2 (Minimum Functionality)
+
+Rejected on **iPad Air 11-inch** (v1.0.1). Goal: more **native depth** and **discoverable content**, not a thin event browser.
+
+| Priority | Status | Key | Task |
+|----------|--------|-----|------|
+| P0 | [x] | [`#store-2-event-about`](#store-2-event-about) | Show event description on detail (API already returns `about`) |
+| P0 | [ ] | [`#feat-2-related-events`](#feat-2-related-events) | Related events on detail (currently hardcoded `[]`) |
+| P0 | [ ] | [`#store-3-empty-states`](#store-3-empty-states) | Empty states for Favorites, Upcoming, no results |
+| P0 | [ ] | [`#store-4-share-event`](#store-4-share-event) | Native Share sheet on event detail |
+| P0 | [ ] | [`#store-6-ipad-layout`](#store-6-ipad-layout) | iPad-adaptive layout (review device was iPad) |
+| P0 | [ ] | [`#store-8-att-onboarding`](#store-8-att-onboarding) | Defer/remove ATT prompt on onboarding (no ads yet) |
+| P1 | [ ] | [`#store-5-search`](#store-5-search) | Search concerts by name / headliner |
+| P1 | [ ] | [`#store-7-settings-about`](#store-7-settings-about) | Settings / About screen (language, notifications, contact) |
+| P1 | [ ] | [`#feat-3-carousel-cta`](#feat-3-carousel-cta) | Visible native carousel actions (calendar / favorite) |
+| P2 | [ ] | [`#feat-1-lineup`](#feat-1-lineup) | Full lineup from API (section exists, model stubbed) |
+| P2 | [ ] | [`#store-9-review-packaging`](#store-9-review-packaging) | Review notes, screenshots, App Store description |
 
 ## Task details
 
@@ -188,9 +206,9 @@ Implement `GetLineup` model, enable `.addLineup()` in mapper, update `LineupSect
 
 ### `#feat-2-related-events`
 
-**Status:** pending
+**Status:** pending · **App Store P0** (`#store-app-review-42`)
 
-Fetch and display related events in `RelatedEventSection` (currently always empty).
+Fetch and display related events in `RelatedEventSection` (currently always empty — `RelatedEventSection(events: [])` in `EventDetailView`).
 
 **Files:** `EventDetailView.swift`, `EventDetailViewModel.swift`
 
@@ -278,5 +296,125 @@ Implement `HaFileReaderManager.updateAppRender()` for live SDUI updates.
 **Remaining (Phase 3):** Optional `*ViewData` naming convention review; batch-fix remaining stale headers in alamofire render mappers.
 
 **Files:** `EventDetailView.swift`, `UpcomingListView.swift`, `HaTitleSubtitle.swift`, `BundledRenderRemoteDataSource.swift`, `AppDependencies.swift`, detail components, docs
+
+---
+
+## App Store 4.2 plan
+
+### `#store-app-review-42`
+
+**Status:** in progress
+
+Apple rejected v1.0.1 on **iPad** citing **Guideline 4.2 — Minimum Functionality**: the app feels too thin — limited content, weak native value, not sufficiently “app-like.”
+
+**What a reviewer likely saw today:**
+
+| Screen | Problem |
+|--------|---------|
+| Home | SDUI list + cards; several actions push tabs or web |
+| Event detail | Calendar / maps / tickets work, but **no event description**, **no related events**, lineup is shallow |
+| Favorites | Works, but **no empty-state guidance** when list is empty |
+| Upcoming | Category chips OK; thin if few events |
+| Onboarding | Asks for **ad tracking (ATT)** before the user sees value |
+| iPad | Phone layout stretched on 11-inch display — looks like a placeholder |
+
+**Strategy (no pivot):** Stay a concert companion app. Add **visible depth** and **native iOS utilities** Apple can exercise in review without relying on external web.
+
+**Resubmit order:** P0 tasks → TestFlight on **iPad + iPhone** → P1 → `#store-9-review-packaging`.
+
+**App Store Connect reply (after P0):** List native features: favorites, local reminders, calendar, maps picker, category filters, share, search, rich event detail.
+
+---
+
+### `#store-2-event-about`
+
+**Status:** done
+
+Display `Concert.about` on event detail. Data is fetched (`GetEventDetail`) but never shown in UI.
+
+**Files:** `EventAboutSection.swift`, `EventDetailView.swift`, `Localizable.xcstrings`
+
+---
+
+### `#store-3-empty-states`
+
+**Status:** pending
+
+Illustrated empty states with clear CTAs:
+
+- **Favorites:** “No favorites yet” + hint to tap heart on an event
+- **Upcoming:** graceful message when filter returns no concerts
+- **Errors:** already have retry; ensure copy is friendly
+
+**Files:** `FavoriteListView.swift`, `UpcomingListView.swift`, `Localizable.xcstrings`, new empty-state views
+
+---
+
+### `#store-4-share-event`
+
+**Status:** pending
+
+Add toolbar Share action on event detail (`ShareLink` or `UIActivityViewController`) — share event name, date, venue, ticketing URL.
+
+**Files:** `EventDetailView.swift`, `Localizable.xcstrings`
+
+---
+
+### `#store-5-search`
+
+**Status:** pending
+
+Search upcoming/home concerts by event name or headliner. Can start client-side filter on loaded list; server search later if needed.
+
+**Files:** `UpcomingView.swift` / `UpcomingListView.swift`, optionally `ScreenRenderListView.swift`, `Localizable.xcstrings`
+
+---
+
+### `#store-6-ipad-layout`
+
+**Status:** pending
+
+Review was on **iPad Air 11-inch**. Adapt key screens:
+
+- `NavigationSplitView` or max-width content columns on detail / lists
+- Tab bar or sidebar appropriate for regular size class
+- Verify onboarding and home aren’t oversized stretched phone UI
+
+**Files:** `HomeView.swift`, `EventDetailView.swift`, list views, possibly `Application.swift`
+
+---
+
+### `#store-7-settings-about`
+
+**Status:** pending
+
+User-facing Settings (not Android dev settings): app version, language note, open Notification Settings, About HornsApp, contact / feedback link. Entry via toolbar or SDUI `SETTING_SCREEN` when ready.
+
+**Files:** new `SettingsView.swift`, `Route.swift`, `NavigatorCoordinator.swift`, `Localizable.xcstrings`
+
+---
+
+### `#store-8-att-onboarding`
+
+**Status:** pending
+
+Remove `ATTrackingManager.requestTrackingAuthorization` from onboarding **until** the app serves personalized ads. Current copy implies ads; reviewers on a minimal app see tracking before value.
+
+**Files:** `OnboardingView.swift`, `HornsApp-Info.plist` (keep or remove `NSUserTrackingUsageDescription` if unused)
+
+---
+
+### `#store-9-review-packaging`
+
+**Status:** pending
+
+Non-code submission checklist:
+
+- Refresh screenshots (detail with about + related, favorites, reminders, iPad layout)
+- App Review notes: step-by-step path to demonstrate native features
+- Description highlights: “save favorites, reminders, calendar, filters, share”
+- Confirm demo API has enough events for review
+
+**Files:** App Store Connect only (+ optional `docs/APP_REVIEW_NOTES.md`)
 
 ---

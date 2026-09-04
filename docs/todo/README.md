@@ -45,3 +45,4 @@ Example key: `#feat-6-search`
 | `arch-` | Architecture, DI, patterns, tests |
 | `feat-` | User-facing features |
 | `qual-` | Quality, bugs, naming, logging, localization |
+| `store-` | App Store review / 4.2 minimum functionality |

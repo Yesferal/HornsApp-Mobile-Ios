@@ -219,6 +219,9 @@ private struct EventDetailViewBody: View {
         }
 
         if let safeEvent = event {
+            if let about = safeEvent.aboutText {
+                EventAboutSection(about: about)
+            }
             RemindersSection(event: safeEvent)
             LineupSection(event: safeEvent)
             RelatedEventSection(events: [])

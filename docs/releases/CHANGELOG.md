@@ -23,6 +23,7 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 - Navigation aligned with Android/KMP: `NavigatorCoordinator`, shared app-level `Router` (`#arch-6a`, `#arch-6c`). Tab switching deferred (`#arch-6b`).
 - Localization gaps fixed: tab labels, map picker, detail sections (`#qual-2-localization`)
 - Naming cleanup Phase 1–2: `EventDetailView`, `UpcomingListView`, `HaTitleSubtitle`, `BundledRenderRemoteDataSource` (`#qual-5-naming-cleanup`)
+- Event detail shows About section from API (`#store-2-event-about`)
 
 ---
 
