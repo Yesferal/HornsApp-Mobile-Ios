@@ -11,12 +11,15 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ### Added
 - `AppDependencies` composition root for centralized DI (`#arch-1-app-dependencies`)
-- Project documentation under `docs/`
+- Project documentation under `docs/` (Setup, Architecture, **ROADMAP**)
 - Related events on detail via KMP `GetRelatedConcertsUseCase` (shared categories) (`#feat-2-related-events`)
 - Event detail shows About section from API (`#store-2-event-about`)
 - Empty states for Favorites and Upcoming (filter + clear) (`#store-3-empty-states`)
 - Native Share on event detail toolbar (`#store-4-share-event`)
-- iPad readable content width on key screens (`#store-6-ipad-layout`)
+- iPad adaptive layout (`#store-6-ipad-layout`):
+  - `readableContentWidth()` (~720pt) on list / detail / onboarding / empty roots
+  - `NavigationSplitView` sidebar (Home / Upcoming / Favorite) + detail stack on regular size class; `TabView` on iPhone
+- About row favorite CTA (pink heart button, same chrome as former Save-date `+`)
 
 ### Changed
 - Views resolve use cases from `@Environment(\.dependencies)` instead of inline wiring
@@ -29,9 +32,15 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 - Localization gaps fixed: tab labels, map picker, detail sections (`#qual-2-localization`)
 - Naming cleanup Phase 1–2: `EventDetailView`, `UpcomingListView`, `HaTitleSubtitle`, `BundledRenderRemoteDataSource` (`#qual-5-naming-cleanup`)
 - Local `HornsAppCore` path pod for Core 1.6.0 development (switch back after publish)
-- Onboarding no longer prompts for ATT before value (`#store-8-att-onboarding`)
+- Event detail section order: About → Save date / Maps / Tickets → Reminders → Activities → Related
+- About laid out like other detail rows (info icon + title + description) with heart CTA on the trailing edge
+- Save date uses chevron row (`HaEventLink`) like Maps / Tickets (no pink `+` button)
+- Onboarding **Get Started** requests ATT again (ads planned); finishes onboarding after the system prompt (`#store-8-att-onboarding`)
+- Backlog tracking: Bet-style `docs/ROADMAP.md` (Active / Next / **Depends on**); removed `docs/todo/`
 
----
+### Fixed
+- iPad list/detail alignment: constrain whole screen roots with `readableContentWidth()` so titles and cards share one leading edge
+- About body text aligns with Maps / Tickets text column; section titles stay on the timeline like Related Events
 
 ## [1.0.1] — 2026-08-20
 
