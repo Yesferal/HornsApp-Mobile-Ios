@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AppTrackingTransparency
 
 struct OnboardingView: View {
 
@@ -57,11 +56,8 @@ struct OnboardingView: View {
                     Spacer()
 
                     Button(LocalizedStringKey("get_started")) {
-                        // ATT on first launch for upcoming ads (NSUserTrackingUsageDescription in Info.plist).
-                        // Finish onboarding after the system prompt so the alert can present.
-                        requestTrackingPermission {
-                            hasSeenOnboarding = true
-                        }
+                        // ATT + ads deferred until ≥1 App Store version is live (#store-8-att-onboarding).
+                        hasSeenOnboarding = true
                     }
                     .padding()
                     .fontWeight(.bold)
@@ -70,23 +66,11 @@ struct OnboardingView: View {
                     .cornerRadius(16)
                     .frame(alignment: .trailing)
 
-                    Spacer() // pushes the button to the left
+                    Spacer()
                 }
             }
             .padding()
             .readableContentWidth()
-        }
-    }
-
-    /// Requests ATT, then runs `completion` on the main queue (authorized, denied, or already decided).
-    private func requestTrackingPermission(completion: @escaping () -> Void) {
-        // Defer one run-loop turn so the alert presents while this view is still active.
-        DispatchQueue.main.async {
-            ATTrackingManager.requestTrackingAuthorization { _ in
-                DispatchQueue.main.async {
-                    completion()
-                }
-            }
         }
     }
 }

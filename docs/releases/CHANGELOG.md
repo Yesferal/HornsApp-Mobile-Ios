@@ -35,7 +35,7 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 - Event detail section order: About → Save date / Maps / Tickets → Reminders → Activities → Related
 - About laid out like other detail rows (info icon + title + description) with heart CTA on the trailing edge
 - Save date uses chevron row (`HaEventLink`) like Maps / Tickets (no pink `+` button)
-- Onboarding **Get Started** requests ATT again (ads planned); finishes onboarding after the system prompt (`#store-8-att-onboarding`)
+- Onboarding does **not** prompt for ATT yet; `#store-8` (ATT + ads) waits until ≥1 App Store version is live
 - Backlog tracking: Bet-style `docs/ROADMAP.md` (Active / Next / **Depends on**); removed `docs/todo/`
 
 ### Fixed

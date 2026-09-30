@@ -9,7 +9,8 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 **UI (current):**
 - **Phone** — `TabView` (Home / Upcoming / Favorite) + `NavigationStack`
 - **iPad** — `NavigationSplitView` sidebar + detail; `readableContentWidth()` (~720pt) on list/detail roots
-- **Detail** — About, Save date / Maps / Tickets, Reminders, Activities, Related; share + favorite; ATT on Get Started (ads planned)
+- **Detail** — About, Save date / Maps / Tickets, Reminders, Activities, Related; share + favorite
+- **ATT / ads** — deferred until after first App Store release (`#store-8-att-onboarding`)
 
 ### How to use
 
@@ -39,7 +40,7 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 | ID | Item | Effort | Depends on |
 |----|------|--------|------------|
-| `#store-8-att-onboarding` | ATT on Get Started for upcoming ads; keep `NSUserTrackingUsageDescription` accurate; ship ads soon | Small–Medium | Ads SDK in this repo (planned) |
+| `#store-5-search` | Search concerts by name / headliner (client filter first) | Medium | — |
 
 ---
 
@@ -47,7 +48,6 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 | ID | Item | Effort | Depends on |
 |----|------|--------|------------|
-| `#store-5-search` | Search concerts by name / headliner (client filter first) | Medium | — |
 | `#store-7-settings-about` | Settings / About (version, notifications, contact) | Medium | — |
 | `#feat-3-carousel-cta` | Native carousel actions (calendar / favorite) | Medium | — |
 | `#store-9-review-packaging` | Screenshots, review notes, App Store description | Small | Content ready in API/admin |
@@ -77,7 +77,7 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 | ID | Item | Depends on |
 |----|------|------------|
-| Ads (new) | Banner / interstitial (AdMob or similar) after ATT | ATT live; ad unit IDs |
+| `#store-8-att-onboarding` | ATT + personalized ads (AdMob or similar); restore prompt when tracking is real | **≥1 App Store version live** + ad unit IDs |
 | Android parity | Keep feature parity with HornsApp-Android when Core advances | Core + Android as needed |
 
 ---
