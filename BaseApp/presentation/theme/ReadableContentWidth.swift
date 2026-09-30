@@ -38,7 +38,7 @@ extension View {
     /// **Used on:** Home (`ScreenRenderListView`), Upcoming, Favorites,
     /// Event detail, Onboarding, `EmptyStateView`.
     ///
-    /// See `#store-6-ipad-layout` in `docs/todo/TODO.md`.
+    /// See `#store-6-ipad-layout` in `docs/ROADMAP.md`.
     func readableContentWidth() -> some View {
         modifier(ReadableContentWidth())
     }

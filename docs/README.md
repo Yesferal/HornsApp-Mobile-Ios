@@ -13,8 +13,7 @@ Central documentation for the HornsApp-Mobile-Ios project.
 
 | Document | Description |
 |----------|-------------|
-| [ROADMAP](./ROADMAP.md) | **Pendings** — Active / Next / Later + **Depends on** other repos (Bet-style) |
-| [TODO](./todo/TODO.md) | Detailed task write-ups with stable keys (`#arch-1`, `#feat-2`, …) |
+| [ROADMAP](./ROADMAP.md) | Pendings — Active / Next / Later + **Depends on** other repos (Bet-style) |
 | [Releases](./releases/CHANGELOG.md) | Version history and release notes |
 | [Release process](./releases/README.md) | How to bump versions and publish |
 
@@ -27,7 +26,6 @@ Central documentation for the HornsApp-Mobile-Ios project.
 
 ## Conventions
 
-- **Pendings / priority:** edit [ROADMAP.md](./ROADMAP.md) (one Active item; **Depends on** column)
-- Reference tasks by key in commits, PRs, and chat: e.g. `#arch-2-fix-network-errors`
-- Update [TODO](./todo/TODO.md) detail status when starting or finishing a task
+- **Track work** in [ROADMAP.md](./ROADMAP.md) (one Active item; **Depends on** column)
+- Reference tasks by key in commits, PRs, and chat: e.g. `#store-5-search`
 - Add a release entry in [CHANGELOG](./releases/CHANGELOG.md) when shipping a new version

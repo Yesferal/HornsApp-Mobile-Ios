@@ -100,4 +100,4 @@ v1.0.1-build2
 
 - [Setup](../SETUP.md) — build instructions
 - [Architecture](../ARCHITECTURE.md) — codebase overview
-- [TODO](../todo/TODO.md) — backlog
+- [ROADMAP](../ROADMAP.md) — pendings + Depends on

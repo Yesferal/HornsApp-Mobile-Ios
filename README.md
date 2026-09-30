@@ -10,7 +10,7 @@ Full project docs live in **[docs/](./docs/README.md)**:
 |-----|-------------|
 | [Setup](./docs/SETUP.md) | Clone, CocoaPods, build, and run |
 | [Architecture](./docs/ARCHITECTURE.md) | Code structure, patterns, and conventions |
-| [TODO](./docs/todo/TODO.md) | Backlog with task keys (`#arch-1`, `#feat-2`, …) |
+| [ROADMAP](./docs/ROADMAP.md) | Pendings + Depends on (`#store-5`, …) |
 | [Releases](./docs/releases/CHANGELOG.md) | Version history and release notes |
 
 ## Quick start

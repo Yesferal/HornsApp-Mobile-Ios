@@ -83,6 +83,6 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
-[Unreleased]: ../todo/TODO.md
+[Unreleased]: ../ROADMAP.md
 [1.0.1]: #101--2026-08-20
 [1.0.0]: #100--2026-02

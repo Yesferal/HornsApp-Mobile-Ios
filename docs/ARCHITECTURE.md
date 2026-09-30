@@ -186,7 +186,7 @@ When adding a new feature:
 2. **API mapping** → add DTO + mapper in `BaseApp/framework/alamofire/models/`.
 3. **Use case factory** → add method to `AppDependencies`.
 4. **UI** → View + ViewModel under `BaseApp/presentation/ui/`.
-5. **Track work** → add or update an entry in [todo/TODO.md](./todo/TODO.md).
+5. **Track work** → add or update an entry in [ROADMAP.md](./ROADMAP.md).
 
 When adding a new home section type:
 
@@ -198,6 +198,6 @@ When adding a new home section type:
 
 ## Known gaps
 
-Tracked in [todo/TODO.md](./todo/TODO.md). 
+Tracked in [ROADMAP.md](./ROADMAP.md).
 
-See the TODO doc for keyed tasks and status.
+See [ROADMAP.md](./ROADMAP.md) for keyed tasks and status.

@@ -4,12 +4,18 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 **Updated:** 2026-09-30
 
-**App Store:** Rejected 3× under **Guideline 4.2**. Remaining store work below; detail write-ups stay in [todo/TODO.md](./todo/TODO.md).
+**App Store:** Rejected 3× under **Guideline 4.2** (iPad Air 11″). Stay a concert companion — add native depth Apple can exercise in review. Resubmit order: finish P0-adjacent Next items → TestFlight iPad + iPhone → `#store-9-review-packaging`.
 
 **UI (current):**
 - **Phone** — `TabView` (Home / Upcoming / Favorite) + `NavigationStack`
 - **iPad** — `NavigationSplitView` sidebar + detail; `readableContentWidth()` (~720pt) on list/detail roots
 - **Detail** — About, Save date / Maps / Tickets, Reminders, Activities, Related; share + favorite; ATT on Get Started (ads planned)
+
+### How to use
+
+- Pick keys like `#store-5-search` in commits / chat.
+- Move rows: Next → Active → Done. One Active at a time.
+- **Depends on:** `—` = this repo only; else name the blocker (Core, API, Admin, or another `#key`).
 
 ---
 
@@ -95,7 +101,6 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 | `#store-3-empty-states` | Favorites / Upcoming empty states |
 | `#store-4-share-event` | ShareLink on detail |
 | `#arch-1` … `#arch-4` | DI, network errors, ViewModels, ScreenRenderMapper |
+| `#arch-6a` / `#arch-6c` | NavigatorCoordinator; remove duplicate Router |
 | `#qual-2-localization` | Localization pass |
 | `#qual-3-favorite-rollback` | Favorite toggle rollback on failure |
-
-Full key history and file lists: [todo/TODO.md](./todo/TODO.md).
