@@ -1,8 +1,10 @@
 # TODO Backlog
 
-Living task list for HornsApp iOS. See [README](./README.md) for how to use task keys.
+Detailed task write-ups for HornsApp iOS. **Pending / Active list with cross-repo dependencies:** see **[ROADMAP.md](../ROADMAP.md)** (same idea as Bet-Flutter).
 
-**Last updated:** 2026-09-29
+See [README](./README.md) for keys and how to update status.
+
+**Last updated:** 2026-09-30
 
 > **App Store:** Rejected 3× under **Guideline 4.2** (Minimum Functionality). See [App Store 4.2 plan](#store-app-review-42) — tackle `#store-*` tasks before the next submission.
 
@@ -10,66 +12,68 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 
 ## Summary
 
+Pending rows include **Depends on** (other HornsApp repos). `—` = iOS-only. Prefer editing [ROADMAP.md](../ROADMAP.md) when prioritizing.
+
 ### Foundation
 
-| Status | Key | Task |
-|--------|-----|------|
-| [x] | [`#arch-1-app-dependencies`](#arch-1-app-dependencies) | Create `AppDependencies` composition root |
-| [x] | [`#arch-2-fix-network-errors`](#arch-2-fix-network-errors) | Fix network layer error handling |
-| [x] | [`#arch-3-standardize-viewmodels`](#arch-3-standardize-viewmodels) | Standardize ViewModels (init injection + `ViewState<T>`) |
-| [x] | [`#arch-4-screen-render-mapper`](#arch-4-screen-render-mapper) | Extract `ScreenRenderMapper` |
-| [ ] | [`#arch-5-unit-tests`](#arch-5-unit-tests) | Add ViewModel and mapper unit tests |
-| [ ] | [`#arch-6-unify-navigation`](#arch-6-unify-navigation) | Align iOS navigation with Android/KMP adapter pattern |
+| Status | Key | Task | Depends on |
+|--------|-----|------|------------|
+| [x] | [`#arch-1-app-dependencies`](#arch-1-app-dependencies) | Create `AppDependencies` composition root | — |
+| [x] | [`#arch-2-fix-network-errors`](#arch-2-fix-network-errors) | Fix network layer error handling | — |
+| [x] | [`#arch-3-standardize-viewmodels`](#arch-3-standardize-viewmodels) | Standardize ViewModels (init injection + `ViewState<T>`) | — |
+| [x] | [`#arch-4-screen-render-mapper`](#arch-4-screen-render-mapper) | Extract `ScreenRenderMapper` | — |
+| [ ] | [`#arch-5-unit-tests`](#arch-5-unit-tests) | Add ViewModel and mapper unit tests | — |
+| [ ] | [`#arch-6-unify-navigation`](#arch-6-unify-navigation) | Align iOS navigation with Android/KMP adapter pattern | Core (partial) |
 
 #### `#arch-6-unify-navigation` subtasks
 
-| Status | Key | Task |
-|--------|-----|------|
-| [x] | [`#arch-6a-navigator-coordinator`](#arch-6a-navigator-coordinator) | `NavigatorCoordinator` + adapter chain (App / External) |
-| [ ] | [`#arch-6b-tab-switching`](#arch-6b-tab-switching) | Tab switch for home / upcoming / favorite (partial — no per-tab stack yet) |
-| [x] | [`#arch-6c-remove-duplicate-router`](#arch-6c-remove-duplicate-router) | Remove duplicate `Router` in `ScreenRenderView` |
-| [ ] | [`#arch-6d-nav-view-data`](#arch-6d-nav-view-data) | `NavViewData` for concert/detail taps via KMP `Navigator` |
-| [ ] | [`#arch-6e-external-actions`](#arch-6e-external-actions) | Calendar, maps, share via `ExternalNavigatorAdapter` |
-| [ ] | [`#arch-6f-screen-type-coverage`](#arch-6f-screen-type-coverage) | Map remaining `ScreenRender.Type` values (settings, lineup, …) |
+| Status | Key | Task | Depends on |
+|--------|-----|------|------------|
+| [x] | [`#arch-6a-navigator-coordinator`](#arch-6a-navigator-coordinator) | `NavigatorCoordinator` + adapter chain (App / External) | — |
+| [ ] | [`#arch-6b-tab-switching`](#arch-6b-tab-switching) | Tab switch / per-tab stacks (iPad split done) | — |
+| [x] | [`#arch-6c-remove-duplicate-router`](#arch-6c-remove-duplicate-router) | Remove duplicate `Router` in `ScreenRenderView` | — |
+| [ ] | [`#arch-6d-nav-view-data`](#arch-6d-nav-view-data) | `NavViewData` for concert/detail taps via KMP `Navigator` | Core |
+| [ ] | [`#arch-6e-external-actions`](#arch-6e-external-actions) | Calendar, maps, share via `ExternalNavigatorAdapter` | Core (optional) |
+| [ ] | [`#arch-6f-screen-type-coverage`](#arch-6f-screen-type-coverage) | Map remaining `ScreenRender.Type` values (settings, lineup, …) | `#feat-1-lineup`, `#store-7` |
 
 ### Features
 
-| Status | Key | Task |
-|--------|-----|------|
-| [ ] | [`#feat-1-lineup`](#feat-1-lineup) | Implement Lineup feature |
-| [x] | [`#feat-2-related-events`](#feat-2-related-events) | Wire related events on event detail |
-| [ ] | [`#feat-3-carousel-cta`](#feat-3-carousel-cta) | Native carousel CTA |
-| [ ] | [`#feat-4-concert-cache`](#feat-4-concert-cache) | Concert cache in SwiftData |
-| [ ] | [`#feat-5-dynamic-tabs`](#feat-5-dynamic-tabs) | Dynamic tabs from render config |
+| Status | Key | Task | Depends on |
+|--------|-----|------|------------|
+| [ ] | [`#feat-1-lineup`](#feat-1-lineup) | Implement Lineup feature | Core + API if payload incomplete |
+| [x] | [`#feat-2-related-events`](#feat-2-related-events) | Wire related events on event detail | Core (done) |
+| [ ] | [`#feat-3-carousel-cta`](#feat-3-carousel-cta) | Native carousel CTA | — |
+| [ ] | [`#feat-4-concert-cache`](#feat-4-concert-cache) | Concert cache in SwiftData | — |
+| [ ] | [`#feat-5-dynamic-tabs`](#feat-5-dynamic-tabs) | Dynamic tabs from render config | `#arch-6b` |
 
 ### Quality
 
-| Status | Key | Task |
-|--------|-----|------|
-| [ ] | [`#qual-1-logging`](#qual-1-logging) | Logging abstraction |
-| [x] | [`#qual-2-localization`](#qual-2-localization) | Fix remaining localization gaps |
-| [x] | [`#qual-3-favorite-rollback`](#qual-3-favorite-rollback) | Revert favorite toggle on failure |
-| [ ] | [`#qual-4-remote-render`](#qual-4-remote-render) | Remote SDUI render updates |
-| [ ] | [`#qual-5-naming-cleanup`](#qual-5-naming-cleanup) | File/type naming cleanup (Phase 1–2 done) |
-| [ ] | [`#qual-6-voiceover`](#qual-6-voiceover) | Enable VoiceOver (labels, traits, audit) |
+| Status | Key | Task | Depends on |
+|--------|-----|------|------------|
+| [ ] | [`#qual-1-logging`](#qual-1-logging) | Logging abstraction | — |
+| [x] | [`#qual-2-localization`](#qual-2-localization) | Fix remaining localization gaps | — |
+| [x] | [`#qual-3-favorite-rollback`](#qual-3-favorite-rollback) | Revert favorite toggle on failure | — |
+| [ ] | [`#qual-4-remote-render`](#qual-4-remote-render) | Remote SDUI render updates | API / remote source |
+| [ ] | [`#qual-5-naming-cleanup`](#qual-5-naming-cleanup) | File/type naming cleanup (Phase 1–2 done) | — |
+| [ ] | [`#qual-6-voiceover`](#qual-6-voiceover) | Enable VoiceOver (labels, traits, audit) | — |
 
 ### App Store — Guideline 4.2 (Minimum Functionality)
 
 Rejected on **iPad Air 11-inch** (v1.0.1). Goal: more **native depth** and **discoverable content**, not a thin event browser.
 
-| Priority | Status | Key | Task |
-|----------|--------|-----|------|
-| P0 | [x] | [`#store-2-event-about`](#store-2-event-about) | Show event description on detail (API already returns `about`) |
-| P0 | [x] | [`#feat-2-related-events`](#feat-2-related-events) | Related events on detail (currently hardcoded `[]`) |
-| P0 | [x] | [`#store-3-empty-states`](#store-3-empty-states) | Empty states for Favorites, Upcoming, no results |
-| P0 | [x] | [`#store-4-share-event`](#store-4-share-event) | Native Share sheet on event detail |
-| P0 | [x] | [`#store-6-ipad-layout`](#store-6-ipad-layout) | iPad-adaptive layout (review device was iPad) |
-| P0 | [~] | [`#store-8-att-onboarding`](#store-8-att-onboarding) | ATT on Get Started (ads planned); keep purpose string accurate |
-| P1 | [ ] | [`#store-5-search`](#store-5-search) | Search concerts by name / headliner |
-| P1 | [ ] | [`#store-7-settings-about`](#store-7-settings-about) | Settings / About screen (language, notifications, contact) |
-| P1 | [ ] | [`#feat-3-carousel-cta`](#feat-3-carousel-cta) | Visible native carousel actions (calendar / favorite) |
-| P2 | [ ] | [`#feat-1-lineup`](#feat-1-lineup) | Full lineup from API (section exists, model stubbed) |
-| P2 | [ ] | [`#store-9-review-packaging`](#store-9-review-packaging) | Review notes, screenshots, App Store description |
+| Priority | Status | Key | Task | Depends on |
+|----------|--------|-----|------|------------|
+| P0 | [x] | [`#store-2-event-about`](#store-2-event-about) | Show event description on detail | — |
+| P0 | [x] | [`#feat-2-related-events`](#feat-2-related-events) | Related events on detail | Core (done) |
+| P0 | [x] | [`#store-3-empty-states`](#store-3-empty-states) | Empty states for Favorites, Upcoming, no results | — |
+| P0 | [x] | [`#store-4-share-event`](#store-4-share-event) | Native Share sheet on event detail | — |
+| P0 | [x] | [`#store-6-ipad-layout`](#store-6-ipad-layout) | iPad-adaptive layout (review device was iPad) | — |
+| P0 | [~] | [`#store-8-att-onboarding`](#store-8-att-onboarding) | ATT on Get Started (ads planned) | Ads SDK (this repo) |
+| P1 | [ ] | [`#store-5-search`](#store-5-search) | Search concerts by name / headliner | — |
+| P1 | [ ] | [`#store-7-settings-about`](#store-7-settings-about) | Settings / About screen | — |
+| P1 | [ ] | [`#feat-3-carousel-cta`](#feat-3-carousel-cta) | Visible native carousel actions | — |
+| P2 | [ ] | [`#feat-1-lineup`](#feat-1-lineup) | Full lineup from API | Core + API if needed |
+| P2 | [ ] | [`#store-9-review-packaging`](#store-9-review-packaging) | Review notes, screenshots, description | Admin/API content |
 
 ## Task details
 
