@@ -25,6 +25,8 @@ struct EventDetailView: View {
             month: month,
             viewModel: EventDetailViewModel(
                 getConcertUseCase: dependencies.makeGetConcertUseCase(context: context),
+                getConcertsUseCase: dependencies.makeGetConcertsUseCase(context: context),
+                getRelatedConcertsUseCase: dependencies.makeGetRelatedConcertsUseCase(),
                 updateFavoriteConcertUseCase: dependencies.makeUpdateFavoriteConcertUseCase(context: context)
             )
         )
@@ -77,7 +79,7 @@ private struct EventDetailViewBody: View {
         ScrollView {
             ZStack(alignment: .leading) {
                 HaVerticalDashLine()
-                    .frame(width: 48)
+                    .frame(width: 48, alignment: .center)
 
                 VStack(spacing: 32) {
                     HStack(alignment: .top) {
@@ -103,12 +105,10 @@ private struct EventDetailViewBody: View {
                         .clipShape(.rect(cornerRadius: 16))
                     }
                     HStack {
-                        Spacer()
-                            .frame(width: 48)
-
                         Circle()
                             .fill(theme.accent)
                             .frame(width: 8, height: 8)
+                            .frame(width: 48)
                     }
 
                     switch viewModel.state {
@@ -130,7 +130,9 @@ private struct EventDetailViewBody: View {
 
                 Spacer() // Pushes content to the top
             }
-            .padding()
+            .padding(.horizontal, Dimens.medium)
+            .padding(.vertical)
+            .readableContentWidth()
         }
         .alert(item: $activeAlert) { alert in
             Alert(
@@ -167,20 +169,46 @@ private struct EventDetailViewBody: View {
         }
         .navigationTitle(name)
         .toolbar {
-            if event != nil {
+            if let event {
+                ToolbarItem(placement: .topBarTrailing) {
+                    ShareLink(
+                        item: shareText(for: event),
+                        subject: Text(event.name ?? name),
+                        message: Text(LocalizedStringKey("share_event_message"))
+                    ) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    .accessibilityLabel(LocalizedStringKey("share_event"))
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     FavoriteButton(isFavorite: viewModel.isFavorite) { _ in
-                        Task {
-                            let didUpdate = await viewModel.onFavoriteImageViewClick(concert: event)
-                            if didUpdate {
-                                await favoriteVM.update()
-                            }
-                        }
+                        toggleFavorite(for: event)
                     }
                 }
             }
         }
         .background(theme.background)
+    }
+
+    private func shareText(for event: Concert) -> String {
+        var lines: [String] = []
+        if let eventName = event.name, !eventName.isEmpty {
+            lines.append(eventName)
+        } else if !name.isEmpty {
+            lines.append(name)
+        }
+        let when = event.getEventAsCalendarLabel()
+        if !when.isEmpty {
+            lines.append(when)
+        }
+        if let venueName = event.venue?.name, !venueName.isEmpty {
+            lines.append(venueName)
+        }
+        if let url = event.ticketingUrl?.trimmingCharacters(in: .whitespacesAndNewlines),
+           !url.isEmpty {
+            lines.append(url)
+        }
+        return lines.joined(separator: "\n")
     }
 
     private var loadedEvent: Concert? {
@@ -192,7 +220,20 @@ private struct EventDetailViewBody: View {
 
     @ViewBuilder
     private func detailActions(for event: Concert?) -> some View {
-        HaEventBuyButton(iconName: "calendar", title: event?.getEventAsCalendarLabel() ?? "", subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar"), actionText: HaLocalizedStringWrapper.getString(key: "key_add_to_calendar_button")) {
+        if let safeEvent = event, let about = safeEvent.aboutText {
+            EventAboutSection(
+                about: about,
+                isFavorite: viewModel.isFavorite
+            ) {
+                toggleFavorite(for: safeEvent)
+            }
+        }
+
+        HaEventLink(
+            iconName: "calendar",
+            title: event?.getEventAsCalendarLabel() ?? "",
+            subtitle: HaLocalizedStringWrapper.getString(key: "add_to_calendar")
+        ) {
             Task {
                 let granted = await calendarPermissionManager.requestAccess()
 
@@ -219,12 +260,18 @@ private struct EventDetailViewBody: View {
         }
 
         if let safeEvent = event {
-            if let about = safeEvent.aboutText {
-                EventAboutSection(about: about)
-            }
             RemindersSection(event: safeEvent)
             LineupSection(event: safeEvent)
-            RelatedEventSection(events: [])
+            RelatedEventSection(events: viewModel.relatedEvents)
+        }
+    }
+
+    private func toggleFavorite(for event: Concert) {
+        Task {
+            let didUpdate = await viewModel.onFavoriteImageViewClick(concert: event)
+            if didUpdate {
+                await favoriteVM.update()
+            }
         }
     }
 }

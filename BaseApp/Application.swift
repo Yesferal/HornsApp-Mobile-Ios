@@ -42,11 +42,10 @@ private struct AppRootView: View {
     var body: some View {
         Group {
             if let favoriteVM {
-                NavigationStack(path: $router.path) {
-                    ContentView()
-                }
-                .environmentObject(router)
-                .environmentObject(favoriteVM)
+                // NavigationStack lives in HomeView (TabView vs NavigationSplitView).
+                ContentView()
+                    .environmentObject(router)
+                    .environmentObject(favoriteVM)
             } else {
                 HaProgressView()
             }

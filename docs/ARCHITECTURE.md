@@ -28,18 +28,19 @@ The app follows **Clean Architecture with a Kotlin Multiplatform shared core**:
 
 ```
 Application
-  └── NavigationStack (Router)
-        └── ContentView
-              ├── OnboardingView (first launch)
-              └── HomeView (TabView — hardcoded tabs for now)
-                    ├── Home tab    → ScreenRenderView
-                    ├── Upcoming    → UpcomingView
-                    └── Favorites   → FavoriteView
+  └── ContentView
+        ├── OnboardingView (first launch)
+        └── HomeView
+              ├── compact (iPhone): NavigationStack + TabView
+              └── regular (iPad): NavigationSplitView
+                    ├── sidebar → Home / Upcoming / Favorite
+                    └── detail → NavigationStack (list + event detail / web)
 ```
 
 - **Router** (`BaseApp/presentation/router/`) — global `NavigationPath` for push navigation (detail, web). Tab routes (`.home`, `.upcoming`, `.favorite`) update `selectedTab` instead of pushing.
-- **Route enum** — typed destinations consumed by `navigationDestination(for:)`. Tab routes must not be pushed; they switch `TabView` selection.
+- **Route enum** — typed destinations consumed by `navigationDestination(for:)`. Tab routes must not be pushed; they switch `TabView` selection / split sidebar.
 - **NavigatorCoordinator** — maps KMP `NavigatorRender` → `Route` via adapter chain (`AppNavigatorAdapter`, `ExternalNavigatorAdapter`). Tab-vs-push behavior is **deferred** (`#arch-6b-tab-switching`).
+- **iPad:** `NavigationSplitView` in `HomeView` (regular size class). Phone keeps `TabView`. See `#store-6-ipad-layout`.
 
 SDUI navigation flow:
 
@@ -125,6 +126,8 @@ Server-driven home sections map to `ViewData` enum cases (`carousel`, `upcoming`
 
 - `Theme` struct + `@Environment(\.theme)`
 - Per-target colors in `HornsApp/presentation/theme/ThemeExt.swift` and `MuvinApp/...`
+- **iPad readable width** — `readableContentWidth()` in `BaseApp/presentation/theme/ReadableContentWidth.swift` caps content at ~720pt on regular size class (Home, Upcoming, Favorites, Event detail, Onboarding, empty states). Apply once per screen root so titles and cards share one column. See `#store-6-ipad-layout`.
+- **iPad navigation** — `HomeView` uses `NavigationSplitView` when `horizontalSizeClass == .regular`; iPhone keeps `TabView`.
 
 ---
 

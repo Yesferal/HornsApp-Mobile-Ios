@@ -10,11 +10,11 @@ import HornsAppCore
 
 struct CarouselViewData: View {
     var concert: Concert
-    
+
     @Environment(\.theme) var theme
-    
+
     @EnvironmentObject var router: Router
-    
+
     var body: some View {
         VStack {
             AsyncImage(url: URL(string: concert.headlinerImageUrl ?? "")) { image in
@@ -32,7 +32,7 @@ struct CarouselViewData: View {
             .onTapGesture {
                 router.navigate(to: .details(id: concert.id, name: concert.name ?? "", day: concert.getEventDay(), month: concert.getEventMonth()))
             }
-            
+
             HStack {
                 VStack(alignment: .leading, spacing: Dimens.small) {
                     Text(concert.name ?? "")
@@ -40,7 +40,7 @@ struct CarouselViewData: View {
                         .font(.title2)
                         .bold()
                         .padding(.vertical, Dimens.small)
-                    
+
                     HaIconText(icon: "calendar", text: concert.getEventAsCalendarLabel())
                         .background(theme.background)
                     HaIconText(icon: "mic", text: concert.headlinerName ?? "")

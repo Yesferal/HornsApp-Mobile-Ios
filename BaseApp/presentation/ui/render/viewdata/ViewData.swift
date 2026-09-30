@@ -37,6 +37,7 @@ func render(_ viewData: ViewData) -> some View {
         UpcomingViewData(concert: concert)
     case .upcomingCompact(let concert):
         UpcomingCompactViewData(concert: concert)
+            .padding(.horizontal, Dimens.medium)
     case .title(let title, let subtitle, let route):
         TitleViewData(title: title, subtitle: subtitle, route: route)
     case .seeMore(let title, let subtitle, let icon, let backgroundColor, let buttonBackgroundColor, let buttonForegroundColor, let actionText, let route):

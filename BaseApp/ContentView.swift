@@ -26,9 +26,6 @@ struct ContentView: View {
         
         if hasSeenOnboarding {
             HomeView()
-                .navigationDestination(for: Route.self) { route in
-                    destination(for: route)
-                }
         } else {
             OnboardingView()
         }

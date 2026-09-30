@@ -2,7 +2,7 @@
 
 Living task list for HornsApp iOS. See [README](./README.md) for how to use task keys.
 
-**Last updated:** 2026-08-30
+**Last updated:** 2026-09-29
 
 > **App Store:** Rejected 3× under **Guideline 4.2** (Minimum Functionality). See [App Store 4.2 plan](#store-app-review-42) — tackle `#store-*` tasks before the next submission.
 
@@ -37,7 +37,7 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 | Status | Key | Task |
 |--------|-----|------|
 | [ ] | [`#feat-1-lineup`](#feat-1-lineup) | Implement Lineup feature |
-| [ ] | [`#feat-2-related-events`](#feat-2-related-events) | Wire related events on event detail |
+| [x] | [`#feat-2-related-events`](#feat-2-related-events) | Wire related events on event detail |
 | [ ] | [`#feat-3-carousel-cta`](#feat-3-carousel-cta) | Native carousel CTA |
 | [ ] | [`#feat-4-concert-cache`](#feat-4-concert-cache) | Concert cache in SwiftData |
 | [ ] | [`#feat-5-dynamic-tabs`](#feat-5-dynamic-tabs) | Dynamic tabs from render config |
@@ -51,6 +51,7 @@ Living task list for HornsApp iOS. See [README](./README.md) for how to use task
 | [x] | [`#qual-3-favorite-rollback`](#qual-3-favorite-rollback) | Revert favorite toggle on failure |
 | [ ] | [`#qual-4-remote-render`](#qual-4-remote-render) | Remote SDUI render updates |
 | [ ] | [`#qual-5-naming-cleanup`](#qual-5-naming-cleanup) | File/type naming cleanup (Phase 1–2 done) |
+| [ ] | [`#qual-6-voiceover`](#qual-6-voiceover) | Enable VoiceOver (labels, traits, audit) |
 
 ### App Store — Guideline 4.2 (Minimum Functionality)
 
@@ -59,11 +60,11 @@ Rejected on **iPad Air 11-inch** (v1.0.1). Goal: more **native depth** and **dis
 | Priority | Status | Key | Task |
 |----------|--------|-----|------|
 | P0 | [x] | [`#store-2-event-about`](#store-2-event-about) | Show event description on detail (API already returns `about`) |
-| P0 | [ ] | [`#feat-2-related-events`](#feat-2-related-events) | Related events on detail (currently hardcoded `[]`) |
-| P0 | [ ] | [`#store-3-empty-states`](#store-3-empty-states) | Empty states for Favorites, Upcoming, no results |
-| P0 | [ ] | [`#store-4-share-event`](#store-4-share-event) | Native Share sheet on event detail |
-| P0 | [ ] | [`#store-6-ipad-layout`](#store-6-ipad-layout) | iPad-adaptive layout (review device was iPad) |
-| P0 | [ ] | [`#store-8-att-onboarding`](#store-8-att-onboarding) | Defer/remove ATT prompt on onboarding (no ads yet) |
+| P0 | [x] | [`#feat-2-related-events`](#feat-2-related-events) | Related events on detail (currently hardcoded `[]`) |
+| P0 | [x] | [`#store-3-empty-states`](#store-3-empty-states) | Empty states for Favorites, Upcoming, no results |
+| P0 | [x] | [`#store-4-share-event`](#store-4-share-event) | Native Share sheet on event detail |
+| P0 | [x] | [`#store-6-ipad-layout`](#store-6-ipad-layout) | iPad-adaptive layout (review device was iPad) |
+| P0 | [~] | [`#store-8-att-onboarding`](#store-8-att-onboarding) | ATT on Get Started (ads planned); keep purpose string accurate |
 | P1 | [ ] | [`#store-5-search`](#store-5-search) | Search concerts by name / headliner |
 | P1 | [ ] | [`#store-7-settings-about`](#store-7-settings-about) | Settings / About screen (language, notifications, contact) |
 | P1 | [ ] | [`#feat-3-carousel-cta`](#feat-3-carousel-cta) | Visible native carousel actions (calendar / favorite) |
@@ -206,11 +207,14 @@ Implement `GetLineup` model, enable `.addLineup()` in mapper, update `LineupSect
 
 ### `#feat-2-related-events`
 
-**Status:** pending · **App Store P0** (`#store-app-review-42`)
+**Status:** done · **App Store P0** (`#store-app-review-42`)
 
-Fetch and display related events in `RelatedEventSection` (currently always empty — `RelatedEventSection(events: [])` in `EventDetailView`).
+- **KMP:** `GetRelatedConcertsUseCase` + unit tests (HornsAppCore 1.6.0)
+- **iOS:** `EventDetailViewModel` loads catalog after detail success and fills `RelatedEventSection`
 
-**Files:** `EventDetailView.swift`, `EventDetailViewModel.swift`
+Related events = concerts that share ≥1 category with the open event (exclude self, sort by date, take 4).
+
+**Files:** `GetRelatedConcertsUseCase.kt`, `EventDetailViewModel.swift`, `EventDetailView.swift`, `Podfile` (local path while developing)
 
 ---
 
@@ -299,6 +303,21 @@ Implement `HaFileReaderManager.updateAppRender()` for live SDUI updates.
 
 ---
 
+### `#qual-6-voiceover`
+
+**Status:** pending
+
+Enable and polish **VoiceOver** across main flows (Home, Upcoming, Favorites, Event detail, Onboarding):
+
+- Meaningful `accessibilityLabel` / hints on icon-only controls (favorite heart, share, calendar CTA, map/ticket chevrons, category chips)
+- Correct traits (button, header, selected) and grouping so timeline rows read as one element where useful
+- Audit with VoiceOver on **iPhone + iPad**; fix focus order and decorative images (`accessibilityHidden`)
+- Add/restore localized a11y strings only where the spoken label differs from visible text
+
+**Files:** detail sections (`EventAboutSection`, `HaEventLink`, `FavoriteButton`, …), list/home view data, `Localizable.xcstrings`
+
+---
+
 ## App Store 4.2 plan
 
 ### `#store-app-review-42`
@@ -338,23 +357,23 @@ Display `Concert.about` on event detail. Data is fetched (`GetEventDetail`) but 
 
 ### `#store-3-empty-states`
 
-**Status:** pending
+**Status:** done
 
 Illustrated empty states with clear CTAs:
 
-- **Favorites:** “No favorites yet” + hint to tap heart on an event
-- **Upcoming:** graceful message when filter returns no concerts
-- **Errors:** already have retry; ensure copy is friendly
+- **Favorites:** “No favorites yet” + Browse upcoming CTA
+- **Upcoming:** message when list or category filter is empty (+ clear filter)
+- **Errors:** existing retry path unchanged
 
-**Files:** `FavoriteListView.swift`, `UpcomingListView.swift`, `Localizable.xcstrings`, new empty-state views
+**Files:** `EmptyStateView.swift`, `FavoriteListView.swift`, `UpcomingListView.swift`, `Localizable.xcstrings`
 
 ---
 
 ### `#store-4-share-event`
 
-**Status:** pending
+**Status:** done
 
-Add toolbar Share action on event detail (`ShareLink` or `UIActivityViewController`) — share event name, date, venue, ticketing URL.
+Toolbar ShareLink on event detail — shares name, date, venue, ticketing URL.
 
 **Files:** `EventDetailView.swift`, `Localizable.xcstrings`
 
@@ -372,15 +391,18 @@ Search upcoming/home concerts by event name or headliner. Can start client-side 
 
 ### `#store-6-ipad-layout`
 
-**Status:** pending
+**Status:** done
 
-Review was on **iPad Air 11-inch**. Adapt key screens:
+Review was on **iPad Air 11-inch**.
 
-- `NavigationSplitView` or max-width content columns on detail / lists
-- Tab bar or sidebar appropriate for regular size class
-- Verify onboarding and home aren’t oversized stretched phone UI
+1. **Readable width** — `readableContentWidth()` (max ~720pt on regular size class) on list/detail/onboarding/empty roots so content doesn’t stretch edge-to-edge.
+2. **NavigationSplitView** — on regular size class, `HomeView` uses a sidebar (Home / Upcoming / Favorite) + detail `NavigationStack`. Compact (iPhone) keeps `TabView`.
 
-**Files:** `HomeView.swift`, `EventDetailView.swift`, list views, possibly `Application.swift`
+**How readable width works:** `ReadableContentWidth` ViewModifier — on `.regular`, `frame(maxWidth: 720)` then `frame(maxWidth: .infinity)` to center; on `.compact`, full width. Prefer one call on the screen root (list/scroll), not per row.
+
+**Docs:** comments in `ReadableContentWidth.swift`; [ARCHITECTURE.md](../ARCHITECTURE.md) → Theming / App entry.
+
+**Files:** `HomeView.swift`, `Application.swift`, `ReadableContentWidth.swift`, `ScreenRenderListView.swift`, `EventDetailView.swift`, `FavoriteListView.swift`, `UpcomingListView.swift`, `OnboardingView.swift`, `EmptyStateView.swift`
 
 ---
 
@@ -396,11 +418,13 @@ User-facing Settings (not Android dev settings): app version, language note, ope
 
 ### `#store-8-att-onboarding`
 
-**Status:** pending
+**Status:** in progress (product choice)
 
-Remove `ATTrackingManager.requestTrackingAuthorization` from onboarding **until** the app serves personalized ads. Current copy implies ads; reviewers on a minimal app see tracking before value.
+ATT is requested on **Get Started** again because personalized ads are planned and `NSUserTrackingUsageDescription` is in Info.plist. Onboarding finishes **after** the system prompt so the alert can show.
 
-**Files:** `OnboardingView.swift`, `HornsApp-Info.plist` (keep or remove `NSUserTrackingUsageDescription` if unused)
+**Review risk:** 4.2 previously flagged ATT before the user sees app value. Mitigate by shipping ads soon and keeping the usage description accurate. Alternative later: move ATT to first ad load / Settings.
+
+**Files:** `OnboardingView.swift`, `HornsApp-Info.plist`, `Muvin-Info.plist`
 
 ---
 

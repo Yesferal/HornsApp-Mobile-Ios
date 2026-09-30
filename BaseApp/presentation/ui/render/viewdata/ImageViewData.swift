@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ImageViewData: View {
     let url: String
-    
+
     @Environment(\.theme) var theme
-    
+
     var body: some View {
         AsyncImage(url: URL(string: url)) { image in
             image.resizable()

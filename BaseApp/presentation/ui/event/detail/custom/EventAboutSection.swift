@@ -9,22 +9,38 @@ import SwiftUI
 
 struct EventAboutSection: View {
     let about: String
+    let isFavorite: Bool
+    let onFavorite: () -> Void
 
     @Environment(\.theme) var theme
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(LocalizedStringKey("about_section"))
-                .font(.headline)
-                .foregroundColor(theme.primaryText)
-                .textCase(.uppercase)
+        HStack(alignment: .top) {
+            HStack(alignment: .top) {
+                Image(systemName: "info.circle")
+                    .frame(width: 48)
+                    .foregroundColor(theme.secondaryText)
+                    .padding(.top, 2)
 
-            Text(about)
-                .font(.body)
-                .foregroundColor(theme.secondaryText)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .fixedSize(horizontal: false, vertical: true)
+                HaTitleSubtitle(
+                    title: HaLocalizedStringWrapper.getString(key: "about_section"),
+                    subtitle: about
+                )
+            }
+
+            Spacer(minLength: Dimens.medium)
+
+            Button(action: onFavorite) {
+                Image(systemName: isFavorite ? "heart.fill" : "heart")
+                    .fontWeight(.bold)
+                    .padding(.horizontal, Dimens.large)
+                    .padding(.vertical, Dimens.medium)
+                    .background(theme.accent)
+                    .foregroundColor(.white)
+                    .cornerRadius(32)
+            }
         }
         .padding(.top, 16)
+        .padding(.bottom, Dimens.medium)
     }
 }

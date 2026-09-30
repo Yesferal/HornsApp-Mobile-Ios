@@ -20,11 +20,13 @@ struct UpcomingViewData: View {
         Button {
             router.navigate(to: .details(id: concert.id, name: concert.name ?? "", day: concert.getEventDay(), month: concert.getEventMonth()))
         } label: {
-            HStack(alignment: .top) {
+            HStack(alignment: .top, spacing: Dimens.medium) {
                 VStack {
                     HaEventDate(day: concert.getEventDay(), month: concert.getEventMonth())
                     HaVerticalDashLine()
                 }
+                .frame(width: 48)
+
                 ImageViewData(url: concert.headlinerImageUrl ?? "")
                 .overlay() {
                     ZStack {

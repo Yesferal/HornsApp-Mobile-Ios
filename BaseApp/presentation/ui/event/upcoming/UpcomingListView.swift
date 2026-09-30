@@ -2,7 +2,7 @@
 //  UpcomingListView.swift
 //  HornsApp
 //
-//  Created by Yesferal Cueva on 6/28/25.
+//  Created by Yesferal Cueva on 1/31/26.
 //
 
 import SwiftUI
@@ -52,6 +52,26 @@ struct UpcomingListView: View {
             HaProgressView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
+        case .success(let items) where items.isEmpty:
+            if selectedCategory == nil {
+                EmptyStateView(
+                    title: "empty_upcoming_title",
+                    message: "empty_upcoming_message",
+                    systemImage: "calendar"
+                )
+                .background(theme.background)
+            } else {
+                EmptyStateView(
+                    title: "empty_upcoming_filter_title",
+                    message: "empty_upcoming_filter_message",
+                    systemImage: "calendar",
+                    actionTitle: "empty_upcoming_clear_filter"
+                ) {
+                    selectedCategory = nil
+                }
+                .background(theme.background)
+            }
+
         case .success(let items):
             List(items) { view in
                 render(view.data)
@@ -61,6 +81,7 @@ struct UpcomingListView: View {
             }
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
+            .readableContentWidth()
 
         case .failed(let message, let icon, let actionText):
             ErrorViewData(message: message, icon: icon, actionText: actionText) {

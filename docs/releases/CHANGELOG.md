@@ -12,6 +12,11 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 ### Added
 - `AppDependencies` composition root for centralized DI (`#arch-1-app-dependencies`)
 - Project documentation under `docs/`
+- Related events on detail via KMP `GetRelatedConcertsUseCase` (shared categories) (`#feat-2-related-events`)
+- Event detail shows About section from API (`#store-2-event-about`)
+- Empty states for Favorites and Upcoming (filter + clear) (`#store-3-empty-states`)
+- Native Share on event detail toolbar (`#store-4-share-event`)
+- iPad readable content width on key screens (`#store-6-ipad-layout`)
 
 ### Changed
 - Views resolve use cases from `@Environment(\.dependencies)` instead of inline wiring
@@ -23,7 +28,8 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 - Navigation aligned with Android/KMP: `NavigatorCoordinator`, shared app-level `Router` (`#arch-6a`, `#arch-6c`). Tab switching deferred (`#arch-6b`).
 - Localization gaps fixed: tab labels, map picker, detail sections (`#qual-2-localization`)
 - Naming cleanup Phase 1–2: `EventDetailView`, `UpcomingListView`, `HaTitleSubtitle`, `BundledRenderRemoteDataSource` (`#qual-5-naming-cleanup`)
-- Event detail shows About section from API (`#store-2-event-about`)
+- Local `HornsAppCore` path pod for Core 1.6.0 development (switch back after publish)
+- Onboarding no longer prompts for ATT before value (`#store-8-att-onboarding`)
 
 ---
 

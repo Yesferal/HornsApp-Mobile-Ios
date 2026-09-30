@@ -45,6 +45,7 @@ struct ScreenRenderListView: View {
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
             .environment(\.defaultMinListRowHeight, 0)
+            .readableContentWidth()
 
         case .failed(let error, let icon, let actionText):
             ErrorViewData(message: error, icon: icon, actionText: actionText) {

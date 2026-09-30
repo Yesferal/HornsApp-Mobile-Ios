@@ -7,17 +7,16 @@
 
 import SwiftUI
 import AppTrackingTransparency
-import AdSupport
 
 struct OnboardingView: View {
-    
+
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
-    
+
     @Environment(\.theme) var theme
-    
+
     var body: some View {
         ZStack {
-            GeometryReader { geo in
+            GeometryReader { _ in
                 Image("img_on_boarding")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -25,18 +24,18 @@ struct OnboardingView: View {
                     .clipped()
                     .ignoresSafeArea()
             }
-            
+
             LinearGradient(
                 gradient: Gradient(colors: [Color.black, Color.black.opacity(0)]),
                 startPoint: .leading,
                 endPoint: .trailing
             )
             .ignoresSafeArea()
-            
+
             VStack(alignment: .leading, spacing: 16) {
                 Spacer()
                     .frame(height: 72)
-                
+
                 Text(LocalizedStringKey("are_you_ready_for_tonight"))
                     .font(.largeTitle)
                     .bold()
@@ -44,22 +43,25 @@ struct OnboardingView: View {
                     .padding(.horizontal)
                     .frame(alignment: .leading)
                     .multilineTextAlignment(.leading)
-                
+
                 Text(LocalizedStringKey("let_find_out_together"))
                     .font(.title2)
                     .foregroundColor(Color.white)
                     .padding(.horizontal)
                     .frame(alignment: .leading)
                     .multilineTextAlignment(.leading)
-                
+
                 Spacer()
-                
+
                 HStack {
-                    Spacer() // pushes the button to the right
-                    
+                    Spacer()
+
                     Button(LocalizedStringKey("get_started")) {
-                        requestTrackingPermission()
-                        hasSeenOnboarding = true
+                        // ATT on first launch for upcoming ads (NSUserTrackingUsageDescription in Info.plist).
+                        // Finish onboarding after the system prompt so the alert can present.
+                        requestTrackingPermission {
+                            hasSeenOnboarding = true
+                        }
                     }
                     .padding()
                     .fontWeight(.bold)
@@ -67,27 +69,23 @@ struct OnboardingView: View {
                     .foregroundColor(.white)
                     .cornerRadius(16)
                     .frame(alignment: .trailing)
-                    
+
                     Spacer() // pushes the button to the left
                 }
             }
             .padding()
+            .readableContentWidth()
         }
     }
-    
-    func requestTrackingPermission() {
-        ATTrackingManager.requestTrackingAuthorization { status in
-            switch status {
-            case .authorized:
-                print("Tracking authorized")
-            case .denied:
-                print("Tracking denied")
-            case .restricted:
-                print("Tracking restricted")
-            case .notDetermined:
-                print("Tracking not determined")
-            @unknown default:
-                break
+
+    /// Requests ATT, then runs `completion` on the main queue (authorized, denied, or already decided).
+    private func requestTrackingPermission(completion: @escaping () -> Void) {
+        // Defer one run-loop turn so the alert presents while this view is still active.
+        DispatchQueue.main.async {
+            ATTrackingManager.requestTrackingAuthorization { _ in
+                DispatchQueue.main.async {
+                    completion()
+                }
             }
         }
     }

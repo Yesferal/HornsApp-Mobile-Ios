@@ -12,11 +12,11 @@ struct HomeViewData: View {
     let subtitle: String?
     let imageUrl: String
     let route: Route?
-    
+
     @Environment(\.theme) var theme
-    
+
     @EnvironmentObject var router: Router
-    
+
     var body: some View {
         Button {
             guard let route = route else {
@@ -31,5 +31,6 @@ struct HomeViewData: View {
                     .padding()
             }
         }
+        .buttonStyle(.plain)
     }
 }

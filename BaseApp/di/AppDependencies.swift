@@ -68,6 +68,10 @@ final class AppDependencies {
         )
     }
 
+    func makeGetRelatedConcertsUseCase() -> GetRelatedConcertsUseCase {
+        GetRelatedConcertsUseCase()
+    }
+
     func makeGetHomeRenderUseCase() -> GetHomeRenderUseCase {
         UseCaseFactory().createGetHomeRenderUseCase(repository: renderRepository)
     }

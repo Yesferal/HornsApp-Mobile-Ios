@@ -17,14 +17,13 @@ struct RelatedEventSection: View {
         if events.isEmpty {
             EmptyView()
         } else {
-            VStack(alignment: .leading, spacing: 32) {
-                // Section header
+            VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 8) {
                     Text(LocalizedStringKey("related_event_section"))
                         .font(.headline)
                         .foregroundColor(theme.primaryText)
                         .textCase(.uppercase)
-                    
+
                     Text(LocalizedStringKey("new_label"))
                         .font(.subheadline)
                         .foregroundColor(.white)
@@ -34,8 +33,8 @@ struct RelatedEventSection: View {
                         .textCase(.uppercase)
                         .cornerRadius(3)
                 }
-                .padding(.top, 16)
-                
+
+                // Same row chrome as home Upcoming (UpcomingCompactViewData)
                 ForEach(events, id: \.id) { event in
                     UpcomingCompactViewData(concert: event)
                 }

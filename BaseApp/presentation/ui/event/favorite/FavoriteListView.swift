@@ -10,6 +10,7 @@ import HornsAppCore
 
 struct FavoriteListView: View {
     @Environment(\.theme) var theme
+    @EnvironmentObject var router: Router
 
     @EnvironmentObject var vm: FavoriteViewModel
 
@@ -18,6 +19,17 @@ struct FavoriteListView: View {
             switch vm.state {
             case .idle, .loading:
                 HaProgressView()
+
+            case .success(let items) where items.isEmpty:
+                EmptyStateView(
+                    title: "empty_favorites_title",
+                    message: "empty_favorites_message",
+                    systemImage: "heart",
+                    actionTitle: "empty_favorites_cta"
+                ) {
+                    router.selectedTab = .upcoming
+                }
+                .background(theme.background)
 
             case .success(let items):
                 List(items) { view in
@@ -28,6 +40,7 @@ struct FavoriteListView: View {
                 }
                 .scrollContentBackground(.hidden)
                 .listStyle(.plain)
+                .readableContentWidth()
 
             case .failed(let message, let icon, let actionText):
                 ErrorViewData(message: message, icon: icon, actionText: actionText) {
