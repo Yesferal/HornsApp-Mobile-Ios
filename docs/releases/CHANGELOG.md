@@ -20,7 +20,8 @@ Versioning follows [Semantic Versioning](https://semver.org/).
   - `readableContentWidth()` (~720pt) on list / detail / onboarding / empty roots
   - `NavigationSplitView` sidebar (Home / Upcoming / Favorite) + detail stack on regular size class; `TabView` on iPhone
 - Upcoming search by event name or artist (`#store-5-search`): circular search control expands in-place over category chips (filters the same list)
-- Settings / About (`#store-7-settings-about`): Favorites “Settings” row → version/build, notification + calendar permission status (open system Settings), Instagram (`AppSettings.instagramHandle`)
+- Settings / About (`#store-7-settings-about`): Favorites “Settings” row → version/build, notification + calendar status, social profiles from `AppSettings.socialLinks`
+- Home `app_render` no longer promotes external Redes / web video CTAs (moved profiles to Settings; dropped outward TikTok/YouTube/Spotify cards) — keeps the feed concert-first for App Store 4.2
 - About row favorite CTA (pink heart button, same chrome as former Save-date `+`)
 
 ### Changed

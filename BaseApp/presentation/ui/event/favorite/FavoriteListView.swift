@@ -70,8 +70,7 @@ struct FavoriteListView: View {
     private var settingsEntry: some View {
         HaEventLink(
             iconName: "gearshape",
-            title: HaLocalizedStringWrapper.getString(key: "settings_title"),
-            accentIcon: true
+            title: HaLocalizedStringWrapper.getString(key: "settings_title")
         ) {
             router.navigate(to: .settings)
         }

@@ -9,7 +9,7 @@ import EventKit
 import SwiftUI
 import UserNotifications
 
-/// App Settings / About (`#store-7-settings-about`): version, permissions, Instagram.
+/// App Settings / About (`#store-7-settings-about`): version, permissions, social profiles.
 struct SettingsView: View {
     @Environment(\.theme) private var theme
     @Environment(\.dependencies) private var dependencies
@@ -22,7 +22,7 @@ struct SettingsView: View {
         List {
             aboutSection
             permissionsSection
-            instagramSection
+            socialSection
         }
         .listStyle(.insetGrouped)
         .scrollContentBackground(.hidden)
@@ -42,15 +42,17 @@ struct SettingsView: View {
 
     private var aboutSection: some View {
         Section {
-            settingsRow(
-                icon: "info.circle",
-                titleKey: "settings_version",
-                value: versionLabel
+            HaEventLink(
+                iconName: "info.circle",
+                title: HaLocalizedStringWrapper.getString(key: "settings_version"),
+                trailingText: versionLabel,
+                trailingSystemName: nil
             )
-            settingsRow(
-                icon: "app.badge",
-                titleKey: "settings_app_name",
-                value: dependencies.appSettings.appName
+            HaEventLink(
+                iconName: "app.badge",
+                title: HaLocalizedStringWrapper.getString(key: "settings_app_name"),
+                trailingText: dependencies.appSettings.appName,
+                trailingSystemName: nil
             )
         } header: {
             Text(LocalizedStringKey("settings_section_about"))
@@ -61,21 +63,21 @@ struct SettingsView: View {
 
     private var permissionsSection: some View {
         Section {
-            settingsRow(
-                icon: "bell",
-                titleKey: "settings_notifications_status",
-                value: notificationStatusLabel
+            HaEventLink(
+                iconName: "bell",
+                title: HaLocalizedStringWrapper.getString(key: "settings_notifications_status"),
+                trailingText: notificationStatusLabel,
+                trailingSystemName: nil
             )
-            settingsRow(
-                icon: "calendar",
-                titleKey: "settings_calendar_status",
-                value: calendarStatusLabel
+            HaEventLink(
+                iconName: "calendar",
+                title: HaLocalizedStringWrapper.getString(key: "settings_calendar_status"),
+                trailingText: calendarStatusLabel,
+                trailingSystemName: nil
             )
-
             HaEventLink(
                 iconName: "gear",
                 title: HaLocalizedStringWrapper.getString(key: "settings_permissions_open_system"),
-                accentIcon: true,
                 trailingSystemName: "arrow.up.right",
                 action: openSystemSettings
             )
@@ -90,43 +92,28 @@ struct SettingsView: View {
         .listRowBackground(theme.primary)
     }
 
-    private var instagramSection: some View {
+    private var socialSection: some View {
         Section {
-            HaEventLink(
-                iconName: "camera",
-                title: HaLocalizedStringWrapper.getString(key: "settings_instagram"),
-                subtitle: "@\(dependencies.appSettings.instagramHandle)",
-                accentIcon: true,
-                trailingSystemName: "arrow.up.right",
-                action: openInstagram
-            )
-            .accessibilityLabel(LocalizedStringKey("settings_instagram"))
-            .accessibilityValue("@\(dependencies.appSettings.instagramHandle)")
+            ForEach(dependencies.appSettings.socialLinks) { link in
+                HaEventLink(
+                    iconName: link.systemImage,
+                    title: HaLocalizedStringWrapper.getString(key: link.titleLocalizationKey),
+                    subtitle: "@\(link.handle)",
+                    trailingSystemName: "arrow.up.right"
+                ) {
+                    openSocial(link)
+                }
+                .accessibilityLabel(LocalizedStringKey(link.titleLocalizationKey))
+                .accessibilityValue("@\(link.handle)")
+            }
         } header: {
             Text(LocalizedStringKey("settings_section_social"))
                 .foregroundStyle(theme.secondaryText)
         } footer: {
-            Text(LocalizedStringKey("settings_instagram_footer"))
+            Text(LocalizedStringKey("settings_social_footer"))
                 .foregroundStyle(theme.secondaryText)
         }
         .listRowBackground(theme.primary)
-    }
-
-    // MARK: - Rows
-
-    private func settingsRow(icon: String, titleKey: LocalizedStringKey, value: String) -> some View {
-        HStack {
-            Image(systemName: icon)
-                .frame(width: 28)
-                .foregroundStyle(theme.secondaryText)
-            Text(titleKey)
-                .foregroundStyle(theme.primaryText)
-            Spacer()
-            Text(value)
-                .foregroundStyle(theme.secondaryText)
-                .multilineTextAlignment(.trailing)
-        }
-        .accessibilityElement(children: .combine)
     }
 
     // MARK: - Data
@@ -177,15 +164,7 @@ struct SettingsView: View {
         UIApplication.shared.open(url)
     }
 
-    private func openInstagram() {
-        let handle = dependencies.appSettings.instagramHandle
-        // Prefer app URL; fall back to https.
-        let appURL = URL(string: "instagram://user?username=\(handle)")
-        let webURL = URL(string: "https://www.instagram.com/\(handle)/")
-        if let appURL, UIApplication.shared.canOpenURL(appURL) {
-            UIApplication.shared.open(appURL)
-        } else if let webURL {
-            UIApplication.shared.open(webURL)
-        }
+    private func openSocial(_ link: AppSocialLink) {
+        UIApplication.shared.open(link.url)
     }
 }

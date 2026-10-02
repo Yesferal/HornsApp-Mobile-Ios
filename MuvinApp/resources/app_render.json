@@ -108,43 +108,6 @@
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on TikTok",
-              "es": "Síguenos en TikTok",
-              "_id": "6996377fb44eea77a567e1bf"
-            },
-            "subtitle": {
-              "en": "Did you know about our TikTok? Follow us and find amazing LIVEs",
-              "es": "¿Sabías acerca de nuestro TikTok? Síguenos y encuentra increibles videos y LIVEs",
-              "_id": "6996377fb44eea77a567e1c0"
-            },
-            "icon": "tiktok",
-            "_id": "6996377fb44eea77a567e1be"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#29303e",
-            "_id": "6996377fb44eea77a567e1c1"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://www.tiktok.com/@muvinapp"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e1c2"
-          },
-          "_id": "6996377fb44eea77a567e1bd"
-        },
-        {
-          "children": {
-            "filter": {
               "categories": [
                 "69940b777a87bd339c1165cd"
               ],
@@ -217,43 +180,6 @@
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on Instagram",
-              "es": "Síguenos en Instagram",
-              "_id": "6996377fb44eea77a567e1cf"
-            },
-            "subtitle": {
-              "en": "Did you know about our IG? Follow us and keep up posted.",
-              "es": "¿Sabías acerca de nuestro Instagram? Síguenos y mantente informado.",
-              "_id": "6996377fb44eea77a567e1d0"
-            },
-            "icon": "instagram",
-            "_id": "6996377fb44eea77a567e1ce"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#4f5bd5",
-            "_id": "6996377fb44eea77a567e1d1"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://www.instagram.com/muvinapp.pe/"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e1d2"
-          },
-          "_id": "6996377fb44eea77a567e1cd"
-        },
-        {
-          "children": {
-            "filter": {
               "categories": [
                 "6992673e6725336cb5f11e09"
               ],
@@ -322,43 +248,6 @@
             "_id": "6996377fb44eea77a567e1da"
           },
           "_id": "6996377fb44eea77a567e1d9"
-        },
-        {
-          "children": {
-            "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on Spotify",
-              "es": "Síguenos en Spotify",
-              "_id": "6996377fb44eea77a567e1df"
-            },
-            "subtitle": {
-              "en": "Did you know about our playlists on Spotify? There are a bunch of them waiting for you.",
-              "es": "¿Sabías acerca de nuestras playlists en Spotify? Hay muchas esperando por ti.",
-              "_id": "6996377fb44eea77a567e1e0"
-            },
-            "icon": "spotify",
-            "_id": "6996377fb44eea77a567e1de"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#1DB954",
-            "_id": "6996377fb44eea77a567e1e1"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://open.spotify.com/user/vhx70zw6rpz3qm8u2fsplhwg1"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e1e2"
-          },
-          "_id": "6996377fb44eea77a567e1dd"
         },
         {
           "children": {
@@ -541,43 +430,6 @@
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on Facebook",
-              "es": "Síguenos en Facebook",
-              "_id": "6996377fb44eea77a567e1ff"
-            },
-            "subtitle": {
-              "en": "Did you know about our Facebook? Follow us and keep up posted.",
-              "es": "¿Sabías acerca de nuestro Facebook? Síguenos y mantente informado.",
-              "_id": "6996377fb44eea77a567e200"
-            },
-            "icon": "facebook",
-            "_id": "6996377fb44eea77a567e1fe"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#3b5998",
-            "_id": "6996377fb44eea77a567e201"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://www.facebook.com/muvinapp.pe"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e202"
-          },
-          "_id": "6996377fb44eea77a567e1fd"
-        },
-        {
-          "children": {
-            "filter": {
               "categories": [
                 "680e726cfd23ead6b0ca76cb"
               ],
@@ -646,43 +498,6 @@
             "_id": "6996377fb44eea77a567e20a"
           },
           "_id": "6996377fb44eea77a567e209"
-        },
-        {
-          "children": {
-            "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on TikTok",
-              "es": "Síguenos en TikTok",
-              "_id": "6996377fb44eea77a567e20f"
-            },
-            "subtitle": {
-              "en": "Did you know about our TikTok? Follow us and find amazing LIVEs",
-              "es": "¿Sabías acerca de nuestro TikTok? Síguenos y encuentra increibles videos y LIVEs",
-              "_id": "6996377fb44eea77a567e210"
-            },
-            "icon": "tiktok",
-            "_id": "6996377fb44eea77a567e20e"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#29303e",
-            "_id": "6996377fb44eea77a567e211"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://www.tiktok.com/@muvinapp"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e212"
-          },
-          "_id": "6996377fb44eea77a567e20d"
         },
         {
           "children": {
@@ -759,43 +574,6 @@
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on Instagram",
-              "es": "Síguenos en Instagram",
-              "_id": "6996377fb44eea77a567e21f"
-            },
-            "subtitle": {
-              "en": "Did you know about our IG? Follow us and keep up posted.",
-              "es": "¿Sabías acerca de nuestro Instagram? Síguenos y mantente informado.",
-              "_id": "6996377fb44eea77a567e220"
-            },
-            "icon": "instagram",
-            "_id": "6996377fb44eea77a567e21e"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#4f5bd5",
-            "_id": "6996377fb44eea77a567e221"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://www.instagram.com/muvinapp.pe/"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e222"
-          },
-          "_id": "6996377fb44eea77a567e21d"
-        },
-        {
-          "children": {
-            "filter": {
               "categories": [
                 "680a6b466c0fbf6561d8ed2b"
               ],
@@ -864,43 +642,6 @@
             "_id": "6996377fb44eea77a567e22a"
           },
           "_id": "6996377fb44eea77a567e229"
-        },
-        {
-          "children": {
-            "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on Spotify",
-              "es": "Síguenos en Spotify",
-              "_id": "6996377fb44eea77a567e22f"
-            },
-            "subtitle": {
-              "en": "Did you know about our playlists on Spotify? There are a bunch of them waiting for you.",
-              "es": "¿Sabías acerca de nuestras playlists en Spotify? Hay muchas esperando por ti.",
-              "_id": "6996377fb44eea77a567e230"
-            },
-            "icon": "spotify",
-            "_id": "6996377fb44eea77a567e22e"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#1DB954",
-            "_id": "6996377fb44eea77a567e231"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://open.spotify.com/user/vhx70zw6rpz3qm8u2fsplhwg1"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e232"
-          },
-          "_id": "6996377fb44eea77a567e22d"
         },
         {
           "children": {
@@ -1083,43 +824,6 @@
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on Facebook",
-              "es": "Síguenos en Facebook",
-              "_id": "6996377fb44eea77a567e24f"
-            },
-            "subtitle": {
-              "en": "Did you know about our Facebook? Follow us and keep up posted.",
-              "es": "¿Sabías acerca de nuestro Facebook? Síguenos y mantente informado.",
-              "_id": "6996377fb44eea77a567e250"
-            },
-            "icon": "facebook",
-            "_id": "6996377fb44eea77a567e24e"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#3b5998",
-            "_id": "6996377fb44eea77a567e251"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://www.facebook.com/muvinapp.pe"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e252"
-          },
-          "_id": "6996377fb44eea77a567e24d"
-        },
-        {
-          "children": {
-            "filter": {
               "categories": [
                 "6809c52f6c0fbf6561d8e6d4"
               ],
@@ -1192,43 +896,6 @@
         {
           "children": {
             "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on TikTok",
-              "es": "Síguenos en TikTok",
-              "_id": "6996377fb44eea77a567e25f"
-            },
-            "subtitle": {
-              "en": "Did you know about our TikTok? Follow us and find amazing LIVEs",
-              "es": "¿Sabías acerca de nuestro TikTok? Síguenos y encuentra increibles videos y LIVEs",
-              "_id": "6996377fb44eea77a567e260"
-            },
-            "icon": "tiktok",
-            "_id": "6996377fb44eea77a567e25e"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#29303e",
-            "_id": "6996377fb44eea77a567e261"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://www.tiktok.com/@muvinapp"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e262"
-          },
-          "_id": "6996377fb44eea77a567e25d"
-        },
-        {
-          "children": {
-            "filter": {
               "categories": [
                 "68041bb4a5203cc93bbd2e59"
               ],
@@ -1297,43 +964,6 @@
             "_id": "6996377fb44eea77a567e26a"
           },
           "_id": "6996377fb44eea77a567e269"
-        },
-        {
-          "children": {
-            "filter": {
-              "events": [],
-              "categories": []
-            },
-            "sort": []
-          },
-          "key": "ICON_CARD_VIEW",
-          "data": {
-            "title": {
-              "en": "Follow us on Instagram",
-              "es": "Síguenos en Instagram",
-              "_id": "6996377fb44eea77a567e26f"
-            },
-            "subtitle": {
-              "en": "Did you know about our IG? Follow us and keep up posted.",
-              "es": "¿Sabías acerca de nuestro Instagram? Síguenos y mantente informado.",
-              "_id": "6996377fb44eea77a567e270"
-            },
-            "icon": "instagram",
-            "_id": "6996377fb44eea77a567e26e"
-          },
-          "style": {
-            "textColor": "#FFFFFF",
-            "backgroundColor": "#4f5bd5",
-            "_id": "6996377fb44eea77a567e271"
-          },
-          "navigation": {
-            "parameters": {
-              "param_android_uri": "https://www.instagram.com/muvinapp.pe/"
-            },
-            "key": "WEB_VIEW_SCREEN",
-            "_id": "6996377fb44eea77a567e272"
-          },
-          "_id": "6996377fb44eea77a567e26d"
         },
         {
           "children": {

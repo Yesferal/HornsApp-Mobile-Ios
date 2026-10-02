@@ -138,7 +138,7 @@ Each target defines its own `AppSettings`:
 struct AppSettings {
     let appName = "HornsApp"
     let homePath = "concert"
-    let instagramHandle = "hornsapp"
+    let socialLinks: [AppSocialLink] = [/* Instagram, TikTok, Facebook, Spotify */]
 }
 ```
 
@@ -148,7 +148,7 @@ struct AppSettings {
 struct AppSettings {
     let appName = "Muvin"
     let homePath = "event"
-    let instagramHandle = "muvinapp"
+    let socialLinks: [AppSocialLink] = [/* Instagram, TikTok, Facebook, Spotify */]
 }
 ```
 

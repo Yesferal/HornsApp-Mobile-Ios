@@ -11,7 +11,7 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 - **iPad** — `NavigationSplitView` sidebar + detail; `readableContentWidth()` (~720pt) on list/detail roots
 - **Detail** — About, Save date / Maps / Tickets, Reminders, Activities, Related; share + favorite
 - **Upcoming** — in-place search (glass field over chips) + category filter; search scoped to selected category
-- **Settings** — Favorites in-content row → version, notification + calendar status, Instagram
+- **Settings** — Favorites footer → version, permissions, social profiles (Instagram / TikTok / Facebook / Spotify)
 - **ATT / ads** — deferred until after first App Store release (`#store-8-att-onboarding`)
 
 ### How to use
