@@ -138,6 +138,7 @@ Each target defines its own `AppSettings`:
 struct AppSettings {
     let appName = "HornsApp"
     let homePath = "concert"
+    let instagramHandle = "hornsapp"
 }
 ```
 
@@ -147,6 +148,7 @@ struct AppSettings {
 struct AppSettings {
     let appName = "Muvin"
     let homePath = "event"
+    let instagramHandle = "muvinapp"
 }
 ```
 

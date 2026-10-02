@@ -15,11 +15,11 @@ struct ScreenRenderView: View {
     @Environment(\.theme) var theme
 
     var body: some View {
+        // Immersive home (carousel). Nav bar visibility is owned by HomeView for phone tabs.
         ScreenRenderListView(
             getHomeRenderUseCase: dependencies.makeGetHomeRenderUseCase(),
             getConcertsUseCase: dependencies.makeGetConcertsUseCase(context: context)
         )
-            .navigationTitle(LocalizedStringKey("home"))
-            .background(theme.background)
+        .background(theme.background)
     }
 }

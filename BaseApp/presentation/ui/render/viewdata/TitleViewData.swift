@@ -23,39 +23,35 @@ struct TitleViewData: View {
             }
             router.navigate(to: route)
         } label: {
-            VStack {
+            VStack(alignment: .leading, spacing: Dimens.small) {
                 HStack {
                     Image(systemName: "music.note")
                         .frame(width: Dimens.large)
-                        .frame(maxHeight: .infinity, alignment: .center)
                         .foregroundColor(theme.primaryText)
-                    
+
                     Text(title)
                         .foregroundColor(theme.primaryText)
                         .font(.title2)
                         .bold()
-                        .frame(maxHeight: .infinity, alignment: .center)
-                    
-                    Spacer()
+
+                    Spacer(minLength: 0)
                     Image(systemName: "chevron.right")
-                        .frame(maxHeight: .infinity, alignment: .center)
                         .foregroundColor(theme.secondaryText)
-                    
                 }
-                .fixedSize(horizontal: false, vertical: true)
-                
-                HStack {
-                    if let text = subtitle {
+
+                if let text = subtitle {
+                    HStack {
                         Color.clear
                             .frame(width: Dimens.large)
                         Text(text)
                             .font(.subheadline)
                             .foregroundColor(theme.secondaryText)
+                        Spacer(minLength: 0)
                     }
-                    Spacer()
                 }
-                .fixedSize(horizontal: false, vertical: true)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
         }
         .padding(.horizontal)
         .buttonStyle(.plain)

@@ -2,7 +2,7 @@
 
 One **Active** item at a time. Prefer **easy app wins** first (no Core / API / admin change).
 
-**Updated:** 2026-09-30
+**Updated:** 2026-10-02
 
 **App Store:** Rejected 3× under **Guideline 4.2** (iPad Air 11″). Stay a concert companion — add native depth Apple can exercise in review. Resubmit order: finish P0-adjacent Next items → TestFlight iPad + iPhone → `#store-9-review-packaging`.
 
@@ -10,7 +10,8 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 - **Phone** — `TabView` (Home / Upcoming / Favorite) + `NavigationStack`
 - **iPad** — `NavigationSplitView` sidebar + detail; `readableContentWidth()` (~720pt) on list/detail roots
 - **Detail** — About, Save date / Maps / Tickets, Reminders, Activities, Related; share + favorite
-- **Upcoming** — fixed search button + scrollable category chips; search opens a sheet
+- **Upcoming** — in-place search (glass field over chips) + category filter; search scoped to selected category
+- **Settings** — Favorites in-content row → version, notification + calendar status, Instagram
 - **ATT / ads** — deferred until after first App Store release (`#store-8-att-onboarding`)
 
 ### How to use
@@ -41,7 +42,7 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 | ID | Item | Effort | Depends on |
 |----|------|--------|------------|
-| `#store-7-settings-about` | Settings / About (version, notifications, contact) | Medium | — |
+| `#feat-3-carousel-cta` | Native carousel actions (calendar / favorite) | Medium | — |
 
 ---
 
@@ -49,7 +50,6 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 | ID | Item | Effort | Depends on |
 |----|------|--------|------------|
-| `#feat-3-carousel-cta` | Native carousel actions (calendar / favorite) | Medium | — |
 | `#store-9-review-packaging` | Screenshots, review notes, App Store description | Small | Content ready in API/admin |
 | `#feat-1-lineup` | Full lineup on detail (section exists, model stubbed) | Medium | Core + API if payload incomplete |
 | `#qual-6-voiceover` | VoiceOver labels, traits, iPhone + iPad audit | Medium | — |
@@ -95,6 +95,7 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 | ID | Note |
 |----|------|
+| `#store-7-settings-about` | Settings / About: version, notification status → system Settings, contact email |
 | `#store-5-search` | Upcoming in-place search (glass field over chips); filter by event / headliner |
 | `#store-6-ipad-layout` | `readableContentWidth()` + iPad `NavigationSplitView` (2026-09-30) |
 | `#store-2-event-about` | About on detail + favorite CTA row |

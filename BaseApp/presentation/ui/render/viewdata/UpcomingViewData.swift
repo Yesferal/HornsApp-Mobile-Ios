@@ -53,6 +53,8 @@ struct UpcomingViewData: View {
                 }
                 .clipShape(.rect(cornerRadius: 24))
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
         }
         .padding()
         .buttonStyle(.plain)

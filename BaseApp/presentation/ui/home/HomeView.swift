@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
 
     @Environment(\.theme) var theme
+    @Environment(\.dependencies) private var dependencies
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var router: Router
 
@@ -82,7 +83,7 @@ struct HomeView: View {
                 Label(LocalizedStringKey("favorite"), systemImage: "heart.fill")
                     .tag(HomeTab.favorite)
             }
-            .navigationTitle(appDisplayName)
+            .navigationTitle(dependencies.appSettings.appName)
             .listStyle(.sidebar)
         } detail: {
             NavigationStack(path: $router.path) {
@@ -105,11 +106,5 @@ struct HomeView: View {
         case .favorite:
             FavoriteView()
         }
-    }
-
-    private var appDisplayName: String {
-        (Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String)
-            ?? (Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String)
-            ?? "App"
     }
 }

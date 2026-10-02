@@ -8,4 +8,6 @@
 struct AppSettings {
     let appName = "Muvin"
     let homePath = "event"
+    /// Instagram username (no @) shown in Settings (`#store-7`).
+    let instagramHandle = "muvinapp.pe"
 }

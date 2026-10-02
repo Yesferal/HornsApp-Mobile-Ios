@@ -25,6 +25,8 @@ struct UpcomingCompactViewData: View {
                 HaTitleSubtitle(title: concert.name ?? "", subtitle: concert.ticketingName ?? "")
                     .frame(maxHeight: .infinity, alignment: .center)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
         }
         .padding(.vertical, Dimens.medium)
         .buttonStyle(.plain)
