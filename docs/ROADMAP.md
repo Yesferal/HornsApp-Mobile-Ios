@@ -10,6 +10,7 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 - **Phone** — `TabView` (Home / Upcoming / Favorite) + `NavigationStack`
 - **iPad** — `NavigationSplitView` sidebar + detail; `readableContentWidth()` (~720pt) on list/detail roots
 - **Detail** — About, Save date / Maps / Tickets, Reminders, Activities, Related; share + favorite
+- **Upcoming** — fixed search button + scrollable category chips; search opens a sheet
 - **ATT / ads** — deferred until after first App Store release (`#store-8-att-onboarding`)
 
 ### How to use
@@ -40,7 +41,7 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 | ID | Item | Effort | Depends on |
 |----|------|--------|------------|
-| `#store-5-search` | Search concerts by name / headliner (client filter first) | Medium | — |
+| `#store-7-settings-about` | Settings / About (version, notifications, contact) | Medium | — |
 
 ---
 
@@ -48,7 +49,6 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 | ID | Item | Effort | Depends on |
 |----|------|--------|------------|
-| `#store-7-settings-about` | Settings / About (version, notifications, contact) | Medium | — |
 | `#feat-3-carousel-cta` | Native carousel actions (calendar / favorite) | Medium | — |
 | `#store-9-review-packaging` | Screenshots, review notes, App Store description | Small | Content ready in API/admin |
 | `#feat-1-lineup` | Full lineup on detail (section exists, model stubbed) | Medium | Core + API if payload incomplete |
@@ -95,6 +95,7 @@ One **Active** item at a time. Prefer **easy app wins** first (no Core / API / a
 
 | ID | Note |
 |----|------|
+| `#store-5-search` | Upcoming in-place search (glass field over chips); filter by event / headliner |
 | `#store-6-ipad-layout` | `readableContentWidth()` + iPad `NavigationSplitView` (2026-09-30) |
 | `#store-2-event-about` | About on detail + favorite CTA row |
 | `#feat-2-related-events` | Related events via Core use case |

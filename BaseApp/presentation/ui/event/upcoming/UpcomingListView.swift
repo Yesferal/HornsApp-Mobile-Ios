@@ -12,8 +12,10 @@ struct UpcomingListView: View {
     @StateObject private var vm: UpcomingViewModel
 
     @Environment(\.theme) var theme
+    @EnvironmentObject var router: Router
 
     @SwiftUI.State private var selectedCategory: CategoryRender?
+    @SwiftUI.State private var isSearching = false
 
     init(getUpcomingConcertsUseCase: GetUpcomingConcertsUseCase, renderRepository: RenderRepository) {
         _vm = StateObject(wrappedValue: UpcomingViewModel(
@@ -24,10 +26,13 @@ struct UpcomingListView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            if !vm.categories.isEmpty {
-                CategoryChipsView(categories: vm.categories, selectedCategory: $selectedCategory)
-                    .background(theme.background)
-            }
+            CategoryChipsView(
+                categories: vm.categories,
+                selectedCategory: $selectedCategory,
+                isSearching: $isSearching,
+                searchText: $vm.searchText
+            )
+            .background(theme.background)
 
             stateContent
         }
@@ -43,6 +48,19 @@ struct UpcomingListView: View {
                 await vm.filterByCategory(categoryCondition: newValue?._id ?? CategoryRender.Companion().ALL)
             }
         }
+        .onChange(of: vm.searchText) { _, _ in
+            vm.applySearch()
+        }
+        .onChange(of: isSearching) { _, searching in
+            if !searching {
+                vm.searchText = ""
+                vm.applySearch()
+            }
+        }
+    }
+
+    private var hasActiveSearch: Bool {
+        !vm.searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
     @ViewBuilder
@@ -53,24 +71,7 @@ struct UpcomingListView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
         case .success(let items) where items.isEmpty:
-            if selectedCategory == nil {
-                EmptyStateView(
-                    title: "empty_upcoming_title",
-                    message: "empty_upcoming_message",
-                    systemImage: "calendar"
-                )
-                .background(theme.background)
-            } else {
-                EmptyStateView(
-                    title: "empty_upcoming_filter_title",
-                    message: "empty_upcoming_filter_message",
-                    systemImage: "calendar",
-                    actionTitle: "empty_upcoming_clear_filter"
-                ) {
-                    selectedCategory = nil
-                }
-                .background(theme.background)
-            }
+            emptyState
 
         case .success(let items):
             List(items) { view in
@@ -91,6 +92,39 @@ struct UpcomingListView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(theme.primary)
+        }
+    }
+
+    @ViewBuilder
+    private var emptyState: some View {
+        if hasActiveSearch {
+            EmptyStateView(
+                title: "empty_upcoming_search_title",
+                message: "empty_upcoming_search_message",
+                systemImage: "magnifyingglass",
+                actionTitle: "empty_upcoming_clear_search"
+            ) {
+                vm.searchText = ""
+                vm.applySearch()
+            }
+            .background(theme.background)
+        } else if selectedCategory == nil {
+            EmptyStateView(
+                title: "empty_upcoming_title",
+                message: "empty_upcoming_message",
+                systemImage: "calendar"
+            )
+            .background(theme.background)
+        } else {
+            EmptyStateView(
+                title: "empty_upcoming_filter_title",
+                message: "empty_upcoming_filter_message",
+                systemImage: "calendar",
+                actionTitle: "empty_upcoming_clear_filter"
+            ) {
+                selectedCategory = nil
+            }
+            .background(theme.background)
         }
     }
 }

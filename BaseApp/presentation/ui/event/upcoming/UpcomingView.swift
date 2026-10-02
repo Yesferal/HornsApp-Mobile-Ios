@@ -9,10 +9,10 @@ import SwiftUI
 import HornsAppCore
 
 struct UpcomingView: View {
-    
+
     @Environment(\.modelContext) var context
     @Environment(\.dependencies) var dependencies
-    
+
     @Environment(\.theme) var theme
 
     var body: some View {
@@ -20,8 +20,7 @@ struct UpcomingView: View {
             getUpcomingConcertsUseCase: dependencies.makeGetUpcomingConcertsUseCase(context: context),
             renderRepository: dependencies.getRenderRepository()
         )
-            .navigationTitle(LocalizedStringKey("upcoming"))
-            .background(theme.background)
-        
+        .navigationTitle(LocalizedStringKey("upcoming"))
+        .background(theme.background)
     }
 }
