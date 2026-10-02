@@ -41,7 +41,6 @@ private struct EventDetailViewBody: View {
 
     @StateObject var viewModel: EventDetailViewModel
 
-    @Environment(\.dismiss) var dismiss
     @Environment(\.theme) var theme
     @EnvironmentObject var router: Router
     @EnvironmentObject var favoriteVM: FavoriteViewModel
@@ -177,6 +176,7 @@ private struct EventDetailViewBody: View {
                         message: Text(LocalizedStringKey("share_event_message"))
                     ) {
                         Image(systemName: "square.and.arrow.up")
+                            .foregroundStyle(theme.secondaryText)
                     }
                     .accessibilityLabel(LocalizedStringKey("share_event"))
                 }
