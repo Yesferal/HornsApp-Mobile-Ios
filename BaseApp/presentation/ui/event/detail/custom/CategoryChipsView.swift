@@ -68,7 +68,7 @@ struct CategoryChipsView: View {
         }
     }
 
-    /// Inside the capsule only: clear typed text (system-style field clear).
+    /// Inside the capsule: field + optional clear + active category chip (same as chip row).
     private var searchField: some View {
         HStack(spacing: Dimens.small) {
             Image(systemName: "magnifyingglass")
@@ -93,6 +93,12 @@ struct CategoryChipsView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel(LocalizedStringKey("empty_upcoming_clear_search"))
+            }
+
+            if let selectedCategory {
+                // Same chip as the category row; fixedSize so TextField can't crush it.
+                chip(for: selectedCategory)
+                    .fixedSize()
             }
         }
         .padding(.horizontal, Dimens.medium)
